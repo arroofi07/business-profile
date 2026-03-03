@@ -1,6 +1,6 @@
 {
-  "buildCommand": "bun run build",
-  "installCommand": "bun install",
-  "framework": "sveltekit",
-  "outputDirectory": ".vercel/output"
+	"buildCommand": "bun run build",
+	"installCommand": "bun install",
+	"framework": "sveltekit",
+	"outputDirectory": ".vercel/output"
 }

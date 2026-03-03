@@ -1,32 +1,19 @@
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
 	import {
-		Star,
 		Phone,
-		Clock,
-		MapPin,
+		MessageCircle,
 		Menu,
 		X,
-		ChevronRight,
-		Sparkles,
-		Shield,
-		Heart,
-		Zap,
-		Award,
-		Instagram,
-		MessageCircle,
-		CheckCircle2,
 		ArrowRight,
-		Droplets,
-		Eye,
-		Flower2,
-		Gem,
-		Stethoscope,
-		Sun,
-		Activity,
-		Syringe,
-		Microscope,
-		Target
+		ShieldCheck,
+		CheckCircle2,
+		ShoppingBag,
+		Award,
+		Star,
+		Instagram,
+		Check,
+		Clock
 	} from 'lucide-svelte';
 
 	let menuOpen = $state(false);
@@ -34,139 +21,146 @@
 	const navLinks = [
 		{ href: '#home', label: 'Beranda' },
 		{ href: '#about', label: 'Tentang' },
-		{ href: '#services', label: 'Layanan' },
-		{ href: '#hours', label: 'Jadwal' },
-		{ href: '#reviews', label: 'Ulasan' },
-		{ href: '#contact', label: 'Kontak' }
-	];
-
-	const services = [
-		{
-			icon: Stethoscope,
-			tag: 'Medical Skincare',
-			title: 'Konsultasi Dokter Kulit',
-			desc: 'Konsultasi langsung bersama dr. Wahyu Triasmara, spesialis skincare berpengalaman. Dapatkan diagnosis dan rencana perawatan yang tepat untuk kulit Anda.'
-		},
-		{
-			icon: Sun,
-			tag: 'Brightening',
-			title: 'Skin Brightening',
-			desc: 'Perawatan pemutihan dan pencerahan kulit menggunakan teknologi terkini dan bahan aktif medis yang aman dan efektif untuk kulit lebih cerah merata.'
-		},
-		{
-			icon: Activity,
-			tag: 'Anti-Aging',
-			title: 'Anti-Aging Treatment',
-			desc: 'Teknologi anti-penuaan modern yang membantu meremajakan kulit, mengurangi kerutan, dan meningkatkan elastisitas kulit secara signifikan.'
-		},
-		{
-			icon: Droplets,
-			tag: 'Hydration',
-			title: 'Deep Hydration',
-			desc: 'Perawatan hidrasi mendalam dengan serum & treatment premium untuk kulit yang lembap, kenyal, dan bercahaya tahan lama sepanjang hari.'
-		},
-		{
-			icon: Target,
-			tag: 'Problem Solving',
-			title: 'Acne & Scar Treatment',
-			desc: 'Penanganan jerawat aktif dan bekas luka secara medis dan estetik, dengan pendekatan terapi yang personal sesuai kondisi kulit Anda.'
-		},
-		{
-			icon: Gem,
-			tag: 'Premium',
-			title: 'Perawatan Eksklusif',
-			desc: 'Paket perawatan lengkap yang dikombinasikan secara khusus untuk hasil maksimal. Investasi terbaik untuk kecantikan dan kesehatan kulit Anda.'
-		}
+		{ href: '#products', label: 'Produk' },
+		{ href: '#order', label: 'Cara Order' },
+		{ href: '#reviews', label: 'Ulasan' }
 	];
 
 	const stats = [
-		{ value: 'dr.', label: 'Wahyu Triasmara', sub: 'Founder & Dokter' },
-		{ value: '7×', label: 'Hari Buka', sub: 'Termasuk 24 jam Minggu' },
-		{ value: '6+', label: 'Tahun Berdiri', sub: 'Melayani Padang' },
-		{ value: '100%', label: 'Berlisensi', sub: 'Klinik resmi & terdaftar' }
+		{ value: '22.6K', label: 'Followers Instagram' },
+		{ value: '1.4K+', label: 'Total Postingan' },
+		{ value: '100%', label: 'Produk Original' },
+		{ value: 'BNI & BRI', label: 'Metode Pembayaran' }
 	];
 
-	const hours = [
-		{ day: 'Senin', time: '07.00 – 21.00', open: true },
-		{ day: 'Selasa', time: '07.00 – 21.00', open: true },
-		{ day: 'Rabu', time: '07.00 – 21.00', open: true },
-		{ day: 'Kamis', time: '07.00 – 21.00', open: true },
-		{ day: 'Jumat', time: '07.00 – 21.00', open: true },
-		{ day: 'Sabtu', time: '07.00 – 21.00', open: true },
-		{ day: 'Minggu', time: 'Buka 24 Jam', open: true, special: true }
+	const features = [
+		{
+			icon: ShieldCheck,
+			title: 'Produk Original',
+			desc: 'Garansi keaslian produk 100% dari agen resmi.'
+		},
+		{
+			icon: Award,
+			title: 'Bersertifikat BPOM',
+			desc: 'Aman digunakan, sudah terdaftar dan diuji BPOM.'
+		},
+		{
+			icon: CheckCircle2,
+			title: 'Halal & MUI',
+			desc: 'Tersertifikasi halal resmi oleh Majelis Ulama Indonesia.'
+		},
+		{
+			icon: ShoppingBag,
+			title: 'Open Reseller',
+			desc: 'Daftar sebagai reseller dan raih penghasilan tambahan.'
+		}
+	];
+
+	const products = [
+		{
+			category: 'Serum Perawatan',
+			title: 'Brightening & Anti-Aging Serum',
+			desc: 'Serum dengan bahan aktif premium untuk wajah bercahaya dan melawan tanda penuaan.',
+			image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&fit=crop'
+		},
+		{
+			category: 'Pelembap Wajah',
+			title: 'Deep Hydration Cream',
+			desc: 'Krim ringan yang melembapkan pori-pori sejak pagi hingga malam hari.',
+			image: 'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=600&fit=crop'
+		},
+		{
+			category: 'Pembersih Wajah',
+			title: 'Gentle Facial Wash',
+			desc: 'Membersihkan kotoran dan sisa makeup dengan lembut tanpa menghilangkan kelembapan.',
+			image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&fit=crop'
+		},
+		{
+			category: 'Pelindung UV',
+			title: 'Daily Sunscreen SPF 50',
+			desc: 'Perlindungan terbaik dari sinar UV A &amp; B setiap hari, ringan di kulit.',
+			image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=600&fit=crop'
+		},
+		{
+			category: 'Paket Bundling',
+			title: 'Glow Starter Bundle',
+			desc: 'Paket hemat untuk memulai rutinitas skincare sehari-hari dengan hasil maksimal.',
+			image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=600&fit=crop'
+		},
+		{
+			category: 'Perawatan Khusus',
+			title: 'Acne & Blemish Control',
+			desc: 'Formula khusus untuk mengatasi jerawat membandel dan memudarkan bekas noda.',
+			image: 'https://images.unsplash.com/photo-1611077544795-c23f26038d1d?q=80&w=600&fit=crop'
+		}
 	];
 
 	const reviews = [
 		{
-			name: 'Rina Marlina',
-			initial: 'RM',
-			count: '3 ulasan',
+			name: 'Amanda Lestari',
+			initial: 'AL',
+			time: '2 minggu lalu',
+			stars: 5,
+			text: 'Produknya benar-benar bagus! Serum brightening-nya cepat meresap dan kulit jadi lebih glowing dalam seminggu. Sangat puas!'
+		},
+		{
+			name: 'Siti Maysaroh',
+			initial: 'SM',
+			time: '1 bulan lalu',
+			stars: 5,
+			text: 'Alhamdulillah, sudah BPOM dan Halal MUI jadi aman. Admin-nya responsif dan ramah. Proses order via WA sangat mudah!'
+		},
+		{
+			name: 'Dina Prita Wulandari',
+			initial: 'DW',
 			time: '2 bulan lalu',
 			stars: 5,
-			text: 'Pelayanan luar biasa di Drw Skincare! Dr. Wahyu sangat ramah dan profesional. Kulit saya jauh lebih bersih dan cerah setelah rutin treatment di sini. Tempatnya bersih dan nyaman 🌸'
-		},
-		{
-			name: 'Budi Santoso',
-			initial: 'BS',
-			count: '1 ulasan',
-			time: '4 bulan lalu',
-			stars: 5,
-			text: 'Awalnya ragu karena masalah jerawat sudah lama tidak sembuh. Setelah konsultasi dengan dr. Wahyu dan treatment selama 2 bulan, hasilnya sungguh luar biasa! Sangat direkomendasikan!'
-		},
-		{
-			name: 'Sari Dewi P.',
-			initial: 'SD',
-			count: '2 ulasan · 12 foto',
-			time: '1 tahun lalu',
-			stars: 5,
-			text: 'Klinik terbaik di Padang untuk skincare! Produknya berkualitas, dokternya berpengalaman, dan harganya sangat terjangkau. Tidak pernah menyesal pilih Drw Skincare.',
-			isGuide: true
+			text: 'Kualitas premium dengan harga yang bersahabat. Sudah repeat order 3x dan selalu puas. Recommended banget!'
 		}
-	];
-
-	const whyUs = [
-		{ icon: Shield, title: 'Dokter Berlisensi', desc: 'Ditangani langsung dr. Wahyu Triasmara, founder & ahli skincare' },
-		{ icon: Award, title: 'Klinik Resmi', desc: 'Terdaftar resmi & beroperasi sesuai standar medis nasional' },
-		{ icon: Heart, title: 'Pendekatan Personal', desc: 'Setiap pasien mendapat rencana perawatan yang disesuaikan' },
-		{ icon: Clock, title: 'Jadwal Fleksibel', desc: 'Buka 7 hari seminggu, Minggu buka 24 jam untuk Anda' }
 	];
 </script>
 
 <svelte:head>
-	<title>Drw Skincare Padang – Klinik Kecantikan & Kesehatan Kulit dr. Wahyu Triasmara</title>
+	<title>Marwah Skincare – Agen Resmi | BPOM · Halal · MUI</title>
 	<meta
 		name="description"
-		content="Drw Skincare Padang – klinik kecantikan & kesehatan kulit by dr. Wahyu Triasmara. Residence Tahap 1 Blok i6, Aie Pacah, Koto Tangah. Buka Senin–Sabtu 07.00-21.00, Minggu 24 jam. Hubungi: 0823-8143-2222"
+		content="Marwah Skincare – agen resmi produk skincare original bersertifikat BPOM, Halal, dan MUI. Open reseller. Buka 08.00–18.00. Order via WhatsApp."
+	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet"
 	/>
 </svelte:head>
 
 <!-- ═══════ NAVBAR ═══════ -->
 <header class="fixed inset-x-0 top-0 z-50">
 	<nav
-		class="border-b backdrop-blur-2xl"
-		style="background:rgba(13,27,42,0.96);border-color:rgba(200,116,138,0.15);box-shadow:0 1px 40px rgba(0,0,0,0.3)"
+		class="border-b backdrop-blur-2xl transition-all"
+		style="background:rgba(253,248,240,0.96);border-color:rgba(201,168,76,0.2);box-shadow:0 2px 32px rgba(61,26,74,0.08)"
 	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex h-20 items-center justify-between">
 				<!-- Logo -->
 				<a href="#home" class="group flex items-center gap-3">
-					<!-- Rose circle logo -->
-					<div class="relative flex h-11 w-11 items-center justify-center rounded-2xl transition-all group-hover:scale-110 group-hover:rotate-3"
-						style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+					<div
+						class="flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a);box-shadow:0 4px 20px rgba(201,168,76,0.4)"
 					>
-						<span class="text-white font-bold text-lg" style="font-family:'Playfair Display',serif">D</span>
-						<!-- small dot -->
-						<span class="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-white border-2 border-[#1a2e45]"></span>
+						<span
+							style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#3d1a4a"
+							>M</span
+						>
 					</div>
 					<div class="leading-tight">
 						<div
-							class="text-[17px] font-bold text-white tracking-wide"
-							style="font-family:'Playfair Display',serif;"
+							style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:#3d1a4a"
 						>
-							Drw<span style="color:#e8a0b4"> Skincare</span>
+							Marwah<span style="color:#c9a84c"> Skincare</span>
 						</div>
-						<div class="text-[9px] font-semibold tracking-[0.2em] uppercase" style="color:rgba(200,116,138,0.6)">
-							Klinik Kecantikan · Padang
+						<div
+							style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#805690"
+						>
+							Official Agent
 						</div>
 					</div>
 				</a>
@@ -176,33 +170,32 @@
 					{#each navLinks as link}
 						<a
 							href={link.href}
-							class="relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-white"
-							style="color:rgba(255,255,255,0.6)"
+							class="group relative rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200"
+							style="color:#5c2d6e"
 						>
 							{link.label}
-							<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full transition-all duration-200 group-hover:w-4" style="background:var(--drw-rose)"></span>
+							<span
+								class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full transition-all duration-300 group-hover:w-4"
+								style="background:#c9a84c"
+							></span>
 						</a>
 					{/each}
 				</div>
 
 				<!-- CTA -->
 				<div class="hidden items-center gap-3 md:flex">
-					<a href="tel:+6282381432222">
+					<div
+						class="flex items-center gap-2 rounded-full border px-3 py-1.5"
+						style="border-color:#c9a84c;color:#c9a84c;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase"
+					>
+						<ShieldCheck class="h-3.5 w-3.5" /> BPOM & Halal MUI
+					</div>
+					<a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
 						<button
-							class="flex h-10 items-center gap-2 rounded-xl border px-4 text-sm font-medium text-white/70 transition-all hover:bg-white/10 hover:text-white"
-							style="border-color:rgba(255,255,255,0.12)"
+							class="flex h-10 items-center gap-2 rounded-xl px-5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a);box-shadow:0 4px 16px rgba(201,168,76,0.4);color:#3d1a4a"
 						>
-							<Phone class="h-4 w-4" style="color:#e8a0b4" />
-							0823-8143-2222
-						</button>
-					</a>
-					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
-						<button
-							class="flex h-10 items-center gap-2 rounded-xl px-5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
-							style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
-						>
-							<MessageCircle class="h-4 w-4" />
-							WhatsApp
+							<MessageCircle class="h-4 w-4" /> Order Sekarang
 						</button>
 					</a>
 				</div>
@@ -210,7 +203,8 @@
 				<!-- Mobile Toggle -->
 				<button
 					onclick={() => (menuOpen = !menuOpen)}
-					class="rounded-xl p-2 text-white/70 transition hover:bg-white/10 hover:text-white md:hidden"
+					class="rounded-xl p-2 transition hover:bg-amber-50 md:hidden"
+					style="color:#3d1a4a"
 					aria-label="Toggle menu"
 				>
 					{#if menuOpen}<X class="h-6 w-6" />{:else}<Menu class="h-6 w-6" />{/if}
@@ -220,33 +214,27 @@
 
 		<!-- Mobile Menu -->
 		{#if menuOpen}
-			<div class="border-t px-4 pt-3 pb-6 md:hidden" style="background:rgba(13,27,42,0.98);border-color:rgba(200,116,138,0.12)">
+			<div
+				class="border-t px-4 pt-3 pb-6 md:hidden"
+				style="background:#fdf8f0;border-color:rgba(201,168,76,0.15)"
+			>
 				{#each navLinks as link}
 					<a
 						href={link.href}
 						onclick={() => (menuOpen = false)}
-						class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition hover:bg-white/8 hover:text-white"
-						style="color:rgba(255,255,255,0.65)"
+						class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition"
+						style="color:#5c2d6e"
 					>
-						<ChevronRight class="h-4 w-4" style="color:#c8748a" />
 						{link.label}
 					</a>
 				{/each}
-				<div class="mt-4 grid grid-cols-2 gap-2 border-t pt-4" style="border-color:rgba(200,116,138,0.12)">
-					<a href="tel:+6282381432222" class="block">
+				<div class="mt-4 border-t pt-4" style="border-color:rgba(201,168,76,0.15)">
+					<a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
 						<button
-							class="flex h-11 w-full items-center justify-center gap-2 rounded-xl border text-sm font-medium text-white/80 transition"
-							style="border-color:rgba(200,116,138,0.3)"
+							class="flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a);color:#3d1a4a"
 						>
-							<Phone class="h-4 w-4" style="color:#e8a0b4" /> Telepon
-						</button>
-					</a>
-					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer" class="block">
-						<button
-							class="flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold text-white"
-							style="background:var(--brand-gradient-rose)"
-						>
-							<MessageCircle class="h-4 w-4" /> WhatsApp
+							<MessageCircle class="h-4 w-4" /> Order via WhatsApp
 						</button>
 					</a>
 				</div>
@@ -256,179 +244,202 @@
 </header>
 
 <main class="pt-20">
-
 	<!-- ═══════ HERO ═══════ -->
 	<section
 		id="home"
-		class="relative min-h-screen overflow-hidden flex items-center"
-		style="background:var(--brand-gradient-hero)"
+		class="relative flex min-h-screen items-center overflow-hidden"
+		style="background:linear-gradient(135deg,#fdf8f0 0%,#f5ede0 100%)"
 	>
-		<!-- Grid pattern overlay -->
-		<div class="pointer-events-none absolute inset-0 grid-pattern opacity-60"></div>
-
-		<!-- Large decorative circle -->
+		<!-- Decorative blobs -->
 		<div
-			class="pointer-events-none absolute -top-40 -right-40 h-[700px] w-[700px] rounded-full opacity-[0.06]"
-			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(1px);"
+			class="pointer-events-none absolute -top-32 -left-20 h-[550px] w-[550px] opacity-50"
+			style="background:radial-gradient(ellipse,#f2eff9 0%,transparent 70%);filter:blur(60px)"
 		></div>
 		<div
-			class="pointer-events-none absolute bottom-0 -left-20 h-[450px] w-[450px] rounded-full opacity-[0.05]"
-			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(1px);"
+			class="pointer-events-none absolute right-0 bottom-0 h-[450px] w-[450px] opacity-40"
+			style="background:radial-gradient(circle,#e8ca7a 0%,transparent 65%);filter:blur(70px)"
 		></div>
+		<!-- Subtle dot pattern -->
+		<div class="dot-pattern pointer-events-none absolute inset-0 opacity-30"></div>
 
-		<!-- Diagonal accent line -->
 		<div
-			class="pointer-events-none absolute top-0 right-0 bottom-0 w-px opacity-20"
-			style="background:linear-gradient(to bottom, transparent, #c8748a 30%, #c8748a 70%, transparent);left:55%"
-		></div>
-
-		<div class="relative mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-0 lg:px-8 lg:pt-32">
-
-			<!-- Left content – 6 cols -->
-			<div class="animate-slide-up lg:col-span-6 flex flex-col justify-center space-y-8">
-
+			class="relative mx-auto max-w-7xl px-4 pt-20 pb-24 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-0 lg:px-8 lg:pt-28"
+		>
+			<!-- Left text — 6 cols -->
+			<div class="animate-slide-up flex flex-col justify-center space-y-8 lg:col-span-6">
 				<!-- Tag pill -->
-				<div class="inline-flex items-center gap-2.5 self-start rounded-full border px-4 py-2"
-					style="border-color:rgba(200,116,138,0.35);background:rgba(200,116,138,0.1)"
+				<div
+					class="inline-flex items-center gap-2.5 self-start rounded-full border px-4 py-2"
+					style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.07)"
 				>
-					<span class="h-2 w-2 animate-pulse rounded-full" style="background:#e8a0b4"></span>
-					<span class="text-sm font-semibold" style="color:#e8a0b4">Klinik Kecantikan Medis · Aie Pacah, Padang</span>
+					<span class="h-2 w-2 animate-pulse rounded-full" style="background:#c9a84c"></span>
+					<span
+						style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#5c2d6e"
+					>
+						Agen Resmi Marwah Skincare
+					</span>
 				</div>
 
 				<!-- Heading -->
 				<div class="animate-slide-up delay-100">
 					<h1
-						class="text-5xl leading-[1.08] text-white sm:text-6xl lg:text-[70px]"
-						style="font-family:'Playfair Display',serif;font-weight:400"
+						style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);line-height:1.08;color:#3d1a4a;font-weight:500"
 					>
-						Kulit <em style="color:#e8a0b4">Sehat</em><br />
-						<span style="font-weight:700">& Bercahaya</span><br />
-						<span class="text-white/50 text-4xl lg:text-5xl" style="font-weight:300">bersama dr. Wahyu</span>
+						Cantik Natural,<br />
+						<em style="color:#c9a84c;font-weight:700">Kulit Bersinar</em><br />
+						<span style="font-size:0.55em;font-weight:400;color:#805690"
+							>untuk Setiap Wanita Indonesia</span
+						>
 					</h1>
 				</div>
 
-				<p class="animate-slide-up max-w-md text-base leading-relaxed text-white/55 delay-200" style="font-size:1.05rem">
-					Drw Skincare hadir di Padang dengan pendekatan perawatan skin medis yang personal dan profesional. Ditangani langsung oleh <strong style="color:rgba(232,160,180,0.9)">dr. Wahyu Triasmara</strong> — founder & dokter kulit berpengalaman.
+				<p
+					class="animate-slide-up max-w-md text-base leading-relaxed delay-200"
+					style="color:#5c2d6e"
+				>
+					Produk skincare original, diformulasikan untuk kecantikan alami yang eksklusif. Sepenuhnya
+					terjamin oleh
+					<strong style="color:#3d1a4a">BPOM, Halal MUI</strong> — aman &amp; nyaman untuk kulitmu.
 				</p>
 
-				<!-- CTA Buttons -->
+				<!-- CTA -->
 				<div class="animate-slide-up flex flex-wrap gap-4 delay-300">
-					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+					<a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
 						<button
-							class="flex h-14 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
-							style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+							class="flex h-14 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold transition-all hover:scale-105 hover:shadow-2xl"
+							style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e);color:white;box-shadow:0 8px 30px rgba(61,26,74,0.35)"
 						>
-							<MessageCircle class="h-5 w-5" />
-							Konsultasi via WhatsApp
+							<MessageCircle class="h-5 w-5" /> Pesan via WhatsApp
 						</button>
 					</a>
-					<a href="#services">
+					<a href="#products">
 						<button
-							class="flex h-14 items-center gap-2.5 rounded-2xl border px-8 text-sm font-semibold text-white/80 transition-all hover:bg-white/8 hover:text-white"
-							style="border-color:rgba(255,255,255,0.18)"
+							class="flex h-14 items-center gap-2.5 rounded-2xl border px-8 text-sm font-semibold transition-all hover:bg-amber-50"
+							style="border-color:rgba(201,168,76,0.4);color:#3d1a4a"
 						>
-							Lihat Layanan <ArrowRight class="h-4 w-4" />
+							Lihat Produk <ArrowRight class="h-4 w-4" />
 						</button>
 					</a>
 				</div>
 
-				<!-- Trust badges row -->
-				<div class="animate-slide-up flex flex-wrap items-center gap-6 border-t pt-6 delay-400" style="border-color:rgba(255,255,255,0.08)">
-					{#each [['🩺', 'Dokter Resmi'], ['📍', 'Aie Pacah, Padang'], ['📞', '0823-8143-2222']] as [icon, label]}
-						<div class="flex items-center gap-2">
-							<span class="text-lg">{icon}</span>
-							<span class="text-sm font-medium text-white/60">{label}</span>
+				<!-- Trust pills -->
+				<div
+					class="animate-slide-up flex flex-wrap items-center gap-3 border-t pt-6 delay-400"
+					style="border-color:rgba(201,168,76,0.2)"
+				>
+					{#each ['Aman Digunakan', 'BPOM Approved', 'Halal & MUI', 'Open Reseller'] as tag}
+						<div
+							class="flex items-center gap-1.5 rounded-full border bg-white px-3 py-1"
+							style="border-color:rgba(201,168,76,0.3)"
+						>
+							<Check class="h-3 w-3" style="color:#c9a84c" />
+							<span style="font-size:0.7rem;font-weight:700;color:#3d1a4a">{tag}</span>
 						</div>
 					{/each}
 				</div>
 			</div>
 
-			<!-- Right – image area: 6 cols -->
-			<div class="animate-slide-left relative mt-16 lg:col-span-6 lg:mt-0 delay-200">
-				<!-- Main image container with geometric clip -->
-				<div class="relative pl-8 lg:pl-16">
-					<!-- Background shape -->
+			<!-- Right image — 6 cols -->
+			<div class="animate-slide-left relative mt-16 delay-200 lg:col-span-6 lg:mt-0">
+				<div class="relative pl-8 lg:pl-12">
+					<!-- Organic blob bg -->
 					<div
-						class="absolute inset-6 rounded-3xl"
-						style="background:rgba(200,116,138,0.08);border:1px solid rgba(200,116,138,0.15)"
+						class="absolute inset-0 rounded-full opacity-20"
+						style="background:radial-gradient(circle,#c9a84c,transparent 70%);transform:scale(1.3)"
 					></div>
 
-					<!-- Image with unique shape -->
+					<!-- Main image with organic border-radius -->
 					<div
 						class="relative overflow-hidden shadow-2xl"
-						style="border-radius:24px 80px 24px 80px;box-shadow:0 40px 80px -20px rgba(0,0,0,0.6)"
+						style="border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;border:8px solid white;box-shadow:0 40px 80px -20px rgba(61,26,74,0.3)"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=700&auto=format&fit=crop"
-							alt="Drw Skincare professional skincare treatment"
+							src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=700&auto=format&fit=crop"
+							alt="Marwah Skincare produk unggulan"
 							class="w-full object-cover transition-transform duration-700 hover:scale-105"
 							style="aspect-ratio:3/4"
 						/>
-						<!-- Overlay gradient -->
 						<div
 							class="absolute inset-0"
-							style="background:linear-gradient(to top, rgba(13,27,42,0.5) 0%, transparent 50%)"
+							style="background:linear-gradient(to top,rgba(61,26,74,0.25) 0%,transparent 60%)"
 						></div>
 					</div>
 
-					<!-- Floating doctor badge -->
+					<!-- Float card: Instagram -->
 					<div
-						class="glass-navy animate-float-gentle absolute -left-2 top-12 rounded-2xl px-5 py-4 shadow-2xl lg:-left-8"
+						class="glass-light animate-float-gentle absolute top-16 -left-4 rounded-2xl px-4 py-3 shadow-xl lg:-left-8"
 					>
 						<div class="flex items-center gap-3">
 							<div
-								class="flex h-10 w-10 items-center justify-center rounded-xl text-white font-bold"
-								style="background:var(--brand-gradient-rose)"
+								class="flex h-10 w-10 items-center justify-center rounded-full text-white"
+								style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"
 							>
-								👨‍⚕️
+								<Instagram class="h-5 w-5" />
 							</div>
 							<div>
-								<div class="text-xs font-bold text-white">dr. Wahyu Triasmara</div>
-								<div class="text-[10px]" style="color:rgba(232,160,180,0.8)">Founder & Dokter Skincare</div>
+								<div class="text-sm font-bold" style="color:#3d1a4a">22.6K Followers</div>
+								<div style="font-size:0.65rem;color:#805690">@marwah_skincare_id</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- Floating hours badge -->
+					<!-- Float card: Jam buka -->
 					<div
-						class="glass-navy animate-float-gentle absolute -bottom-4 right-4 rounded-2xl px-5 py-4 shadow-2xl lg:right-0"
+						class="glass-light animate-float-gentle absolute right-4 -bottom-4 rounded-2xl px-5 py-3 text-center shadow-xl"
 						style="animation-delay:1.5s"
 					>
-						<div class="text-center">
-							<div class="text-xs font-bold text-white">Buka Setiap Hari</div>
-							<div class="mt-1 text-[11px]" style="color:rgba(232,160,180,0.8)">Senin–Sabtu 07.00–21.00</div>
-							<div class="mt-0.5 text-[10px]" style="color:rgba(232,160,180,0.6)">Minggu: 24 Jam 🌙</div>
+						<div
+							style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#c9a84c"
+						>
+							Jam Buka
 						</div>
+						<div class="mt-1 text-sm font-bold" style="color:#3d1a4a">08.00 – 18.00</div>
+						<div style="font-size:0.65rem;color:#805690">Setiap Hari</div>
 					</div>
 
-					<!-- Geometric decorative ring -->
+					<!-- Decorative ring -->
 					<div
-						class="animate-spin-slow pointer-events-none absolute -right-6 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full border-2 border-dashed opacity-25"
-						style="border-color:#c8748a"
+						class="animate-spin-slow pointer-events-none absolute top-1/3 -right-4 h-24 w-24 rounded-full border-2 border-dashed opacity-30"
+						style="border-color:#c9a84c"
 					></div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Bottom diagonal cut -->
+		<!-- Wave divider -->
 		<div class="pointer-events-none absolute inset-x-0 bottom-0">
-			<svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" class="w-full" style="height:70px">
-				<path d="M0 80L1440 80L1440 0L0 60Z" fill="#fefaf8" />
+			<svg
+				viewBox="0 0 1440 80"
+				fill="none"
+				preserveAspectRatio="none"
+				class="w-full"
+				style="height:60px"
+			>
+				<path
+					d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,30 1440,40 L1440,80 L0,80 Z"
+					fill="#3d1a4a"
+				/>
 			</svg>
 		</div>
 	</section>
 
-	<!-- ═══════ STATS STRIP ═══════ -->
-	<section class="py-0" style="background:#fefaf8">
+	<!-- ═══════ STATS ═══════ -->
+	<section class="py-16" style="background:#3d1a4a">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-2 gap-px md:grid-cols-4" style="background:rgba(200,116,138,0.1)">
+			<div class="grid grid-cols-2 gap-px md:grid-cols-4" style="background:rgba(201,168,76,0.15)">
 				{#each stats as s}
-					<div class="flex flex-col items-center py-10 text-center" style="background:#fefaf8">
-						<div class="text-4xl font-bold" style="font-family:'Playfair Display',serif;color:#0d1b2a">
+					<div class="flex flex-col items-center py-10 text-center" style="background:#3d1a4a">
+						<div
+							style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;background:linear-gradient(135deg,#c9a84c,#e8ca7a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text"
+						>
 							{s.value}
 						</div>
-						<div class="mt-1.5 text-sm font-bold tracking-wide" style="color:#c8748a">{s.label}</div>
-						<div class="mt-0.5 text-xs" style="color:#6b7f93">{s.sub}</div>
+						<div
+							class="mt-1.5 text-xs font-bold tracking-widest uppercase"
+							style="color:rgba(232,202,122,0.7)"
+						>
+							{s.label}
+						</div>
 					</div>
 				{/each}
 			</div>
@@ -436,617 +447,533 @@
 	</section>
 
 	<!-- ═══════ ABOUT ═══════ -->
-	<section id="about" class="py-28 relative overflow-hidden" style="background:#fefaf8">
-		<!-- Dot pattern bg -->
-		<div class="pointer-events-none absolute inset-0 dot-pattern opacity-50"></div>
-
+	<section id="about" class="relative overflow-hidden py-28" style="background:#f5ede0">
+		<div class="dot-pattern pointer-events-none absolute inset-0 opacity-30"></div>
 		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-
-				<!-- Content side -->
-				<div class="space-y-8">
-					<!-- Label -->
-					<div class="flex items-center gap-3">
-						<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
-						<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Tentang Kami</span>
-					</div>
-
-					<div>
-						<h2
-							class="text-4xl leading-tight lg:text-5xl"
-							style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400"
-						>
-							Klinik Skincare<br />
-							<em style="color:#c8748a;font-weight:600">Tepercaya</em> di Padang
-						</h2>
-					</div>
-
-					<p class="text-base leading-relaxed" style="color:#3d4f60">
-						<strong style="color:#0d1b2a">Drw Skincare</strong> adalah klinik kecantikan dan kesehatan kulit yang berfokus pada perawatan medis yang personal dan profesional. Berlokasi di <strong style="color:#0d1b2a">Residence Tahap 1 Blok i6, Aie Pacah, Koto Tangah, Kota Padang</strong>, kami siap memberikan layanan terbaik untuk kulit Anda.
-					</p>
-					<p class="text-sm leading-relaxed" style="color:#6b7f93">
-						Didirikan dan dikelola langsung oleh <strong>dr. Wahyu Triasmara</strong>, setiap pasien mendapatkan perhatian penuh dan rencana perawatan yang disesuaikan dengan kebutuhan spesifik kulit mereka.
-					</p>
-
-					<!-- Feature list -->
-					<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-						{#each [
-							'Ditangani dokter berpengalaman',
-							'Diagnosa & konsultasi personal',
-							'Klinik resmi & berlisensi',
-							'Bahan perawatan medis berkualitas',
-							'Harga transparan & terjangkau',
-							'Buka 7 hari + Minggu 24 jam'
-						] as item}
-							<div
-								class="flex items-center gap-3 rounded-xl border px-4 py-3 transition-all card-hover"
-								style="border-color:rgba(200,116,138,0.15);background:rgba(200,116,138,0.03)"
-							>
-								<div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style="background:var(--brand-gradient-rose)">
-									<CheckCircle2 class="h-3 w-3 text-white" />
-								</div>
-								<span class="text-sm font-medium" style="color:#0d1b2a">{item}</span>
-							</div>
-						{/each}
-					</div>
-
-					<a href="#contact">
-						<button
-							class="flex h-12 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-lg"
-							style="background:var(--brand-gradient)"
-						>
-							Hubungi Kami <ArrowRight class="h-4 w-4" />
-						</button>
-					</a>
-				</div>
-
-				<!-- Image collage -->
+				<!-- Image side -->
 				<div class="relative">
-					<!-- Main large image -->
 					<div
-						class="overflow-hidden rounded-3xl shadow-2xl"
-						style="border-radius:40px 12px 40px 12px"
+						class="overflow-hidden shadow-2xl"
+						style="border-radius:50% 30% 50% 30% / 30% 50% 30% 50%;border:10px solid white"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1614159689907-42a5ab3d5803?q=80&w=600&auto=format&fit=crop"
-							alt="Drw Skincare klinik interior"
+							src="https://images.unsplash.com/photo-1556228720-1c2a468e1824?q=80&w=600&auto=format&fit=crop"
+							alt="Skincare natural ingredients"
 							class="w-full object-cover transition-transform duration-500 hover:scale-105"
 							style="aspect-ratio:4/5"
 						/>
 					</div>
-
-					<!-- Small overlapping image -->
 					<div
-						class="absolute -bottom-6 -left-6 overflow-hidden rounded-2xl border-4 shadow-xl"
-						style="border-color:#fefaf8;width:48%"
+						class="absolute -right-4 -bottom-4 hidden overflow-hidden rounded-full border-8 border-white shadow-xl md:block"
+						style="width:160px;height:160px"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=350&auto=format&fit=crop"
-							alt="Skincare products"
-							class="w-full object-cover"
-							style="aspect-ratio:4/3"
+							src="https://images.unsplash.com/photo-1615397323136-2244c079860b?q=80&w=300&auto=format&fit=crop"
+							alt="Cream texture"
+							class="h-full w-full object-cover"
 						/>
 					</div>
-
-					<!-- Accent card -->
+					<!-- Gold accent card -->
 					<div
-						class="absolute -top-5 -right-5 rounded-2xl px-6 py-5 shadow-2xl text-center"
-						style="background:var(--brand-gradient-rose);min-width:130px"
+						class="absolute -top-4 -left-4 rounded-2xl px-5 py-4 text-center shadow-xl"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a);min-width:120px"
 					>
-						<div class="text-3xl font-bold text-white" style="font-family:'Playfair Display',serif">
-							0823
+						<div
+							style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:#3d1a4a"
+						>
+							1K+
 						</div>
-						<div class="mt-1 text-[10px] font-bold tracking-widest uppercase text-white/70">
-							Hubungi Kami
+						<div
+							style="font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(61,26,74,0.7)"
+						>
+							Happy Customer
 						</div>
 					</div>
+				</div>
+
+				<!-- Text side -->
+				<div class="space-y-8">
+					<div class="flex items-center gap-3">
+						<div
+							class="h-px w-10 rounded"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+						></div>
+						<span
+							style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
+							>Tentang Kami</span
+						>
+					</div>
+
+					<div>
+						<h2
+							style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);line-height:1.2;color:#3d1a4a;font-weight:500"
+						>
+							Agen Skincare<br />
+							<em style="color:#c9a84c;font-weight:700">Terpercaya</em> untuk Kulitmu
+						</h2>
+					</div>
+
+					<p class="text-base leading-relaxed" style="color:#5c2d6e">
+						<strong style="color:#3d1a4a">Marwah Skincare</strong> adalah agen resmi produk
+						perawatan kulit yang menyediakan rangkaian skincare original berkualitas tinggi. Seluruh
+						produk telah tersertifikasi
+						<strong style="color:#3d1a4a">BPOM, Halal MUI</strong> sehingga aman dan nyaman untuk semua
+						jenis kulit.
+					</p>
+					<p class="text-sm leading-relaxed" style="color:#805690">
+						Kami melayani pembelian individual maupun reseller dengan penuh keramahan dan kejujuran.
+						Kepuasan dan kepercayaan Anda adalah prioritas utama kami.
+					</p>
+
+					<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+						{#each ['Produk 100% Original', 'Legalitas BPOM & Halal MUI', 'Konsultasi Gratis via WA', 'Harga Terjangkau & Transparan', 'Pembayaran BNI & BRI', 'Open Reseller Aktif'] as item}
+							<div
+								class="card-hover flex items-center gap-3 rounded-2xl border bg-white px-4 py-3 transition-all"
+								style="border-color:rgba(201,168,76,0.2);box-shadow:var(--brand-shadow-card)"
+							>
+								<div
+									class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+									style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+								>
+									<Check class="h-3 w-3" style="color:#3d1a4a" />
+								</div>
+								<span class="text-sm font-medium" style="color:#3d1a4a">{item}</span>
+							</div>
+						{/each}
+					</div>
+
+					<a href="#order">
+						<button
+							class="flex h-12 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-lg"
+							style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e);box-shadow:0 8px 24px rgba(61,26,74,0.3)"
+						>
+							Cara Order <ArrowRight class="h-4 w-4" />
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════ WHY US ═══════ -->
-	<section class="py-20" style="background:#fdf0f0">
+	<!-- ═══════ KEUNGGULAN ═══════ -->
+	<section class="py-20" style="background:#f2eff9">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-14 text-center">
 				<div class="mb-3 inline-flex items-center gap-3">
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
-					<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Mengapa Drw Skincare</span>
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
+					<span
+						style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
+						>Keunggulan Kami</span
+					>
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
 				</div>
-				<h2 class="text-3xl lg:text-4xl" style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400">
-					Kepercayaan Anda, <em style="color:#c8748a;font-weight:600">Prioritas Kami</em>
+				<h2
+					style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:#3d1a4a;font-weight:500"
+				>
+					Kenapa Pilih <em style="color:#c9a84c;font-weight:700">Marwah Skincare?</em>
 				</h2>
 			</div>
 
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-				{#each whyUs as w}
+				{#each features as f}
 					<div
-						class="group rounded-2xl border bg-white p-7 transition-all card-hover"
-						style="border-color:rgba(200,116,138,0.15);box-shadow:var(--brand-shadow-card)"
+						class="card-hover group flex flex-col items-center rounded-3xl bg-white p-8 text-center"
+						style="border:1px solid rgba(201,168,76,0.15);box-shadow:var(--brand-shadow-card)"
 					>
 						<div
-							class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
-							style="background:var(--brand-gradient-rose)"
+							class="mb-5 flex h-16 w-16 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
 						>
-							<svelte:component this={w.icon} class="h-6 w-6 text-white" />
+							<svelte:component this={f.icon} class="h-8 w-8" style="color:#3d1a4a" />
 						</div>
-						<h3 class="mb-2 text-base font-bold" style="color:#0d1b2a">{w.title}</h3>
-						<p class="text-sm leading-relaxed" style="color:#6b7f93">{w.desc}</p>
+						<h3 class="mb-2 text-base font-bold" style="color:#3d1a4a">{f.title}</h3>
+						<p class="text-sm leading-relaxed" style="color:#805690">{f.desc}</p>
 					</div>
 				{/each}
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════ SERVICES ═══════ -->
-	<section id="services" class="relative overflow-hidden py-28" style="background:var(--drw-navy)">
-		<!-- Pattern -->
-		<div class="pointer-events-none absolute inset-0 dot-pattern-navy"></div>
-
-		<!-- Accent glow -->
+	<!-- ═══════ PRODUK ═══════ -->
+	<section id="products" class="relative overflow-hidden py-28" style="background:#3d1a4a">
+		<div class="dot-pattern-plum pointer-events-none absolute inset-0"></div>
 		<div
-			class="pointer-events-none absolute -top-20 right-1/4 h-[400px] w-[400px] rounded-full opacity-[0.08]"
-			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(40px);"
+			class="pointer-events-none absolute -top-20 right-1/4 h-96 w-96 rounded-full opacity-[0.08]"
+			style="background:radial-gradient(circle,#c9a84c 0%,transparent 65%);filter:blur(40px)"
 		></div>
 
 		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<!-- Header -->
 			<div class="mb-16 max-w-2xl">
 				<div class="mb-3 flex items-center gap-3">
-					<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
-					<span class="text-sm font-bold tracking-widest uppercase" style="color:#e8a0b4">Layanan Kami</span>
+					<div
+						class="h-px w-10 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
+					<span
+						style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#e8ca7a"
+						>Produk Unggulan</span
+					>
 				</div>
 				<h2
-					class="text-4xl font-light text-white lg:text-5xl"
-					style="font-family:'Playfair Display',serif"
+					class="text-white"
+					style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400"
 				>
-					Perawatan <em class="font-semibold" style="color:#e8a0b4">Profesional</em><br />
-					untuk Kulit Terbaik Anda
+					Rangkaian Perawatan<br />
+					<em style="color:#e8ca7a;font-weight:700">Terbaik untuk Kulit Anda</em>
 				</h2>
-				<p class="mt-5 text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">
-					Setiap layanan di Drw Skincare dirancang dengan standar medis tinggi, ditangani langsung oleh dr. Wahyu Triasmara untuk hasil yang optimal.
+				<p class="mt-4 text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">
+					Semua produk Marwah Skincare hadir dengan formulasi premium, aman, dan terbukti efektif
+					untuk berbagai jenis kulit.
 				</p>
 			</div>
 
-			<!-- Services grid – 3 col, asymmetric sizes -->
-			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-				{#each services as svc, i}
+			<!-- Product Grid -->
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{#each products as prod}
 					<div
-						class="group relative overflow-hidden rounded-2xl border p-7 transition-all duration-350 hover:-translate-y-2 hover:border-pink-400/30"
-						style="border-color:rgba(200,116,138,0.12);background:rgba(255,255,255,0.03)"
-						class:lg:col-span-1={true}
+						class="group relative overflow-hidden rounded-3xl border transition-all duration-350 hover:-translate-y-2 hover:border-amber-400/40"
+						style="border-color:rgba(201,168,76,0.12);background:rgba(255,255,255,0.04)"
 					>
-						<!-- Corner accent -->
-						<div
-							class="absolute top-0 right-0 h-16 w-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-							style="background:linear-gradient(135deg, transparent 50%, rgba(200,116,138,0.08) 50%)"
-						></div>
-
-						<!-- Tag -->
-						<div class="mb-5 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold tracking-widest uppercase"
-							style="background:rgba(200,116,138,0.12);color:#e8a0b4"
-						>
-							{svc.tag}
+						<div class="aspect-[4/3] overflow-hidden">
+							<img
+								src={prod.image}
+								alt={prod.title}
+								class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+							/>
 						</div>
-
-						<!-- Icon -->
-						<div
-							class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:border-pink-400/40"
-							style="border-color:rgba(200,116,138,0.2);background:rgba(200,116,138,0.08)"
-						>
-							<svelte:component this={svc.icon} class="h-6 w-6" style="color:#e8a0b4" />
+						<div class="p-6">
+							<div
+								class="mb-3 inline-flex items-center rounded-full px-3 py-1"
+								style="background:rgba(201,168,76,0.12);color:#e8ca7a;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase"
+							>
+								{prod.category}
+							</div>
+							<h3
+								class="mb-2 text-xl font-semibold text-white"
+								style="font-family:'Cormorant Garamond',serif"
+							>
+								{prod.title}
+							</h3>
+							<p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">
+								{@html prod.desc}
+							</p>
 						</div>
-
-						<h3 class="mb-3 text-xl font-semibold text-white" style="font-family:'Playfair Display',serif">
-							{svc.title}
-						</h3>
-						<p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">{svc.desc}</p>
-
-						<!-- Hover CTA -->
-						<div
-							class="mt-6 flex items-center gap-1.5 text-xs font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-							style="color:#e8a0b4"
-						>
-							Tanya dokter <ArrowRight class="h-3.5 w-3.5" />
-						</div>
-
-						<!-- Bottom line accent -->
+						<!-- Bottom gold line on hover -->
 						<div
 							class="absolute bottom-0 left-0 h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full"
-							style="background:var(--brand-gradient-rose)"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
 						></div>
 					</div>
 				{/each}
 			</div>
 
-			<!-- CTA -->
 			<div class="mt-14 text-center">
-				<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+				<a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
 					<button
-						class="inline-flex h-14 items-center gap-3 rounded-2xl px-10 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
-						style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+						class="inline-flex h-14 items-center gap-3 rounded-2xl px-10 text-sm font-bold transition-all hover:scale-105 hover:shadow-2xl"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a);color:#3d1a4a;box-shadow:0 8px 30px rgba(201,168,76,0.4)"
 					>
-						<MessageCircle class="h-5 w-5" />
-						Konsultasikan Kebutuhan Kulit Anda
+						<MessageCircle class="h-5 w-5" /> Tanyakan Produk & Harga
 					</button>
 				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════ HOURS ═══════ -->
-	<section id="hours" class="py-24" style="background:#fefaf8">
+	<!-- ═══════ CARA ORDER ═══════ -->
+	<section id="order" class="py-24" style="background:#fdf8f0">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
+			<div class="mb-14 text-center">
+				<div class="mb-3 inline-flex items-center gap-3">
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
+					<span
+						style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
+						>Pemesanan</span
+					>
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
+				</div>
+				<h2
+					style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);color:#3d1a4a;font-weight:500"
+				>
+					3 Langkah Mudah <em style="color:#c9a84c;font-weight:700">Belanja Online</em>
+				</h2>
+			</div>
 
-				<!-- Left: heading & info -->
-				<div class="space-y-6">
-					<div class="flex items-center gap-3">
-						<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
-						<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Jam Operasional</span>
-					</div>
-					<h2 class="text-4xl lg:text-5xl" style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400">
-						Kami <em style="color:#c8748a;font-weight:600">Selalu</em><br />Ada untuk Anda
-					</h2>
-					<p class="text-base leading-relaxed" style="color:#6b7f93">
-						Drw Skincare buka 7 hari seminggu dengan jam operasional yang panjang agar Anda dapat berkunjung kapan saja sesuai jadwal. Bahkan di hari Minggu, kami buka <strong style="color:#c8748a">24 jam penuh</strong> melayani Anda!
-					</p>
-
-					<!-- Call to action -->
-					<a href="tel:+6282381432222">
-						<button
-							class="flex h-12 items-center gap-3 rounded-2xl border-2 px-7 text-sm font-bold transition-all hover:shadow-lg"
-							style="border-color:#c8748a;color:#c8748a;background:transparent"
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+				{#each [{ step: '01', title: 'Hubungi Kami', desc: 'Chat via WhatsApp atau DM Instagram @marwah_skincare_id untuk konsultasi produk gratis.' }, { step: '02', title: 'Pilih Produk', desc: 'Pilih produk sesuai kebutuhan kulitmu. Kami siap membantu merekomendasikan yang terbaik.' }, { step: '03', title: 'Transfer & Kirim', desc: 'Lakukan pembayaran via BNI atau BRI, lalu produk langsung dikemas rapi dan dikirim ke kamu.' }] as o}
+					<div
+						class="relative flex flex-col items-center rounded-3xl bg-white p-8 text-center"
+						style="border:1px solid rgba(201,168,76,0.2);box-shadow:var(--brand-shadow-card)"
+					>
+						<div
+							class="absolute -top-6 flex h-12 w-12 items-center justify-center rounded-full shadow-lg"
+							style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:white"
 						>
-							<Phone class="h-4 w-4" />
-							0823-8143-2222
+							{o.step}
+						</div>
+						<h3 class="mt-4 mb-3 text-lg font-bold" style="color:#3d1a4a">{o.title}</h3>
+						<p class="text-sm leading-relaxed" style="color:#805690">{o.desc}</p>
+					</div>
+				{/each}
+			</div>
+
+			<!-- CTA Banner -->
+			<div
+				class="mt-12 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl p-8 sm:flex-row"
+				style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e);box-shadow:0 20px 60px rgba(61,26,74,0.3)"
+			>
+				<div>
+					<div class="text-xl font-bold text-white" style="font-family:'Cormorant Garamond',serif">
+						Siap Mulai Perawatan Kulitmu?
+					</div>
+					<p class="mt-1 text-sm" style="color:rgba(255,255,255,0.65)">
+						Jam operasional 08.00 – 18.00 · Pembayaran BNI & BRI · Open Reseller
+					</p>
+				</div>
+				<div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+					<a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+						<button
+							class="flex h-12 items-center gap-2 rounded-2xl bg-white px-7 text-sm font-bold transition-all hover:scale-105"
+							style="color:#3d1a4a"
+						>
+							<MessageCircle class="h-4 w-4" /> WhatsApp Sekarang
+						</button>
+					</a>
+					<a
+						href="https://instagram.com/marwah_skincare_id"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button
+							class="flex h-12 items-center gap-2 rounded-2xl border-2 border-white/30 px-7 text-sm font-semibold text-white transition-all hover:bg-white/10"
+						>
+							<Instagram class="h-4 w-4" /> Instagram
 						</button>
 					</a>
 				</div>
+			</div>
+		</div>
+	</section>
 
-				<!-- Right: hours card -->
-				<div class="overflow-hidden rounded-3xl border shadow-2xl" style="border-color:rgba(200,116,138,0.2)">
-					<!-- Card header -->
-					<div
-						class="px-7 py-5"
-						style="background:var(--brand-gradient)"
-					>
-						<div class="flex items-center gap-3">
-							<Clock class="h-5 w-5" style="color:#e8a0b4" />
-							<div>
-								<div class="text-sm font-bold text-white">Jadwal Buka</div>
-								<div class="text-[11px]" style="color:rgba(232,160,180,0.6)">Drw Skincare – Aie Pacah, Padang</div>
+	<!-- ═══════ JAM OPERASIONAL ═══════ -->
+	<section class="py-20" style="background:#f5ede0">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<div
+				class="overflow-hidden rounded-3xl shadow-2xl"
+				style="border:1px solid rgba(201,168,76,0.2)"
+			>
+				<!-- Header -->
+				<div class="px-8 py-6" style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e)">
+					<div class="flex items-center gap-3">
+						<Clock class="h-5 w-5" style="color:#e8ca7a" />
+						<div>
+							<div class="text-sm font-bold text-white">Jam Operasional</div>
+							<div style="font-size:0.65rem;color:rgba(232,202,122,0.6)">
+								Marwah Skincare Official Agent
 							</div>
 						</div>
 					</div>
-
-					<!-- Hours list -->
-					<div style="background:#fefaf8">
-						{#each hours as h, i}
-							<div
-								class="flex items-center justify-between px-7 py-4 transition-colors hover:bg-pink-50"
-								class:border-t={i !== 0}
-								style="border-color:rgba(200,116,138,0.1)"
-							>
-								<div class="flex items-center gap-3">
-									<!-- Day indicator dot -->
-									<div
-										class="h-2 w-2 rounded-full"
-										style="background:{h.special ? 'linear-gradient(135deg,#c8748a,#e8a0b4)' : '#0d1b2a'}"
-									></div>
-									<span class="font-semibold text-sm" style="color:#0d1b2a">{h.day}</span>
-									{#if h.special}
-										<span
-											class="rounded-full px-2 py-0.5 text-[9px] font-bold uppercase"
-											style="background:linear-gradient(135deg,#c8748a,#e8a0b4);color:white"
-										>Special</span>
-									{/if}
-								</div>
-								<div class="flex items-center gap-2">
-									<span class="text-sm font-bold" style="color:{h.special ? '#c8748a' : '#3d4f60'}">{h.time}</span>
-									<span
-										class="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase"
-										style="background:rgba(13,27,42,0.07);color:#0d1b2a"
-									>Buka</span>
-								</div>
+				</div>
+				<!-- Rows -->
+				<div class="divide-y bg-white" style="divide-color:rgba(201,168,76,0.1)">
+					{#each [{ day: 'Senin', time: '08.00 – 18.00', open: true }, { day: 'Selasa', time: '08.00 – 18.00', open: true }, { day: 'Rabu', time: '08.00 – 18.00', open: true }, { day: 'Kamis', time: '08.00 – 18.00', open: true }, { day: 'Jumat', time: '08.00 – 18.00', open: true }, { day: 'Sabtu', time: '08.00 – 18.00', open: true }, { day: 'Minggu', time: 'Tutup', open: false }] as h, i}
+						<div
+							class="flex items-center justify-between px-8 py-4 transition-colors hover:bg-amber-50"
+						>
+							<div class="flex items-center gap-3">
+								<div
+									class="h-2 w-2 rounded-full"
+									style="background:{h.open
+										? 'linear-gradient(135deg,#c9a84c,#e8ca7a)'
+										: '#d1d5db'}"
+								></div>
+								<span class="text-sm font-semibold" style="color:#3d1a4a">{h.day}</span>
 							</div>
-						{/each}
-					</div>
+							<span
+								class="rounded-full px-3 py-1 text-xs font-bold"
+								style="background:{h.open
+									? 'rgba(201,168,76,0.1)'
+									: 'rgba(209,213,219,0.3)'};color:{h.open ? '#c9a84c' : '#9ca3af'}"
+							>
+								{h.time}
+							</span>
+						</div>
+					{/each}
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ═══════ REVIEWS ═══════ -->
-	<section id="reviews" class="py-24 relative" style="background:#fdf0f0">
-		<div class="pointer-events-none absolute inset-0 dot-pattern opacity-40"></div>
+	<section id="reviews" class="relative py-24" style="background:#fdf8f0">
+		<div class="dot-pattern pointer-events-none absolute inset-0 opacity-30"></div>
 		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
 			<div class="mb-16 text-center">
 				<div class="mb-3 inline-flex items-center gap-3">
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
-					<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Ulasan Pelanggan</span>
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
+					<span
+						style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
+						>Ulasan Pelanggan</span
+					>
+					<div
+						class="h-px w-8 rounded"
+						style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
+					></div>
 				</div>
 				<h2
-					class="text-4xl lg:text-5xl"
-					style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400"
+					style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);color:#3d1a4a;font-weight:500"
 				>
-					Suara Mereka yang <em style="color:#c8748a;font-weight:600">Telah Percaya</em>
+					Mereka yang Sudah <em style="color:#c9a84c;font-weight:700">Percaya</em>
 				</h2>
-
 				<!-- Rating pill -->
 				<div
 					class="mt-6 inline-flex items-center gap-4 rounded-2xl border bg-white px-7 py-4 shadow-sm"
-					style="border-color:rgba(200,116,138,0.2)"
+					style="border-color:rgba(201,168,76,0.2)"
 				>
-					<div>
-						<div class="text-4xl font-bold" style="font-family:'Playfair Display',serif;color:#0d1b2a">★★★★★</div>
-					</div>
+					<div class="text-3xl font-bold" style="color:#c9a84c">★★★★★</div>
 					<Separator orientation="vertical" class="h-8" />
 					<div class="text-left">
-						<div class="text-sm font-bold" style="color:#0d1b2a">Rating Bintang 5</div>
-						<div class="text-xs" style="color:#6b7f93">Google Maps · Drw Skincare</div>
+						<div class="text-sm font-bold" style="color:#3d1a4a">Rating Bintang 5</div>
+						<div style="font-size:0.7rem;color:#805690">Testimoni Pelanggan Setia</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-				{#each reviews as rv, i}
+				{#each reviews as rv}
 					<div
-						class="group relative flex flex-col rounded-3xl bg-white p-8 shadow-sm transition-all card-hover"
-						style="border:1px solid rgba(200,116,138,0.12);box-shadow:var(--brand-shadow-card)"
+						class="group card-hover relative flex flex-col rounded-3xl bg-white p-8 transition-all"
+						style="border:1px solid rgba(201,168,76,0.12);box-shadow:var(--brand-shadow-card)"
 					>
-						<!-- Quote mark -->
 						<div
-							class="mb-3 text-6xl font-bold leading-none select-none"
-							style="color:rgba(200,116,138,0.15);font-family:'Playfair Display',serif"
+							class="mb-3 text-6xl leading-none font-bold select-none"
+							style="color:rgba(201,168,76,0.15);font-family:'Cormorant Garamond',serif"
 						>
 							"
 						</div>
-
-						<p class="mb-6 flex-1 text-sm leading-relaxed" style="color:#3d4f60">{rv.text}</p>
-
-						<!-- Stars -->
+						<p class="mb-6 flex-1 text-sm leading-relaxed" style="color:#5c2d6e">{rv.text}</p>
 						<div class="mb-4 flex gap-1">
 							{#each Array(rv.stars) as _}
-								<Star class="h-4 w-4 fill-current" style="color:#c8748a" />
+								<Star class="h-4 w-4 fill-current" style="color:#c9a84c" />
 							{/each}
 						</div>
-
-						<Separator style="background:rgba(200,116,138,0.12)" />
-
+						<Separator style="background:rgba(201,168,76,0.12)" />
 						<div class="mt-4 flex items-center gap-3">
 							<div
-								class="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white"
-								style="background:var(--brand-gradient-rose)"
+								class="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold"
+								style="background:linear-gradient(135deg,#3d1a4a,#5c2d6e);color:white"
 							>
 								{rv.initial}
 							</div>
 							<div>
-								<div class="text-sm font-bold" style="color:#0d1b2a">{rv.name}</div>
-								<div class="mt-0.5 flex items-center gap-1.5 text-xs" style="color:#9ab0c4">
-									{#if rv.isGuide}
-										<span
-											class="rounded-full px-1.5 py-0.5 text-[10px] font-bold"
-											style="background:rgba(200,116,138,0.1);color:#c8748a"
-										>Local Guide</span>
-									{/if}
-									<span>{rv.count}</span> · <span>{rv.time}</span>
-								</div>
+								<div class="text-sm font-bold" style="color:#3d1a4a">{rv.name}</div>
+								<div style="font-size:0.65rem;color:#805690">{rv.time}</div>
 							</div>
 						</div>
-
-						<!-- Bottom accent line on hover -->
 						<div
-							class="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-							style="background:var(--brand-gradient-rose)"
+							class="absolute right-0 bottom-0 left-0 h-1 rounded-b-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+							style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
 						></div>
 					</div>
 				{/each}
 			</div>
-
-			<div class="mt-10 text-center">
-				<a
-					href="https://maps.google.com/?q=Drw+Skincare+Aie+Pacah+Padang"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button
-						class="inline-flex h-12 items-center gap-2 rounded-2xl border-2 px-8 text-sm font-bold transition-all hover:bg-pink-50"
-						style="border-color:rgba(200,116,138,0.4);color:#c8748a"
-					>
-						Lihat di Google Maps <ArrowRight class="h-4 w-4" />
-					</button>
-				</a>
-			</div>
 		</div>
 	</section>
-
-	<!-- ═══════ CONTACT / CTA ═══════ -->
-	<section id="contact" class="relative overflow-hidden py-28" style="background:var(--drw-navy)">
-		<div class="pointer-events-none absolute inset-0 dot-pattern-navy"></div>
-
-		<!-- Rose glow -->
-		<div
-			class="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07]"
-			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%)"
-		></div>
-
-		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<!-- Header -->
-			<div class="mb-16 text-center">
-				<div class="mb-3 inline-flex items-center gap-3">
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
-					<span class="text-sm font-bold tracking-widest uppercase" style="color:#e8a0b4">Hubungi & Kunjungi</span>
-					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
-				</div>
-				<h2
-					class="text-4xl font-light text-white lg:text-5xl"
-					style="font-family:'Playfair Display',serif"
-				>
-					Kunjungi Kami di <em class="font-semibold" style="color:#e8a0b4">Aie Pacah,</em><br />Kota Padang
-				</h2>
-			</div>
-
-			<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-				<!-- Info cards -->
-				<div class="space-y-5 lg:col-span-1">
-					<!-- Address card -->
-					<div
-						class="rounded-2xl border p-6 transition-all hover:border-pink-400/30"
-						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div class="mb-4 flex items-center gap-3">
-							<div
-								class="flex h-11 w-11 items-center justify-center rounded-xl"
-								style="background:var(--brand-gradient-rose)"
-							>
-								<MapPin class="h-5 w-5 text-white" />
-							</div>
-							<div class="text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Alamat</div>
-						</div>
-						<p class="text-sm leading-relaxed text-white/65">
-							Residence Tahap 1 Blok i6,<br />
-							Aie Pacah, Kec. Koto Tangah,<br />
-							Kota Padang, Sumatera Barat 25176<br />
-							<span class="mt-1 block text-xs" style="color:rgba(232,160,180,0.6)">Kode: 49JG+9H Aie Pacah</span>
-						</p>
-					</div>
-
-					<!-- Phone card -->
-					<a
-						href="tel:+6282381432222"
-						class="flex items-start gap-4 rounded-2xl border p-6 transition-all hover:border-pink-400/30"
-						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div
-							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-							style="background:var(--brand-gradient-rose)"
-						>
-							<Phone class="h-5 w-5 text-white" />
-						</div>
-						<div>
-							<div class="mb-1 text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Telepon</div>
-							<div class="text-sm font-semibold text-white/80">0823-8143-2222</div>
-						</div>
-					</a>
-
-					<!-- Hours mini card -->
-					<div
-						class="rounded-2xl border p-6"
-						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div class="mb-4 flex items-center gap-3">
-							<div
-								class="flex h-11 w-11 items-center justify-center rounded-xl"
-								style="background:var(--brand-gradient-rose)"
-							>
-								<Clock class="h-5 w-5 text-white" />
-							</div>
-							<div class="text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Jam Buka</div>
-						</div>
-						<div class="space-y-1.5 text-sm text-white/65">
-							<div class="flex justify-between"><span>Senin – Sabtu</span><span class="font-semibold text-white/80">07.00 – 21.00</span></div>
-							<div class="flex justify-between"><span style="color:#e8a0b4">Minggu</span><span class="font-bold" style="color:#e8a0b4">Buka 24 Jam ✨</span></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Map embed – 2 cols -->
-				<div class="overflow-hidden rounded-3xl shadow-2xl lg:col-span-2" style="border:2px solid rgba(200,116,138,0.15)">
-					<iframe
-						title="Lokasi Drw Skincare Padang"
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d100.37!3d-0.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDUyJzEyLjAiUyAxMDDCsDIyJzEyLjAiRQ!5e0!3m2!1sid!2sid!4v1000000000000!5m2!1sid!2sid"
-						width="100%"
-						height="100%"
-						style="border:0;min-height:420px;filter:grayscale(15%) contrast(1.05)"
-						allowfullscreen
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-					></iframe>
-				</div>
-			</div>
-
-			<!-- Bottom CTA banner -->
-			<div
-				class="mt-12 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl p-8 text-center sm:flex-row sm:text-left"
-				style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
-			>
-				<div>
-					<div class="text-xl font-bold text-white" style="font-family:'Playfair Display',serif">
-						Siap Merawat Kulit Anda Hari Ini?
-					</div>
-					<p class="mt-1 text-sm text-white/75">
-						Hubungi Drw Skincare sekarang dan dapatkan konsultasi dengan dr. Wahyu.
-					</p>
-				</div>
-				<div class="flex shrink-0 flex-col gap-3 sm:flex-row">
-					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
-						<button
-							class="flex h-12 items-center gap-2 rounded-2xl bg-white px-7 text-sm font-bold transition-all hover:scale-105"
-							style="color:#c8748a"
-						>
-							<MessageCircle class="h-4 w-4" /> WhatsApp Sekarang
-						</button>
-					</a>
-					<a href="tel:+6282381432222">
-						<button
-							class="flex h-12 items-center gap-2 rounded-2xl border-2 border-white/40 px-7 text-sm font-semibold text-white transition-all hover:bg-white/15"
-						>
-							<Phone class="h-4 w-4" /> Telepon
-						</button>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
 </main>
 
 <!-- ═══════ FOOTER ═══════ -->
-<footer style="background:#080e18;border-top:1px solid rgba(200,116,138,0.1)">
-	<div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-		<div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+<footer style="background:#2a0f35;border-top:1px solid rgba(201,168,76,0.1)">
+	<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+		<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
 			<!-- Brand -->
 			<div class="flex items-center gap-3">
 				<div
-					class="flex h-9 w-9 items-center justify-center rounded-xl"
-					style="background:var(--brand-gradient-rose)"
+					class="flex h-10 w-10 items-center justify-center rounded-full"
+					style="background:linear-gradient(135deg,#c9a84c,#e8ca7a)"
 				>
-					<span class="text-sm font-bold text-white" style="font-family:'Playfair Display',serif">D</span>
+					<span
+						style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#3d1a4a"
+						>M</span
+					>
 				</div>
 				<div>
-					<div class="text-sm font-bold text-white" style="font-family:'Playfair Display',serif">
-						Drw Skincare
+					<div
+						class="text-base font-bold text-white"
+						style="font-family:'Cormorant Garamond',serif"
+					>
+						Marwah Skincare
 					</div>
-					<div class="text-[10px]" style="color:rgba(200,116,138,0.5)">Klinik Kecantikan Padang</div>
+					<div
+						style="font-size:0.6rem;color:rgba(201,168,76,0.5);letter-spacing:0.1em;text-transform:uppercase"
+					>
+						Official Agent · Health & Beauty
+					</div>
 				</div>
 			</div>
 
-			<!-- Center info -->
-			<div class="text-center text-xs" style="color:rgba(255,255,255,0.35)">
-				<p>Residence Tahap 1 Blok i6, Aie Pacah, Kec. Koto Tangah, Kota Padang, Sumatera Barat 25176</p>
-				<p class="mt-1">
-					<a href="tel:+6282381432222" class="hover:text-white/60 transition-colors">0823-8143-2222</a>
-					· Founded by dr. Wahyu Triasmara
-				</p>
+			<!-- Links -->
+			<div class="flex flex-col items-center gap-3 text-sm md:items-start">
+				<div
+					style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
+				>
+					Informasi
+				</div>
+				<div class="flex items-center gap-2 text-white/60">
+					<Clock class="h-4 w-4" style="color:#c9a84c" /> Jam 08.00 – 18.00
+				</div>
+				<div class="flex items-center gap-2 text-white/60">
+					<ShieldCheck class="h-4 w-4" style="color:#c9a84c" /> BPOM · Halal · MUI
+				</div>
 			</div>
 
-			<!-- Right: WA link -->
-			<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
-				<button
-					class="flex h-9 items-center gap-2 rounded-xl px-5 text-xs font-bold text-white transition-all hover:scale-105"
-					style="background:var(--brand-gradient-rose)"
+			<!-- Social -->
+			<div class="flex flex-col items-center gap-3 md:items-end">
+				<div
+					style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a84c"
 				>
-					<MessageCircle class="h-3.5 w-3.5" /> WhatsApp
-				</button>
-			</a>
+					Hubungi Kami
+				</div>
+				<a
+					href="https://instagram.com/marwah_skincare_id"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-amber-300"
+				>
+					<Instagram class="h-4 w-4" /> @marwah_skincare_id
+				</a>
+				<a
+					href="https://wa.me/1234567890"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-amber-300"
+				>
+					<MessageCircle class="h-4 w-4" /> Chat WhatsApp
+				</a>
+			</div>
 		</div>
 
-		<div class="mt-8 border-t pt-6 text-center text-[11px]" style="border-color:rgba(255,255,255,0.06);color:rgba(255,255,255,0.2)">
-			© 2025 Drw Skincare. All rights reserved.
+		<div
+			class="mt-10 border-t pt-6 text-center"
+			style="border-color:rgba(255,255,255,0.06);color:rgba(255,255,255,0.2);font-size:0.7rem"
+		>
+			© 2025 Marwah Skincare Official Agent · AMAN · BPOM · HALAL · MUI
 		</div>
 	</div>
 </footer>
