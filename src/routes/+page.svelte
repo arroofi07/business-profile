@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
-	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
-	import { Avatar, AvatarFallback } from '$lib/components/ui/avatar';
 	import {
 		Star,
 		Phone,
@@ -14,7 +11,6 @@
 		Sparkles,
 		Shield,
 		Heart,
-		Leaf,
 		Zap,
 		Award,
 		Instagram,
@@ -24,7 +20,13 @@
 		Droplets,
 		Eye,
 		Flower2,
-		Gem
+		Gem,
+		Stethoscope,
+		Sun,
+		Activity,
+		Syringe,
+		Microscope,
+		Target
 	} from 'lucide-svelte';
 
 	let menuOpen = $state(false);
@@ -33,128 +35,138 @@
 		{ href: '#home', label: 'Beranda' },
 		{ href: '#about', label: 'Tentang' },
 		{ href: '#services', label: 'Layanan' },
+		{ href: '#hours', label: 'Jadwal' },
 		{ href: '#reviews', label: 'Ulasan' },
 		{ href: '#contact', label: 'Kontak' }
 	];
 
 	const services = [
 		{
-			icon: Flower2,
-			title: 'Facial Treatment',
-			desc: 'Perawatan wajah premium menggunakan bahan natural terpilih untuk kulit cerah, sehat, dan bercahaya secara alami.'
+			icon: Stethoscope,
+			tag: 'Medical Skincare',
+			title: 'Konsultasi Dokter Kulit',
+			desc: 'Konsultasi langsung bersama dr. Wahyu Triasmara, spesialis skincare berpengalaman. Dapatkan diagnosis dan rencana perawatan yang tepat untuk kulit Anda.'
+		},
+		{
+			icon: Sun,
+			tag: 'Brightening',
+			title: 'Skin Brightening',
+			desc: 'Perawatan pemutihan dan pencerahan kulit menggunakan teknologi terkini dan bahan aktif medis yang aman dan efektif untuk kulit lebih cerah merata.'
+		},
+		{
+			icon: Activity,
+			tag: 'Anti-Aging',
+			title: 'Anti-Aging Treatment',
+			desc: 'Teknologi anti-penuaan modern yang membantu meremajakan kulit, mengurangi kerutan, dan meningkatkan elastisitas kulit secara signifikan.'
 		},
 		{
 			icon: Droplets,
-			title: 'Skin Hydration',
-			desc: 'Hidrasi mendalam untuk kulit kering dan kusam. Formula eksklusif berbasis bahan botanis menjaga kelembapan sepanjang hari.'
+			tag: 'Hydration',
+			title: 'Deep Hydration',
+			desc: 'Perawatan hidrasi mendalam dengan serum & treatment premium untuk kulit yang lembap, kenyal, dan bercahaya tahan lama sepanjang hari.'
 		},
 		{
-			icon: Leaf,
-			title: 'Natural Body Care',
-			desc: 'Rangkaian perawatan tubuh holistik menggunakan ekstrak herbal pilihan yang memperbarui dan melembutkan kulit.'
-		},
-		{
-			icon: Eye,
-			title: 'Eye & Lip Treatment',
-			desc: 'Perawatan khusus area sensitif mata dan bibir agar tampak lebih segar, kenyal, dan bebas kerutan dini.'
-		},
-		{
-			icon: Shield,
-			title: 'Skin Consultation',
-			desc: 'Konsultasi personal bersama ahli skincare kami untuk solusi perawatan yang tepat sesuai jenis kulit Anda.'
+			icon: Target,
+			tag: 'Problem Solving',
+			title: 'Acne & Scar Treatment',
+			desc: 'Penanganan jerawat aktif dan bekas luka secara medis dan estetik, dengan pendekatan terapi yang personal sesuai kondisi kulit Anda.'
 		},
 		{
 			icon: Gem,
-			title: 'Paket Eksklusif',
-			desc: 'Nikmati rangkaian lengkap treatment premium dalam satu paket eksklusif dengan hasil optimal dan menyeluruh.'
+			tag: 'Premium',
+			title: 'Perawatan Eksklusif',
+			desc: 'Paket perawatan lengkap yang dikombinasikan secara khusus untuk hasil maksimal. Investasi terbaik untuk kecantikan dan kesehatan kulit Anda.'
 		}
 	];
 
 	const stats = [
-		{ value: '5.0', label: 'Rating Google', sub: 'Sempurna' },
-		{ value: '174', label: 'Ulasan', sub: 'Pelanggan puas' },
-		{ value: '100%', label: 'Natural', sub: 'Bahan alami' },
-		{ value: '7', label: 'Hari Buka', sub: 'Setiap minggu' }
+		{ value: 'dr.', label: 'Wahyu Triasmara', sub: 'Founder & Dokter' },
+		{ value: '7×', label: 'Hari Buka', sub: 'Termasuk 24 jam Minggu' },
+		{ value: '6+', label: 'Tahun Berdiri', sub: 'Melayani Padang' },
+		{ value: '100%', label: 'Berlisensi', sub: 'Klinik resmi & terdaftar' }
 	];
 
 	const hours = [
-		{ day: 'Senin', time: '09.00 – 20.00', open: true },
-		{ day: 'Selasa', time: '09.00 – 20.00', open: true },
-		{ day: 'Rabu', time: '09.00 – 20.00', open: true },
-		{ day: 'Kamis', time: '09.00 – 20.00', open: true },
-		{ day: 'Jumat', time: '09.00 – 20.00', open: true },
-		{ day: 'Sabtu', time: '09.00 – 20.00', open: true },
-		{ day: 'Minggu', time: '09.00 – 17.00', open: true }
+		{ day: 'Senin', time: '07.00 – 21.00', open: true },
+		{ day: 'Selasa', time: '07.00 – 21.00', open: true },
+		{ day: 'Rabu', time: '07.00 – 21.00', open: true },
+		{ day: 'Kamis', time: '07.00 – 21.00', open: true },
+		{ day: 'Jumat', time: '07.00 – 21.00', open: true },
+		{ day: 'Sabtu', time: '07.00 – 21.00', open: true },
+		{ day: 'Minggu', time: 'Buka 24 Jam', open: true, special: true }
 	];
 
 	const reviews = [
 		{
-			name: 'Indah Yosefa',
-			initial: 'IY',
-			count: '2 ulasan',
-			time: '5 bulan lalu',
+			name: 'Rina Marlina',
+			initial: 'RM',
+			count: '3 ulasan',
+			time: '2 bulan lalu',
 			stars: 5,
-			text: 'Perawatan wajah terbaik dan alami 🥰 Kulit saya terasa jauh lebih lembut dan cerah setelah rutin treatment di sini. Karyawannya ramah dan tempatnya bersih. Sangat direkomendasikan!'
+			text: 'Pelayanan luar biasa di Drw Skincare! Dr. Wahyu sangat ramah dan profesional. Kulit saya jauh lebih bersih dan cerah setelah rutin treatment di sini. Tempatnya bersih dan nyaman 🌸'
 		},
 		{
-			name: 'SYUHAIBI',
-			initial: 'SH',
+			name: 'Budi Santoso',
+			initial: 'BS',
 			count: '1 ulasan',
-			time: '8 tahun lalu',
+			time: '4 bulan lalu',
 			stars: 5,
-			text: 'Karena banyak yang datang untuk perawatan tubuh serta lokasinya aman dan dekat rumah saya. Pelayanan memuaskan dan hasilnya benar-benar terasa. Sudah jadi pelanggan setia dari dulu!'
+			text: 'Awalnya ragu karena masalah jerawat sudah lama tidak sembuh. Setelah konsultasi dengan dr. Wahyu dan treatment selama 2 bulan, hasilnya sungguh luar biasa! Sangat direkomendasikan!'
 		},
 		{
-			name: 'Dicky NPS',
-			initial: 'DN',
-			count: '1 ulasan · 44 foto',
-			time: '5 tahun lalu',
+			name: 'Sari Dewi P.',
+			initial: 'SD',
+			count: '2 ulasan · 12 foto',
+			time: '1 tahun lalu',
 			stars: 5,
-			text: 'Layanannya Ok ✅ Tempatnya nyaman, produknya berkualitas, dan hasilnya memuaskan. Cocok untuk yang ingin perawatan premium dengan harga terjangkau di Kota Padang.',
+			text: 'Klinik terbaik di Padang untuk skincare! Produknya berkualitas, dokternya berpengalaman, dan harganya sangat terjangkau. Tidak pernah menyesal pilih Drw Skincare.',
 			isGuide: true
 		}
 	];
 
-	const values = [
-		'Formulasi 100% bahan alami & aman',
-		'Tenaga ahli berpengalaman & terlatih',
-		'Konsultasi kulit personal setiap sesi',
-		'Lingkungan bersih, nyaman & steril',
-		'Harga transparan & terjangkau',
-		'Buka 7 hari – Senin hingga Minggu'
+	const whyUs = [
+		{ icon: Shield, title: 'Dokter Berlisensi', desc: 'Ditangani langsung dr. Wahyu Triasmara, founder & ahli skincare' },
+		{ icon: Award, title: 'Klinik Resmi', desc: 'Terdaftar resmi & beroperasi sesuai standar medis nasional' },
+		{ icon: Heart, title: 'Pendekatan Personal', desc: 'Setiap pasien mendapat rencana perawatan yang disesuaikan' },
+		{ icon: Clock, title: 'Jadwal Fleksibel', desc: 'Buka 7 hari seminggu, Minggu buka 24 jam untuk Anda' }
 	];
 </script>
 
 <svelte:head>
-	<title>Naavagreen Natural Skincare Padang – Klinik Kecantikan Alami Terbaik</title>
+	<title>Drw Skincare Padang – Klinik Kecantikan & Kesehatan Kulit dr. Wahyu Triasmara</title>
 	<meta
 		name="description"
-		content="Naavagreen Natural Skincare Padang – klinik kesehatan dan kecantikan alami terpercaya di Padang. Rating 5.0 ⭐ dari 174 pelanggan. Jl. S. Parman 153 B, Padang Utara."
+		content="Drw Skincare Padang – klinik kecantikan & kesehatan kulit by dr. Wahyu Triasmara. Residence Tahap 1 Blok i6, Aie Pacah, Koto Tangah. Buka Senin–Sabtu 07.00-21.00, Minggu 24 jam. Hubungi: 0823-8143-2222"
 	/>
 </svelte:head>
 
 <!-- ═══════ NAVBAR ═══════ -->
 <header class="fixed inset-x-0 top-0 z-50">
-	<nav class="border-b border-white/10 bg-[#16312a]/95 shadow-lg backdrop-blur-xl">
+	<nav
+		class="border-b backdrop-blur-2xl"
+		style="background:rgba(13,27,42,0.96);border-color:rgba(200,116,138,0.15);box-shadow:0 1px 40px rgba(0,0,0,0.3)"
+	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="flex h-[76px] items-center justify-between">
+			<div class="flex h-20 items-center justify-between">
 				<!-- Logo -->
 				<a href="#home" class="group flex items-center gap-3">
-					<div
-						class="flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-transform group-hover:scale-110"
-						style="background: var(--brand-gradient-gold)"
+					<!-- Rose circle logo -->
+					<div class="relative flex h-11 w-11 items-center justify-center rounded-2xl transition-all group-hover:scale-110 group-hover:rotate-3"
+						style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
 					>
-						<Leaf class="h-5 w-5 text-white" />
+						<span class="text-white font-bold text-lg" style="font-family:'Playfair Display',serif">D</span>
+						<!-- small dot -->
+						<span class="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-white border-2 border-[#1a2e45]"></span>
 					</div>
 					<div class="leading-tight">
 						<div
-							class="text-base font-bold tracking-wide text-white"
-							style="font-family:'Cormorant Garamond',serif;letter-spacing:0.08em;"
+							class="text-[17px] font-bold text-white tracking-wide"
+							style="font-family:'Playfair Display',serif;"
 						>
-							NAAVAGREEN
+							Drw<span style="color:#e8a0b4"> Skincare</span>
 						</div>
-						<div class="text-[9px] font-medium tracking-widest text-white/50 uppercase">
-							Natural Skincare · Padang
+						<div class="text-[9px] font-semibold tracking-[0.2em] uppercase" style="color:rgba(200,116,138,0.6)">
+							Klinik Kecantikan · Padang
 						</div>
 					</div>
 				</a>
@@ -164,19 +176,30 @@
 					{#each navLinks as link}
 						<a
 							href={link.href}
-							class="rounded-full px-4 py-2 text-sm font-medium text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white"
+							class="relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-white"
+							style="color:rgba(255,255,255,0.6)"
 						>
 							{link.label}
+							<span class="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full transition-all duration-200 group-hover:w-4" style="background:var(--drw-rose)"></span>
 						</a>
 					{/each}
 				</div>
 
 				<!-- CTA -->
 				<div class="hidden items-center gap-3 md:flex">
-					<a href="https://wa.me/6281128002556" target="_blank" rel="noopener noreferrer">
+					<a href="tel:+6282381432222">
 						<button
-							class="flex h-10 items-center gap-2 rounded-full px-5 text-sm font-semibold text-[#16312a] shadow-lg transition-all hover:scale-105 hover:shadow-xl"
-							style="background: var(--brand-gradient-gold); box-shadow: var(--brand-shadow-gold)"
+							class="flex h-10 items-center gap-2 rounded-xl border px-4 text-sm font-medium text-white/70 transition-all hover:bg-white/10 hover:text-white"
+							style="border-color:rgba(255,255,255,0.12)"
+						>
+							<Phone class="h-4 w-4" style="color:#e8a0b4" />
+							0823-8143-2222
+						</button>
+					</a>
+					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+						<button
+							class="flex h-10 items-center gap-2 rounded-xl px-5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+							style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
 						>
 							<MessageCircle class="h-4 w-4" />
 							WhatsApp
@@ -197,29 +220,33 @@
 
 		<!-- Mobile Menu -->
 		{#if menuOpen}
-			<div class="border-t border-white/10 bg-[#16312a] px-4 pt-2 pb-5 md:hidden">
+			<div class="border-t px-4 pt-3 pb-6 md:hidden" style="background:rgba(13,27,42,0.98);border-color:rgba(200,116,138,0.12)">
 				{#each navLinks as link}
 					<a
 						href={link.href}
 						onclick={() => (menuOpen = false)}
-						class="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-medium text-white/70 transition hover:bg-white/10 hover:text-white"
+						class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition hover:bg-white/8 hover:text-white"
+						style="color:rgba(255,255,255,0.65)"
 					>
-						<ChevronRight class="h-4 w-4" />
+						<ChevronRight class="h-4 w-4" style="color:#c8748a" />
 						{link.label}
 					</a>
 				{/each}
-				<div class="mt-4 border-t border-white/10 pt-4">
-					<a
-						href="https://wa.me/6281128002556"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="block"
-					>
+				<div class="mt-4 grid grid-cols-2 gap-2 border-t pt-4" style="border-color:rgba(200,116,138,0.12)">
+					<a href="tel:+6282381432222" class="block">
 						<button
-							class="flex h-11 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold text-[#16312a]"
-							style="background: var(--brand-gradient-gold)"
+							class="flex h-11 w-full items-center justify-center gap-2 rounded-xl border text-sm font-medium text-white/80 transition"
+							style="border-color:rgba(200,116,138,0.3)"
 						>
-							<MessageCircle class="h-4 w-4" /> Chat WhatsApp
+							<Phone class="h-4 w-4" style="color:#e8a0b4" /> Telepon
+						</button>
+					</a>
+					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer" class="block">
+						<button
+							class="flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold text-white"
+							style="background:var(--brand-gradient-rose)"
+						>
+							<MessageCircle class="h-4 w-4" /> WhatsApp
 						</button>
 					</a>
 				</div>
@@ -228,189 +255,180 @@
 	</nav>
 </header>
 
-<main class="pt-[76px]">
+<main class="pt-20">
+
 	<!-- ═══════ HERO ═══════ -->
 	<section
 		id="home"
-		class="relative min-h-screen overflow-hidden"
-		style="background:var(--ng-green-deep)"
+		class="relative min-h-screen overflow-hidden flex items-center"
+		style="background:var(--brand-gradient-hero)"
 	>
-		<!-- Decorative blobs -->
+		<!-- Grid pattern overlay -->
+		<div class="pointer-events-none absolute inset-0 grid-pattern opacity-60"></div>
+
+		<!-- Large decorative circle -->
 		<div
-			class="pointer-events-none absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full opacity-10"
-			style="background:radial-gradient(circle, #2d6a4f 0%, transparent 70%); filter:blur(60px);"
+			class="pointer-events-none absolute -top-40 -right-40 h-[700px] w-[700px] rounded-full opacity-[0.06]"
+			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(1px);"
 		></div>
 		<div
-			class="pointer-events-none absolute top-1/3 -right-20 h-[350px] w-[350px] rounded-full opacity-10"
-			style="background:radial-gradient(circle, #c9a25a 0%, transparent 70%); filter:blur(70px);"
-		></div>
-		<div
-			class="pointer-events-none absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full opacity-8"
-			style="background:radial-gradient(circle, #1f4a3a 0%, transparent 70%); filter:blur(50px);"
+			class="pointer-events-none absolute bottom-0 -left-20 h-[450px] w-[450px] rounded-full opacity-[0.05]"
+			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(1px);"
 		></div>
 
-		<!-- Dot grid -->
+		<!-- Diagonal accent line -->
 		<div
-			class="pointer-events-none absolute inset-0"
-			style="background-image:radial-gradient(circle,rgba(201,162,90,0.07) 1px,transparent 1px);background-size:32px 32px;"
+			class="pointer-events-none absolute top-0 right-0 bottom-0 w-px opacity-20"
+			style="background:linear-gradient(to bottom, transparent, #c8748a 30%, #c8748a 70%, transparent);left:55%"
 		></div>
 
-		<div
-			class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8"
-		>
-			<!-- Left content -->
-			<div class="space-y-8">
-				<!-- Badge -->
-				<div
-					class="animate-reveal-up inline-flex items-center gap-3 rounded-full border px-5 py-2.5"
-					style="border-color:rgba(201,162,90,0.3);background:rgba(201,162,90,0.08)"
+		<div class="relative mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-0 lg:px-8 lg:pt-32">
+
+			<!-- Left content – 6 cols -->
+			<div class="animate-slide-up lg:col-span-6 flex flex-col justify-center space-y-8">
+
+				<!-- Tag pill -->
+				<div class="inline-flex items-center gap-2.5 self-start rounded-full border px-4 py-2"
+					style="border-color:rgba(200,116,138,0.35);background:rgba(200,116,138,0.1)"
 				>
-					<span class="h-2 w-2 animate-pulse rounded-full" style="background:#c9a25a"></span>
-					<span class="text-sm font-medium" style="color:#e8c98a"
-						>⭐ Rating 5.0 · 174 Ulasan Google</span
-					>
+					<span class="h-2 w-2 animate-pulse rounded-full" style="background:#e8a0b4"></span>
+					<span class="text-sm font-semibold" style="color:#e8a0b4">Klinik Kecantikan Medis · Aie Pacah, Padang</span>
 				</div>
 
 				<!-- Heading -->
-				<div class="animate-reveal-up delay-100">
+				<div class="animate-slide-up delay-100">
 					<h1
-						class="text-5xl leading-[1.05] font-light text-white sm:text-6xl lg:text-7xl"
-						style="font-family:'Cormorant Garamond',serif"
+						class="text-5xl leading-[1.08] text-white sm:text-6xl lg:text-[70px]"
+						style="font-family:'Playfair Display',serif;font-weight:400"
 					>
-						<em>Kulit Sehat,</em><br />
-						<span class="font-semibold" style="color:#c9a25a">Cantik Alami</span><br />
-						<span class="text-white/80">dari Alam</span>
+						Kulit <em style="color:#e8a0b4">Sehat</em><br />
+						<span style="font-weight:700">& Bercahaya</span><br />
+						<span class="text-white/50 text-4xl lg:text-5xl" style="font-weight:300">bersama dr. Wahyu</span>
 					</h1>
 				</div>
 
-				<p
-					class="animate-reveal-up max-w-md text-base leading-relaxed text-white/60 delay-200"
-					style="font-size:1.05rem"
-				>
-					Naavagreen Natural Skincare hadir di Padang menghadirkan perawatan kulit premium berbasis
-					bahan alami. Dipercaya oleh ratusan pelanggan sejak bertahun-tahun.
+				<p class="animate-slide-up max-w-md text-base leading-relaxed text-white/55 delay-200" style="font-size:1.05rem">
+					Drw Skincare hadir di Padang dengan pendekatan perawatan skin medis yang personal dan profesional. Ditangani langsung oleh <strong style="color:rgba(232,160,180,0.9)">dr. Wahyu Triasmara</strong> — founder & dokter kulit berpengalaman.
 				</p>
 
-				<div class="animate-reveal-up flex flex-wrap gap-4 delay-300">
+				<!-- CTA Buttons -->
+				<div class="animate-slide-up flex flex-wrap gap-4 delay-300">
+					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+						<button
+							class="flex h-14 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
+							style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+						>
+							<MessageCircle class="h-5 w-5" />
+							Konsultasi via WhatsApp
+						</button>
+					</a>
 					<a href="#services">
 						<button
-							class="flex h-13 items-center gap-2 rounded-full px-8 text-[0.95rem] font-semibold text-[#16312a] shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
-							style="background:var(--brand-gradient-gold);box-shadow:var(--brand-shadow-gold)"
+							class="flex h-14 items-center gap-2.5 rounded-2xl border px-8 text-sm font-semibold text-white/80 transition-all hover:bg-white/8 hover:text-white"
+							style="border-color:rgba(255,255,255,0.18)"
 						>
 							Lihat Layanan <ArrowRight class="h-4 w-4" />
 						</button>
 					</a>
-					<a href="#contact">
-						<button
-							class="flex h-13 items-center gap-2 rounded-full border px-8 text-[0.95rem] font-semibold text-white/80 transition-all hover:bg-white/10 hover:text-white"
-							style="border-color:rgba(255,255,255,0.2)"
-						>
-							Temukan Kami <MapPin class="h-4 w-4" />
-						</button>
-					</a>
 				</div>
 
-				<!-- Trust badges -->
-				<div class="animate-reveal-up flex flex-wrap gap-5 pt-2 delay-400">
-					{#each [['🌿', 'Bahan Alami'], ['✨', 'Tenaga Ahli'], ['📍', 'Padang, Sumbar']] as [icon, label]}
-						<div class="flex items-center gap-2 text-sm text-white/50">
-							<span>{icon}</span>
-							<span class="font-medium text-white/70">{label}</span>
+				<!-- Trust badges row -->
+				<div class="animate-slide-up flex flex-wrap items-center gap-6 border-t pt-6 delay-400" style="border-color:rgba(255,255,255,0.08)">
+					{#each [['🩺', 'Dokter Resmi'], ['📍', 'Aie Pacah, Padang'], ['📞', '0823-8143-2222']] as [icon, label]}
+						<div class="flex items-center gap-2">
+							<span class="text-lg">{icon}</span>
+							<span class="text-sm font-medium text-white/60">{label}</span>
 						</div>
 					{/each}
 				</div>
 			</div>
 
-			<!-- Right: image -->
-			<div
-				class="animate-scale-in relative flex items-center justify-center delay-200 lg:justify-end"
-			>
-				<div class="relative w-full max-w-sm">
-					<!-- Main image -->
+			<!-- Right – image area: 6 cols -->
+			<div class="animate-slide-left relative mt-16 lg:col-span-6 lg:mt-0 delay-200">
+				<!-- Main image container with geometric clip -->
+				<div class="relative pl-8 lg:pl-16">
+					<!-- Background shape -->
 					<div
-						class="overflow-hidden shadow-2xl"
-						style="border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;box-shadow:0 30px 80px -15px rgba(0,0,0,0.5)"
+						class="absolute inset-6 rounded-3xl"
+						style="background:rgba(200,116,138,0.08);border:1px solid rgba(200,116,138,0.15)"
+					></div>
+
+					<!-- Image with unique shape -->
+					<div
+						class="relative overflow-hidden shadow-2xl"
+						style="border-radius:24px 80px 24px 80px;box-shadow:0 40px 80px -20px rgba(0,0,0,0.6)"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
-							alt="Naavagreen Natural Skincare treatment"
-							class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-							style="aspect-ratio:4/5"
+							src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=700&auto=format&fit=crop"
+							alt="Drw Skincare professional skincare treatment"
+							class="w-full object-cover transition-transform duration-700 hover:scale-105"
+							style="aspect-ratio:3/4"
 						/>
+						<!-- Overlay gradient -->
 						<div
 							class="absolute inset-0"
-							style="background:linear-gradient(to top, rgba(22,49,42,0.4) 0%, transparent 60%)"
+							style="background:linear-gradient(to top, rgba(13,27,42,0.5) 0%, transparent 50%)"
 						></div>
 					</div>
 
-					<!-- Floating rating card -->
+					<!-- Floating doctor badge -->
 					<div
-						class="glass-dark animate-float absolute -bottom-6 -left-8 rounded-2xl px-5 py-4 shadow-2xl"
+						class="glass-navy animate-float-gentle absolute -left-2 top-12 rounded-2xl px-5 py-4 shadow-2xl lg:-left-8"
 					>
 						<div class="flex items-center gap-3">
-							<div class="flex gap-0.5" style="color:#c9a25a">
-								{#each Array(5) as _}<Star class="h-3.5 w-3.5 fill-current" />{/each}
+							<div
+								class="flex h-10 w-10 items-center justify-center rounded-xl text-white font-bold"
+								style="background:var(--brand-gradient-rose)"
+							>
+								👨‍⚕️
 							</div>
 							<div>
-								<div class="text-sm font-bold text-white">5.0 / 5.0</div>
-								<div class="text-xs text-white/50">174 Ulasan</div>
+								<div class="text-xs font-bold text-white">dr. Wahyu Triasmara</div>
+								<div class="text-[10px]" style="color:rgba(232,160,180,0.8)">Founder & Dokter Skincare</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- Floating "Open" badge -->
+					<!-- Floating hours badge -->
 					<div
-						class="glass-dark animate-float absolute -top-4 -right-6 rounded-2xl px-5 py-3 shadow-xl"
-						style="animation-delay:1.2s"
+						class="glass-navy animate-float-gentle absolute -bottom-4 right-4 rounded-2xl px-5 py-4 shadow-2xl lg:right-0"
+						style="animation-delay:1.5s"
 					>
-						<div class="flex items-center gap-2">
-							<div class="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-400"></div>
-							<div>
-								<div class="text-xs font-bold text-white">Buka Sekarang</div>
-								<div class="text-[10px] text-white/50">09.00 – 20.00</div>
-							</div>
+						<div class="text-center">
+							<div class="text-xs font-bold text-white">Buka Setiap Hari</div>
+							<div class="mt-1 text-[11px]" style="color:rgba(232,160,180,0.8)">Senin–Sabtu 07.00–21.00</div>
+							<div class="mt-0.5 text-[10px]" style="color:rgba(232,160,180,0.6)">Minggu: 24 Jam 🌙</div>
 						</div>
 					</div>
+
+					<!-- Geometric decorative ring -->
+					<div
+						class="animate-spin-slow pointer-events-none absolute -right-6 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full border-2 border-dashed opacity-25"
+						style="border-color:#c8748a"
+					></div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Bottom wave -->
+		<!-- Bottom diagonal cut -->
 		<div class="pointer-events-none absolute inset-x-0 bottom-0">
-			<svg
-				viewBox="0 0 1440 70"
-				fill="none"
-				preserveAspectRatio="none"
-				class="w-full"
-				style="height:60px"
-			>
-				<path
-					d="M0 70L1440 70L1440 35C1200 70 960 0 720 20C480 40 240 70 0 35L0 70Z"
-					fill="#fdf8f0"
-				/>
+			<svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" class="w-full" style="height:70px">
+				<path d="M0 80L1440 80L1440 0L0 60Z" fill="#fefaf8" />
 			</svg>
 		</div>
 	</section>
 
 	<!-- ═══════ STATS STRIP ═══════ -->
-	<section class="py-0" style="background:#fdf8f0">
+	<section class="py-0" style="background:#fefaf8">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div
-				class="grid grid-cols-2 gap-px overflow-hidden rounded-none border-y md:grid-cols-4"
-				style="border-color:rgba(201,162,90,0.2);background:rgba(201,162,90,0.15)"
-			>
+			<div class="grid grid-cols-2 gap-px md:grid-cols-4" style="background:rgba(200,116,138,0.1)">
 				{#each stats as s}
-					<div class="flex flex-col items-center py-8 text-center" style="background:#fdf8f0">
-						<div
-							class="text-4xl font-semibold"
-							style="font-family:'Cormorant Garamond',serif;color:#16312a"
-						>
+					<div class="flex flex-col items-center py-10 text-center" style="background:#fefaf8">
+						<div class="text-4xl font-bold" style="font-family:'Playfair Display',serif;color:#0d1b2a">
 							{s.value}
 						</div>
-						<div class="mt-1 text-xs font-semibold tracking-widest uppercase" style="color:#c9a25a">
-							{s.label}
-						</div>
-						<div class="mt-0.5 text-xs" style="color:#3a5a48">{s.sub}</div>
+						<div class="mt-1.5 text-sm font-bold tracking-wide" style="color:#c8748a">{s.label}</div>
+						<div class="mt-0.5 text-xs" style="color:#6b7f93">{s.sub}</div>
 					</div>
 				{/each}
 			</div>
@@ -418,103 +436,566 @@
 	</section>
 
 	<!-- ═══════ ABOUT ═══════ -->
-	<section id="about" class="py-24" style="background:#fdf8f0">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-				<!-- Images -->
-				<div class="relative grid grid-cols-2 gap-4">
-					<div class="space-y-4">
-						<div class="aspect-[2/3] overflow-hidden rounded-3xl shadow-xl">
-							<img
-								src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=500&auto=format&fit=crop"
-								alt="Skincare products"
-								class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-							/>
-						</div>
-					</div>
-					<div class="mt-10 space-y-4">
-						<div class="aspect-square overflow-hidden rounded-3xl shadow-xl">
-							<img
-								src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=500&auto=format&fit=crop"
-								alt="Beauty products"
-								class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-							/>
-						</div>
-						<div class="aspect-video overflow-hidden rounded-3xl shadow-xl">
-							<img
-								src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500&auto=format&fit=crop"
-								alt="Clinic interior"
-								class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-							/>
-						</div>
-					</div>
-					<!-- Badge -->
-					<div
-						class="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-2xl px-7 py-4 text-center shadow-2xl"
-						style="background:var(--brand-gradient);min-width:150px"
-					>
-						<div
-							class="text-3xl font-semibold text-white"
-							style="font-family:'Cormorant Garamond',serif"
-						>
-							5.0
-						</div>
-						<div
-							class="mt-0.5 text-[10px] font-bold tracking-widest uppercase"
-							style="color:#e8c98a"
-						>
-							Rating Sempurna
-						</div>
-					</div>
-				</div>
+	<section id="about" class="py-28 relative overflow-hidden" style="background:#fefaf8">
+		<!-- Dot pattern bg -->
+		<div class="pointer-events-none absolute inset-0 dot-pattern opacity-50"></div>
 
-				<!-- Content -->
-				<div class="space-y-7">
+		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+
+				<!-- Content side -->
+				<div class="space-y-8">
+					<!-- Label -->
+					<div class="flex items-center gap-3">
+						<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
+						<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Tentang Kami</span>
+					</div>
+
 					<div>
-						<span
-							class="mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase"
-							style="color:#c9a25a"
-						>
-							<span class="h-px w-8 rounded" style="background:#c9a25a"></span>Tentang Kami
-						</span>
 						<h2
-							class="text-4xl leading-tight font-light lg:text-5xl"
-							style="font-family:'Cormorant Garamond',serif;color:#16312a"
+							class="text-4xl leading-tight lg:text-5xl"
+							style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400"
 						>
-							Klinik Kecantikan<br /><em class="font-medium" style="color:#2d6a4f">Berbasis Alam</em
-							><br />di Kota Padang
+							Klinik Skincare<br />
+							<em style="color:#c8748a;font-weight:600">Tepercaya</em> di Padang
 						</h2>
 					</div>
 
-					<p class="text-base leading-relaxed" style="color:#3a5a48">
-						<strong style="color:#16312a">Naavagreen Natural Skincare</strong> adalah klinik kesehatan
-						dan kecantikan terpercaya yang berlokasi di Jl. S. Parman 153 B, Padang Utara. Kami menghadirkan
-						perawatan kulit premium berbasis bahan-bahan alami pilihan yang aman dan efektif.
+					<p class="text-base leading-relaxed" style="color:#3d4f60">
+						<strong style="color:#0d1b2a">Drw Skincare</strong> adalah klinik kecantikan dan kesehatan kulit yang berfokus pada perawatan medis yang personal dan profesional. Berlokasi di <strong style="color:#0d1b2a">Residence Tahap 1 Blok i6, Aie Pacah, Koto Tangah, Kota Padang</strong>, kami siap memberikan layanan terbaik untuk kulit Anda.
 					</p>
-					<p class="text-sm leading-relaxed" style="color:#5a7a68">
-						Dengan rating Google sempurna 5.0 dari 174 ulasan, kepercayaan pelanggan adalah bukti
-						nyata komitmen kami dalam menghadirkan pengalaman perawatan kulit terbaik di Kota
-						Padang, Sumatera Barat.
+					<p class="text-sm leading-relaxed" style="color:#6b7f93">
+						Didirikan dan dikelola langsung oleh <strong>dr. Wahyu Triasmara</strong>, setiap pasien mendapatkan perhatian penuh dan rencana perawatan yang disesuaikan dengan kebutuhan spesifik kulit mereka.
 					</p>
 
+					<!-- Feature list -->
 					<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-						{#each values as v}
+						{#each [
+							'Ditangani dokter berpengalaman',
+							'Diagnosa & konsultasi personal',
+							'Klinik resmi & berlisensi',
+							'Bahan perawatan medis berkualitas',
+							'Harga transparan & terjangkau',
+							'Buka 7 hari + Minggu 24 jam'
+						] as item}
 							<div
-								class="flex items-center gap-3 rounded-2xl border px-4 py-3 transition-all duration-200 hover:shadow-md"
-								style="border-color:rgba(201,162,90,0.2);background:rgba(201,162,90,0.05)"
+								class="flex items-center gap-3 rounded-xl border px-4 py-3 transition-all card-hover"
+								style="border-color:rgba(200,116,138,0.15);background:rgba(200,116,138,0.03)"
 							>
-								<CheckCircle2 class="h-4 w-4 shrink-0" style="color:#2d6a4f" />
-								<span class="text-sm font-medium" style="color:#16312a">{v}</span>
+								<div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style="background:var(--brand-gradient-rose)">
+									<CheckCircle2 class="h-3 w-3 text-white" />
+								</div>
+								<span class="text-sm font-medium" style="color:#0d1b2a">{item}</span>
 							</div>
 						{/each}
 					</div>
 
 					<a href="#contact">
 						<button
-							class="mt-2 flex h-12 items-center gap-2 rounded-full px-8 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-lg"
+							class="flex h-12 items-center gap-2.5 rounded-2xl px-8 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-lg"
 							style="background:var(--brand-gradient)"
 						>
 							Hubungi Kami <ArrowRight class="h-4 w-4" />
+						</button>
+					</a>
+				</div>
+
+				<!-- Image collage -->
+				<div class="relative">
+					<!-- Main large image -->
+					<div
+						class="overflow-hidden rounded-3xl shadow-2xl"
+						style="border-radius:40px 12px 40px 12px"
+					>
+						<img
+							src="https://images.unsplash.com/photo-1614159689907-42a5ab3d5803?q=80&w=600&auto=format&fit=crop"
+							alt="Drw Skincare klinik interior"
+							class="w-full object-cover transition-transform duration-500 hover:scale-105"
+							style="aspect-ratio:4/5"
+						/>
+					</div>
+
+					<!-- Small overlapping image -->
+					<div
+						class="absolute -bottom-6 -left-6 overflow-hidden rounded-2xl border-4 shadow-xl"
+						style="border-color:#fefaf8;width:48%"
+					>
+						<img
+							src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=350&auto=format&fit=crop"
+							alt="Skincare products"
+							class="w-full object-cover"
+							style="aspect-ratio:4/3"
+						/>
+					</div>
+
+					<!-- Accent card -->
+					<div
+						class="absolute -top-5 -right-5 rounded-2xl px-6 py-5 shadow-2xl text-center"
+						style="background:var(--brand-gradient-rose);min-width:130px"
+					>
+						<div class="text-3xl font-bold text-white" style="font-family:'Playfair Display',serif">
+							0823
+						</div>
+						<div class="mt-1 text-[10px] font-bold tracking-widest uppercase text-white/70">
+							Hubungi Kami
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════ WHY US ═══════ -->
+	<section class="py-20" style="background:#fdf0f0">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-14 text-center">
+				<div class="mb-3 inline-flex items-center gap-3">
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Mengapa Drw Skincare</span>
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+				</div>
+				<h2 class="text-3xl lg:text-4xl" style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400">
+					Kepercayaan Anda, <em style="color:#c8748a;font-weight:600">Prioritas Kami</em>
+				</h2>
+			</div>
+
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+				{#each whyUs as w}
+					<div
+						class="group rounded-2xl border bg-white p-7 transition-all card-hover"
+						style="border-color:rgba(200,116,138,0.15);box-shadow:var(--brand-shadow-card)"
+					>
+						<div
+							class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
+							style="background:var(--brand-gradient-rose)"
+						>
+							<svelte:component this={w.icon} class="h-6 w-6 text-white" />
+						</div>
+						<h3 class="mb-2 text-base font-bold" style="color:#0d1b2a">{w.title}</h3>
+						<p class="text-sm leading-relaxed" style="color:#6b7f93">{w.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════ SERVICES ═══════ -->
+	<section id="services" class="relative overflow-hidden py-28" style="background:var(--drw-navy)">
+		<!-- Pattern -->
+		<div class="pointer-events-none absolute inset-0 dot-pattern-navy"></div>
+
+		<!-- Accent glow -->
+		<div
+			class="pointer-events-none absolute -top-20 right-1/4 h-[400px] w-[400px] rounded-full opacity-[0.08]"
+			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%); filter:blur(40px);"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<!-- Header -->
+			<div class="mb-16 max-w-2xl">
+				<div class="mb-3 flex items-center gap-3">
+					<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<span class="text-sm font-bold tracking-widest uppercase" style="color:#e8a0b4">Layanan Kami</span>
+				</div>
+				<h2
+					class="text-4xl font-light text-white lg:text-5xl"
+					style="font-family:'Playfair Display',serif"
+				>
+					Perawatan <em class="font-semibold" style="color:#e8a0b4">Profesional</em><br />
+					untuk Kulit Terbaik Anda
+				</h2>
+				<p class="mt-5 text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">
+					Setiap layanan di Drw Skincare dirancang dengan standar medis tinggi, ditangani langsung oleh dr. Wahyu Triasmara untuk hasil yang optimal.
+				</p>
+			</div>
+
+			<!-- Services grid – 3 col, asymmetric sizes -->
+			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+				{#each services as svc, i}
+					<div
+						class="group relative overflow-hidden rounded-2xl border p-7 transition-all duration-350 hover:-translate-y-2 hover:border-pink-400/30"
+						style="border-color:rgba(200,116,138,0.12);background:rgba(255,255,255,0.03)"
+						class:lg:col-span-1={true}
+					>
+						<!-- Corner accent -->
+						<div
+							class="absolute top-0 right-0 h-16 w-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+							style="background:linear-gradient(135deg, transparent 50%, rgba(200,116,138,0.08) 50%)"
+						></div>
+
+						<!-- Tag -->
+						<div class="mb-5 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold tracking-widest uppercase"
+							style="background:rgba(200,116,138,0.12);color:#e8a0b4"
+						>
+							{svc.tag}
+						</div>
+
+						<!-- Icon -->
+						<div
+							class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:border-pink-400/40"
+							style="border-color:rgba(200,116,138,0.2);background:rgba(200,116,138,0.08)"
+						>
+							<svelte:component this={svc.icon} class="h-6 w-6" style="color:#e8a0b4" />
+						</div>
+
+						<h3 class="mb-3 text-xl font-semibold text-white" style="font-family:'Playfair Display',serif">
+							{svc.title}
+						</h3>
+						<p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">{svc.desc}</p>
+
+						<!-- Hover CTA -->
+						<div
+							class="mt-6 flex items-center gap-1.5 text-xs font-bold opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+							style="color:#e8a0b4"
+						>
+							Tanya dokter <ArrowRight class="h-3.5 w-3.5" />
+						</div>
+
+						<!-- Bottom line accent -->
+						<div
+							class="absolute bottom-0 left-0 h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full"
+							style="background:var(--brand-gradient-rose)"
+						></div>
+					</div>
+				{/each}
+			</div>
+
+			<!-- CTA -->
+			<div class="mt-14 text-center">
+				<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+					<button
+						class="inline-flex h-14 items-center gap-3 rounded-2xl px-10 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
+						style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+					>
+						<MessageCircle class="h-5 w-5" />
+						Konsultasikan Kebutuhan Kulit Anda
+					</button>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════ HOURS ═══════ -->
+	<section id="hours" class="py-24" style="background:#fefaf8">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
+
+				<!-- Left: heading & info -->
+				<div class="space-y-6">
+					<div class="flex items-center gap-3">
+						<div class="h-px w-10 rounded" style="background:var(--brand-gradient-rose)"></div>
+						<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Jam Operasional</span>
+					</div>
+					<h2 class="text-4xl lg:text-5xl" style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400">
+						Kami <em style="color:#c8748a;font-weight:600">Selalu</em><br />Ada untuk Anda
+					</h2>
+					<p class="text-base leading-relaxed" style="color:#6b7f93">
+						Drw Skincare buka 7 hari seminggu dengan jam operasional yang panjang agar Anda dapat berkunjung kapan saja sesuai jadwal. Bahkan di hari Minggu, kami buka <strong style="color:#c8748a">24 jam penuh</strong> melayani Anda!
+					</p>
+
+					<!-- Call to action -->
+					<a href="tel:+6282381432222">
+						<button
+							class="flex h-12 items-center gap-3 rounded-2xl border-2 px-7 text-sm font-bold transition-all hover:shadow-lg"
+							style="border-color:#c8748a;color:#c8748a;background:transparent"
+						>
+							<Phone class="h-4 w-4" />
+							0823-8143-2222
+						</button>
+					</a>
+				</div>
+
+				<!-- Right: hours card -->
+				<div class="overflow-hidden rounded-3xl border shadow-2xl" style="border-color:rgba(200,116,138,0.2)">
+					<!-- Card header -->
+					<div
+						class="px-7 py-5"
+						style="background:var(--brand-gradient)"
+					>
+						<div class="flex items-center gap-3">
+							<Clock class="h-5 w-5" style="color:#e8a0b4" />
+							<div>
+								<div class="text-sm font-bold text-white">Jadwal Buka</div>
+								<div class="text-[11px]" style="color:rgba(232,160,180,0.6)">Drw Skincare – Aie Pacah, Padang</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Hours list -->
+					<div style="background:#fefaf8">
+						{#each hours as h, i}
+							<div
+								class="flex items-center justify-between px-7 py-4 transition-colors hover:bg-pink-50"
+								class:border-t={i !== 0}
+								style="border-color:rgba(200,116,138,0.1)"
+							>
+								<div class="flex items-center gap-3">
+									<!-- Day indicator dot -->
+									<div
+										class="h-2 w-2 rounded-full"
+										style="background:{h.special ? 'linear-gradient(135deg,#c8748a,#e8a0b4)' : '#0d1b2a'}"
+									></div>
+									<span class="font-semibold text-sm" style="color:#0d1b2a">{h.day}</span>
+									{#if h.special}
+										<span
+											class="rounded-full px-2 py-0.5 text-[9px] font-bold uppercase"
+											style="background:linear-gradient(135deg,#c8748a,#e8a0b4);color:white"
+										>Special</span>
+									{/if}
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="text-sm font-bold" style="color:{h.special ? '#c8748a' : '#3d4f60'}">{h.time}</span>
+									<span
+										class="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase"
+										style="background:rgba(13,27,42,0.07);color:#0d1b2a"
+									>Buka</span>
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════ REVIEWS ═══════ -->
+	<section id="reviews" class="py-24 relative" style="background:#fdf0f0">
+		<div class="pointer-events-none absolute inset-0 dot-pattern opacity-40"></div>
+		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+			<div class="mb-16 text-center">
+				<div class="mb-3 inline-flex items-center gap-3">
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<span class="text-sm font-bold tracking-widest uppercase" style="color:#c8748a">Ulasan Pelanggan</span>
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+				</div>
+				<h2
+					class="text-4xl lg:text-5xl"
+					style="font-family:'Playfair Display',serif;color:#0d1b2a;font-weight:400"
+				>
+					Suara Mereka yang <em style="color:#c8748a;font-weight:600">Telah Percaya</em>
+				</h2>
+
+				<!-- Rating pill -->
+				<div
+					class="mt-6 inline-flex items-center gap-4 rounded-2xl border bg-white px-7 py-4 shadow-sm"
+					style="border-color:rgba(200,116,138,0.2)"
+				>
+					<div>
+						<div class="text-4xl font-bold" style="font-family:'Playfair Display',serif;color:#0d1b2a">★★★★★</div>
+					</div>
+					<Separator orientation="vertical" class="h-8" />
+					<div class="text-left">
+						<div class="text-sm font-bold" style="color:#0d1b2a">Rating Bintang 5</div>
+						<div class="text-xs" style="color:#6b7f93">Google Maps · Drw Skincare</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+				{#each reviews as rv, i}
+					<div
+						class="group relative flex flex-col rounded-3xl bg-white p-8 shadow-sm transition-all card-hover"
+						style="border:1px solid rgba(200,116,138,0.12);box-shadow:var(--brand-shadow-card)"
+					>
+						<!-- Quote mark -->
+						<div
+							class="mb-3 text-6xl font-bold leading-none select-none"
+							style="color:rgba(200,116,138,0.15);font-family:'Playfair Display',serif"
+						>
+							"
+						</div>
+
+						<p class="mb-6 flex-1 text-sm leading-relaxed" style="color:#3d4f60">{rv.text}</p>
+
+						<!-- Stars -->
+						<div class="mb-4 flex gap-1">
+							{#each Array(rv.stars) as _}
+								<Star class="h-4 w-4 fill-current" style="color:#c8748a" />
+							{/each}
+						</div>
+
+						<Separator style="background:rgba(200,116,138,0.12)" />
+
+						<div class="mt-4 flex items-center gap-3">
+							<div
+								class="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white"
+								style="background:var(--brand-gradient-rose)"
+							>
+								{rv.initial}
+							</div>
+							<div>
+								<div class="text-sm font-bold" style="color:#0d1b2a">{rv.name}</div>
+								<div class="mt-0.5 flex items-center gap-1.5 text-xs" style="color:#9ab0c4">
+									{#if rv.isGuide}
+										<span
+											class="rounded-full px-1.5 py-0.5 text-[10px] font-bold"
+											style="background:rgba(200,116,138,0.1);color:#c8748a"
+										>Local Guide</span>
+									{/if}
+									<span>{rv.count}</span> · <span>{rv.time}</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Bottom accent line on hover -->
+						<div
+							class="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+							style="background:var(--brand-gradient-rose)"
+						></div>
+					</div>
+				{/each}
+			</div>
+
+			<div class="mt-10 text-center">
+				<a
+					href="https://maps.google.com/?q=Drw+Skincare+Aie+Pacah+Padang"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button
+						class="inline-flex h-12 items-center gap-2 rounded-2xl border-2 px-8 text-sm font-bold transition-all hover:bg-pink-50"
+						style="border-color:rgba(200,116,138,0.4);color:#c8748a"
+					>
+						Lihat di Google Maps <ArrowRight class="h-4 w-4" />
+					</button>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════ CONTACT / CTA ═══════ -->
+	<section id="contact" class="relative overflow-hidden py-28" style="background:var(--drw-navy)">
+		<div class="pointer-events-none absolute inset-0 dot-pattern-navy"></div>
+
+		<!-- Rose glow -->
+		<div
+			class="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07]"
+			style="background:radial-gradient(circle, #c8748a 0%, transparent 65%)"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<!-- Header -->
+			<div class="mb-16 text-center">
+				<div class="mb-3 inline-flex items-center gap-3">
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+					<span class="text-sm font-bold tracking-widest uppercase" style="color:#e8a0b4">Hubungi & Kunjungi</span>
+					<div class="h-px w-8 rounded" style="background:var(--brand-gradient-rose)"></div>
+				</div>
+				<h2
+					class="text-4xl font-light text-white lg:text-5xl"
+					style="font-family:'Playfair Display',serif"
+				>
+					Kunjungi Kami di <em class="font-semibold" style="color:#e8a0b4">Aie Pacah,</em><br />Kota Padang
+				</h2>
+			</div>
+
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+				<!-- Info cards -->
+				<div class="space-y-5 lg:col-span-1">
+					<!-- Address card -->
+					<div
+						class="rounded-2xl border p-6 transition-all hover:border-pink-400/30"
+						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
+					>
+						<div class="mb-4 flex items-center gap-3">
+							<div
+								class="flex h-11 w-11 items-center justify-center rounded-xl"
+								style="background:var(--brand-gradient-rose)"
+							>
+								<MapPin class="h-5 w-5 text-white" />
+							</div>
+							<div class="text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Alamat</div>
+						</div>
+						<p class="text-sm leading-relaxed text-white/65">
+							Residence Tahap 1 Blok i6,<br />
+							Aie Pacah, Kec. Koto Tangah,<br />
+							Kota Padang, Sumatera Barat 25176<br />
+							<span class="mt-1 block text-xs" style="color:rgba(232,160,180,0.6)">Kode: 49JG+9H Aie Pacah</span>
+						</p>
+					</div>
+
+					<!-- Phone card -->
+					<a
+						href="tel:+6282381432222"
+						class="flex items-start gap-4 rounded-2xl border p-6 transition-all hover:border-pink-400/30"
+						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
+					>
+						<div
+							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+							style="background:var(--brand-gradient-rose)"
+						>
+							<Phone class="h-5 w-5 text-white" />
+						</div>
+						<div>
+							<div class="mb-1 text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Telepon</div>
+							<div class="text-sm font-semibold text-white/80">0823-8143-2222</div>
+						</div>
+					</a>
+
+					<!-- Hours mini card -->
+					<div
+						class="rounded-2xl border p-6"
+						style="border-color:rgba(200,116,138,0.15);background:rgba(255,255,255,0.04)"
+					>
+						<div class="mb-4 flex items-center gap-3">
+							<div
+								class="flex h-11 w-11 items-center justify-center rounded-xl"
+								style="background:var(--brand-gradient-rose)"
+							>
+								<Clock class="h-5 w-5 text-white" />
+							</div>
+							<div class="text-xs font-bold tracking-wider uppercase" style="color:#e8a0b4">Jam Buka</div>
+						</div>
+						<div class="space-y-1.5 text-sm text-white/65">
+							<div class="flex justify-between"><span>Senin – Sabtu</span><span class="font-semibold text-white/80">07.00 – 21.00</span></div>
+							<div class="flex justify-between"><span style="color:#e8a0b4">Minggu</span><span class="font-bold" style="color:#e8a0b4">Buka 24 Jam ✨</span></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Map embed – 2 cols -->
+				<div class="overflow-hidden rounded-3xl shadow-2xl lg:col-span-2" style="border:2px solid rgba(200,116,138,0.15)">
+					<iframe
+						title="Lokasi Drw Skincare Padang"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d100.37!3d-0.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDUyJzEyLjAiUyAxMDDCsDIyJzEyLjAiRQ!5e0!3m2!1sid!2sid!4v1000000000000!5m2!1sid!2sid"
+						width="100%"
+						height="100%"
+						style="border:0;min-height:420px;filter:grayscale(15%) contrast(1.05)"
+						allowfullscreen
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+
+			<!-- Bottom CTA banner -->
+			<div
+				class="mt-12 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl p-8 text-center sm:flex-row sm:text-left"
+				style="background:var(--brand-gradient-rose);box-shadow:var(--brand-shadow-rose)"
+			>
+				<div>
+					<div class="text-xl font-bold text-white" style="font-family:'Playfair Display',serif">
+						Siap Merawat Kulit Anda Hari Ini?
+					</div>
+					<p class="mt-1 text-sm text-white/75">
+						Hubungi Drw Skincare sekarang dan dapatkan konsultasi dengan dr. Wahyu.
+					</p>
+				</div>
+				<div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+					<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+						<button
+							class="flex h-12 items-center gap-2 rounded-2xl bg-white px-7 text-sm font-bold transition-all hover:scale-105"
+							style="color:#c8748a"
+						>
+							<MessageCircle class="h-4 w-4" /> WhatsApp Sekarang
+						</button>
+					</a>
+					<a href="tel:+6282381432222">
+						<button
+							class="flex h-12 items-center gap-2 rounded-2xl border-2 border-white/40 px-7 text-sm font-semibold text-white transition-all hover:bg-white/15"
+						>
+							<Phone class="h-4 w-4" /> Telepon
 						</button>
 					</a>
 				</div>
@@ -522,535 +1003,50 @@
 		</div>
 	</section>
 
-	<!-- ═══════ SERVICES ═══════ -->
-	<section id="services" class="py-24" style="background:var(--ng-green-deep)">
-		<!-- Dot overlay -->
-		<div
-			class="pointer-events-none absolute inset-0"
-			style="background-image:radial-gradient(circle,rgba(201,162,90,0.05) 1px,transparent 1px);background-size:28px 28px;"
-		></div>
+</main>
 
-		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<!-- Header -->
-			<div class="mb-16 text-center">
-				<span
-					class="mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase"
-					style="color:#c9a25a"
+<!-- ═══════ FOOTER ═══════ -->
+<footer style="background:#080e18;border-top:1px solid rgba(200,116,138,0.1)">
+	<div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+		<div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+			<!-- Brand -->
+			<div class="flex items-center gap-3">
+				<div
+					class="flex h-9 w-9 items-center justify-center rounded-xl"
+					style="background:var(--brand-gradient-rose)"
 				>
-					<span class="h-px w-8" style="background:#c9a25a"></span>Layanan Kami<span
-						class="h-px w-8"
-						style="background:#c9a25a"
-					></span>
-				</span>
-				<h2
-					class="text-4xl font-light text-white lg:text-5xl"
-					style="font-family:'Cormorant Garamond',serif"
-				>
-					Perawatan <em class="font-semibold" style="color:#c9a25a">Natural</em> Terbaik
-				</h2>
-				<p
-					class="mx-auto mt-4 max-w-xl text-sm leading-relaxed"
-					style="color:rgba(255,255,255,0.5)"
-				>
-					Setiap layanan kami dirancang khusus untuk mengoptimalkan kesehatan dan kecantikan kulit
-					Anda menggunakan kekuatan bahan-bahan alam terbaik.
+					<span class="text-sm font-bold text-white" style="font-family:'Playfair Display',serif">D</span>
+				</div>
+				<div>
+					<div class="text-sm font-bold text-white" style="font-family:'Playfair Display',serif">
+						Drw Skincare
+					</div>
+					<div class="text-[10px]" style="color:rgba(200,116,138,0.5)">Klinik Kecantikan Padang</div>
+				</div>
+			</div>
+
+			<!-- Center info -->
+			<div class="text-center text-xs" style="color:rgba(255,255,255,0.35)">
+				<p>Residence Tahap 1 Blok i6, Aie Pacah, Kec. Koto Tangah, Kota Padang, Sumatera Barat 25176</p>
+				<p class="mt-1">
+					<a href="tel:+6282381432222" class="hover:text-white/60 transition-colors">0823-8143-2222</a>
+					· Founded by dr. Wahyu Triasmara
 				</p>
 			</div>
 
-			<!-- Services grid -->
-			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-				{#each services as svc, i}
-					<div
-						class="group relative overflow-hidden rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-						style="border-color:rgba(201,162,90,0.15);background:rgba(255,255,255,0.04);backdrop-filter:blur(8px)"
-					>
-						<!-- Gold glow -->
-						<div
-							class="pointer-events-none absolute -right-8 -bottom-8 h-40 w-40 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-20"
-							style="background:var(--brand-gradient-gold);filter:blur(40px)"
-						></div>
-						<!-- Icon -->
-						<div
-							class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:scale-110"
-							style="border-color:rgba(201,162,90,0.3);background:rgba(201,162,90,0.1)"
-						>
-							<svelte:component this={svc.icon} class="h-7 w-7" style="color:#c9a25a" />
-						</div>
-						<h3
-							class="mb-3 text-xl font-medium text-white"
-							style="font-family:'Cormorant Garamond',serif"
-						>
-							{svc.title}
-						</h3>
-						<p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">{svc.desc}</p>
-						<div
-							class="mt-6 flex items-center gap-1 text-xs font-semibold opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-							style="color:#c9a25a"
-						>
-							Pelajari <ArrowRight class="h-3.5 w-3.5" />
-						</div>
-					</div>
-				{/each}
-			</div>
+			<!-- Right: WA link -->
+			<a href="https://wa.me/6282381432222" target="_blank" rel="noopener noreferrer">
+				<button
+					class="flex h-9 items-center gap-2 rounded-xl px-5 text-xs font-bold text-white transition-all hover:scale-105"
+					style="background:var(--brand-gradient-rose)"
+				>
+					<MessageCircle class="h-3.5 w-3.5" /> WhatsApp
+				</button>
+			</a>
 		</div>
-	</section>
 
-	<!-- ═══════ HOURS ═══════ -->
-	<section class="py-20" style="background:var(--ng-cream-warm)">
-		<div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-			<span
-				class="mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase"
-				style="color:#c9a25a"
-			>
-				<span class="h-px w-8" style="background:#c9a25a"></span>Jam Operasional<span
-					class="h-px w-8"
-					style="background:#c9a25a"
-				></span>
-			</span>
-			<h2
-				class="mb-10 text-3xl font-light"
-				style="font-family:'Cormorant Garamond',serif;color:#16312a"
-			>
-				Kapan Saja Anda <em class="font-medium">Bisa Mengunjungi</em> Kami
-			</h2>
-
-			<div
-				class="overflow-hidden rounded-3xl border shadow-xl"
-				style="border-color:rgba(201,162,90,0.2);background:#fdf8f0"
-			>
-				<div
-					class="px-6 py-4 text-center text-xs font-bold tracking-widest uppercase"
-					style="background:var(--brand-gradient);color:rgba(255,255,255,0.8)"
-				>
-					Naavagreen Natural Skincare – Jadwal Buka
-				</div>
-				{#each hours as h, i}
-					<div
-						class="flex items-center justify-between px-8 py-4 transition-colors hover:bg-amber-50/50"
-						class:border-t={i !== 0}
-						style="border-color:rgba(201,162,90,0.12)"
-					>
-						<span class="font-medium" style="color:#16312a">{h.day}</span>
-						<div class="flex items-center gap-3">
-							<span class="text-sm font-semibold" style="color:#2d6a4f">{h.time}</span>
-							<span
-								class="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase"
-								style="background:rgba(45,106,79,0.12);color:#2d6a4f">Buka</span
-							>
-						</div>
-					</div>
-				{/each}
-			</div>
+		<div class="mt-8 border-t pt-6 text-center text-[11px]" style="border-color:rgba(255,255,255,0.06);color:rgba(255,255,255,0.2)">
+			© 2025 Drw Skincare. All rights reserved.
 		</div>
-	</section>
-
-	<!-- ═══════ REVIEWS ═══════ -->
-	<section id="reviews" class="py-24" style="background:#fdf8f0">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-16 text-center">
-				<span
-					class="mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase"
-					style="color:#c9a25a"
-				>
-					<span class="h-px w-8" style="background:#c9a25a"></span>Ulasan Pelanggan<span
-						class="h-px w-8"
-						style="background:#c9a25a"
-					></span>
-				</span>
-				<h2
-					class="text-4xl font-light lg:text-5xl"
-					style="font-family:'Cormorant Garamond',serif;color:#16312a"
-				>
-					Apa Kata <em class="font-medium" style="color:#2d6a4f">Mereka?</em>
-				</h2>
-				<!-- Overall rating badge -->
-				<div
-					class="mt-6 inline-flex items-center gap-3 rounded-2xl border px-7 py-3 shadow-sm"
-					style="border-color:rgba(201,162,90,0.25);background:#fff"
-				>
-					<span
-						class="text-4xl font-semibold"
-						style="font-family:'Cormorant Garamond',serif;color:#16312a">5.0</span
-					>
-					<div class="text-left">
-						<div class="flex gap-0.5" style="color:#c9a25a">
-							{#each Array(5) as _}<Star class="h-4 w-4 fill-current" />{/each}
-						</div>
-						<div class="mt-0.5 text-xs" style="color:#5a7a68">
-							174 ulasan Google · Rating Sempurna
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-				{#each reviews as rv}
-					<div
-						class="group flex flex-col rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-						style="border-color:rgba(201,162,90,0.15)"
-					>
-						<div
-							class="mb-3 font-sans text-5xl leading-none select-none"
-							style="color:rgba(201,162,90,0.25)"
-						>
-							"
-						</div>
-						<p class="mb-6 flex-1 text-sm leading-relaxed" style="color:#3a5a48">{rv.text}</p>
-						<div class="mb-4 flex gap-0.5" style="color:#c9a25a">
-							{#each Array(rv.stars) as _}<Star class="h-4 w-4 fill-current" />{/each}
-						</div>
-						<Separator class="mb-4" style="background:rgba(201,162,90,0.15)" />
-						<div class="flex items-center gap-3">
-							<div
-								class="flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white shadow"
-								style="background:var(--brand-gradient)"
-							>
-								{rv.initial}
-							</div>
-							<div>
-								<div class="text-sm font-semibold" style="color:#16312a">{rv.name}</div>
-								<div class="mt-0.5 flex items-center gap-1.5 text-xs" style="color:#8aaa98">
-									{#if rv.isGuide}
-										<span
-											class="rounded-full px-1.5 py-0.5 text-[10px] font-bold"
-											style="background:rgba(201,162,90,0.1);color:#c9a25a">Local Guide</span
-										>
-									{/if}
-									<span>{rv.count}</span> · <span>{rv.time}</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				{/each}
-			</div>
-
-			<div class="mt-10 text-center">
-				<a
-					href="https://maps.google.com/?cid=naavagreen+padang"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button
-						class="mx-auto flex h-12 items-center gap-2 rounded-full border px-8 text-sm font-semibold transition-all hover:shadow-lg"
-						style="border-color:rgba(22,49,42,0.25);color:#16312a;background:#fff"
-					>
-						Lihat Semua 174 Ulasan <ArrowRight class="h-4 w-4" />
-					</button>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════ CONTACT ═══════ -->
-	<section id="contact" class="py-24" style="background:var(--ng-green-deep)">
-		<div
-			class="pointer-events-none absolute inset-0"
-			style="background-image:radial-gradient(circle,rgba(201,162,90,0.04) 1px,transparent 1px);background-size:30px 30px;"
-		></div>
-
-		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-14 text-center">
-				<span
-					class="mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase"
-					style="color:#c9a25a"
-				>
-					<span class="h-px w-8" style="background:#c9a25a"></span>Temukan Kami<span
-						class="h-px w-8"
-						style="background:#c9a25a"
-					></span>
-				</span>
-				<h2
-					class="text-4xl font-light text-white lg:text-5xl"
-					style="font-family:'Cormorant Garamond',serif"
-				>
-					Kunjungi <em class="font-medium" style="color:#c9a25a">Naavagreen</em><br />di Padang
-				</h2>
-			</div>
-
-			<div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
-				<!-- Info -->
-				<div class="space-y-4 lg:col-span-2">
-					<!-- Address -->
-					<div
-						class="flex items-start gap-4 rounded-2xl border p-5 transition-all hover:border-amber-400/30"
-						style="border-color:rgba(201,162,90,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div
-							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-							style="background:var(--brand-gradient-gold)"
-						>
-							<MapPin class="h-5 w-5 text-white" />
-						</div>
-						<div>
-							<div class="mb-1 text-xs font-bold tracking-wider uppercase" style="color:#c9a25a">
-								Alamat
-							</div>
-							<p class="text-sm leading-relaxed text-white/70">
-								Jl. S. Parman 153 B, South Ulak Karang,<br />
-								Padang Utara, Padang City,<br />
-								West Sumatra 25133
-							</p>
-						</div>
-					</div>
-
-					<!-- Phone -->
-					<a
-						href="tel:+6281128002556"
-						class="flex items-center gap-4 rounded-2xl border p-5 transition-all hover:border-emerald-400/30"
-						style="border-color:rgba(201,162,90,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div
-							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-							style="background:#2d6a4f"
-						>
-							<Phone class="h-5 w-5 text-white" />
-						</div>
-						<div>
-							<div class="mb-1 text-xs font-bold tracking-wider uppercase" style="color:#c9a25a">
-								Telepon / WhatsApp
-							</div>
-							<div class="text-base font-semibold text-white">0811-2800-2556</div>
-						</div>
-					</a>
-
-					<!-- Hours summary -->
-					<div
-						class="flex items-start gap-4 rounded-2xl border p-5"
-						style="border-color:rgba(201,162,90,0.15);background:rgba(255,255,255,0.04)"
-					>
-						<div
-							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-							style="background:#1f4a3a"
-						>
-							<Clock class="h-5 w-5 text-white" />
-						</div>
-						<div class="w-full">
-							<div class="mb-2 text-xs font-bold tracking-wider uppercase" style="color:#c9a25a">
-								Jam Buka
-							</div>
-							<div class="space-y-1 text-sm">
-								<div class="flex justify-between">
-									<span class="text-white/60">Senin – Sabtu</span><span
-										class="font-semibold text-white">09.00 – 20.00</span
-									>
-								</div>
-								<div class="flex justify-between">
-									<span class="text-white/60">Minggu</span><span class="font-semibold text-white"
-										>09.00 – 17.00</span
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Social -->
-					<div class="flex items-center gap-3 pt-1">
-						<span class="text-xs font-semibold text-white/40">Ikuti Kami:</span>
-						<a
-							href="https://instagram.com/naavagreen"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex h-9 w-9 items-center justify-center rounded-xl border transition-all hover:scale-110"
-							style="border-color:rgba(201,162,90,0.2);background:rgba(255,255,255,0.05);color:#c9a25a"
-						>
-							<Instagram class="h-4 w-4" />
-						</a>
-						<a
-							href="https://wa.me/6281128002556"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex h-9 w-9 items-center justify-center rounded-xl border transition-all hover:scale-110"
-							style="border-color:rgba(45,106,79,0.3);background:rgba(45,106,79,0.15);color:#4ade80"
-						>
-							<MessageCircle class="h-4 w-4" />
-						</a>
-					</div>
-				</div>
-
-				<!-- Map -->
-				<div class="lg:col-span-3">
-					<div
-						class="relative h-full min-h-[420px] overflow-hidden rounded-3xl border shadow-2xl"
-						style="border-color:rgba(201,162,90,0.2)"
-					>
-						<iframe
-							title="Lokasi Naavagreen Natural Skincare di Google Maps"
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2!2d100.3531!3d-0.9125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJl.+S.+Parman+153+B%2C+South+Ulak+Karang%2C+Padang+Utara!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-							class="absolute inset-0 h-full w-full"
-							style="border:0;filter:saturate(1.1) hue-rotate(-10deg)"
-							allowfullscreen
-							loading="lazy"
-							referrerpolicy="no-referrer-when-downgrade"
-						>
-						</iframe>
-						<div class="absolute inset-x-0 bottom-0 p-4">
-							<a
-								href="https://maps.google.com/?q=Jl.+S.+Parman+153+B+Padang+Utara+Padang"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<button
-									class="flex h-11 w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold text-[#16312a] shadow-xl"
-									style="background:var(--brand-gradient-gold)"
-								>
-									<MapPin class="h-4 w-4" /> Buka di Google Maps
-								</button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════ CTA BANNER ═══════ -->
-	<section class="relative overflow-hidden py-20" style="background:var(--ng-cream-warm)">
-		<div
-			class="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full opacity-30"
-			style="background:radial-gradient(circle, #c9a25a 0%, transparent 70%);filter:blur(60px)"
-		></div>
-		<div class="relative mx-auto max-w-3xl space-y-7 px-4 text-center sm:px-6">
-			<span class="text-xs font-bold tracking-widest uppercase" style="color:#c9a25a"
-				>✦ Jadwalkan Kunjungan Anda ✦</span
-			>
-			<h2
-				class="text-4xl leading-tight font-light lg:text-5xl"
-				style="font-family:'Cormorant Garamond',serif;color:#16312a"
-			>
-				Mulai Perjalanan<br /><em class="font-semibold" style="color:#2d6a4f">Kulit Sehat</em> Anda Hari
-				Ini
-			</h2>
-			<p class="mx-auto max-w-lg text-sm leading-relaxed" style="color:#5a7a68">
-				Hubungi Naavagreen Natural Skincare Padang sekarang untuk konsultasi gratis. Tim ahli kami
-				siap menemukan solusi perawatan terbaik sesuai kebutuhan kulit Anda.
-			</p>
-			<div class="flex flex-wrap justify-center gap-4">
-				<a
-					href="https://wa.me/6281128002556?text=Halo%20Naavagreen%2C%20saya%20ingin%20konsultasi%20perawatan%20kulit"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button
-						class="flex h-14 items-center gap-2 rounded-full px-10 text-sm font-semibold text-[#16312a] shadow-xl transition-all hover:scale-105"
-						style="background:var(--brand-gradient-gold);box-shadow:var(--brand-shadow-gold)"
-					>
-						<MessageCircle class="h-5 w-5" /> Chat via WhatsApp
-					</button>
-				</a>
-				<a href="tel:+6281128002556">
-					<button
-						class="flex h-14 items-center gap-2 rounded-full border px-10 text-sm font-semibold transition-all hover:shadow-md"
-						style="border-color:rgba(22,49,42,0.3);color:#16312a"
-					>
-						<Phone class="h-5 w-5" /> Telepon Sekarang
-					</button>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════ FOOTER ═══════ -->
-	<footer class="pt-16 pb-8" style="background:var(--ng-green-deep);color:rgba(255,255,255,0.5)">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
-				<!-- Brand -->
-				<div class="space-y-5 lg:col-span-2">
-					<div class="flex items-center gap-3">
-						<div
-							class="flex h-10 w-10 items-center justify-center rounded-full"
-							style="background:var(--brand-gradient-gold)"
-						>
-							<Leaf class="h-5 w-5 text-white" />
-						</div>
-						<div>
-							<div
-								class="font-semibold text-white"
-								style="font-family:'Cormorant Garamond',serif;letter-spacing:0.08em"
-							>
-								NAAVAGREEN
-							</div>
-							<div class="text-[10px] tracking-widest uppercase" style="color:#c9a25a">
-								Natural Skincare · Padang
-							</div>
-						</div>
-					</div>
-					<p class="max-w-xs text-sm leading-relaxed">
-						Klinik kecantikan alami terpercaya di Kota Padang dengan rating Google 5.0 dari 174
-						pelanggan setia.
-					</p>
-					<div class="flex gap-3">
-						<a
-							href="https://instagram.com/naavagreen"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:scale-110"
-							style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5)"
-						>
-							<Instagram class="h-4 w-4" />
-						</a>
-						<a
-							href="https://wa.me/6281128002556"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:scale-110"
-							style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.5)"
-						>
-							<MessageCircle class="h-4 w-4" />
-						</a>
-					</div>
-				</div>
-
-				<!-- Nav -->
-				<div>
-					<h4 class="mb-4 text-xs font-bold tracking-widest text-white uppercase">Navigasi</h4>
-					<ul class="space-y-2.5 text-sm">
-						{#each navLinks as link}
-							<li>
-								<a href={link.href} class="transition-colors hover:text-white">{link.label}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-
-				<!-- Contact -->
-				<div>
-					<h4 class="mb-4 text-xs font-bold tracking-widest text-white uppercase">Kontak</h4>
-					<div class="space-y-3 text-sm">
-						<div class="flex items-start gap-2">
-							<MapPin class="mt-0.5 h-4 w-4 shrink-0" style="color:#c9a25a" />
-							<span>Jl. S. Parman 153 B, Padang Utara, Padang 25133</span>
-						</div>
-						<div class="flex items-center gap-2">
-							<Phone class="h-4 w-4 shrink-0" style="color:#c9a25a" />
-							<a href="tel:+6281128002556" class="transition-colors hover:text-white"
-								>0811-2800-2556</a
-							>
-						</div>
-						<div class="flex items-center gap-2">
-							<Instagram class="h-4 w-4 shrink-0" style="color:#c9a25a" />
-							<a
-								href="https://instagram.com/naavagreen"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="transition-colors hover:text-white">instagram.com/naavagreen</a
-							>
-						</div>
-						<div class="flex items-start gap-2">
-							<Clock class="mt-0.5 h-4 w-4 shrink-0" style="color:#c9a25a" />
-							<span>Buka setiap hari mulai 09.00</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<Separator style="background:rgba(255,255,255,0.08);margin-bottom:2rem" />
-
-			<div class="flex flex-col items-center justify-between gap-4 text-xs sm:flex-row">
-				<span>© 2025 Naavagreen Natural Skincare Padang. Hak cipta dilindungi.</span>
-				<span style="color:rgba(255,255,255,0.25)"
-					>38PX+7V Ulak Karang Sel., Kota Padang, Sumatera Barat</span
-				>
-			</div>
-		</div>
-	</footer>
-</main>
+	</div>
+</footer>
