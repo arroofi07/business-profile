@@ -7,28 +7,29 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ── Drw Skincare Brand Design Tokens ── */
+/* ── Soft Pink Brand Design Tokens ── */
 :root {
-	/* Core Palette – Warm Ivory × Deep Plum × Soft Gold */
-	--ms-plum: #3d1a4a;
-	--ms-plum-mid: #5c2d6e;
-	--ms-gold: #c9a84c;
-	--ms-gold-light: #e8ca7a;
-	--ms-ivory: #fdf8f0;
-	--ms-ivory-warm: #f5ede0;
-	--ms-lavender: #f2eff9;
+	/* Core Palette – Sakura & Rose */
+	--ms-plum: #8c2f39;
+	--ms-plum-mid: #c94c5d;
+	--ms-gold: #ff8fa3;
+	--ms-gold-light: #ffb3c1;
+	--ms-ivory: #fff1f3;
+	--ms-ivory-warm: #ffe5ec;
+	--ms-lavender: #fce4ec;
 
-	--ms-text-dark: #3d1a4a;
-	--ms-text-mid: #5c2d6e;
-	--ms-text-soft: #805690;
+	--ms-text-dark: #4a2c2a;
+	--ms-text-mid: #8c2f39;
+	--ms-text-soft: #c94c5d;
 
 	/* Gradients */
-	--brand-gradient: linear-gradient(135deg, #3d1a4a 0%, #5c2d6e 100%);
-	--brand-gradient-soft: linear-gradient(135deg, #fdf8f0 0%, #f5ede0 100%);
-	--brand-gradient-gold: linear-gradient(135deg, #c9a84c 0%, #e8ca7a 100%);
-	--brand-gradient-hero: linear-gradient(135deg, #fdf8f0 0%, #f5ede0 100%);
-	--brand-shadow: 0 20px 60px -10px rgba(61, 26, 74, 0.15);
-	--brand-shadow-gold: 0 8px 30px -4px rgba(201, 168, 76, 0.4);
-	--brand-shadow-card: 0 4px 24px rgba(61, 26, 74, 0.08);
+	--brand-gradient: linear-gradient(135deg, #8c2f39 0%, #c94c5d 100%);
+	--brand-gradient-soft: linear-gradient(135deg, #fff1f3 0%, #ffe5ec 100%);
+	--brand-gradient-gold: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
+	--brand-gradient-hero: linear-gradient(135deg, #fff1f3 0%, #ffe5ec 100%);
+	--brand-shadow: 0 20px 60px -10px rgba(140, 47, 57, 0.15);
+	--brand-shadow-gold: 0 8px 30px -4px rgba(255, 143, 163, 0.4);
+	--brand-shadow-card: 0 4px 24px rgba(140, 47, 57, 0.08);
 	--nav-height: 80px;
 }
 
