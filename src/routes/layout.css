@@ -6,30 +6,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Drw Skincare Brand Design Tokens ── */
-/* ── Soft Pink Brand Design Tokens ── */
+/* ── Dapur Yonica - Modern Minang Design Tokens ── */
 :root {
-	/* Core Palette – Sakura & Rose */
-	--ms-plum: #8c2f39;
-	--ms-plum-mid: #c94c5d;
-	--ms-gold: #ff8fa3;
-	--ms-gold-light: #ffb3c1;
-	--ms-ivory: #fff1f3;
-	--ms-ivory-warm: #ffe5ec;
-	--ms-lavender: #fce4ec;
+	/* Core Palette – Black, Red, Gold */
+	--ms-black: #121212;
+	--ms-charcoal: #1e1e1e;
+	--ms-red: #D32F2F;
+	--ms-red-dark: #8c1c1c;
+	--ms-gold: #FFC107;
+	--ms-gold-muted: #FFB300;
+	--ms-ivory: #F9F5F0;
+	--ms-cream: #FFFDF5;
 
-	--ms-text-dark: #4a2c2a;
-	--ms-text-mid: #8c2f39;
-	--ms-text-soft: #c94c5d;
+	--ms-text-dark: #121212;
+	--ms-text-mid: #4a4a4a;
+	--ms-text-gold: #FFC107;
 
 	/* Gradients */
-	--brand-gradient: linear-gradient(135deg, #8c2f39 0%, #c94c5d 100%);
-	--brand-gradient-soft: linear-gradient(135deg, #fff1f3 0%, #ffe5ec 100%);
-	--brand-gradient-gold: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
-	--brand-gradient-hero: linear-gradient(135deg, #fff1f3 0%, #ffe5ec 100%);
-	--brand-shadow: 0 20px 60px -10px rgba(140, 47, 57, 0.15);
-	--brand-shadow-gold: 0 8px 30px -4px rgba(255, 143, 163, 0.4);
-	--brand-shadow-card: 0 4px 24px rgba(140, 47, 57, 0.08);
+	--brand-gradient: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+	--brand-gradient-red: linear-gradient(135deg, #D32F2F 0%, #8c1c1c 100%);
+	--brand-gradient-gold: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+	--brand-gradient-hero: linear-gradient(135deg, #121212 0%, #000000 100%);
+	
+	--brand-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.3);
+	--brand-shadow-red: 0 8px 30px -4px rgba(211, 47, 47, 0.4);
+	--brand-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
 	--nav-height: 80px;
 }
 
@@ -116,13 +117,13 @@ body {
 
 @keyframes pulse-ring-gold {
 	0% {
-		box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.45);
+		box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.45);
 	}
 	70% {
-		box-shadow: 0 0 0 16px rgba(201, 168, 76, 0);
+		box-shadow: 0 0 0 16px rgba(255, 193, 7, 0);
 	}
 	100% {
-		box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+		box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
 	}
 }
 

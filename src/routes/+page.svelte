@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
-	import logo from '$lib/assets/azalea.jpg';
-	import hero from '$lib/assets/hero.jpg';
+
+	// Assets moved to static/assets for local serving
+	const heroImg = '/assets/hero.png';
+	const pempekImg = '/assets/pempek.png';
+	const kerupukImg = '/assets/kerupuk.png';
+
 	import {
 		Phone,
 		MessageCircle,
@@ -18,121 +22,105 @@
 		Clock,
 		Heart,
 		Gift,
-		Sparkles
+		Sparkles,
+		MapPin,
+		Utensils
 	} from 'lucide-svelte';
 
 	let menuOpen = $state(false);
 
 	const navLinks = [
 		{ href: '#home', label: 'Beranda' },
-		{ href: '#about', label: 'Tentang' },
-		{ href: '#menu', label: 'Varian Menu' },
+		{ href: '#about', label: 'Tentang Kami' },
+		{ href: '#menu', label: 'Menu Unggulan' },
 		{ href: '#order', label: 'Cara Pesan' },
 		{ href: '#reviews', label: 'Review' }
 	];
 
 	const stats = [
-		{ value: '6.8K+', label: 'Pengikut Instagram' },
-		{ value: '223+', label: 'Varian & Postingan' },
-		{ value: '100%', label: 'Bahan Premium' },
-		{ value: 'Fresh', label: 'Dibuat Setiap Hari' }
+		{ value: '700+', label: 'Instagram Followers' },
+		{ value: '62', label: 'Postingan Terkini' },
+		{ value: 'MUI', label: 'Halal Certified' },
+		{ value: 'Premium', label: 'Authentic Taste' }
 	];
 
 	const features = [
 		{
-			icon: Sparkles,
-			title: 'Bahan Premium',
-			desc: 'Hanya menggunakan bahan berkualitas tinggi untuk rasa terbaik.'
+			icon: Utensils,
+			title: 'Authentic Minang',
+			desc: 'Resep warisan turun temurun dengan bumbu rempah pilihan.'
 		},
 		{
-			icon: Heart,
-			title: 'Tanpa Pengawet',
-			desc: 'Aman dikonsumsi anak-anak hingga dewasa, selalu fresh.'
+			icon: ShieldCheck,
+			title: 'MUI Halal Certified',
+			desc: 'Terjamin kehalalan dan kebersihannya untuk semua produk.'
 		},
 		{
 			icon: Award,
-			title: 'Rasa Juara',
-			desc: 'Kombinasi tekstur lembut dan manis yang pas di lidah.'
+			title: 'Kualitas Ekspor',
+			desc: 'Olahan Minang yang sudah merambah selera dunia.'
 		},
 		{
 			icon: Gift,
-			title: 'Cocok untuk Hampers',
-			desc: 'Packaging cantik & aman untuk hantaran kerabat.'
+			title: 'Packing Aman',
+			desc: 'Packaging eksklusif, aman dikirim ke luar kota maupun luar negeri.'
 		}
 	];
 
 	const products = [
 		{
+			category: 'Signature',
+			title: 'Aneka Rendang',
+			desc: 'Rendang daging sapi pilihan dengan bumbu meresap sempurna, tekstur lembut dan tahan lama.',
+			image: heroImg
+		},
+		{
 			category: 'Best Seller',
-			title: 'Triple Chocolate Pudding',
-			desc: 'Lapis coklat pekat, susu coklat, dan dark chocolate yang lumer di mulut.',
-			image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&fit=crop'
+			title: 'Pempek Cik Unik',
+			desc: 'Pempek khas dengan cuko kental pedas-asam-manis yang pas, dibuat dari ikan segar berkualitas.',
+			image: pempekImg
 		},
 		{
-			category: 'Segar & Sehat',
-			title: 'Puding Buah Kaca Segar',
-			desc: 'Puding bening berpadu dengan buah-buahan segar pilihan (Strawberry, Kiwi, Jeruk, Anggur).',
-			image: 'https://images.unsplash.com/photo-1543880406-03f3ea4d8c8c?q=80&w=600&fit=crop'
-		},
-		{
-			category: 'Gurih Manis',
-			title: 'Puding Susu Keju Lumer',
-			desc: 'Paduan keju premium dan susu segar murni yang memberikan sensasi creamy.',
-			image: 'https://images.unsplash.com/photo-1563805042-7684c8e9e533?q=80&w=600&fit=crop'
-		},
-		{
-			category: 'Pesta & Acara',
-			title: 'Puding Tumpeng Mini',
-			desc: 'Kreasi puding unik berbentuk tumpeng, sangat cocok untuk acara perayaan dan syukuran.',
-			image: 'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=600&fit=crop'
-		},
-		{
-			category: 'Cemilan Praktis',
-			title: 'Dessert Cup Varian',
-			desc: 'Puding cup mini aneka rasa yang sangat simpel dibawa dan dinikmati kapan saja.',
-			image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=600&fit=crop'
-		},
-		{
-			category: 'Hampers Spesial',
-			title: 'Premium Gift Box',
-			desc: 'Pilihan puding eksklusif dalam boks cantik yang dilengkapi dengan pita dan kartu ucapan.',
-			image: 'https://images.unsplash.com/photo-1577907575239-166e4a2e584a?q=80&w=600&fit=crop'
+			category: 'Camilan Sehat',
+			title: 'Kerupuk Tulang Tuna',
+			desc: 'Camilan inovatif bergizi tinggi, renyah, gurih, dan bebas pengawet.',
+			image: kerupukImg
 		}
 	];
 
 	const reviews = [
 		{
-			name: 'Rina S.',
-			initial: 'RS',
+			name: 'Budi Santoso',
+			initial: 'BS',
+			time: '2 hari lalu',
+			stars: 5,
+			text: 'Rendangnya juara! Dagingnya empuk banget dan bumbunya bener-bener meresap. Pas banget buat stok di rumah atau oleh-oleh.'
+		},
+		{
+			name: 'Siti Aminah',
+			initial: 'SA',
 			time: '1 minggu lalu',
 			stars: 5,
-			text: 'Selalu pesan di Azzalea Pudding buat acara arisan. Semua tamu bilang enak, teksturnya lembut dan fla-nya juara banget!'
+			text: 'Pempek Cik Unik beneran unik rasanya, ikannya kerasa banget dan cukonya mantap. Gak kalah sama pempek langsung dari Palembang.'
 		},
 		{
-			name: 'Aulia Rahman',
-			initial: 'AR',
-			time: '3 minggu lalu',
+			name: 'Hendra Wijaya',
+			initial: 'HW',
+			time: '2 minggu lalu',
 			stars: 5,
-			text: 'Puding buahnya seger banget, buahnya melimpah gak pelit. Packing aman sampai tujuan nggak hancur.'
-		},
-		{
-			name: 'Mutiara',
-			initial: 'M',
-			time: '1 bulan lalu',
-			stars: 5,
-			text: 'Pelopor puding nomor 1 di Padang emang the best. Nggak pernah kecewa, langganan tetap!'
+			text: 'Kerupuk tulang tunanya nagih banget buat camilan sehat. Baru kali ini nemu kerupuk dari tulang ikan yang seenak ini. Recommended!'
 		}
 	];
 </script>
 
 <svelte:head>
-	<title>Azzalea Pudding | Pelopor Puding No. 1 di Padang</title>
+	<title>Dapur Yonica | Olahan Minang Jadi Selera Dunia ✨</title>
 	<meta
 		name="description"
-		content="Azzalea Pudding – Pelopor puding eksklusif di Padang. Menjaga kualitas rasa hingga ke tangan kamu. Pesan dan rasakan kelembutannya!"
+		content="Dapur Yonica – Aneka Rendang, Pempek Cik Unik, dan Kerupuk Tulang Tuna. Cita rasa otentik Minang yang merambah dunia. MUI Halal Certified."
 	/>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
@@ -141,29 +129,27 @@
 <header class="fixed inset-x-0 top-0 z-50">
 	<nav
 		class="border-b backdrop-blur-md transition-all"
-		style="background:rgba(255,241,243,0.92);border-color:rgba(201,76,93,0.15);box-shadow:0 4px 20px rgba(74,44,42,0.06)"
+		style="background:rgba(18,18,18,0.95);border-color:rgba(255,193,7,0.15);box-shadow:0 4px 20px rgba(0,0,0,0.5)"
 	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex h-20 items-center justify-between">
 				<!-- Logo -->
 				<a href="#home" class="group flex items-center gap-3">
-					<div>
-						<img
-							src={logo}
-							alt=""
-							class="h-11 w-11 rounded-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-						/>
+					<div
+						class="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-[#D32F2F] to-[#8c1c1c] shadow-lg transition-transform duration-300 group-hover:scale-110"
+					>
+						<Utensils class="h-7 w-7 text-[#FFC107]" />
 					</div>
 					<div class="leading-tight">
 						<div
-							style="font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700;color:#4a2c2a"
+							style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:#fff"
 						>
-							Azzalea<span style="color:#c94c5d">.Pudding</span>
+							Dapur<span style="color:#FFC107">.Yonica</span>
 						</div>
 						<div
-							style="font-family:'Nunito',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#c94c5d"
+							style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#D32F2F"
 						>
-							Padang, Indonesia
+							Padang, West Sumatra
 						</div>
 					</div>
 				</a>
@@ -174,12 +160,12 @@
 						<a
 							href={link.href}
 							class="group relative rounded-full px-5 py-2 text-[0.9rem] font-bold transition-all duration-200"
-							style="font-family:'Nunito',sans-serif;color:#4a2c2a"
+							style="font-family:'Plus Jakarta Sans',sans-serif;color:#eee"
 						>
 							{link.label}
 							<span
-								class="absolute bottom-1.5 left-1/2 h-1 w-0 -translate-x-1/2 rounded-full opacity-80 transition-all duration-300 group-hover:w-5"
-								style="background:#c94c5d"
+								class="absolute bottom-1.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full opacity-80 transition-all duration-300 group-hover:w-5"
+								style="background:#FFC107"
 							></span>
 						</a>
 					{/each}
@@ -189,16 +175,16 @@
 				<div class="hidden items-center gap-4 md:flex">
 					<div
 						class="flex items-center gap-2 rounded-full border px-3 py-1.5"
-						style="border-color:rgba(201,76,93,0.3);color:#c94c5d;font-size:0.7rem;font-weight:800;font-family:'Nunito',sans-serif"
+						style="border-color:rgba(255,193,7,0.3);color:#FFC107;font-size:0.75rem;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif"
 					>
-						<Heart class="h-3.5 w-3.5" /> 100% Homemade
+						<ShieldCheck class="h-4 w-4" /> Halal Certified
 					</div>
-					<a href="https://wa.me/6281378454700" target="_blank" rel="noopener noreferrer">
+					<a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer">
 						<button
 							class="flex h-11 items-center gap-2 rounded-full px-6 text-[0.95rem] font-bold text-white transition-all hover:-translate-y-1 hover:shadow-xl"
-							style="font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#ff8fa3,#c94c5d);box-shadow:0 6px 20px rgba(201,76,93,0.35);color:#fff1f3"
+							style="font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(135deg,#D32F2F,#8c1c1c);box-shadow:0 6px 20px rgba(211,47,47,0.35);color:#fff"
 						>
-							<MessageCircle class="h-4.5 w-4.5" /> Pesan Sekarang
+							<MessageCircle class="h-4.5 w-4.5" /> Order via WA
 						</button>
 					</a>
 				</div>
@@ -206,8 +192,8 @@
 				<!-- Mobile Toggle -->
 				<button
 					onclick={() => (menuOpen = !menuOpen)}
-					class="rounded-xl p-2 transition hover:bg-orange-50 md:hidden"
-					style="color:#4a2c2a"
+					class="rounded-xl p-2 transition hover:bg-white/5 md:hidden"
+					style="color:#fff"
 					aria-label="Toggle menu"
 				>
 					{#if menuOpen}<X class="h-7 w-7" />{:else}<Menu class="h-7 w-7" />{/if}
@@ -219,23 +205,23 @@
 		{#if menuOpen}
 			<div
 				class="border-t px-4 pt-3 pb-6 md:hidden"
-				style="background:#fff1f3;border-color:rgba(201,76,93,0.15)"
+				style="background:#121212;border-color:rgba(255,193,7,0.15)"
 			>
 				{#each navLinks as link}
 					<a
 						href={link.href}
 						onclick={() => (menuOpen = false)}
-						class="flex items-center gap-3 rounded-2xl px-5 py-3.5 text-base font-bold transition hover:bg-orange-50"
-						style="font-family:'Nunito',sans-serif;color:#4a2c2a"
+						class="flex items-center gap-3 rounded-2xl px-5 py-3.5 text-base font-bold transition hover:bg-white/5"
+						style="font-family:'Plus Jakarta Sans',sans-serif;color:#eee"
 					>
 						{link.label}
 					</a>
 				{/each}
-				<div class="mt-4 border-t pt-5" style="border-color:rgba(231,111,81,0.15)">
-					<a href="https://wa.me/6281378454700" target="_blank" rel="noopener noreferrer">
+				<div class="mt-4 border-t pt-5" style="border-color:rgba(211,47,47,0.15)">
+					<a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer">
 						<button
 							class="flex h-12 w-full items-center justify-center gap-2 rounded-2xl text-base font-bold shadow-lg"
-							style="font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#ff8fa3,#c94c5d);color:#fff1f3"
+							style="font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(135deg,#D32F2F,#8c1c1c);color:#fff"
 						>
 							<MessageCircle class="h-5 w-5" /> Chat via WhatsApp
 						</button>
@@ -250,293 +236,188 @@
 	<!-- ═══════ HERO ═══════ -->
 	<section
 		id="home"
-		class="relative flex min-h-[90vh] items-center overflow-hidden"
-		style="background:linear-gradient(180deg,#fff1f3 0%,#fff1f3 100%)"
+		class="relative flex min-h-[95vh] items-center overflow-hidden"
+		style="background:#121212"
 	>
-		<!-- Decorative blobs (soft pastel food themes) -->
+		<!-- Sophisticated background pattern -->
 		<div
-			class="pointer-events-none absolute -top-20 -left-20 h-[600px] w-[600px] opacity-40 mix-blend-multiply"
-			style="background:radial-gradient(ellipse,#ffb3c1 0%,transparent 70%);filter:blur(50px)"
-		></div>
-		<div
-			class="pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] opacity-50 mix-blend-multiply"
-			style="background:radial-gradient(circle,#ff8fa3 0%,transparent 65%);filter:blur(60px)"
+			class="absolute inset-0 opacity-10"
+			style="background-image: radial-gradient(#FFC107 1px, transparent 1px); background-size: 40px 40px;"
 		></div>
 
-		<!-- Floating elements (optional CSS decor) -->
-		<div class="pointer-events-none absolute inset-0 overflow-hidden">
-			<div class="absolute top-[20%] left-[10%] opacity-20" style="color:#c94c5d">
-				<svg
-					width="40"
-					height="40"
-					viewBox="0 0 24 24"
-					fill="currentColor"
-					class="animate-bounce-slow"
-					><path
-						d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-					/></svg
-				>
-			</div>
-			<div class="absolute right-[15%] bottom-[30%] opacity-30" style="color:#ff8fa3">
-				<svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor" class="animate-float"
-					><path
-						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-					/></svg
-				>
-			</div>
-		</div>
+		<!-- Decorative blobs -->
+		<div
+			class="pointer-events-none absolute -top-40 -left-40 h-[800px] w-[800px] opacity-20"
+			style="background:radial-gradient(circle,#D32F2F 0%,transparent 70%);filter:blur(100px)"
+		></div>
+		<div
+			class="pointer-events-none absolute right-0 bottom-0 h-[600px] w-[600px] opacity-10"
+			style="background:radial-gradient(circle,#FFC107 0%,transparent 65%);filter:blur(80px)"
+		></div>
 
 		<div
-			class="relative mx-auto w-full max-w-7xl px-4 pt-16 pb-20 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pt-20 lg:pb-28"
+			class="relative mx-auto w-full max-w-7xl px-4 pt-16 pb-20 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pt-24 lg:pb-32"
 		>
 			<!-- Left text -->
-			<div class="animate-slide-up z-10 flex flex-col justify-center space-y-7 lg:col-span-6">
+			<div class="animate-slide-up z-10 flex flex-col justify-center space-y-8 lg:col-span-6">
 				<!-- Tag pill -->
 				<div
-					class="inline-flex items-center gap-2.5 self-start rounded-full border-2 px-4 py-2"
-					style="border-color:rgba(201,76,93,0.3);background:rgba(255,255,255,0.7);backdrop-filter:blur(4px)"
+					class="inline-flex items-center gap-2.5 self-start rounded-full border px-4 py-2"
+					style="border-color:rgba(255,193,7,0.3);background:rgba(255,255,255,0.05);backdrop-filter:blur(8px)"
 				>
-					<span class="flex h-3 w-3 items-center justify-center">
-						<span
-							class="absolute inline-flex h-2.5 w-2.5 animate-ping rounded-full"
-							style="background:#c94c5d;opacity:0.6"
-						></span>
-						<span class="relative inline-flex h-2 w-2 rounded-full" style="background:#c94c5d"
-						></span>
-					</span>
+					<MapPin class="h-4 w-4 text-[#FFC107]" />
 					<span
-						style="font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#c94c5d"
+						style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#eee"
 					>
-						Ratulangi, Padang
+						Authentic Padang, Indonesia
 					</span>
 				</div>
 
 				<!-- Heading -->
 				<div class="animate-slide-up delay-100">
 					<h1
-						style="font-family:'Fredoka',sans-serif;font-size:clamp(3.5rem,6.5vw,5.5rem);line-height:1.1;color:#4a2c2a"
+						style="font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,6rem);line-height:1;color:#fff"
 					>
-						Pelopor<br />
+						Cita Rasa<br />
 						<span class="relative inline-block">
-							<span class="relative z-10" style="color:#c94c5d">Puding No. 1</span>
+							<span class="relative z-10" style="color:#FFC107">Minang</span>
 							<span
-								class="absolute -bottom-2 left-0 -z-10 h-6 w-full rounded-full opacity-30"
-								style="background:#ff8fa3"
+								class="absolute -bottom-2 left-0 -z-10 h-4 w-full rounded-full opacity-40"
+								style="background:#D32F2F"
 							></span>
 						</span><br />
-						<span style="font-size:0.65em;color:#8c2f39">di Padang 🌟</span>
+						<span
+							style="font-size:0.5em;color:#D32F2F;letter-spacing:0.1em;text-transform:uppercase;font-weight:900;font-family:'Plus Jakarta Sans'"
+							>Selera Dunia 🌏</span
+						>
 					</h1>
 				</div>
 
 				<p
-					class="animate-slide-up max-w-lg text-[1.1rem] leading-relaxed delay-200"
-					style="font-family:'Nunito',sans-serif;color:#5A3E2A"
+					class="animate-slide-up max-w-lg text-[1.15rem] leading-relaxed delay-200"
+					style="font-family:'Plus Jakarta Sans',sans-serif;color:#ccc"
 				>
-					Menjaga Kualitas Pudding hingga ke tangan kamu. Manis yang pas, tekstur selembut sutra,
-					dan dibuat <strong style="color:#c94c5d">fresh setiap hari</strong> menggunakan bahan premium
-					pilihan.
+					Menyajikan kelezatan otentik Minang dalam <strong style="color:#FFC107"
+						>Aneka Rendang</strong
+					>,
+					<strong style="color:#FFC107">Pempek Cik Unik</strong>, dan camilan sehat
+					<strong style="color:#FFC107">Kerupuk Tulang Tuna</strong>. Dibuat dengan rempah asli &
+					cinta.
 				</p>
 
 				<!-- CTA -->
-				<div class="animate-slide-up flex flex-wrap gap-4 pt-2 delay-300">
-					<a href="https://wa.me/6281378454700" target="_blank" rel="noopener noreferrer">
-						<button
-							class="group flex h-14 items-center gap-2.5 rounded-full px-8 text-base font-bold transition-all hover:scale-105"
-							style="font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#c94c5d,#8c2f39);color:white;box-shadow:0 10px 25px rgba(201,76,93,0.4)"
-						>
-							<ShoppingBag
-								class="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:rotate-6"
-							/> Pesan Pudingmu
-						</button>
-					</a>
+				<div class="animate-slide-up flex flex-wrap gap-5 pt-4 delay-300">
 					<a href="#menu">
 						<button
-							class="flex h-14 items-center gap-2.5 rounded-full border-2 px-8 text-base font-bold transition-all hover:bg-white"
-							style="font-family:'Nunito',sans-serif;border-color:rgba(201,76,93,0.4);color:#4a2c2a"
+							class="group flex h-16 items-center gap-3 rounded-xl px-10 text-lg font-bold transition-all hover:scale-105"
+							style="font-family:'Plus Jakarta Sans',sans-serif;background:#D32F2F;color:white;box-shadow:0 15px 35px rgba(211,47,47,0.3)"
 						>
-							Lihat Menu Puding
+							<ShoppingBag class="h-6 w-6 transition-transform group-hover:scale-110" /> Jelajahi Menu
 						</button>
 					</a>
-				</div>
-
-				<div class="animate-slide-up flex gap-5 pt-4 delay-400">
-					<div class="flex -space-x-3">
-						<img
-							src="https://i.pravatar.cc/100?img=1"
-							alt="User 1"
-							class="h-10 w-10 rounded-full border-2 border-white object-cover"
-						/>
-						<img
-							src="https://i.pravatar.cc/100?img=5"
-							alt="User 2"
-							class="h-10 w-10 rounded-full border-2 border-white object-cover"
-						/>
-						<img
-							src="https://i.pravatar.cc/100?img=9"
-							alt="User 3"
-							class="h-10 w-10 rounded-full border-2 border-white object-cover"
-						/>
-						<div
-							class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-orange-100 text-xs font-bold text-orange-600"
+					<a href="#about">
+						<button
+							class="flex h-16 items-center gap-3 rounded-xl border border-white/20 px-10 text-lg font-bold transition-all hover:border-white/40 hover:bg-white/5"
+							style="font-family:'Plus Jakarta Sans',sans-serif;color:#fff"
 						>
-							+1K
-						</div>
-					</div>
-					<div class="flex flex-col justify-center">
-						<div class="flex items-center gap-1 text-sm text-yellow-500">
-							<Star class="h-4 w-4 fill-current" />
-							<Star class="h-4 w-4 fill-current" />
-							<Star class="h-4 w-4 fill-current" />
-							<Star class="h-4 w-4 fill-current" />
-							<Star class="h-4 w-4 fill-current" />
-						</div>
-						<div class="text-xs font-bold" style="font-family:'Nunito',sans-serif;color:#8c2f39">
-							Azzalea lovers
-						</div>
-					</div>
+							Tentang Kami
+						</button>
+					</a>
 				</div>
 			</div>
 
 			<!-- Right image -->
-			<div class="animate-slide-left relative mt-16 delay-200 lg:col-span-6 lg:mt-0">
-				<div class="relative pr-4 pl-8 lg:pl-12">
-					<!-- Blob bg -->
+			<div class="animate-slide-left relative mt-20 delay-200 lg:col-span-6 lg:mt-0">
+				<div class="relative flex justify-center lg:justify-end">
+					<!-- Gold Frame -->
 					<div
-						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
-						style="width: 120%; height: 120%; background:radial-gradient(circle,#ff8fa3,transparent 65%); z-index: 0;"
+						class="absolute -inset-4 rounded-[2.5rem] border border-[#FFC107]/20 lg:-right-4 lg:left-12"
 					></div>
 
-					<!-- Main Image Layout with organic shape -->
-					<div class="relative z-10 mx-auto w-full max-w-[500px]">
+					<!-- Main Image -->
+					<div class="relative z-10 w-full max-w-[550px]">
 						<div
-							class="relative overflow-hidden"
-							style="border-radius:45% 55% 40% 60% / 55% 45% 60% 40%; border:12px solid #fff1f3; box-shadow:0 30px 60px -15px rgba(201,76,93,0.3)"
+							class="relative overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.8)]"
+							style="border-radius:2rem; border:8px solid #1e1e1e"
 						>
 							<img
-								src={hero}
-								alt="Puding Buah Segar Azzalea"
-								class="w-full object-cover transition-transform duration-700 hover:scale-110 hover:rotate-2"
-								style="aspect-ratio:3/4"
+								src={heroImg}
+								alt="Dapur Yonica Rendang"
+								class="w-full object-cover transition-transform duration-[2s] hover:scale-110"
+								style="aspect-ratio:4/5"
 							/>
-						</div>
-					</div>
-
-					<!-- Float card: Instagram -->
-					<a href="https://instagram.com/azzalea.pudding" target="_blank" rel="noopener noreferrer">
-						<div
-							class="absolute top-24 -left-2 z-20 rounded-2xl p-3 shadow-xl backdrop-blur-md transition-transform hover:scale-105 lg:-left-6"
-							style="background:rgba(255,255,255,0.9); animation: float 6s ease-in-out infinite;"
-						>
-							<div class="flex items-center gap-3 pr-3">
-								<div
-									class="flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-md"
-									style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"
-								>
-									<Instagram class="h-6 w-6" />
-								</div>
-								<div>
-									<div
-										style="font-family:'Fredoka',sans-serif;font-size:1.1rem;color:#4a2c2a;line-height:1"
-									>
-										6,848
+							<!-- Badge Overlay -->
+							<div
+								class="absolute bottom-6 left-6 rounded-2xl border border-white/10 bg-black/60 p-4 backdrop-blur-md"
+							>
+								<div class="flex items-center gap-3">
+									<div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFC107]">
+										<Award class="h-6 w-6 text-black" />
 									</div>
-									<div
-										style="font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;color:#c94c5d"
-									>
-										Followers Ig
+									<div>
+										<div class="text-sm font-bold text-white">Best Minang Product</div>
+										<div class="text-xs font-bold tracking-widest text-[#FFC107] uppercase">
+											Premium Quality
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</a>
 
-					<!-- Float card: Jam buka -->
-					<div
-						class="absolute right-0 -bottom-6 z-20 rounded-2xl p-4 text-center shadow-xl backdrop-blur-md lg:right-4"
-						style="background:rgba(255,255,255,0.9); animation: float 7s ease-in-out infinite reverse;"
-					>
-						<div class="mb-1 flex items-center justify-center gap-2">
-							<Clock class="h-4 w-4" style="color:#ff8fa3" />
-							<span
-								style="font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#ff8fa3"
-								>Jam Buka</span
-							>
-						</div>
-						<div style="font-family:'Fredoka',sans-serif;font-size:1.2rem;color:#4a2c2a">
-							09.00 - 18.00
-						</div>
-						<div
-							style="font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;color:#8c2f39"
-						>
-							Setiap Hari
+						<!-- Floating Decor -->
+						<div class="animate-spin-slow absolute -top-10 -right-10 opacity-20">
+							<svg width="200" height="200" viewBox="0 0 100 100">
+								<path
+									d="M50 0 L61 35 L97 35 L68 57 L79 92 L50 70 L21 92 L32 57 L3 35 L39 35 Z"
+									fill="#FFC107"
+								/>
+							</svg>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<!-- Cute wavy divider -->
-		<div
-			class="absolute bottom-0 z-10 w-full overflow-hidden leading-none"
-			style="transform: translateY(1px);"
-		>
-			<svg
-				viewBox="0 0 1200 120"
-				preserveAspectRatio="none"
-				style="display:block; width:100%; height:60px;"
-			>
-				<path
-					d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.22,192.39,106.67,246.42,94.66,303.45,71.29,321.39,56.44Z"
-					fill="#fff1f3"
-				></path>
-			</svg>
 		</div>
 	</section>
 
 	<style>
 		@keyframes float {
-			0% {
-				transform: translateY(0px);
+			0%,
+			100% {
+				transform: translateY(0px) rotate(0deg);
 			}
 			50% {
-				transform: translateY(-15px);
-			}
-			100% {
-				transform: translateY(0px);
+				transform: translateY(-20px) rotate(2deg);
 			}
 		}
-		.animate-float {
-			animation: float 5s ease-in-out infinite;
-		}
-		.animate-bounce-slow {
-			animation: bounce 3s infinite;
-		}
-		/* Blob shapes */
-		.blob-shape {
-			border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+		.animate-spin-slow {
+			animation: spin 20s linear infinite;
 		}
 	</style>
 
 	<!-- ═══════ STATS ═══════ -->
-	<section class="relative z-20 py-12" style="background:#fff1f3">
+	<section
+		class="relative z-20 py-16"
+		style="background:#1e1e1e; border-y: 1px solid rgba(255,193,7,0.1)"
+	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8">
+			<div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-12">
 				{#each stats as s}
-					<div
-						class="flex flex-col items-center justify-center rounded-3xl p-6 text-center"
-						style="background:rgba(255,143,163,0.08)"
-					>
+					<div class="group flex flex-col items-center justify-center text-center">
 						<div
-							style="font-family:'Fredoka',sans-serif;font-size:2.2rem;font-weight:600;color:#c94c5d"
+							class="transition-transform duration-300 group-hover:scale-110"
+							style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;color:#FFC107"
 						>
 							{s.value}
 						</div>
 						<div
-							class="mt-1"
-							style="font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:800;letter-spacing:0.05em;color:#8c2f39"
+							class="mt-2 text-xs font-black tracking-[0.2em] uppercase"
+							style="font-family:'Plus Jakarta Sans',sans-serif;color:#eee"
 						>
 							{s.label}
 						</div>
+						<div
+							class="mt-4 h-1 w-8 rounded-full bg-[#D32F2F] opacity-0 transition-opacity group-hover:opacity-100"
+						></div>
 					</div>
 				{/each}
 			</div>
@@ -544,57 +425,57 @@
 	</section>
 
 	<!-- ═══════ ABOUT / TENTANG ═══════ -->
-	<section id="about" class="relative overflow-hidden py-24" style="background:#FFFDF5">
+	<section id="about" class="relative overflow-hidden py-24" style="background:#F9F5F0">
 		<!-- Decorative elements -->
 		<div
-			class="absolute top-1/4 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
-			style="background:#ff8fa3; filter:blur(40px)"
+			class="absolute top-1/4 right-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full opacity-5"
+			style="background:#D32F2F; filter:blur(100px)"
 		></div>
 		<div
-			class="absolute bottom-1/4 left-0 h-80 w-80 -translate-x-1/2 translate-y-1/2 rounded-full opacity-10"
-			style="background:#c94c5d; filter:blur(50px)"
+			class="absolute bottom-1/4 left-0 h-80 w-80 -translate-x-1/2 translate-y-1/2 rounded-full opacity-5"
+			style="background:#FFC107; filter:blur(80px)"
 		></div>
 
 		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+			<div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
 				<!-- Image side -->
 				<div class="relative order-2 lg:order-1">
-					<div class="relative z-10 mx-auto w-full max-w-md">
+					<div class="relative z-10 mx-auto w-full max-w-lg">
+						<!-- Main Image with Gold Border -->
 						<div
-							class="blob-shape relative overflow-hidden shadow-2xl"
-							style="border:10px solid white"
+							class="relative overflow-hidden shadow-2xl"
+							style="border-radius:2.5rem; border:10px solid #fff; box-shadow:0 30px 60px rgba(0,0,0,0.2)"
 						>
 							<img
-								src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop"
-								alt="Kenikmatan Puding"
-								class="w-full object-cover transition-transform duration-700 hover:scale-105"
-								style="aspect-ratio:4/5"
+								src={heroImg}
+								alt="Dapur Yonica Culinary"
+								class="w-full object-cover transition-transform duration-700 hover:scale-110"
+								style="aspect-ratio:1/1"
 							/>
+							<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
 						</div>
-						<!-- Small overlay image -->
+
+						<!-- Small overlay Image (Pempek) -->
 						<div
-							class="absolute -right-8 -bottom-8 z-20 hidden overflow-hidden rounded-[2.5rem] border-8 border-white shadow-xl md:block"
-							style="width:200px; height:200px; background:#fce4ec"
+							class="absolute -right-12 -bottom-10 z-20 hidden overflow-hidden rounded-4xl border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:block"
+							style="width:240px; height:240px;"
 						>
-							<img
-								src="https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=300&auto=format&fit=crop"
-								alt="Dessert Cup"
-								class="h-full w-full object-cover"
-							/>
+							<img src={pempekImg} alt="Pempek Cik Unik" class="h-full w-full object-cover" />
 						</div>
-						<!-- Trust Badge -->
+
+						<!-- Heritage Badge -->
 						<div
-							class="absolute -top-6 -left-6 z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full shadow-lg"
-							style="background:linear-gradient(135deg,#ff8fa3,#c94c5d); color:white; border:4px solid white; transform: rotate(-10deg)"
+							class="absolute -top-10 -left-10 z-20 flex h-32 w-32 flex-col items-center justify-center rounded-full shadow-2xl"
+							style="background:linear-gradient(135deg,#FFC107,#FFB300); color:#121212; border:6px solid #121212; transform: rotate(-12deg)"
 						>
-							<Award class="mb-1 h-8 w-8" />
+							<Utensils class="mb-1 h-8 w-8" />
 							<span
-								style="font-family:'Fredoka',sans-serif;font-size:0.9rem;font-weight:600;line-height:1"
-								>100%</span
+								style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;line-height:1"
+								>EST.</span
 							>
 							<span
-								style="font-family:'Nunito',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.05em"
-								>PREMIUM</span
+								style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:900;letter-spacing:0.1em"
+								>PADANG</span
 							>
 						</div>
 					</div>
@@ -602,55 +483,55 @@
 
 				<!-- Text side -->
 				<div class="order-1 flex flex-col justify-center lg:order-2">
-					<div class="mb-4 inline-flex items-center gap-3">
-						<span class="h-2 w-8 rounded-full" style="background:#ff8fa3"></span>
+					<div class="mb-6 inline-flex items-center gap-4">
+						<span class="h-1 w-12 rounded-full bg-[#D32F2F]"></span>
 						<span
-							style="font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#c94c5d"
-							>Kenalan dengan Azzalea</span
+							style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#D32F2F"
+							>Warisan Kuliner Minang</span
 						>
 					</div>
 
 					<h2
-						class="mb-6"
-						style="font-family:'Fredoka',sans-serif;font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.15;color:#4a2c2a"
+						class="mb-8"
+						style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;color:#121212"
 					>
-						Manis yang Pas,<br />
-						<span style="color:#c94c5d">Lembut di Setiap Gigitan</span>
+						Olahan <span style="color:#D32F2F">Otentik</span> Berkelas
+						<span class="text-[#FFC107] italic">Dunia</span>
 					</h2>
 
 					<p
-						class="mb-8 text-lg"
-						style="font-family:'Nunito',sans-serif;color:#8c2f39;line-height:1.7"
+						class="mb-10 text-lg leading-relaxed"
+						style="font-family:'Plus Jakarta Sans',sans-serif;color:#4a4a4a"
 					>
-						Kami mengerti bahwa hidangan penutup bukan sekadar makanan, melainkan momen bahagia.
-						<strong style="color:#c94c5d">Azzalea.Pudding</strong> hadir untuk menemani hari-hari spesial,
-						acara keluarga, hingga cemilan soremu dengan rasa juara yang tak terlupakan.
+						<strong class="text-[#121212]">Dapur Yonica</strong> adalah wujud cinta kami terhadap kekayaan
+						rasa Minang. Setiap produk kami—mulai dari Rendang yang legendaris hingga Pempek Cik Unik
+						yang spesial—dibuat menggunakan rempah pilihan dan standar kualitas premium untuk menghadirkan
+						kebahagiaan di setiap meja makan.
 					</p>
 
-					<div class="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-						{#each features as f}
+					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+						{#each features as { icon: Icon, title, desc }}
 							<div
-								class="flex items-start gap-4 rounded-3xl p-4 transition-transform hover:-translate-y-1"
-								style="background:rgba(255,143,163,0.15)"
+								class="group flex items-start gap-5 rounded-2xl p-5 transition-all hover:bg-white hover:shadow-xl"
+								style="border: 1px solid rgba(0,0,0,0.05)"
 							>
 								<div
-									class="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white shadow-sm"
-									style="background:#ff8fa3"
+									class="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#121212] text-[#FFC107] transition-colors group-hover:bg-[#D32F2F] group-hover:text-white"
 								>
-									<svelte:component this={f.icon} class="h-6 w-6" />
+									<Icon class="h-7 w-7" />
 								</div>
 								<div>
 									<h4
-										class="mb-1 text-[1.05rem]"
-										style="font-family:'Fredoka',sans-serif;color:#4a2c2a"
+										class="mb-1 text-[1.1rem] font-bold"
+										style="font-family:'Playfair Display',serif;color:#121212"
 									>
-										{f.title}
+										{title}
 									</h4>
 									<p
-										class="text-[0.85rem] leading-snug"
-										style="font-family:'Nunito',sans-serif;color:#8c2f39"
+										class="text-xs leading-relaxed"
+										style="font-family:'Plus Jakarta Sans',sans-serif;color:#666"
 									>
-										{f.desc}
+										{desc}
 									</p>
 								</div>
 							</div>
@@ -662,42 +543,38 @@
 	</section>
 
 	<!-- ═══════ MENU PUDING ═══════ -->
-	<section
-		id="menu"
-		class="relative py-28"
-		style="background:linear-gradient(180deg,#fce4ec 0%,#fff1f3 100%)"
-	>
-		<!-- Section background texture -->
+	<section id="menu" class="relative py-28" style="background:#121212">
+		<!-- Background pattern -->
 		<div
-			class="absolute inset-0 opacity-[0.03]"
-			style="background-image: radial-gradient(#c94c5d 2px, transparent 2px); background-size: 30px 30px;"
+			class="absolute inset-0 opacity-[0.05]"
+			style="background-image: radial-gradient(#FFC107 2px, transparent 2px); background-size: 40px 40px;"
 		></div>
 
 		<div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<!-- Header -->
-			<div class="mb-16 flex flex-col items-center text-center">
-				<div class="mb-4 inline-flex items-center gap-3">
-					<span class="h-2 w-8 rounded-full" style="background:#ff8fa3"></span>
+			<div class="mb-20 flex flex-col items-center text-center">
+				<div class="mb-4 inline-flex items-center gap-4">
+					<span class="h-1 w-10 bg-[#FFC107]"></span>
 					<span
-						style="font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#c94c5d"
-						>Pilihan Menu Terbaik</span
+						style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;font-weight:900;letter-spacing:0.25em;text-transform:uppercase;color:#FFC107"
+						>Menu Unggulan Kami</span
 					>
-					<span class="h-2 w-8 rounded-full" style="background:#ff8fa3"></span>
+					<span class="h-1 w-10 bg-[#FFC107]"></span>
 				</div>
 				<h2
-					class="mx-auto max-w-2xl"
-					style="font-family:'Fredoka',sans-serif;font-size:clamp(2.5rem,4vw,3.5rem);line-height:1.2;color:#4a2c2a"
+					class="mx-auto max-w-3xl"
+					style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.1;color:#fff"
 				>
-					Varian Puding Favorit <em class="not-italic" style="color:#c94c5d">Pelanggan Kami</em>
+					Karya <span style="color:#D32F2F">Kuliner</span> Terbaik Pelipur
+					<em class="text-[#FFC107] not-italic">Lara</em>
 				</h2>
 			</div>
 
 			<!-- Product Grid -->
-			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
 				{#each products as prod}
 					<div
-						class="group flex flex-col overflow-hidden rounded-[2rem] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-						style="box-shadow: 0 10px 30px rgba(74,44,42,0.06); border: 1px solid rgba(255,143,163,0.1)"
+						class="group flex flex-col overflow-hidden rounded-[2.5rem] border border-white/5 bg-[#1e1e1e] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)]"
 					>
 						<div class="relative aspect-[4/3] overflow-hidden">
 							<img
@@ -705,49 +582,50 @@
 								alt={prod.title}
 								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
 							/>
+							<!-- Category Tag -->
 							<div
-								class="absolute top-4 right-4 z-10 rounded-full px-4 py-1.5 shadow-md backdrop-blur-md"
-								style="background:rgba(255,255,255,0.95)"
+								class="absolute top-6 right-6 z-10 rounded-xl border border-white/10 px-4 py-2 shadow-lg backdrop-blur-md"
+								style="background:rgba(211,47,47,0.8)"
 							>
 								<span
-									style="font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:800;letter-spacing:0.05em;color:#c94c5d;text-transform:uppercase"
+									style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:900;letter-spacing:0.1em;color:#fff;text-transform:uppercase"
 									>{prod.category}</span
 								>
 							</div>
 						</div>
-						<div class="relative flex flex-1 flex-col bg-white p-8 text-center">
-							<!-- Decorative separator -->
+						<div class="relative flex flex-1 flex-col p-10">
+							<!-- Floating Icon -->
 							<div
-								class="absolute -top-4 left-1/2 z-20 flex h-8 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-white shadow-sm"
+								class="absolute -top-8 left-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFC107] shadow-xl transition-transform group-hover:rotate-12"
 							>
-								<Heart class="h-4 w-4" style="color:#ff8fa3" />
+								<Utensils class="h-8 w-8 text-black" />
 							</div>
 
-							<div class="mt-2 flex-1">
+							<div class="mt-4 flex-1">
 								<h3
-									class="mb-3 text-[1.4rem]"
-									style="font-family:'Fredoka',sans-serif;color:#4a2c2a"
+									class="mb-4 text-[1.8rem] leading-tight font-bold"
+									style="font-family:'Playfair Display',serif;color:#fff"
 								>
 									{prod.title}
 								</h3>
 								<p
-									style="font-family:'Nunito',sans-serif;font-size:0.95rem;color:#8c2f39;line-height:1.6"
+									style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:#aaa;line-height:1.7"
 								>
 									{prod.desc}
 								</p>
 							</div>
 
-							<div class="mt-6">
+							<div class="mt-10">
 								<a
-									href="https://wa.me/6281378454700?text=Halo%20Admin,%20saya%20tertarik%20dengan%20{prod.title}"
+									href="https://wa.me/628123456789?text=Halo%20Admin%20Dapur%20Yonica,%20saya%20tertarik%20dengan%20{prod.title}"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
 									<button
-										class="w-full rounded-2xl bg-[#c94c5d]/10 py-3 text-[0.95rem] font-bold text-[#c94c5d] transition-colors hover:bg-[#c94c5d] hover:text-white"
-										style="font-family:'Nunito',sans-serif"
+										class="w-full rounded-xl bg-linear-to-r from-[#D32F2F] to-[#8c1c1c] py-4 text-sm font-black tracking-widest text-white uppercase transition-all hover:scale-[1.02] hover:shadow-[0_10px_20px_rgba(211,47,47,0.3)]"
+										style="font-family:'Plus Jakarta Sans',sans-serif"
 									>
-										Tanya Harga / Pesan WA
+										Pesan Sekarang
 									</button>
 								</a>
 							</div>
@@ -756,13 +634,16 @@
 				{/each}
 			</div>
 
-			<div class="mt-16 text-center">
-				<a href="https://instagram.com/azzalea.pudding" target="_blank" rel="noopener noreferrer">
+			<!-- Instagram Link -->
+			<div class="mt-20 text-center">
+				<a href="https://instagram.com/dapur_yonica" target="_blank" rel="noopener noreferrer">
 					<button
-						class="inline-flex h-14 items-center gap-3 rounded-full border-2 bg-transparent px-10 font-bold transition-all hover:scale-105"
-						style="font-family:'Nunito',sans-serif;border-color:#ff8fa3;color:#8c2f39"
+						class="group inline-flex h-16 items-center gap-4 rounded-xl border border-[#FFC107]/40 bg-transparent px-12 font-black transition-all hover:bg-[#FFC107] hover:text-black"
+						style="font-family:'Plus Jakarta Sans',sans-serif;color:#FFC107"
 					>
-						<Instagram class="h-5 w-5" /> Lihat Menu Lengkap di IG
+						<Instagram class="h-6 w-6" />
+						<span>LIHAT MENU LENGKAP @DAPUR_YONICA</span>
+						<ArrowRight class="h-5 w-5 transition-transform group-hover:translate-x-2" />
 					</button>
 				</a>
 			</div>
@@ -770,145 +651,139 @@
 	</section>
 
 	<!-- ═══════ CARA ORDER & INFO ═══════ -->
-	<section id="order" class="py-24" style="background:#fff1f3">
+	<section id="order" class="py-24" style="background:#F9F5F0">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid items-center gap-12 lg:grid-cols-12">
+			<div class="grid items-center gap-16 lg:grid-cols-12">
 				<!-- Left: Cara Order Steps -->
 				<div class="lg:col-span-7">
-					<div class="mb-10">
-						<span
-							style="font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#c94c5d"
-							>Mudahkan Belanjamu</span
-						>
+					<div class="mb-14">
+						<div class="mb-4 flex items-center gap-3">
+							<span class="h-1 w-8 bg-[#D32F2F]"></span>
+							<span
+								style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#D32F2F"
+								>Sistem Pemesanan Mudah</span
+							>
+						</div>
 						<h2
 							class="mt-2"
-							style="font-family:'Fredoka',sans-serif;font-size:clamp(2rem,4vw,3rem);color:#4a2c2a;line-height:1.2"
+							style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);color:#121212;line-height:1.1"
 						>
-							Cara Beli & Pesan<br />Azzalea Pudding
+							Bawa Kelezatan <span class="text-[#D32F2F] italic">Minang</span><br />ke Meja Makanmu
 						</h2>
 					</div>
 
-					<div class="space-y-6">
-						{#each [{ num: '1', title: 'Hubungi WhatsApp / DM IG', desc: 'Sampaikan varian puding dan ukuran yang ingin kamu pesan.' }, { num: '2', title: 'Konfirmasi Pesanan', desc: 'Admin akan mengecek ketersediaan / jadwal pembuatan, lalu memberikan total harga & ongkir.' }, { num: '3', title: 'Transfer & Tunggu', desc: 'Lakukan pembayaran. Puding siap dikurir ke alamatmu atau bisa dipick-up langsung!' }] as step}
+					<div class="space-y-8">
+						{#each [{ num: '01', title: 'Pilih Menu & Hubungi Admin', desc: 'Pilih varian Rendang, Pempek, atau Kerupuk favoritmu lalu hubungi kami di WhatsApp atau Instagram.' }, { num: '02', title: 'Konfirmasi & Pembayaran', desc: 'Admin akan mengonfirmasi total pesanan dan ongkir. Lakukan pembayaran via transfer bank.' }, { num: '03', title: 'Pengiriman / Pick-Up', desc: 'Pesananmu akan disiapkan dengan packing khusus agar tetap fresh. Siap dikirim ke seluruh lokasi!' }] as step}
 							<div
-								class="flex items-start gap-6 rounded-[2rem] bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
-								style="box-shadow:0 10px 25px rgba(74,44,42,0.04); border:1px solid rgba(255,143,163,0.1)"
+								class="group flex items-start gap-8 rounded-3xl border border-black/5 bg-white p-8 transition-all hover:-translate-x-2 hover:border-[#FFC107]/30 hover:shadow-2xl"
 							>
 								<div
-									class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl shadow-md"
-									style="font-family:'Fredoka',sans-serif;background:linear-gradient(135deg,#ff8fa3,#c94c5d);color:white"
+									class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-2xl font-black shadow-xl transition-colors group-hover:bg-[#FFC107] group-hover:text-black"
+									style="font-family:'Playfair Display',serif;background:#121212;color:#FFC107"
 								>
 									{step.num}
 								</div>
 								<div class="pt-1">
 									<h3
-										style="font-family:'Fredoka',sans-serif;font-size:1.3rem;color:#4a2c2a;margin-bottom:0.2rem"
+										style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:#121212;margin-bottom:0.5rem"
 									>
 										{step.title}
 									</h3>
-									<p style="font-family:'Nunito',sans-serif;color:#8c2f39">{step.desc}</p>
+									<p
+										style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:#666;line-height:1.6"
+									>
+										{step.desc}
+									</p>
 								</div>
 							</div>
 						{/each}
 					</div>
 				</div>
 
-				<!-- Right: Info Lokasi & Jam Buka Banner -->
+				<!-- Right: Info Lokasi Banner -->
 				<div class="lg:col-span-5">
 					<div
-						class="relative overflow-hidden rounded-[2.5rem] bg-white p-10 text-center shadow-2xl"
-						style="border:1px solid rgba(201,76,93,0.2)"
+						class="relative overflow-hidden rounded-[3rem] border border-white/5 bg-[#121212] p-12 text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]"
 					>
-						<!-- Bg decorator -->
+						<!-- Decorative Elements -->
 						<div
-							class="absolute -top-20 -right-20 h-48 w-48 rounded-full opacity-10"
-							style="background:#c94c5d"
+							class="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#D32F2F] opacity-10 blur-[60px]"
 						></div>
 						<div
-							class="absolute -bottom-20 -left-20 h-48 w-48 rounded-full opacity-10"
-							style="background:#ff8fa3"
+							class="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#FFC107] opacity-10 blur-[60px]"
 						></div>
 
-						<div class="relative z-10 flex flex-col items-center gap-8">
-							<!-- Jam Operasional -->
+						<div class="relative z-10 flex flex-col items-center gap-10">
+							<!-- Header -->
 							<div class="flex flex-col items-center">
 								<div
-									class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl"
-									style="background:rgba(255,143,163,0.1);color:#8c2f39"
+									class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br from-[#FFC107] to-[#FFB300] text-black shadow-xl"
 								>
-									<Clock class="h-8 w-8" />
+									<MapPin class="h-10 w-10" />
 								</div>
-								<div
-									style="font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#c94c5d;margin-bottom:0.5rem"
+								<h3
+									style="font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:0.5rem"
 								>
-									Jam Buka
-								</div>
-								<div style="font-family:'Fredoka',sans-serif;font-size:1.8rem;color:#4a2c2a">
-									09.00 - 18.00
-								</div>
-								<div
-									style="font-family:'Nunito',sans-serif;font-size:1rem;color:#8c2f39;font-weight:600"
-								>
-									Buka Setiap Hari
-								</div>
+									Lokasi & Operasional
+								</h3>
+								<div class="h-1 w-12 bg-[#D32F2F]"></div>
 							</div>
 
+							<!-- Details -->
 							<div
-								class="h-px w-full"
-								style="background:linear-gradient(90deg,transparent,rgba(201,76,93,0.3),transparent)"
-							></div>
+								class="flex w-full flex-col gap-6 rounded-2xl border border-white/10 bg-white/5 p-8 text-left"
+							>
+								<div class="flex items-start gap-5">
+									<Clock class="mt-1 h-6 w-6 shrink-0 text-[#FFC107]" />
+									<div>
+										<div
+											class="mb-1 text-[0.7rem] font-black tracking-[0.2em] text-[#FFC107] uppercase"
+										>
+											Jam Buka
+										</div>
+										<div class="text-lg font-bold text-white">08.00 - 20.00 WIB</div>
+										<div class="text-sm text-gray-400">Setiap Hari (Termasuk Libur)</div>
+									</div>
+								</div>
 
-							<!-- Lokasi -->
-							<div class="flex flex-col items-center">
-								<div
-									class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl"
-									style="background:rgba(201,76,93,0.1);color:#c94c5d"
-								>
-									<svg
-										xmlns="http://www.ourage.com/2000/svg"
-										width="28"
-										height="28"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										class="lucide lucide-map-pin"
-										><path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 15 4 10a8 8 0 0 1 16 0"
-										/><circle cx="12" cy="10" r="3" /></svg
-									>
-								</div>
-								<div
-									style="font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#c94c5d;margin-bottom:0.5rem"
-								>
-									Lokasi Kami
-								</div>
-								<div style="font-family:'Fredoka',sans-serif;font-size:1.4rem;color:#4a2c2a">
-									Ratulangi, Padang
-								</div>
-								<div
-									style="font-family:'Nunito',sans-serif;font-size:0.95rem;color:#8c2f39"
-									class="mt-2 max-w-[200px] text-center"
-								>
-									Tersedia layanan Pick-Up atau Delivery area Padang.
+								<div class="h-px w-full bg-white/10"></div>
+
+								<div class="flex items-start gap-5">
+									<MapPin class="mt-1 h-6 w-6 shrink-0 text-[#FFC107]" />
+									<div>
+										<div
+											class="mb-1 text-[0.7rem] font-black tracking-[0.2em] text-[#FFC107] uppercase"
+										>
+											Pusat Produksi
+										</div>
+										<div class="text-lg font-bold text-white">Kota Padang, Sumbar</div>
+										<div class="text-sm text-gray-400">
+											Delivery Area Padang & Seluruh Indonesia
+										</div>
+									</div>
 								</div>
 							</div>
 
+							<!-- CTA -->
 							<a
-								href="https://wa.me/6281378454700"
+								href="https://wa.me/628123456789"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="mt-4 w-full"
+								class="w-full"
 							>
 								<button
-									class="flex h-14 w-full items-center justify-center gap-2 rounded-full text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
-									style="font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#ff8fa3,#c94c5d)"
+									class="flex h-16 w-full items-center justify-center gap-3 rounded-xl text-lg font-black text-white shadow-xl transition-all hover:scale-[1.03] hover:shadow-[0_20px_40px_rgba(211,47,47,0.3)]"
+									style="font-family:'Plus Jakarta Sans',sans-serif;background:#D32F2F"
 								>
-									<Phone class="h-5 w-5" /> Hubungi Kami
+									<Phone class="h-6 w-6" /> KONSULTASI MENU WA
 								</button>
 							</a>
+
+							<div
+								class="flex items-center gap-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
+							>
+								<ShieldCheck class="h-4 w-4" /> Trusted & Halal Certified
+							</div>
 						</div>
 					</div>
 				</div>
@@ -917,55 +792,58 @@
 	</section>
 
 	<!-- ═══════ REVIEWS ═══════ -->
-	<section id="reviews" class="relative py-24" style="background:#fce4ec">
-		<!-- Decorative blobs for warm feeling -->
-		<div
-			class="absolute inset-0 z-0 opacity-[0.2]"
-			style="background:radial-gradient(circle at 50% 100%, #ff8fa3 0%, transparent 70%);"
-		></div>
-
-		<div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-14 text-center">
+	<section id="reviews" class="py-24" style="background:#121212">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-16 flex flex-col items-center text-center">
+				<div class="mb-4 flex items-center gap-3">
+					<span class="h-1 w-8 bg-[#FFC107]"></span>
+					<span
+						style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFC107"
+						>Suara Pelanggan</span
+					>
+					<span class="h-1 w-8 bg-[#FFC107]"></span>
+				</div>
 				<h2
-					style="font-family:'Fredoka',sans-serif;font-size:clamp(2rem,4vw,3.2rem);color:#4a2c2a;line-height:1.2"
+					style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);color:#fff;line-height:1.1"
 				>
-					Apa Kata <span style="color:#c94c5d">Penikmat Azzalea?</span>
+					Apa Kata Mereka Tentang <br /><span class="text-[#D32F2F] italic">Dapur Yonica</span>
 				</h2>
-				<p class="mt-4" style="font-family:'Nunito',sans-serif;font-size:1.1rem;color:#8c2f39">
-					Ribuan cuapan bahagia dari pelanggan setia kami.
-				</p>
 			</div>
 
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				{#each reviews as rv}
 					<div
-						class="flex flex-col rounded-[2rem] bg-white p-8 transition-transform hover:-translate-y-2 hover:shadow-2xl"
-						style="box-shadow:0 15px 35px rgba(201,76,93,0.06)"
+						class="group flex flex-col rounded-[2.5rem] border border-white/5 bg-[#1e1e1e] p-10 transition-all hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)]"
 					>
-						<div class="mb-4 flex gap-1">
+						<div class="mb-8 flex gap-1">
 							{#each Array(rv.stars) as _}
-								<Star class="h-5 w-5 fill-current" style="color:#ff8fa3" />
+								<Star class="h-5 w-5 fill-[#FFC107] text-[#FFC107]" />
 							{/each}
 						</div>
 						<p
-							class="mb-8 flex-1 text-[1.05rem] leading-relaxed italic"
-							style="font-family:'Nunito',sans-serif;color:#5A3E2A"
+							class="mb-8 flex-1 text-[1.1rem] leading-relaxed italic"
+							style="font-family:'Plus Jakarta Sans',sans-serif;color:#aaa"
 						>
 							"{rv.text}"
 						</p>
 
-						<div class="flex items-center gap-4">
+						<div class="flex items-center gap-5">
 							<div
-								class="flex h-12 w-12 items-center justify-center rounded-full text-[1.1rem] font-bold"
-								style="font-family:'Fredoka',sans-serif;background:linear-gradient(135deg,#F4A261,#E76F51);color:white"
+								class="flex h-14 w-14 items-center justify-center rounded-2xl text-[1.2rem] font-bold shadow-xl transition-transform group-hover:rotate-12"
+								style="font-family:'Playfair Display',serif;background:linear-gradient(135deg,#D32F2F,#8c1c1c);color:#fff"
 							>
 								{rv.initial}
 							</div>
 							<div>
-								<div class="text-[1.1rem]" style="font-family:'Fredoka',sans-serif;color:#4a2c2a">
+								<div
+									class="text-[1.2rem] font-bold"
+									style="font-family:'Playfair Display',serif;color:#fff"
+								>
 									{rv.name}
 								</div>
-								<div style="font-family:'Nunito',sans-serif;font-size:0.8rem;color:#c94c5d">
+								<div
+									style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;color:#D32F2F;font-weight:700"
+								>
 									{rv.time}
 								</div>
 							</div>
@@ -978,90 +856,95 @@
 </main>
 
 <!-- ═══════ FOOTER ═══════ -->
-<footer style="background:#4a2c2a; border-top:5px solid #c94c5d">
-	<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 gap-12 text-center md:grid-cols-3 md:text-left">
+<footer style="background:#0a0a0a; border-top:1px solid rgba(255,193,7,0.1)">
+	<div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 gap-16 text-center md:grid-cols-3 md:text-left">
 			<!-- Brand -->
-			<div class="flex flex-col items-center gap-4 md:items-start">
-				<a href="#home" class="flex items-center gap-3">
+			<div class="flex flex-col items-center gap-6 md:items-start">
+				<a href="#home" class="flex items-center gap-4">
 					<div
-						class="flex h-10 w-10 items-center justify-center rounded-xl"
-						style="background:linear-gradient(135deg,#ff8fa3,#c94c5d)"
+						class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-[#D32F2F] to-[#8c1c1c]"
 					>
-						<span style="font-family:'Fredoka',sans-serif;font-size:1.4rem;color:white">A</span>
+						<Utensils class="h-7 w-7 text-[#FFC107]" />
 					</div>
-					<div class="text-2xl" style="font-family:'Fredoka',sans-serif;color:white">
-						Azzalea<span style="color:#ff8fa3">.Pudding</span>
+					<div
+						class="text-3xl"
+						style="font-family:'Playfair Display',serif;font-weight:800;color:#fff"
+					>
+						Dapur<span style="color:#FFC107">.Yonica</span>
 					</div>
 				</a>
 				<p
-					style="font-family:'Nunito',sans-serif;font-size:0.95rem;color:#ffb3c1;line-height:1.6;max-width:300px"
+					style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;color:#888;line-height:1.8;max-width:320px"
 				>
-					Pelopor Puding no. 1 di Padang 🌟. Menghadirkan porsi kenikmatan manis, lembut, dan selalu
-					fresh untuk memeriahkan harimu.
+					Olahan Minang Jadi Selera Dunia ✨. Aneka Rendang, Pempek Cik Unik, & Kerupuk Tulang Tuna.
+					Authentic, Premium, & Halal Certified.
 				</p>
 			</div>
 
-			<!-- Links -->
-			<div class="flex flex-col items-center gap-3 md:items-start">
+			<!-- Quick Links / Contact -->
+			<div class="flex flex-col items-center gap-5 md:items-start">
 				<div
-					style="font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#ff8fa3;margin-bottom:0.5rem"
+					style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFC107;margin-bottom:0.5rem"
 				>
-					Hubungi Biz
+					Kontak & Lokasi
 				</div>
-				<div class="flex items-center gap-3 text-white">
-					<Phone class="h-4 w-4" style="color:#ff8fa3" />
-					<span style="font-family:'Nunito',sans-serif;font-size:1rem">0813-7845-4700</span>
-				</div>
-				<div class="flex items-center gap-3 text-white">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-map-pin"
-						style="color:#ff8fa3"
-						><path
-							d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 15 4 10a8 8 0 0 1 16 0"
-						/><circle cx="12" cy="10" r="3" /></svg
+				<div class="flex items-center gap-4 text-white/80">
+					<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5">
+						<Phone class="h-5 w-5 text-[#D32F2F]" />
+					</div>
+					<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:600"
+						>628123456789</span
 					>
-					<span style="font-family:'Nunito',sans-serif;font-size:1rem">Ratulangi, Padang</span>
+				</div>
+				<div class="flex items-center gap-4 text-white/80">
+					<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5">
+						<MapPin class="h-5 w-5 text-[#D32F2F]" />
+					</div>
+					<span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:600"
+						>Padang, Sumatera Barat</span
+					>
 				</div>
 			</div>
 
-			<!-- Social -->
-			<div class="flex flex-col items-center gap-4 md:items-start">
+			<!-- Social Engagement -->
+			<div class="flex flex-col items-center gap-6 md:items-start">
 				<div
-					style="font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#ff8fa3;margin-bottom:0.1rem"
+					style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:#FFC107;margin-bottom:0.2rem"
 				>
-					Ikuti Kami
+					Media Sosial
 				</div>
 				<a
-					href="https://instagram.com/azzalea.pudding"
+					href="https://instagram.com/dapur_yonica"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="flex items-center gap-3 rounded-full bg-white/5 p-2 pr-6 transition-colors hover:bg-white/10"
+					class="group flex items-center gap-4 rounded-2xl bg-white/5 p-3 pr-8 transition-all hover:bg-[#FFC107] hover:text-black"
 				>
 					<div
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-orange-500 to-pink-500 text-white"
+						class="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-lg transition-transform group-hover:rotate-6"
 					>
-						<Instagram class="h-5 w-5" />
+						<Instagram class="h-6 w-6" />
 					</div>
-					<span style="font-family:'Nunito',sans-serif;color:white;font-weight:600"
-						>@azzalea.pudding</span
-					>
+					<div class="flex flex-col items-start leading-tight">
+						<span
+							style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:800;opacity:0.6"
+							>Follow Us</span
+						>
+						<span
+							style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:800"
+							>@dapur_yonica</span
+						>
+					</div>
 				</a>
 			</div>
 		</div>
 
-		<div class="mt-14 border-t pt-8 text-center" style="border-color:rgba(255,255,255,0.1)">
-			<p style="font-family:'Nunito',sans-serif;color:rgba(255,255,255,0.4);font-size:0.85rem">
-				© 2025 Azzalea Pudding. All rights reserved.
+		<div class="mt-20 border-t pt-10 text-center" style="border-color:rgba(255,193,7,0.05)">
+			<p
+				style="font-family:'Plus Jakarta Sans',sans-serif;color:rgba(255,255,255,0.3);font-size:0.85rem;letter-spacing:0.05em"
+			>
+				© 2026 <strong style="color:rgba(255,255,255,0.5)">Dapur Yonica Culinary</strong>. Made with
+				❤️ for Minang Heritage.
 			</p>
 		</div>
 	</div>
