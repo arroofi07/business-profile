@@ -109,7 +109,7 @@
 	></div>
 
 	<div
-		class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2"
+		class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-12 lg:grid-cols-2 lg:gap-16 lg:py-20"
 	>
 		<!-- Left copy -->
 		<div>
@@ -139,7 +139,7 @@
 				<a
 					href={waGeneral}
 					target="_blank"
-					class="btn-whatsapp flex w-full items-center justify-center text-center gap-2 sm:w-auto"
+					class="btn-whatsapp flex w-full items-center justify-center gap-2 text-center sm:w-auto"
 					>💬 Chat WhatsApp</a
 				>
 			</div>
@@ -156,24 +156,27 @@
 		</div>
 
 		<!-- Right floating card -->
-		<div class="animate-scale-reveal hidden justify-center delay-300 lg:flex">
-			<div class="relative w-full max-w-md">
+		<div class="animate-scale-reveal flex justify-center delay-300">
+			<div class="relative w-full max-w-sm lg:max-w-md">
 				<div
-					class="animate-float-soft rounded-2xl p-8 shadow-2xl"
+					class="animate-float-soft rounded-2xl p-5 shadow-2xl lg:p-8"
 					style="background:white; border:1.5px solid rgba(59,130,246,0.25);"
 				>
 					<div class="mb-4 flex items-center gap-3">
 						<div
-							class="flex h-14 w-14 items-center justify-center rounded-xl text-3xl"
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-3xl lg:h-14 lg:w-14"
 							style="background:var(--sp-gradient-blue);"
 						>
 							<img src={logo} class="h-full w-full object-contain" alt="" />
 						</div>
 						<div>
-							<div class="font-display text-lg font-bold" style="color:var(--sp-navy);">
+							<div
+								class="font-display text-base leading-tight font-bold lg:text-lg"
+								style="color:var(--sp-navy);"
+							>
 								Smartprint Padang
 							</div>
-							<div class="text-xs font-semibold" style="color:var(--sp-blue-mid);">
+							<div class="text-[11px] font-semibold lg:text-xs" style="color:var(--sp-blue-mid);">
 								@smartprint_padang
 							</div>
 						</div>

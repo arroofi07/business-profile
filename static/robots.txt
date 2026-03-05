@@ -1,3 +1,8 @@
-# allow crawling everything by default
+# SmartPrint Padang - robots.txt
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+Disallow: /_app/
+
+# Sitemap
+Sitemap: https://smartprintpadang.com/sitemap.xml
