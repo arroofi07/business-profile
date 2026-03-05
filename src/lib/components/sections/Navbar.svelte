@@ -48,7 +48,7 @@
 		style="height:var(--nav-height);"
 	>
 		<!-- Logo -->
-		<a href="#hero" class="group flex items-center gap-3">
+		<a href="/" class="group flex items-center gap-3">
 			<div class="flex h-11 w-11 items-center justify-center rounded-xl text-2xl shadow-md">
 				<img src={logo} alt="logo" class="h-full w-full object-cover" />
 			</div>

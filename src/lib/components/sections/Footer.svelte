@@ -2,6 +2,8 @@
 	import { waGeneral } from '$lib/data';
 	import { Instagram, MessageCircle, MapPin, Link } from 'lucide-svelte';
 	import logo from '$lib/assets/logo.png';
+
+	let mapLoaded = $state(false);
 </script>
 
 <footer style="background:#0F172A; border-top:3px solid var(--sp-blue);">
@@ -72,10 +74,11 @@
 					Kontak
 				</div>
 				{#each [{ ico: MessageCircle, val: '0811 663 528' }, { ico: Instagram, val: '@smartprint_padang' }, { ico: MapPin, val: 'Padang, Sumatera Barat' }, { ico: Link, val: 'Part of @redline_comunication' }] as item}
+					{@const Icon = item.ico}
 					<div class="flex items-start gap-2 py-1.5 text-sm" style="color:rgba(255,255,255,0.6);">
-						<span class="mt-0.5 shrink-0"
-							><svelte:component this={item.ico} size={16} strokeWidth={2} /></span
-						><span>{item.val}</span>
+						<span class="mt-0.5 shrink-0"><Icon size={16} strokeWidth={2} /></span><span
+							>{item.val}</span
+						>
 					</div>
 				{/each}
 			</div>
@@ -95,18 +98,39 @@
 					<div
 						class="pointer-events-none absolute inset-0 z-10 rounded-xl ring-1 ring-white/10 ring-inset"
 					></div>
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2328.8685642568494!2d100.35031756277502!3d-0.9018060688247466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b2cf5e6e9f%3A0xfe9dacac7f8093d0!2sPlaza%20Computer!5e0!3m2!1sen!2sid!4v1772718244706!5m2!1sen!2sid"
-						width="100%"
-						height="100%"
-						class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-						style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.1) opacity(0.8);"
-						allowfullscreen={true}
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-						title="Lokasi Google Maps"
-					>
-					</iframe>
+
+					{#if mapLoaded}
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2328.8685642568494!2d100.35031756277502!3d-0.9018060688247466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b2cf5e6e9f%3A0xfe9dacac7f8093d0!2sPlaza%20Computer!5e0!3m2!1sen!2sid!4v1772718244706!5m2!1sen!2sid"
+							width="100%"
+							height="100%"
+							class="h-full w-full object-cover"
+							style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.1) opacity(0.8);"
+							allowfullscreen={true}
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Lokasi Google Maps"
+						>
+						</iframe>
+					{:else}
+						<button
+							class="relative h-full w-full cursor-pointer"
+							aria-label="Load Map"
+							onclick={() => (mapLoaded = true)}
+							onmouseenter={() => (mapLoaded = true)}
+						>
+							<div
+								class="absolute inset-0 flex flex-col items-center justify-center bg-[#0F172A] text-white/50 transition-colors group-hover:text-white/80"
+							>
+								<MapPin
+									size={32}
+									class="mb-2 opacity-50 transition-opacity group-hover:opacity-100"
+								/>
+								<span class="text-xs font-semibold">Tampilkan Peta</span>
+							</div>
+						</button>
+					{/if}
+
 					<div
 						class="pointer-events-none absolute inset-0 z-20 bg-[#1E90FF]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 					></div>

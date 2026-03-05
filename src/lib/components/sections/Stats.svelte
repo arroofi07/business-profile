@@ -5,21 +5,27 @@
 	let statCounter = $state({ products: 0, clients: 0, years: 0, followers: 0 });
 
 	function animateCounters() {
-		const duration = 2000,
-			step = 16,
-			steps = duration / step;
-		let frame = 0;
-		const timer = setInterval(() => {
-			frame++;
-			const ease = 1 - Math.pow(1 - Math.min(frame / steps, 1), 3);
+		const duration = 2000;
+		let startTimestamp: number | null = null;
+
+		function step(timestamp: number) {
+			if (!startTimestamp) startTimestamp = timestamp;
+			const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+			const ease = 1 - Math.pow(1 - progress, 3);
+
 			statCounter = {
 				products: Math.round(statTargets.products * ease),
 				clients: Math.round(statTargets.clients * ease),
 				years: Math.round(statTargets.years * ease),
 				followers: Math.round(statTargets.followers * ease)
 			};
-			if (frame >= steps) clearInterval(timer);
-		}, step);
+
+			if (progress < 1) {
+				window.requestAnimationFrame(step);
+			}
+		}
+
+		window.requestAnimationFrame(step);
 	}
 
 	onMount(() => {

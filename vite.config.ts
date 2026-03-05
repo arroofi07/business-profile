@@ -5,6 +5,21 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
+	build: {
+		minify: 'esbuild',
+		chunkSizeWarningLimit: 800,
+		rollupOptions: {
+			output: {
+				manualChunks: (id) => {
+					if (id.includes('node_modules')) {
+						if (id.includes('svelte')) return 'vendor-svelte';
+						if (id.includes('lucide')) return 'vendor-icons';
+						return 'vendor';
+					}
+				}
+			}
+		}
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

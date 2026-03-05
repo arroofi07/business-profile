@@ -26,6 +26,13 @@
 		// ── Canvas floating particles ──
 		const canvas = canvasEl;
 		let raf: number;
+		let isVisible = true;
+
+		const onVisibilityChange = () => {
+			isVisible = !document.hidden;
+		};
+		document.addEventListener('visibilitychange', onVisibilityChange);
+
 		let cleanupCanvas = () => {};
 
 		if (canvas) {
@@ -36,7 +43,7 @@
 			};
 			resize();
 			window.addEventListener('resize', resize);
-			const NUM = 38;
+			const NUM = 22; // Reduced from 38
 			let pts = Array.from({ length: NUM }, () => ({
 				x: Math.random() * canvas.width,
 				y: Math.random() * canvas.height,
@@ -46,30 +53,33 @@
 				o: 0.2 + Math.random() * 0.55
 			}));
 			const draw = () => {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				for (const p of pts) {
-					p.x += p.dx;
-					p.y += p.dy;
-					if (p.x < 0) p.x = canvas.width;
-					if (p.x > canvas.width) p.x = 0;
-					if (p.y < 0) p.y = canvas.height;
-					if (p.y > canvas.height) p.y = 0;
-					ctx.beginPath();
-					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-					ctx.fillStyle = `rgba(59,130,246,${p.o})`;
-					ctx.fill();
-				}
-				// draw connections
-				for (let i = 0; i < pts.length; i++) {
-					for (let j = i + 1; j < pts.length; j++) {
-						const dist = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
-						if (dist < 120) {
-							ctx.beginPath();
-							ctx.strokeStyle = `rgba(59,130,246,${0.12 * (1 - dist / 120)})`;
-							ctx.lineWidth = 0.7;
-							ctx.moveTo(pts[i].x, pts[i].y);
-							ctx.lineTo(pts[j].x, pts[j].y);
-							ctx.stroke();
+				if (isVisible) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					for (const p of pts) {
+						p.x += p.dx;
+						p.y += p.dy;
+						if (p.x < 0) p.x = canvas.width;
+						if (p.x > canvas.width) p.x = 0;
+						if (p.y < 0) p.y = canvas.height;
+						if (p.y > canvas.height) p.y = 0;
+						ctx.beginPath();
+						ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+						ctx.fillStyle = `rgba(59,130,246,${p.o})`;
+						ctx.fill();
+					}
+					// draw connections
+					for (let i = 0; i < pts.length; i++) {
+						for (let j = i + 1; j < pts.length; j++) {
+							const dist = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
+							if (dist < 90) {
+								// Reduced from 120
+								ctx.beginPath();
+								ctx.strokeStyle = `rgba(59,130,246,${0.12 * (1 - dist / 90)})`;
+								ctx.lineWidth = 0.7;
+								ctx.moveTo(pts[i].x, pts[i].y);
+								ctx.lineTo(pts[j].x, pts[j].y);
+								ctx.stroke();
+							}
 						}
 					}
 				}
@@ -85,6 +95,7 @@
 
 		return () => {
 			clearInterval(typeTimer);
+			document.removeEventListener('visibilitychange', onVisibilityChange);
 			cleanupCanvas();
 		};
 	});
