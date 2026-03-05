@@ -12,125 +12,111 @@ export const waGeneral = waLink(
 	'Halo Smartprint Padang, saya ingin berkonsultasi mengenai produk cetak. Bisa bantu?'
 );
 
-export const allProducts = [
-	{
-		id: 1,
-		name: 'Spanduk PVC',
-		category: 'spanduk',
-		emoji: '🖼️',
-		price: 'Mulai Rp 25.000/m²',
-		tags: ['Populer'],
-		desc: 'Spanduk outdoor berkualitas tinggi, tahan cuaca & sinar UV.'
-	},
-	{
-		id: 2,
-		name: 'Baliho Outdoor',
-		category: 'baliho',
-		emoji: '📋',
-		price: 'Mulai Rp 45.000/m²',
-		tags: ['Populer'],
-		desc: 'Baliho ukuran besar untuk promosi jalan & event outdoor.'
-	},
-	{
-		id: 3,
-		name: 'Stiker Cutting',
-		category: 'stiker',
-		emoji: '✂️',
-		price: 'Mulai Rp 15.000',
-		tags: ['Populer'],
-		desc: 'Stiker cutting presisi tinggi untuk kaca, motor, & properti.'
-	},
-	{
-		id: 4,
-		name: 'Stiker Label Produk',
-		category: 'stiker',
-		emoji: '🏷️',
-		price: 'Mulai Rp 200/pcs',
-		tags: ['Baru'],
-		desc: 'Label produk UMKM dengan berbagai ukuran & finishing.'
-	},
-	{
-		id: 5,
-		name: 'Kartu Nama Premium',
-		category: 'kartu-nama',
-		emoji: '💼',
-		price: 'Mulai Rp 30.000/100pcs',
-		tags: ['Populer'],
-		desc: 'Kartu nama profesional, art carton 260gsm, full color.'
-	},
-	{
-		id: 6,
-		name: 'Roll Banner',
-		category: 'banner',
-		emoji: '🎯',
-		price: 'Mulai Rp 150.000',
-		tags: [],
-		desc: 'Banner roll-up portabel untuk pameran & promosi indoor.'
-	},
-	{
-		id: 7,
-		name: 'Backdrop Photobooth',
-		category: 'banner',
-		emoji: '📸',
-		price: 'Mulai Rp 80.000/m²',
-		tags: [],
-		desc: 'Backdrop custom untuk acara pernikahan, wisuda, & event.'
-	},
-	{
-		id: 8,
-		name: 'X-Banner',
-		category: 'banner',
-		emoji: '📌',
-		price: 'Mulai Rp 85.000',
-		tags: [],
-		desc: 'X-banner lengkap dengan stand, cocok untuk toko & kantor.'
-	},
-	{
-		id: 9,
-		name: 'Nota / Bon Custom',
-		category: 'lainnya',
-		emoji: '🧾',
-		price: 'Mulai Rp 45.000/buku',
-		tags: [],
-		desc: 'Nota 2 rangkap custom dengan logo usaha Anda.'
-	},
-	{
-		id: 10,
-		name: 'Poster A3 / A2',
-		category: 'lainnya',
-		emoji: '🖨️',
-		price: 'Mulai Rp 5.000/lembar',
-		tags: [],
-		desc: 'Poster full color glossy/matte untuk promosi & informasi.'
-	},
-	{
-		id: 11,
-		name: 'ID Card / Name Tag',
-		category: 'kartu-nama',
-		emoji: '🪪',
-		price: 'Mulai Rp 10.000/pcs',
-		tags: ['Baru'],
-		desc: 'ID card PVC atau kertas laminasi untuk perusahaan & sekolah.'
-	},
-	{
-		id: 12,
-		name: 'Undangan Digital Print',
-		category: 'lainnya',
-		emoji: '💌',
-		price: 'Mulai Rp 25.000/pcs',
-		tags: ['Baru'],
-		desc: 'Undangan cetak elegan untuk pernikahan, khitanan, & acara.'
-	}
+// ── Categories ──
+export const categories = [
+	{ key: 'semua',    label: 'Semua',                    icon: '🗂️' },
+	{ key: 'signage',  label: 'Signage & Banner',         icon: '🪧' },
+	{ key: 'promosi',  label: 'Kebutuhan Promosi',        icon: '📢' },
+	{ key: 'office',   label: 'Office Supplies',          icon: '🗂️' },
+	{ key: 'buku',     label: 'Buku',                     icon: '📚' },
+	{ key: 'souvenir', label: 'Souvenir',                 icon: '🎁' },
+	{ key: 'textile',  label: 'Textile',                  icon: '👕' },
+	{ key: 'industri', label: 'Industri',                 icon: '🏭' },
 ];
 
-export const categories = [
-	{ key: 'semua', label: 'Semua' },
-	{ key: 'spanduk', label: 'Spanduk' },
-	{ key: 'baliho', label: 'Baliho' },
-	{ key: 'stiker', label: 'Stiker' },
-	{ key: 'kartu-nama', label: 'Kartu Nama' },
-	{ key: 'banner', label: 'Banner' },
-	{ key: 'lainnya', label: 'Lainnya' }
+// ── All Products ──
+export const allProducts = [
+	// ─── 🪧 SIGNAGE & BANNER DISPLAY ───
+	{ id: 1,  name: 'X Banner',             category: 'signage',  emoji: '🪧', tags: ['Populer'], desc: 'Banner portabel berbentuk X, cocok untuk acara, pameran, dan promosi indoor/outdoor.' },
+	{ id: 2,  name: 'Y Banner',             category: 'signage',  emoji: '🚩', tags: [],          desc: 'Banner dengan penyangga berbentuk Y, lebih stabil untuk penggunaan outdoor.' },
+	{ id: 3,  name: 'Roll Up Banner',       category: 'signage',  emoji: '📜', tags: ['Populer'], desc: 'Banner gulung praktis yang mudah dipasang dan disimpan, tampilan elegan.' },
+	{ id: 4,  name: 'Mini X Banner',        category: 'signage',  emoji: '🔖', tags: [],          desc: 'Versi kecil X Banner, biasa diletakkan di atas meja restoran atau counter.' },
+	{ id: 5,  name: 'Giant Banner',         category: 'signage',  emoji: '🏟️', tags: [],          desc: 'Banner ukuran sangat besar, ideal untuk stadion, konser, dan area luas.' },
+	{ id: 6,  name: 'Tripod Banner',        category: 'signage',  emoji: '📷', tags: [],          desc: 'Banner dengan tiga kaki penyangga, sangat fleksibel dan mudah disesuaikan.' },
+	{ id: 7,  name: 'Flag Banner',          category: 'signage',  emoji: '🎌', tags: [],          desc: 'Banner berbentuk bendera, bahan lentur dan tidak transparan, dinamis di luar ruangan.' },
+	{ id: 8,  name: 'Spanduk',              category: 'signage',  emoji: '🖼️', tags: ['Populer'], desc: 'Banner persegi panjang tahan lama, tersedia berbagai ukuran untuk indoor/outdoor.' },
+	{ id: 9,  name: 'Flag Chain',           category: 'signage',  emoji: '🎏', tags: [],          desc: 'Rangkaian bendera kecil berwarna-warni untuk dekorasi acara dan toko.' },
+	{ id: 10, name: 'Signage',              category: 'signage',  emoji: '🪧', tags: [],          desc: 'Papan tanda informatif dan menarik untuk navigasi, branding, atau promosi.' },
+	{ id: 11, name: 'Neon Box',             category: 'signage',  emoji: '💡', tags: ['Populer'], desc: 'Kotak cahaya cerah dan terang, sangat mencolok siang maupun malam hari.' },
+	{ id: 12, name: 'Magnetic Backdrop',    category: 'signage',  emoji: '🧲', tags: ['Baru'],    desc: 'Latar belakang display berbasis magnet, mudah ganti grafik sesuai kebutuhan.' },
+	{ id: 13, name: 'Event Desk',           category: 'signage',  emoji: '🏢', tags: [],          desc: 'Meja atau counter portabel berbranding, ideal untuk stan pameran dan acara.' },
+	{ id: 14, name: 'Kanvas',               category: 'signage',  emoji: '🖌️', tags: [],          desc: 'Cetak di atas kanvas bertekstur, cocok untuk seni, foto, dan dekorasi ruangan.' },
+	{ id: 15, name: 'Wallpaper',            category: 'signage',  emoji: '🧱', tags: ['Baru'],    desc: 'Pelapis dinding dekoratif dengan berbagai motif dan desain custom.' },
+	{ id: 16, name: 'Balon Joged',          category: 'signage',  emoji: '🎈', tags: [],          desc: 'Balon bergerak warna cerah untuk menarik perhatian di acara outdoor.' },
+	{ id: 17, name: 'Balon Promosi',        category: 'signage',  emoji: '🎉', tags: [],          desc: 'Balon besar berlogo untuk meningkatkan visibilitas di area penjualan.' },
+
+	// ─── 📢 KEBUTUHAN PROMOSI ───
+	{ id: 18, name: 'Tent Card',            category: 'promosi',  emoji: '📋', tags: [],          desc: 'Kartu lipat yang bisa berdiri sendiri, untuk promosi di meja restoran atau counter.' },
+	{ id: 19, name: 'Hang Tag',             category: 'promosi',  emoji: '🏷️', tags: [],          desc: 'Label gantung untuk detail produk seperti harga, ukuran, dan informasi brand.' },
+	{ id: 20, name: 'Poster',               category: 'promosi',  emoji: '🖨️', tags: ['Populer'], desc: 'Cetakan besar informatif untuk promosi, iklan, atau pengumuman acara.' },
+	{ id: 21, name: 'Bendera Sedotan',      category: 'promosi',  emoji: '🚩', tags: [],          desc: 'Bendera mini di atas sedotan, cocok untuk lomba dan pesta anak-anak.' },
+	{ id: 22, name: 'Triangle Pop Display', category: 'promosi',  emoji: '🔺', tags: ['Baru'],    desc: 'Display segitiga unik untuk menyajikan informasi perusahaan atau produk.' },
+	{ id: 23, name: 'ID Card',              category: 'promosi',  emoji: '🪪', tags: ['Populer'], desc: 'Kartu identitas cetak untuk karyawan, peserta acara, atau anggota komunitas.' },
+	{ id: 24, name: 'Wobbler',              category: 'promosi',  emoji: '🪁', tags: [],          desc: 'Materi promosi kecil yang bergoyang, dipasang di rak toko untuk menarik perhatian.' },
+	{ id: 25, name: 'Undangan',             category: 'promosi',  emoji: '💌', tags: ['Populer'], desc: 'Cetakan undangan elegan untuk pernikahan, ulang tahun, dan acara korporasi.' },
+	{ id: 26, name: 'Kalender',             category: 'promosi',  emoji: '📅', tags: [],          desc: 'Kalender dinding atau meja custom, bisa dijadikan media promosi perusahaan.' },
+	{ id: 27, name: 'Postcard',             category: 'promosi',  emoji: '📮', tags: [],          desc: 'Kartu pos bergambar, populer untuk koleksi, suvenir, atau kirim salam.' },
+	{ id: 28, name: 'Voucher Belanja',      category: 'promosi',  emoji: '🎟️', tags: [],          desc: 'Kartu voucher berisi detail promo atau diskon untuk meningkatkan penjualan.' },
+	{ id: 29, name: 'Spunbond',             category: 'promosi',  emoji: '🛍️', tags: [],          desc: 'Bahan kain serat kuat untuk tas belanja dan barang promosi tahan lama.' },
+	{ id: 30, name: 'Paper Bag',            category: 'promosi',  emoji: '🛍️', tags: ['Populer'], desc: 'Tas kertas ramah lingkungan dengan opsi cetak logo atau pesan promosi.' },
+	{ id: 31, name: 'Cutting Sticker',      category: 'promosi',  emoji: '✂️', tags: ['Populer'], desc: 'Stiker vinil potong custom untuk dekorasi kendaraan, barang, atau ruangan.' },
+	{ id: 32, name: 'Lanyard',              category: 'promosi',  emoji: '🔗', tags: [],          desc: 'Tali leher untuk menampung ID card atau kunci, bisa dicetak nama/logo.' },
+	{ id: 33, name: 'Akrilik Printing',     category: 'promosi',  emoji: '💎', tags: ['Baru'],    desc: 'Cetak penuh warna di atas akrilik transparan, tampilan mewah dan tahan lama.' },
+	{ id: 34, name: 'Brosur',               category: 'promosi',  emoji: '📄', tags: ['Populer'], desc: 'Cetakan terlipat berkualitas untuk membagikan info produk atau promosi.' },
+	{ id: 35, name: 'Bangku Promosi',       category: 'promosi',  emoji: '🪑', tags: [],          desc: 'Tempat duduk portabel dengan permukaan berbranding untuk acara dan pameran.' },
+	{ id: 36, name: 'E-Money',              category: 'promosi',  emoji: '💳', tags: ['Baru'],    desc: 'Kartu pembayaran elektronik custom berlogo, efektif untuk loyalitas pelanggan.' },
+
+	// ─── 🗂️ OFFICE SUPPLIES ───
+	{ id: 37, name: 'Kartu Nama',           category: 'office',   emoji: '💼', tags: ['Populer'], desc: 'Kartu identitas profesional berisi nama, kontak, dan logo perusahaan.' },
+	{ id: 38, name: 'Kop Surat',            category: 'office',   emoji: '📝', tags: [],          desc: 'Kertas surat resmi berlogo perusahaan untuk komunikasi dan dokumen bisnis.' },
+	{ id: 39, name: 'Amplop',               category: 'office',   emoji: '✉️', tags: [],          desc: 'Amplop berwarna dan berdesain unik, cocok untuk undangan atau pengiriman promosi.' },
+	{ id: 40, name: 'Map Folder',           category: 'office',   emoji: '🗂️', tags: [],          desc: 'Folder dokumen tahan lama untuk menyimpan berkas dan material penting kantor.' },
+	{ id: 41, name: 'Ordner',               category: 'office',   emoji: '📁', tags: [],          desc: 'Tempat penyimpanan dokumen berlubang dengan klip, cocok untuk pengarsipan kantor.' },
+
+	// ─── 📚 BUKU ───
+	{ id: 42, name: 'Buku Agenda',          category: 'buku',     emoji: '📓', tags: ['Populer'], desc: 'Buku jadwal harian portabel untuk merencanakan dan memantau aktivitas.' },
+	{ id: 43, name: 'Buku Manual',          category: 'buku',     emoji: '📗', tags: [],          desc: 'Panduan produk atau perangkat dengan tampilan modern dan informatif.' },
+	{ id: 44, name: 'Booklet',              category: 'buku',     emoji: '📔', tags: [],          desc: 'Buku kecil multi-halaman untuk promosi produk atau informasi layanan secara detail.' },
+	{ id: 45, name: 'Company Profile',      category: 'buku',     emoji: '🏢', tags: ['Populer'], desc: 'Dokumen cetak profesional yang menggambarkan identitas dan profil perusahaan.' },
+	{ id: 46, name: 'Katalog',              category: 'buku',     emoji: '📋', tags: [],          desc: 'Dokumen produk lengkap berisi gambar, deskripsi, dan harga untuk calon pelanggan.' },
+	{ id: 47, name: 'Buku Menu',            category: 'buku',     emoji: '🍽️', tags: ['Populer'], desc: 'Daftar makanan dan minuman restoran dalam format cetak menarik dan profesional.' },
+	{ id: 48, name: 'Annual Book',          category: 'buku',     emoji: '📆', tags: [],          desc: 'Buku catatan kegiatan tahunan, cocok untuk organisasi atau perencanaan bisnis.' },
+	{ id: 49, name: 'Majalah',              category: 'buku',     emoji: '📰', tags: [],          desc: 'Publikasi cetak berkala untuk hiburan, informasi, atau promosi brand.' },
+	{ id: 50, name: 'Buku Notes',           category: 'buku',     emoji: '📒', tags: [],          desc: 'Buku catatan portabel untuk pelajar, mahasiswa, dan profesional.' },
+	{ id: 51, name: 'Buku Tamu',            category: 'buku',     emoji: '📖', tags: [],          desc: 'Buku pencatat kehadiran tamu untuk hotel, acara, atau instansi resmi.' },
+
+	// ─── 🎁 SOUVENIR ───
+	{ id: 52, name: 'Payung',               category: 'souvenir', emoji: '☂️', tags: ['Populer'], desc: 'Payung full-color custom, fungsional sekaligus efektif sebagai media promosi.' },
+	{ id: 53, name: 'Mug',                  category: 'souvenir', emoji: '☕', tags: ['Populer'], desc: 'Gelas minum dengan cetak desain pribadi atau logo perusahaan.' },
+	{ id: 54, name: 'USB',                  category: 'souvenir', emoji: '💾', tags: [],          desc: 'Flashdisk custom berbentuk unik dengan logo atau pesan brand.' },
+	{ id: 55, name: 'Power Bank',           category: 'souvenir', emoji: '🔋', tags: ['Baru'],    desc: 'Charger portabel berdesain custom, cocok untuk hadiah atau doorprize.' },
+	{ id: 56, name: 'Pen',                  category: 'souvenir', emoji: '🖊️', tags: ['Populer'], desc: 'Pulpen eksklusif berkualitas tinggi, cocok untuk hadiah profesional.' },
+	{ id: 57, name: 'Pin',                  category: 'souvenir', emoji: '📌', tags: [],          desc: 'Aksesori kecil custom sesuai desain, populer untuk komunitas dan promosi.' },
+	{ id: 58, name: 'Casing Handphone',     category: 'souvenir', emoji: '📱', tags: ['Populer'], desc: 'Pelindung ponsel dengan desain unik atau logo brand pilihan sendiri.' },
+	{ id: 59, name: 'Gantungan Kunci',      category: 'souvenir', emoji: '🔑', tags: [],          desc: 'Aksesori kunci atau tas custom, diminati semua kalangan untuk merchandise.' },
+	{ id: 60, name: 'Tumbler',              category: 'souvenir', emoji: '🧃', tags: ['Populer'], desc: 'Botol minum stylish dan ramah lingkungan, bisa dicetak nama atau logo.' },
+	{ id: 61, name: 'Kipas Promosi',        category: 'souvenir', emoji: '🌀', tags: [],          desc: 'Kipas custom berlogo, praktis untuk disebar di acara outdoor berskala besar.' },
+	{ id: 62, name: 'Travel Bag',           category: 'souvenir', emoji: '🧳', tags: [],          desc: 'Tas perjalanan tahan lama dengan desain stylish, cocok untuk merchandise.' },
+
+	// ─── 👕 TEXTILE ───
+	{ id: 63, name: 'Jersey',               category: 'textile',  emoji: '🥋', tags: ['Populer'], desc: 'Seragam olahraga custom full-color, paling banyak diminati di kategori tekstil.' },
+	{ id: 64, name: 'Kaos',                 category: 'textile',  emoji: '👕', tags: ['Populer'], desc: 'Pakaian kasual dengan berbagai pilihan desain dan gambar custom.' },
+	{ id: 65, name: 'Hijab',                category: 'textile',  emoji: '🧕', tags: [],          desc: 'Kerudung custom dari berbagai bahan, memadukan fungsi dan tren fashion.' },
+	{ id: 66, name: 'Bantal',               category: 'textile',  emoji: '🛋️', tags: [],          desc: 'Bantal empuk dengan cetak gambar atau desain custom, cocok sebagai hadiah.' },
+	{ id: 67, name: 'Sarung Bantal & Sprei',category: 'textile',  emoji: '🛏️', tags: [],          desc: 'Perlengkapan tidur bermotif cantik hasil cetak digital berkualitas.' },
+	{ id: 68, name: 'Tote Bag',             category: 'textile',  emoji: '👜', tags: ['Populer'], desc: 'Tas serbaguna bahan kuat dengan desain custom, ramah lingkungan.' },
+	{ id: 69, name: 'Masker',               category: 'textile',  emoji: '😷', tags: [],          desc: 'Masker kain berdesain cute atau keren, tetap diminati sebagai aksesori gaya.' },
+	{ id: 70, name: 'Topi',                 category: 'textile',  emoji: '🧢', tags: ['Populer'], desc: 'Topi custom dengan nama atau gambar pilihan, bisa jadi hadiah personal.' },
+	{ id: 71, name: 'Batik Printing',       category: 'textile',  emoji: '🎨', tags: ['Baru'],    desc: 'Kain bermotif batik hasil cetak digital, cepat dan berkualitas tinggi.' },
+	{ id: 72, name: 'Sepatu Printing',      category: 'textile',  emoji: '👟', tags: ['Baru'],    desc: 'Sepatu dengan desain cetak variatif dan unik, cocok untuk merchandise.' },
+
+	// ─── 🏭 INDUSTRI ───
+	{ id: 73, name: 'Kemasan Produk',       category: 'industri', emoji: '📦', tags: ['Populer'], desc: 'Packaging custom untuk berbagai jenis produk, fungsi perlindungan sekaligus branding.' },
+	{ id: 74, name: 'Paper Cup',            category: 'industri', emoji: '☕', tags: [],          desc: 'Gelas kertas custom berlogo, cocok untuk acara komunitas dan minuman takeaway.' },
+	{ id: 75, name: 'Box Makanan',          category: 'industri', emoji: '🍱', tags: ['Populer'], desc: 'Kemasan makanan tahan lama untuk katering, restoran, atau pesanan massal.' },
+	{ id: 76, name: 'Label',                category: 'industri', emoji: '🏷️', tags: ['Populer'], desc: 'Stiker informasi produk berdesain menarik untuk meningkatkan daya tarik konsumen.' },
+	{ id: 77, name: 'Rigid Box',            category: 'industri', emoji: '🎁', tags: ['Baru'],    desc: 'Kotak premium kokoh dengan finishing mewah untuk produk high-end atau hampers.' },
+	{ id: 78, name: 'Botol Plastik Printing',category: 'industri',emoji: '🍶', tags: [],          desc: 'Botol minum berdesain trendi dan unik, cocok untuk merchandise atau promosi.' },
 ];
 
 export const statTargets = { products: 100, clients: 1149, years: 7, followers: 1149 };

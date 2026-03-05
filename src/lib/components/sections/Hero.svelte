@@ -135,7 +135,7 @@
 				— harga terjangkau, hasil profesional, pengerjaan cepat.
 			</p>
 			<div class="animate-slide-up flex flex-col gap-3 delay-300 sm:flex-row sm:gap-4">
-				<a href="#produk" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog</a>
+				<a href="/katalog" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog</a>
 				<a
 					href={waGeneral}
 					target="_blank"

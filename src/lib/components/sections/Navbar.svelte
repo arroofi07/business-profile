@@ -67,7 +67,7 @@
 
 		<!-- Desktop nav -->
 		<div class="hidden items-center gap-7 md:flex">
-			{#each [['#layanan', 'Layanan'], ['#produk', 'Katalog'], ['#cara-pesan', 'Cara Order'], ['#harga', 'Harga'], ['#tentang', 'Tentang'], ['#kontak', 'Kontak']] as [href, label]}
+			{#each [['/#layanan', 'Layanan'], ['/katalog', 'Katalog'], ['/#cara-pesan', 'Cara Order'], ['/#harga', 'Harga'], ['/#tentang', 'Tentang'], ['/#kontak', 'Kontak']] as [href, label]}
 				<a
 					{href}
 					class="text-sm font-semibold transition-colors duration-200"
@@ -145,7 +145,7 @@
 				{/if}
 			</div>
 
-			{#each [['#layanan', 'Layanan'], ['#produk', 'Katalog'], ['#harga', 'Harga'], ['#cara-pesan', 'Cara Order'], ['#tentang', 'Tentang'], ['#kontak', 'Kontak']] as [href, label]}
+			{#each [['/#layanan', 'Layanan'], ['/katalog', 'Katalog'], ['/#harga', 'Harga'], ['/#cara-pesan', 'Cara Order'], ['/#tentang', 'Tentang'], ['/#kontak', 'Kontak']] as [href, label]}
 				<a
 					{href}
 					class="border-b py-2 text-sm font-semibold"
