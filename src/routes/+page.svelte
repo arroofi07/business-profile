@@ -279,8 +279,8 @@
 <!--  NAVBAR                                                      -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <header
-	class="glass-dark fixed top-0 right-0 left-0 z-50"
-	style="border-bottom:1px solid rgba(14,165,233,0.15);"
+	class="glass-dark fixed top-0 right-0 left-0 z-50 overflow-hidden"
+	style="border-bottom:1px solid rgba(190,24,93,0.18);"
 >
 	<nav
 		class="mx-auto flex max-w-7xl items-center justify-between px-6"
@@ -409,27 +409,27 @@
 				Spanduk, Baliho, Stiker, Kartu Nama & lebih dari 100 produk cetak berkualitas tinggi. Harga
 				terjangkau, hasil profesional, tepat waktu.
 			</p>
-			<div class="animate-slide-up flex flex-wrap gap-4 delay-300">
-				<a href="#produk" class="btn-primary-drv">Lihat Produk ↓</a>
-				<a href={waGeneral} target="_blank" class="btn-whatsapp flex items-center gap-2">
+			<div class="animate-slide-up flex flex-col gap-3 delay-300 sm:flex-row sm:flex-wrap sm:gap-4">
+				<a href="#produk" class="btn-primary-drv w-full text-center sm:w-auto">Lihat Produk ↓</a>
+				<a href={waGeneral} target="_blank" class="btn-whatsapp flex w-full items-center justify-center gap-2 sm:w-auto">
 					<span>💬</span> Hubungi via WhatsApp
 				</a>
 			</div>
 
 			<!-- Floating stats -->
-			<div class="animate-slide-up mt-12 flex gap-8 delay-500">
+			<div class="animate-slide-up mt-10 flex gap-6 delay-500 sm:mt-12 sm:gap-8">
 				<div>
-					<div class="font-display font-700 text-3xl" style="color:var(--drv-blue);">100+</div>
+					<div class="font-display font-700 text-2xl sm:text-3xl" style="color:var(--drv-blue);">100+</div>
 					<div class="text-xs" style="color:var(--drv-gray);">Produk Cetak</div>
 				</div>
-				<div style="width:1px; background:rgba(14,165,233,0.2);"></div>
+				<div style="width:1px; background:rgba(190,24,93,0.2);"></div>
 				<div>
-					<div class="font-display font-700 text-3xl" style="color:var(--drv-cyan);">1K+</div>
+					<div class="font-display font-700 text-2xl sm:text-3xl" style="color:var(--drv-cyan);">1K+</div>
 					<div class="text-xs" style="color:var(--drv-gray);">Pelanggan Puas</div>
 				</div>
-				<div style="width:1px; background:rgba(14,165,233,0.2);"></div>
+				<div style="width:1px; background:rgba(190,24,93,0.2);"></div>
 				<div>
-					<div class="font-display font-700 text-3xl" style="color:var(--drv-orange);">⭐ 5.0</div>
+					<div class="font-display font-700 text-2xl sm:text-3xl" style="color:var(--drv-orange);">⭐ 5.0</div>
 					<div class="text-xs" style="color:var(--drv-gray);">Rating Pelanggan</div>
 				</div>
 			</div>
@@ -553,18 +553,20 @@
 			</select>
 		</div>
 
-		<!-- Category filter tabs -->
-		<div class="mb-10 flex flex-wrap gap-2">
+		<!-- Category filter tabs - horizontal scroll on mobile -->
+		<div class="mb-10 -mx-6 px-6 overflow-x-auto sm:mx-0 sm:px-0">
+			<div class="flex gap-2 pb-2 sm:flex-wrap sm:pb-0" style="min-width:max-content;">
 			{#each categories as cat}
 				<button
 					onclick={() => (activeCategory = cat.key)}
-					class="font-600 font-display cursor-pointer rounded-full px-5 py-2 text-sm transition-all duration-250"
+					class="font-600 font-display cursor-pointer rounded-full px-5 py-2 text-sm transition-all duration-250 shrink-0"
 					style={activeCategory === cat.key
 						? 'background:var(--drv-gradient-blue); color:#fff; box-shadow:var(--drv-glow-blue);'
-						: 'background:var(--drv-bg-card); color:var(--drv-gray-light); border:1px solid rgba(14,165,233,0.15);'}
+						: 'background:var(--drv-bg-card); color:var(--drv-gray-light); border:1px solid rgba(190,24,93,0.2);'}
 					>{cat.label}</button
 				>
 			{/each}
+			</div>
 		</div>
 
 		<!-- Product grid -->
@@ -659,10 +661,10 @@
 		</div>
 
 		<div class="relative grid grid-cols-1 gap-8 md:grid-cols-4">
-			<!-- Connector line desktop -->
+			<!-- Connector line desktop only -->
 			<div
-				class="absolute top-10 right-1/8 left-1/8 hidden h-px md:block"
-				style="background:linear-gradient(90deg, transparent, var(--drv-blue), var(--drv-cyan), var(--drv-blue), transparent); top:36px; left:12%; right:12%;"
+				class="absolute right-[12%] left-[12%] hidden h-px md:block"
+				style="background:linear-gradient(90deg, transparent, var(--drv-blue), var(--drv-cyan), var(--drv-blue), transparent); top:36px;"
 			></div>
 
 			{#each [{ step: '01', emoji: '💬', title: 'Konsultasi', desc: 'Hubungi kami via WhatsApp, ceritakan kebutuhan cetak Anda.', color: 'var(--drv-blue)' }, { step: '02', emoji: '🎨', title: 'Desain & File', desc: 'Kirim file desain Anda, atau minta tim kami untuk membantu.', color: 'var(--drv-cyan)' }, { step: '03', emoji: '✅', title: 'Konfirmasi Order', desc: 'Setujui harga, spesifikasi, dan estimasi waktu produksi.', color: 'var(--drv-orange)' }, { step: '04', emoji: '📦', title: 'Ambil / Dikirim', desc: 'Produk siap diambil di toko atau kami antar ke lokasi Anda.', color: 'var(--drv-yellow)' }] as step, i}
@@ -971,23 +973,23 @@
 		<div class="grid items-start gap-10 lg:grid-cols-2">
 			<!-- Contact cards -->
 			<div class="flex flex-col gap-5">
-				{#each [{ icon: '📱', title: 'WhatsApp', val: '082170716039', sub: 'Chat langsung dengan tim kami', href: waGeneral, btnLabel: 'Chat Sekarang', btnStyle: 'background:linear-gradient(135deg,#25D366,#128C7E); color:#fff;' }, { icon: '📍', title: 'Alamat', val: 'Jl. Raya Ampang', sub: 'Depan Es Teh Indonesia, Kota Padang', href: 'https://maps.google.com/?q=Jl.+Raya+Ampang,+Padang', btnLabel: 'Lihat di Maps', btnStyle: 'background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.3); color:var(--drv-blue);' }, { icon: '📸', title: 'Instagram', val: '@drv.digitalprinting_padang', sub: 'Follow untuk update produk terbaru', href: 'https://www.instagram.com/drv.digitalprinting_padang/', btnLabel: 'Kunjungi Instagram', btnStyle: 'background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737); color:#fff;' }] as c}
-					<div class="card-tech flex items-center gap-5 rounded-2xl p-6">
+				{#each [{ icon: '📱', title: 'WhatsApp', val: '082170716039', sub: 'Chat langsung dengan tim kami', href: waGeneral, btnLabel: 'Chat Sekarang', btnStyle: 'background:linear-gradient(135deg,#25D366,#128C7E); color:#fff;' }, { icon: '📍', title: 'Alamat', val: 'Jl. Raya Ampang', sub: 'Depan Es Teh Indonesia, Kota Padang', href: 'https://maps.google.com/?q=Jl.+Raya+Ampang,+Padang', btnLabel: 'Lihat di Maps', btnStyle: 'background:rgba(190,24,93,0.1); border:1px solid rgba(190,24,93,0.3); color:var(--drv-blue);' }, { icon: '📸', title: 'Instagram', val: '@drv.digitalprinting_padang', sub: 'Follow untuk update terbaru', href: 'https://www.instagram.com/drv.digitalprinting_padang/', btnLabel: 'Kunjungi IG', btnStyle: 'background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737); color:#fff;' }] as c}
+					<div class="card-tech flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:gap-5 sm:p-6">
 						<div
-							class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl text-3xl"
-							style="background:var(--drv-bg-mid); border:1px solid rgba(14,165,233,0.15);"
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl sm:h-14 sm:w-14 sm:text-3xl"
+							style="background:var(--drv-bg-mid); border:1px solid rgba(190,24,93,0.15);"
 						>
 							{c.icon}
 						</div>
-						<div class="flex-1">
-							<div class="font-600 mb-0.5 text-sm" style="color:var(--drv-gray);">{c.title}</div>
-							<div class="font-display font-700" style="color:var(--drv-white);">{c.val}</div>
+						<div class="min-w-0 flex-1">
+							<div class="mb-0.5 text-sm font-600" style="color:var(--drv-gray);">{c.title}</div>
+							<div class="truncate font-display font-700" style="color:var(--drv-white);">{c.val}</div>
 							<div class="mt-0.5 text-xs" style="color:var(--drv-gray);">{c.sub}</div>
 						</div>
 						<a
 							href={c.href}
 							target="_blank"
-							class="font-700 flex-shrink-0 rounded-xl px-4 py-2 text-xs transition-all hover:-translate-y-0.5"
+							class="shrink-0 rounded-xl px-4 py-2 text-center text-xs font-700 transition-all hover:-translate-y-0.5 sm:text-left"
 							style={c.btnStyle}>{c.btnLabel}</a
 						>
 					</div>
@@ -1015,12 +1017,12 @@
 			</div>
 
 			<!-- Map embed -->
-			<div class="neon-border-blue overflow-hidden rounded-2xl" style="height:440px;">
+			<div class="neon-border-blue w-full overflow-hidden rounded-2xl" style="height:300px; min-height:300px;">
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3!2d100.377!3d-0.903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwNTQnMTAuOCJTIDEwMMKwMjInMzcuMiJF!5e0!3m2!1sen!2sid!4v1!5m2!1sen!2sid"
 					width="100%"
 					height="100%"
-					style="border:0; filter:invert(90%) hue-rotate(180deg);"
+					style="border:0; filter:invert(90%) hue-rotate(180deg); display:block;"
 					allowfullscreen
 					loading="lazy"
 					title="Lokasi DRV Digital Printing Padang"
