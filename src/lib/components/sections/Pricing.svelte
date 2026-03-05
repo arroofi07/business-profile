@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { waLink } from '$lib/data';
+	import { Tag, Star, Gem } from 'lucide-svelte';
 </script>
 
 <section id="harga" class="py-24" style="background:var(--sp-bg-section);">
@@ -15,7 +16,7 @@
 			<p style="color:var(--sp-gray);">Kami memberikan harga terbaik tanpa biaya tersembunyi.</p>
 		</div>
 		<div class="grid gap-8 md:grid-cols-3">
-			{#each [{ tier: 'Basic', icon: '🏷️', color: 'var(--sp-cyan)', desc: 'Cocok untuk kebutuhan cetak kecil & personal', featured: false, items: ['Kartu Nama (100pcs) mulai Rp 30rb', 'Stiker Cutting mulai Rp 15rb', 'Poster A3 mulai Rp 5rb/lembar', 'ID Card mulai Rp 10rb/pcs'] }, { tier: 'Standard', icon: '⭐', color: 'var(--sp-blue)', desc: 'Pilihan terbaik untuk promosi bisnis Anda', featured: true, items: ['Spanduk PVC mulai Rp 25rb/m²', 'Roll Banner mulai Rp 150rb', 'X-Banner mulai Rp 85rb', 'Backdrop mulai Rp 80rb/m²'] }, { tier: 'Premium', icon: '💎', color: 'var(--sp-orange)', desc: 'Untuk event besar, proyek & order massal', featured: false, items: ['Baliho Outdoor mulai Rp 45rb/m²', 'Custom ukuran besar', 'Nota / Bon custom Rp 45rb/buku', 'Harga grosir (diskusi)'] }] as plan, i}
+			{#each [{ tier: 'Basic', icon: Tag, color: 'var(--sp-cyan)', desc: 'Cocok untuk kebutuhan cetak kecil & personal', featured: false, items: ['Kartu Nama (100pcs) mulai Rp 30rb', 'Stiker Cutting mulai Rp 15rb', 'Poster A3 mulai Rp 5rb/lembar', 'ID Card mulai Rp 10rb/pcs'] }, { tier: 'Standard', icon: Star, color: 'var(--sp-blue)', desc: 'Pilihan terbaik untuk promosi bisnis Anda', featured: true, items: ['Spanduk PVC mulai Rp 25rb/m²', 'Roll Banner mulai Rp 150rb', 'X-Banner mulai Rp 85rb', 'Backdrop mulai Rp 80rb/m²'] }, { tier: 'Premium', icon: Gem, color: 'var(--sp-orange)', desc: 'Untuk event besar, proyek & order massal', featured: false, items: ['Baliho Outdoor mulai Rp 45rb/m²', 'Custom ukuran besar', 'Nota / Bon custom Rp 45rb/buku', 'Harga grosir (diskusi)'] }] as plan, i}
 				<div
 					class="sp-reveal relative flex flex-col gap-5 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-2"
 					style="{plan.featured
@@ -31,7 +32,9 @@
 							PALING POPULER
 						</div>
 					{/if}
-					<div class="text-4xl">{plan.icon}</div>
+					<div style="color:{plan.featured ? '#fff' : plan.color};">
+						<svelte:component this={plan.icon} size={36} strokeWidth={1.5} />
+					</div>
 					<div>
 						<h3
 							class="font-display mb-1 text-2xl font-bold"

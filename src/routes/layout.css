@@ -427,15 +427,27 @@ body {
 }
 
 /* ── Scroll Reveal System ── */
-.sp-reveal {
+/* Hanya sembunyikan elemen saat JS siap mengamatinya (body.js-ready) */
+/* Tanpa class ini, konten tetap visible sebagai fallback */
+body.js-ready .sp-reveal {
 	opacity: 0;
 	transform: translateY(30px);
-	transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+	transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+	            transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sp-reveal.sp-visible {
-	opacity: 1;
-	transform: translateY(0);
+	opacity: 1 !important;
+	transform: translateY(0) !important;
+}
+
+/* Accessibility: jika user prefer reduced motion, langsung tampilkan */
+@media (prefers-reduced-motion: reduce) {
+	body.js-ready .sp-reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
 }
 
 .sp-delay-100 { transition-delay: 100ms; }

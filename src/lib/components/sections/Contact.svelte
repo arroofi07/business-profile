@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { waGeneral } from '$lib/data';
+	import { Instagram, MessageCircle, MapPin } from 'lucide-svelte';
 </script>
 
 <section id="kontak" class="py-24" style="background:var(--sp-gradient-dark);">
@@ -22,26 +23,31 @@
 				<a
 					href={waGeneral}
 					target="_blank"
-					class="btn-whatsapp flex items-center gap-2 px-8 py-4 text-base"
-					>💬 Chat WhatsApp Sekarang</a
+					class="flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold transition-all duration-200 hover:opacity-80"
+					style="background:linear-gradient(135deg,#25D366,#2DB742); color:white; font-family:'Outfit',sans-serif;"
+				>
+					<MessageCircle /> Chat WhatsApp Sekarang</a
 				>
 				<a
 					href="https://www.instagram.com/smartprint_padang/"
 					target="_blank"
 					class="flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold transition-all duration-200 hover:opacity-80"
 					style="background:linear-gradient(135deg,#E1306C,#833AB4); color:white; font-family:'Outfit',sans-serif;"
-					>📷 Follow Instagram</a
+				>
+					<Instagram /> Follow Instagram</a
 				>
 			</div>
 		</div>
 		<div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-			{#each [{ icon: '📞', label: 'Telepon / WhatsApp', val: '0811 663 528' }, { icon: '📸', label: 'Instagram', val: '@smartprint_padang' }, { icon: '🏙️', label: 'Kota', val: 'Padang, Sumatera Barat' }] as c, i}
+			{#each [{ icon: MessageCircle, label: 'Telepon / WhatsApp', val: '0811 663 528' }, { icon: Instagram, label: 'Instagram', val: '@smartprint_padang' }, { icon: MapPin, label: 'Kota', val: 'Padang, Sumatera Barat' }] as c, i}
 				<div
-					class="sp-reveal rounded-xl p-5"
+					class="sp-reveal flex flex-col items-center rounded-xl p-5"
 					style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); transition-delay:{i *
 						100}ms;"
 				>
-					<div class="mb-2 text-2xl">{c.icon}</div>
+					<div class="mb-3 text-white">
+						<svelte:component this={c.icon} size={32} strokeWidth={1.5} />
+					</div>
 					<div
 						class="mb-1 text-xs"
 						style="color:rgba(255,255,255,0.55); font-family:'Outfit',sans-serif;"

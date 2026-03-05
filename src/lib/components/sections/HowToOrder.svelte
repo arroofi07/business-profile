@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { waGeneral } from '$lib/data';
+	import { MessageCircle, PenTool, CheckCircle, Package } from 'lucide-svelte';
 </script>
 
 <section id="cara-pesan" class="py-24" style="background:var(--sp-gradient-dark);">
@@ -23,16 +24,16 @@
 				class="absolute right-[12%] left-[12%] hidden h-px md:block"
 				style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent); top:40px;"
 			></div>
-			{#each [{ step: '01', emoji: '💬', title: 'Konsultasi', desc: 'Hubungi kami via WhatsApp, ceritakan kebutuhan cetak Anda.', color: '#93C5FD' }, { step: '02', emoji: '🎨', title: 'Desain & File', desc: 'Kirim file desain, atau minta tim kami untuk membantu.', color: '#6EE7B7' }, { step: '03', emoji: '✅', title: 'Konfirmasi', desc: 'Setujui harga, spesifikasi, dan estimasi waktu produksi.', color: '#FBD38D' }, { step: '04', emoji: '📦', title: 'Terima Produk', desc: 'Ambil di toko atau kami antar ke lokasi Anda.', color: '#C4B5FD' }] as step, i}
+			{#each [{ step: '01', icon: MessageCircle, title: 'Konsultasi', desc: 'Hubungi kami via WhatsApp, ceritakan kebutuhan cetak Anda.', color: '#93C5FD' }, { step: '02', icon: PenTool, title: 'Desain & File', desc: 'Kirim file desain, atau minta tim kami untuk membantu.', color: '#6EE7B7' }, { step: '03', icon: CheckCircle, title: 'Konfirmasi', desc: 'Setujui harga, spesifikasi, dan estimasi waktu produksi.', color: '#FBD38D' }, { step: '04', icon: Package, title: 'Terima Produk', desc: 'Ambil di toko atau kami antar ke lokasi Anda.', color: '#C4B5FD' }] as step, i}
 				<div
 					class="sp-reveal relative flex flex-col items-center text-center"
 					style="transition-delay:{i * 150}ms;"
 				>
 					<div
-						class="relative z-10 mb-5 flex h-20 w-20 items-center justify-center rounded-2xl text-3xl shadow-lg"
-						style="background:rgba(255,255,255,0.12); border:2px solid {step.color}; backdrop-filter:blur(8px);"
+						class="relative z-10 mb-5 flex h-20 w-20 items-center justify-center rounded-2xl shadow-lg"
+						style="background:rgba(255,255,255,0.12); border:2px solid {step.color}; backdrop-filter:blur(8px); color: {step.color};"
 					>
-						{step.emoji}
+						<svelte:component this={step.icon} size={32} strokeWidth={1.5} />
 					</div>
 					<div
 						class="mb-2 text-xs font-bold tracking-widest"
@@ -46,9 +47,9 @@
 			{/each}
 		</div>
 		<div class="mt-14 text-center">
-			<a href={waGeneral} target="_blank" class="btn-whatsapp inline-flex items-center gap-2"
-				>💬 Mulai Order Sekarang →</a
-			>
+			<a href={waGeneral} target="_blank" class="btn-whatsapp inline-flex items-center gap-2">
+				Mulai Order Sekarang
+			</a>
 		</div>
 	</div>
 </section>

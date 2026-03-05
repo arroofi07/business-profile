@@ -171,19 +171,30 @@
 
 	onMount(() => {
 		// ── Scroll-reveal: add .sp-visible when element enters viewport ──
-		const revealEls = document.querySelectorAll('.sp-reveal');
-		const revealObs = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((e) => {
-					if (e.isIntersecting) {
-						e.target.classList.add('sp-visible');
-						revealObs.unobserve(e.target);
-					}
-				});
-			},
-			{ threshold: 0.12 }
-		);
-		revealEls.forEach((el) => revealObs.observe(el));
+		// Gunakan requestAnimationFrame agar semua komponen selesai render dulu
+		// sebelum IntersectionObserver mulai observe, mencegah elemen "terkunci" invisible.
+		requestAnimationFrame(() => {
+			// Aktifkan CSS guard — elemen baru disembunyikan setelah observer siap
+			document.body.classList.add('js-ready');
+
+			const revealEls = document.querySelectorAll('.sp-reveal');
+			const revealObs = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((e) => {
+						if (e.isIntersecting) {
+							e.target.classList.add('sp-visible');
+							revealObs.unobserve(e.target);
+						}
+					});
+				},
+				// rootMargin positif: elemen yang sudah ada dalam/dekat viewport
+				// langsung ditandai visible tanpa menunggu scroll
+				{ threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+			);
+			revealEls.forEach((el) => revealObs.observe(el));
+
+			return () => revealObs.disconnect();
+		});
 	});
 </script>
 

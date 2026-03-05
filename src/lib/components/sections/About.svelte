@@ -1,3 +1,8 @@
+<script lang="ts">
+	import { Target, Zap, Coins, Handshake, Printer, Clock } from 'lucide-svelte';
+	import logo from '$lib/assets/logo.png';
+</script>
+
 <section id="tentang" class="dot-pattern-light py-24" style="background:var(--sp-bg-white);">
 	<div class="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
 		<!-- Left copy -->
@@ -7,7 +12,7 @@
 				class="font-display mb-6 font-bold"
 				style="font-size:clamp(1.8rem,4vw,2.8rem); color:var(--sp-navy);"
 			>
-				Mengapa Pilih <span class="gradient-text-blue">Smartprint?</span>
+				Mengapa Pilih <span class="gradient-text-blue">Smartprint Padang?</span>
 			</h2>
 			<p class="mb-6 text-base leading-relaxed" style="color:var(--sp-gray);">
 				Smartprint Padang adalah creative agency yang bergerak di bidang digital printing,
@@ -20,12 +25,14 @@
 				sekitarnya — dari UMKM, event organizer, sekolah, hingga perusahaan besar.
 			</p>
 			<div class="grid grid-cols-2 gap-4">
-				{#each [{ icon: '🎯', label: 'Kualitas Tinggi', color: 'var(--sp-blue)' }, { icon: '⚡', label: 'Proses Cepat', color: 'var(--sp-cyan)' }, { icon: '💰', label: 'Harga Terjangkau', color: 'var(--sp-orange)' }, { icon: '🤝', label: 'Pelayanan Ramah', color: 'var(--sp-green)' }] as v}
+				{#each [{ icon: Target, label: 'Kualitas Tinggi', color: 'var(--sp-blue)' }, { icon: Zap, label: 'Proses Cepat', color: 'var(--sp-cyan)' }, { icon: Coins, label: 'Harga Terjangkau', color: 'var(--sp-orange)' }, { icon: Handshake, label: 'Pelayanan Ramah', color: 'var(--sp-green)' }] as v}
 					<div
 						class="flex items-center gap-3 rounded-xl p-4"
 						style="background:var(--sp-bg-off); border:1px solid var(--sp-gray-border);"
 					>
-						<span class="text-2xl">{v.icon}</span>
+						<div style="color:{v.color};">
+							<svelte:component this={v.icon} size={28} strokeWidth={1.5} />
+						</div>
 						<span class="text-sm font-semibold" style="color:var(--sp-navy);">{v.label}</span>
 					</div>
 				{/each}
@@ -38,7 +45,9 @@
 				class="animate-float-soft rounded-2xl p-8 text-center shadow-xl"
 				style="background:var(--sp-gradient-dark);"
 			>
-				<div class="mb-4 text-7xl">🖨️</div>
+				<div class="mx-auto mb-5 flex w-fit justify-center rounded-4xl bg-accent p-2 text-white">
+					<img src={logo} class="h-20 w-20 object-cover" alt="" />
+				</div>
 				<div class="font-display mb-1 text-xl font-bold text-white">Smartprint Padang</div>
 				<div class="mb-3 text-sm" style="color:#93C5FD;">
 					Digital Printing · Advertising · Percetakan
@@ -55,10 +64,13 @@
 				class="rounded-xl p-5 shadow-sm"
 				style="background:var(--sp-bg-off); border:1px solid var(--sp-gray-border);"
 			>
-				<div class="font-display mb-3 text-base font-bold" style="color:var(--sp-navy);">
-					📍 Jam Operasional
+				<div
+					class="font-display mb-3 flex items-center gap-2 text-base font-bold"
+					style="color:var(--sp-navy);"
+				>
+					<Clock size={20} strokeWidth={2} /> Jam Operasional
 				</div>
-				{#each [['Senin – Jumat', '09:00 – 17:30'], ['Sabtu', '09:00 – 15:00'], ['Minggu', 'Tutup']] as [hari, jam]}
+				{#each [['Senin – Sabtu', '09:00 – 17:00'], ['Minggu', 'Tutup']] as [hari, jam]}
 					<div
 						class="flex justify-between border-b py-1.5 text-sm last:border-0"
 						style="border-color:var(--sp-gray-border); color:var(--sp-text-mid);"

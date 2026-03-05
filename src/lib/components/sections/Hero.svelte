@@ -135,12 +135,12 @@
 				— harga terjangkau, hasil profesional, pengerjaan cepat.
 			</p>
 			<div class="animate-slide-up flex flex-col gap-3 delay-300 sm:flex-row sm:gap-4">
-				<a href="#produk" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog ↓</a>
+				<a href="#produk" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog</a>
 				<a
 					href={waGeneral}
 					target="_blank"
 					class="btn-whatsapp flex w-full items-center justify-center gap-2 text-center sm:w-auto"
-					>💬 Chat WhatsApp</a
+					>WhatsApp</a
 				>
 			</div>
 
@@ -164,8 +164,7 @@
 				>
 					<div class="mb-4 flex items-center gap-3">
 						<div
-							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-3xl lg:h-14 lg:w-14"
-							style="background:var(--sp-gradient-blue);"
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-3xl lg:h-14 lg:w-14"
 						>
 							<img src={logo} class="h-full w-full object-contain" alt="" />
 						</div>
