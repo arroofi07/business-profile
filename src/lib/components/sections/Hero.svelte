@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { waGeneral } from '$lib/data';
+	import logo from '$lib/assets/logo.png';
 
 	// Typewriter
-	const typeWords = ['Profesional', 'Berkualitas', 'Terpercaya', 'Terjangkau'];
+	const typeWords = ['cetakmu', 'desainmu', 'promosimu', 'bannermu', 'stikermu', 'brosurmu'];
 	let typeText = $state(typeWords[0]);
 	let typeFading = $state(false);
 
@@ -113,18 +114,18 @@
 		<!-- Left copy -->
 		<div>
 			<div class="animate-slide-up section-chip mb-6 inline-flex items-center gap-2">
-				<span>✦</span> CREATIVE AGENCY · PADANG
+				<span>✦</span> DIGITAL PRINTING · PADANG
 			</div>
 			<h1
 				class="font-display animate-slide-up mb-6 leading-tight font-extrabold delay-100"
 				style="font-size:clamp(2.4rem,5.5vw,3.8rem); color:var(--sp-navy);"
 			>
-				Solusi Cetak<br />
+				Apapun Kebutuhan<br />
 				<span
 					class="gradient-text-shimmer inline-block min-w-[300px] transition-opacity duration-300"
 					style="opacity: {typeFading ? 0 : 1};">{typeText}</span
 				><br />
-				<span style="color:var(--sp-orange);">Untuk Bisnis Anda</span>
+				<span style="color:var(--sp-orange);">Ingat Smartprint aja!</span>
 			</h1>
 			<p
 				class="animate-slide-up mb-8 max-w-lg text-lg delay-200"
@@ -138,7 +139,7 @@
 				<a
 					href={waGeneral}
 					target="_blank"
-					class="btn-whatsapp flex w-full items-center justify-center gap-2 sm:w-auto"
+					class="btn-whatsapp flex w-full items-center justify-center text-center gap-2 sm:w-auto"
 					>💬 Chat WhatsApp</a
 				>
 			</div>
@@ -166,7 +167,7 @@
 							class="flex h-14 w-14 items-center justify-center rounded-xl text-3xl"
 							style="background:var(--sp-gradient-blue);"
 						>
-							🖨️
+							<img src={logo} class="h-full w-full object-contain" alt="" />
 						</div>
 						<div>
 							<div class="font-display text-lg font-bold" style="color:var(--sp-navy);">
@@ -205,14 +206,28 @@
 						style="color:var(--sp-green);"
 					>
 						<span class="h-2 w-2 rounded-full" style="background:var(--sp-green);"></span>Senin –
-						Sabtu · 09:00 – 17:30
+						Sabtu · 09:00 – 17:00
 					</div>
 					<div
 						class="mt-3 rounded-lg p-3 text-center text-xs"
 						style="background:var(--sp-bg-off); color:var(--sp-gray);"
 					>
-						Part of <strong style="color:var(--sp-blue);">@redline_comunication</strong> &
-						<strong style="color:var(--sp-blue);">@redline_production_</strong>
+						Part of
+						<a
+							href="https://www.instagram.com/redline_comunication/"
+							class="hover:text-white"
+							target="_blank"
+						>
+							<strong style="color:var(--sp-blue);">@redline_comunication</strong>
+						</a>
+						&
+						<a
+							href="https://www.instagram.com/redline_production_/"
+							class="hover:text-white"
+							target="_blank"
+						>
+							<strong style="color:var(--sp-blue);">@redline_production_</strong>
+						</a>
 					</div>
 				</div>
 				<!-- Decorative ring -->

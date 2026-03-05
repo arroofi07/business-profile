@@ -5,14 +5,34 @@
 
 	let navScrolled = $state(false);
 	let mobileNavOpen = $state(false);
+	let isOpen = $state(false);
+
+	const checkOpenStatus = () => {
+		const now = new Date();
+		// Calculate WIB (UTC+7)
+		const localTime = now.getTime();
+		const localOffset = now.getTimezoneOffset() * 60000;
+		const utc = localTime + localOffset;
+		const wibDate = new Date(utc + 3600000 * 7);
+
+		const day = wibDate.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+		const hours = wibDate.getHours();
+
+		// Senin - Sabtu (1-6) jam 09:00 - 17:00 (hours 9 to 16)
+		isOpen = day >= 1 && day <= 6 && hours >= 9 && hours < 17;
+	};
 
 	onMount(() => {
+		checkOpenStatus();
+		const interval = setInterval(checkOpenStatus, 60000);
+
 		const onScroll = () => {
 			navScrolled = window.scrollY > 30;
 		};
 		window.addEventListener('scroll', onScroll, { passive: true });
 		return () => {
 			window.removeEventListener('scroll', onScroll);
+			clearInterval(interval);
 		};
 	});
 </script>
@@ -60,13 +80,24 @@
 
 		<!-- CTA -->
 		<div class="hidden items-center gap-3 md:flex">
-			<div
-				class="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
-				style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); color:#10B981; font-family:'Outfit',sans-serif;"
-			>
-				<span class="animate-ping-dot inline-block h-2 w-2 rounded-full" style="background:#10B981;"
-				></span>BUKA
-			</div>
+			{#if isOpen}
+				<div
+					class="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
+					style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); color:#10B981; font-family:'Outfit',sans-serif;"
+				>
+					<span
+						class="animate-ping-dot inline-block h-2 w-2 rounded-full"
+						style="background:#10B981;"
+					></span>BUKA
+				</div>
+			{:else}
+				<div
+					class="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
+					style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#EF4444; font-family:'Outfit',sans-serif;"
+				>
+					<span class="inline-block h-2 w-2 rounded-full" style="background:#EF4444;"></span>TUTUP
+				</div>
+			{/if}
 			<a href={waGeneral} target="_blank" class="btn-primary-sp text-sm">Order Sekarang →</a>
 		</div>
 
@@ -89,6 +120,31 @@
 			class="animate-slide-down flex flex-col gap-3 px-6 py-5 md:hidden"
 			style="background:rgba(255,255,255,0.97); border-top:1px solid var(--sp-gray-border);"
 		>
+			<div
+				class="mb-2 flex items-center justify-between pb-2"
+				style="border-bottom:1px solid var(--sp-gray-border);"
+			>
+				<span class="text-sm font-bold" style="color:var(--sp-text-mid);">Status Toko:</span>
+				{#if isOpen}
+					<div
+						class="flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold"
+						style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); color:#10B981;"
+					>
+						<span
+							class="animate-ping-dot inline-block h-2 w-2 rounded-full"
+							style="background:#10B981;"
+						></span>BUKA
+					</div>
+				{:else}
+					<div
+						class="flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold"
+						style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#EF4444;"
+					>
+						<span class="inline-block h-2 w-2 rounded-full" style="background:#EF4444;"></span>TUTUP
+					</div>
+				{/if}
+			</div>
+
 			{#each [['#layanan', 'Layanan'], ['#produk', 'Katalog'], ['#harga', 'Harga'], ['#cara-pesan', 'Cara Order'], ['#tentang', 'Tentang'], ['#kontak', 'Kontak']] as [href, label]}
 				<a
 					{href}
