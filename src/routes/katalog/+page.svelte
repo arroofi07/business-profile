@@ -91,49 +91,14 @@
 
 <main class="katalog-page">
 	<!-- ── HERO HEADER ── -->
-	<section class="katalog-hero">
-		<div class="katalog-hero__bg-grid"></div>
-		<div class="katalog-hero__blobs">
-			<div class="blob blob-1"></div>
-			<div class="blob blob-2"></div>
-		</div>
-		<div class="relative z-10 mx-auto max-w-7xl px-6 py-32 text-center">
-			<a href="/" class="back-link mb-6 inline-flex items-center gap-2">
-				<svg
-					width="16"
-					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"><path d="M19 12H5" /><path d="m12 5-7 7 7 7" /></svg
-				>
-				Kembali ke Beranda
-			</a>
-			<div class="section-chip mb-5">KATALOG LENGKAP</div>
-			<h1 class="katalog-hero__title font-display">
-				Semua Solusi Cetak <span class="gradient-text-blue">Anda</span>
-			</h1>
-			<p class="katalog-hero__subtitle">
-				78+ produk berkualitas premium dari 7 kategori. Pesan sekarang dan dapatkan hasil terbaik!
-			</p>
 
-			<!-- Stats strip -->
-			<div class="katalog-stats">
-				{#each [['78+', 'Produk Tersedia'], ['7', 'Kategori'], ['1.000+', 'Klien Puas'], ['7', 'Tahun Pengalaman']] as [val, label]}
-					<div class="katalog-stat-item">
-						<div class="katalog-stat-val font-display">{val}</div>
-						<div class="katalog-stat-label">{label}</div>
-					</div>
-				{/each}
-			</div>
+		<div class="relative z-10 mx-auto max-w-7xl px-2 py-7 text-center md:px-6 md:py-12">
+			<div class="section-chip mb-0">KATALOG LENGKAP</div>
 		</div>
-	</section>
 
 	<!-- ── MAIN CONTENT ── -->
 	<section class="katalog-body">
-		<div class="mx-auto max-w-7xl px-6 py-12">
+		<div class="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-12">
 			<div class="katalog-layout">
 				<!-- ── SIDEBAR (Desktop) ── -->
 				<aside class="katalog-sidebar">
@@ -325,7 +290,7 @@
 
 	<!-- ── BOTTOM CTA ── -->
 	<section class="katalog-cta">
-		<div class="mx-auto max-w-3xl px-6 py-20 text-center">
+		<div class="mx-auto max-w-3xl px-4 py-12 text-center md:px-6 md:py-20">
 			<div
 				class="section-chip mb-5"
 				style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); color:#fff;"
@@ -645,11 +610,16 @@
 		display: none;
 		gap: 8px;
 		overflow-x: auto;
-		padding-bottom: 4px;
+		padding-bottom: 8px;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+	.mobile-cats::-webkit-scrollbar {
+		display: none;
 	}
 	.mobile-cat-btn {
+		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		gap: 5px;
@@ -868,6 +838,14 @@
 		.katalog-sidebar {
 			display: none;
 		}
+		.katalog-topbar {
+			position: sticky;
+			top: var(--nav-height, 70px);
+			z-index: 40;
+			background: var(--sp-bg-section);
+			padding: 1rem 0;
+			margin-top: -1rem;
+		}
 		.mobile-cats {
 			display: flex;
 		}
@@ -888,11 +866,56 @@
 
 	@media (max-width: 480px) {
 		.product-grid {
-			grid-template-columns: 1fr;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.75rem;
 		}
-		.katalog-body .mx-auto {
-			padding-left: 1rem;
-			padding-right: 1rem;
+		.product-card {
+			padding: 1rem;
+			gap: 10px;
+		}
+		.product-card__header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 8px;
+		}
+		.product-card__tags {
+			align-items: flex-start;
+		}
+		.product-card__emoji {
+			width: 42px;
+			height: 42px;
+			font-size: 1.25rem;
+			border-radius: 10px;
+		}
+		.product-card__name {
+			font-size: 0.85rem;
+			margin-bottom: 2px;
+		}
+		.product-card__desc {
+			font-size: 0.75rem;
+			line-height: 1.4;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		.product-card__order-btn {
+			font-size: 0.75rem;
+			padding: 8px 10px;
+			border-radius: 10px;
+		}
+		.katalog-hero__title {
+			font-size: 1.75rem;
+		}
+		.katalog-stat-val {
+			font-size: 1.25rem;
+		}
+		.empty-state-icon {
+			font-size: 3rem;
+		}
+		.empty-state-title {
+			font-size: 1.2rem;
 		}
 	}
 	/* ── Result header ── */

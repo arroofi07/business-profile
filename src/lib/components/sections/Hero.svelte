@@ -156,14 +156,14 @@
 			</div>
 
 			<!-- Mini stats -->
-			<div class="animate-slide-up mt-10 flex gap-8 delay-500">
+			<!-- <div class="animate-slide-up mt-10 flex gap-8 delay-500">
 				{#each [['1.149+', 'Followers IG', 'var(--sp-blue)'], ['100+', 'Jenis Produk', 'var(--sp-orange)'], ['⭐ 5.0', 'Rating', 'var(--sp-cyan)']] as [val, lbl, col]}
 					<div>
 						<div class="font-display text-2xl font-bold" style="color:{col};">{val}</div>
 						<div class="text-xs font-medium" style="color:var(--sp-gray);">{lbl}</div>
 					</div>
 				{/each}
-			</div>
+			</div> -->
 		</div>
 
 		<!-- Right floating card -->
@@ -191,7 +191,7 @@
 							</div>
 						</div>
 					</div>
-					<div
+					<!-- <div
 						class="mb-5 grid grid-cols-3 gap-2 text-center text-xs font-bold"
 						style="color:var(--sp-gray);"
 					>
@@ -203,7 +203,7 @@
 								<div>{l}</div>
 							</div>
 						{/each}
-					</div>
+					</div> -->
 					<div class="grid grid-cols-2 gap-2">
 						{#each ['Spanduk', 'Baliho', 'Stiker Label', 'Kartu Nama', 'Roll Banner', 'ID Card'] as p}
 							<div
