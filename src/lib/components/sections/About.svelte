@@ -21,7 +21,7 @@
 				> — kami hadir untuk membantu bisnis Anda tampil profesional.
 			</p>
 			<p class="mb-8 text-base leading-relaxed" style="color:var(--sp-gray);">
-				Dengan pengalaman lebih dari 7 tahun, kami telah melayani ribuan pelanggan di Padang dan
+				Dengan pengalaman lebih dari 16 tahun, kami telah melayani ribuan pelanggan di Padang dan
 				sekitarnya — dari UMKM, event organizer, sekolah, hingga perusahaan besar.
 			</p>
 			<div class="grid grid-cols-2 gap-4">
