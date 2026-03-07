@@ -4,7 +4,7 @@
 	import logo from '$lib/assets/logo.png';
 
 	// Typewriter
-	const typeWords = ['cetakmu', 'desainmu', 'promosimu', 'bannermu', 'stikermu', 'brosurmu'];
+	const typeWords = ['kalendermu', 'undanganmu', 'bukumu', 'kartu namamu', 'stikermu', 'brosurmu'];
 	let typeText = $state(typeWords[0]);
 	let typeFading = $state(false);
 
@@ -125,7 +125,7 @@
 		<!-- Left copy -->
 		<div>
 			<div class="animate-slide-up section-chip mb-6 inline-flex items-center gap-2">
-				<span>✦</span> DIGITAL PRINTING · PADANG
+				<span>✦</span> PERCETAKAN ONLINE
 			</div>
 			<h1
 				class="font-display animate-slide-up mb-6 leading-tight font-extrabold delay-100"
@@ -136,22 +136,22 @@
 					class="gradient-text-shimmer inline-block min-w-[300px] transition-opacity duration-300"
 					style="opacity: {typeFading ? 0 : 1};">{typeText}</span
 				><br />
-				<span style="color:var(--sp-orange);">Ingat Smartprint aja!</span>
+				<span style="color:var(--sp-orange-dim);">MPM Digital Printing!</span>
 			</h1>
 			<p
 				class="animate-slide-up mb-8 max-w-lg text-lg delay-200"
 				style="color:var(--sp-gray); line-height:1.8;"
 			>
-				Digital Printing · Advertising · Percetakan. Lebih dari 100 produk cetak berkualitas tinggi
-				— harga terjangkau, hasil profesional, pengerjaan cepat.
+				Menerima jasa cetak: Kalender, Undangan, Buku dsb. Order cepat dan profesional, solusi
+				percetakan online Anda.
 			</p>
 			<div class="animate-slide-up flex flex-col gap-3 delay-300 sm:flex-row sm:gap-4">
 				<a href="/katalog" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog</a>
 				<a
-					href={waGeneral}
+					href="https://bit.ly/3iUDAOf"
 					target="_blank"
 					class="btn-whatsapp flex w-full items-center justify-center gap-2 text-center sm:w-auto"
-					>WhatsApp</a
+					>Order Sekarang</a
 				>
 			</div>
 
@@ -184,10 +184,10 @@
 								class="font-display text-base leading-tight font-bold lg:text-lg"
 								style="color:var(--sp-navy);"
 							>
-								Smartprint Padang
+								MPM Digital Printing
 							</div>
 							<div class="text-[11px] font-semibold lg:text-xs" style="color:var(--sp-blue-mid);">
-								@smartprint_padang
+								@mpm.digitalprint
 							</div>
 						</div>
 					</div>
@@ -205,7 +205,7 @@
 						{/each}
 					</div> -->
 					<div class="grid grid-cols-2 gap-2">
-						{#each ['Spanduk', 'Baliho', 'Stiker Label', 'Kartu Nama', 'Roll Banner', 'ID Card'] as p}
+						{#each ['Kalender', 'Undangan', 'Buku', 'Kartu Nama', 'Brosur', 'ID Card'] as p}
 							<div
 								class="rounded-lg px-3 py-2 text-center text-xs font-semibold"
 								style="background:var(--sp-bg-light); color:var(--sp-blue);"
@@ -222,26 +222,9 @@
 						Sabtu · 09:00 – 17:00
 					</div>
 					<div
-						class="mt-3 rounded-lg p-3 text-center text-xs"
+						class="mt-3 hidden rounded-lg p-3 text-center text-xs"
 						style="background:var(--sp-bg-off); color:var(--sp-gray);"
-					>
-						Part of
-						<a
-							href="https://www.instagram.com/redline_comunication/"
-							class="hover:text-white"
-							target="_blank"
-						>
-							<strong style="color:var(--sp-blue);">@redline_comunication</strong>
-						</a>
-						&
-						<a
-							href="https://www.instagram.com/redline_production_/"
-							class="hover:text-white"
-							target="_blank"
-						>
-							<strong style="color:var(--sp-blue);">@redline_production_</strong>
-						</a>
-					</div>
+					></div>
 				</div>
 				<!-- Decorative ring -->
 				<div

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { waGeneral } from '$lib/data';
-	import logo from '$lib/assets/logo.png';
+	import logo from '$lib/assets/mpm.png';
 
 	let navScrolled = $state(false);
 	let mobileNavOpen = $state(false);
@@ -54,13 +54,13 @@
 			</div>
 			<div>
 				<div class="font-display text-lg leading-tight font-bold" style="color:var(--sp-navy);">
-					Smart<span style="color:var(--sp-blue-mid);">print</span> Padang
+					MPM <span style="color:var(--sp-pink);">Digital</span> Printing
 				</div>
 				<div
 					class="text-xs font-semibold tracking-widest"
 					style="color:var(--sp-gray); font-family:'Plus Jakarta Sans',sans-serif;"
 				>
-					DIGITAL PRINTING PADANG
+					PERCETAKAN ONLINE
 				</div>
 			</div>
 		</a>

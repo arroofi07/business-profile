@@ -13,10 +13,10 @@
 				HUBUNGI KAMI
 			</div>
 			<h2 class="font-display mb-4 font-bold text-white" style="font-size:clamp(2rem,5vw,3rem);">
-				Siap Mencetak <span style="color:#93C5FD;">Bersama Kami?</span>
+				Siap Mencetak <span style="color:#F9A8D4;">Bersama Kami?</span>
 			</h2>
 			<p class="mx-auto mb-10 max-w-xl" style="color:rgba(255,255,255,0.7);">
-				Hubungi Smartprint Padang sekarang dan dapatkan konsultasi gratis untuk kebutuhan cetak
+				Hubungi MPM Digital Printing sekarang dan dapatkan kemudahan untuk semua kebutuhan cetak
 				Anda.
 			</p>
 			<div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -29,7 +29,7 @@
 					<MessageCircle /> Chat WhatsApp Sekarang</a
 				>
 				<a
-					href="https://www.instagram.com/smartprint_padang/"
+					href="https://www.instagram.com/mpm.digitalprint/"
 					target="_blank"
 					class="flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold transition-all duration-200 hover:opacity-80"
 					style="background:linear-gradient(135deg,#E1306C,#833AB4); color:white; font-family:'Outfit',sans-serif;"
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-			{#each [{ icon: MessageCircle, label: 'Telepon / WhatsApp', val: '0811 663 528' }, { icon: Instagram, label: 'Instagram', val: '@smartprint_padang' }, { icon: MapPin, label: 'Kota', val: 'Padang, Sumatera Barat' }] as c, i}
+			{#each [{ icon: MessageCircle, label: 'WhatsApp', val: 'Order Sekarang' }, { icon: Instagram, label: 'Instagram', val: '@mpm.digitalprint' }, { icon: MapPin, label: 'Kota', val: 'Online' }] as c, i}
 				<div
 					class="sp-reveal flex flex-col items-center rounded-xl p-5"
 					style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); transition-delay:{i *

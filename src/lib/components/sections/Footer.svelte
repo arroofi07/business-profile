@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { waGeneral } from '$lib/data';
 	import { Instagram, MessageCircle, MapPin, Link } from 'lucide-svelte';
-	import logo from '$lib/assets/logo.png';
+	import logo from '$lib/assets/mpm.png';
 
 	let mapLoaded = $state(false);
 </script>
@@ -19,22 +19,21 @@
 						<img src={logo} alt="" class="h-full w-full object-cover" />
 					</div>
 					<div>
-						<div class="font-display text-lg font-bold text-white">Smartprint Padang</div>
+						<div class="font-display text-lg font-bold text-white">MPM Digital Printing</div>
 						<div
 							class="text-xs"
 							style="color:rgba(255,255,255,0.45); font-family:'Plus Jakarta Sans',sans-serif;"
 						>
-							DIGITAL PRINTING PADANG
+							PERCETAKAN ONLINE
 						</div>
 					</div>
 				</div>
 				<p class="mb-4 max-w-xs text-sm" style="color:rgba(255,255,255,0.55);">
-					Creative Agency · Digital Printing · Advertising · Percetakan. Bagian dari ekosistem
-					Redline Communication.
+					Percetakan Online · Printing Service · Cetak Kalender · Undangan · Buku
 				</p>
 				<div class="flex gap-3">
 					<a
-						href="https://www.instagram.com/smartprint_padang/"
+						href="https://www.instagram.com/mpm.digitalprint/"
 						target="_blank"
 						class="flex h-9 w-9 items-center justify-center rounded-lg text-lg transition-opacity hover:opacity-75"
 						style="background:linear-gradient(135deg,#E1306C,#833AB4);"
@@ -60,7 +59,7 @@
 				>
 					Layanan
 				</div>
-				{#each ['Digital Printing', 'Advertising', 'Percetakan', 'Desain Grafis', 'Corporate Branding'] as l}
+				{#each ['Cetak Kalender', 'Cetak Undangan', 'Cetak Buku', 'Digital Printing', 'Percetakan'] as l}
 					<div class="py-1.5 text-sm" style="color:rgba(255,255,255,0.6);">{l}</div>
 				{/each}
 			</div>
@@ -73,7 +72,7 @@
 				>
 					Kontak
 				</div>
-				{#each [{ ico: MessageCircle, val: '0811 663 528' }, { ico: Instagram, val: '@smartprint_padang' }, { ico: MapPin, val: 'Padang, Sumatera Barat' }, { ico: Link, val: 'Part of @redline_comunication' }] as item}
+				{#each [{ ico: Instagram, val: '@mpm.digitalprint' }, { ico: MapPin, val: 'Online' }] as item}
 					{@const Icon = item.ico}
 					<div class="flex items-start gap-2 py-1.5 text-sm" style="color:rgba(255,255,255,0.6);">
 						<span class="mt-0.5 shrink-0"><Icon size={16} strokeWidth={2} /></span><span
@@ -156,20 +155,13 @@
 			style="color:rgba(255,255,255,0.35);"
 		>
 			<span
-				>©2026 Smartprint Padang. Powered by
+				>©2026 MPM Digital Printing. Powered by
 				<a
 					href="https://solaria.icu"
 					target="_blank"
 					class="transition-colors hover:text-white"
-					style="color:var(--sp-blue-light);">solaria.icu</a
+					style="color:var(--sp-pink);">solaria.icu</a
 				>.</span
-			>
-			<span
-				>Part of <a
-					href="https://www.instagram.com/redline_comunication/"
-					target="_blank"
-					style="color:var(--sp-blue-light);">Redline Communication</a
-				></span
 			>
 		</div>
 	</div>

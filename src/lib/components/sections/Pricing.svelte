@@ -64,7 +64,7 @@
 						{/each}
 					</ul>
 					<a
-						href={waLink(`Halo Smartprint, saya mau tanya harga paket *${plan.tier}*`)}
+						href={waLink(`Halo MPM Digital Printing, saya mau tanya harga paket *${plan.tier}*`)}
 						target="_blank"
 						class="font-display block w-full rounded-xl py-3 text-center text-sm font-bold transition-all duration-200"
 						style={plan.featured

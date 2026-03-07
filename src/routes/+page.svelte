@@ -17,14 +17,14 @@
 	const localBusinessSchema = {
 		'@context': 'https://schema.org',
 		'@type': 'LocalBusiness',
-		'@id': 'https://smartprintpadang.com/#business',
-		name: 'SmartPrint Padang',
-		alternateName: 'Smartprint Padang Digital Printing',
+		'@id': 'https://mpmdigitalprint.com/#business',
+		name: 'MPM Digital Printing',
+		alternateName: 'MPM Digital Print',
 		description:
-			'Pusat cetak indoor/outdoor & percetakan berkualitas di Padang. Melayani cetak banner, spanduk, stiker, kartu nama, brosur, dan lainnya.',
-		url: 'https://smartprintpadang.com',
+			'Pusat percetakan online dan digital printing service. Menerima jasa cetak: Kalender, Undangan, Buku dsb.',
+		url: 'https://mpmdigitalprint.com',
 		telephone: '+6281166352​8',
-		image: 'https://smartprintpadang.com/og-image.jpg',
+		image: 'https://mpmdigitalprint.com/og-image.jpg',
 		priceRange: 'Rp',
 		currenciesAccepted: 'IDR',
 		paymentAccepted: 'Cash, Transfer Bank, QRIS',
@@ -47,10 +47,7 @@
 				closes: '17:00'
 			}
 		],
-		sameAs: [
-			'https://www.instagram.com/smartprint_padang/',
-			'https://www.instagram.com/redline_production_/'
-		],
+		sameAs: ['https://www.instagram.com/mpm.digitalprint/'],
 		aggregateRating: {
 			'@type': 'AggregateRating',
 			ratingValue: '5.0',
@@ -66,48 +63,48 @@
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Spanduk PVC',
-						description: 'Spanduk outdoor berkualitas tinggi, tahan cuaca & sinar UV'
+						name: 'Cetak Kalender',
+						description: 'Kalender meja & dinding dengan kualitas premium'
 					}
 				},
 				{
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Baliho Outdoor',
-						description: 'Baliho ukuran besar untuk promosi jalan & event outdoor'
+						name: 'Undangan',
+						description: 'Undangan pernikahan, khitanan, dan acara lainnya dengan desain eksklusif'
 					}
 				},
 				{
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Stiker Cutting',
-						description: 'Stiker cutting presisi tinggi untuk kaca, motor, & properti'
+						name: 'Cetak Buku',
+						description: 'Jasa cetak dan jilid buku berkualitas tinggi'
 					}
 				},
 				{
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Kartu Nama Premium',
-						description: 'Kartu nama profesional, art carton 260gsm, full color'
+						name: 'Spanduk & Banner',
+						description: 'Spanduk outdoor kualitas tinggi, banner untuk promosi'
 					}
 				},
 				{
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Roll Banner',
-						description: 'Banner roll-up portabel untuk pameran & promosi indoor'
+						name: 'Kartu Nama',
+						description: 'Kartu nama profesional dengan variasi bahan premium'
 					}
 				},
 				{
 					'@type': 'Offer',
 					itemOffered: {
 						'@type': 'Service',
-						name: 'Backdrop Photobooth',
-						description: 'Backdrop custom untuk acara pernikahan, wisuda, & event'
+						name: 'Brosur & Flayer',
+						description: 'Cetak brosur full color untuk kebutuhan promosi bisnis Anda'
 					}
 				}
 			]
@@ -120,23 +117,31 @@
 		mainEntity: [
 			{
 				'@type': 'Question',
-				name: 'Berapa lama proses cetak di SmartPrint Padang?',
+				name: 'Berapa lama proses cetak di MPM Digital Printing?',
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: 'Umumnya 1–3 hari kerja tergantung jenis & ukuran produk. Untuk order urgent bisa lebih cepat — hubungi kami langsung.'
+					text: 'Umumnya 1–3 hari kerja tergantung jenis & ukuran produk.'
 				}
 			},
 			{
 				'@type': 'Question',
-				name: 'Apakah bisa custom ukuran cetak?',
+				name: 'Apakah melayani cetak Kalender dan Buku?',
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: 'Tentu! Kami melayani cetak dengan ukuran custom sesuai kebutuhan Anda.'
+					text: 'Tentu! Kami melayani jasa cetak kalender, buku, undangan, dan berbagai produk printing lainnya.'
 				}
 			},
 			{
 				'@type': 'Question',
-				name: 'Format file apa yang diterima SmartPrint Padang?',
+				name: 'Bisa order secara online?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'Sangat bisa! Anda dapat menghubungi kami via link order atau Instagram untuk proses cetak secara online dengan cepat dan mudah.'
+				}
+			},
+			{
+				'@type': 'Question',
+				name: 'Format file apa yang diterima?',
 				acceptedAnswer: {
 					'@type': 'Answer',
 					text: 'Kami menerima CDR, AI, PDF, JPG/PNG (min. 150 dpi). Format vektor sangat direkomendasikan.'
@@ -144,26 +149,10 @@
 			},
 			{
 				'@type': 'Question',
-				name: 'Apakah ada layanan antar di SmartPrint Padang?',
+				name: 'Bagaimana cara pembayaran di MPM Digital Printing?',
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: 'Ada! Kami melayani pengiriman ke seluruh wilayah Kota Padang & sekitarnya.'
-				}
-			},
-			{
-				'@type': 'Question',
-				name: 'Bagaimana cara pembayaran di SmartPrint Padang?',
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: 'Transfer bank (BCA, BRI, Mandiri), QRIS, dan cash. DP 50% untuk order custom.'
-				}
-			},
-			{
-				'@type': 'Question',
-				name: 'Apakah ada harga grosir untuk cetak dalam jumlah besar?',
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: 'Ya, tersedia harga spesial untuk order dalam jumlah besar. Hubungi kami via WhatsApp.'
+					text: 'Pembayaran dapat dilakukan via transfer antar bank. Silakan hubungi admin kami untuk detail lebih lanjut.'
 				}
 			}
 		]
@@ -199,22 +188,22 @@
 </script>
 
 <svelte:head>
-	<title>SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang</title>
+	<title>MPM Digital Printing | Printing Service & Percetakan Online</title>
 	<meta
 		name="description"
-		content="SmartPrint Padang — pusat cetak digital printing, percetakan, & advertising terlengkap di Padang. Melayani cetak spanduk, banner, stiker, kartu nama, brosur, baliho, backdrop & lainnya. Kualitas terbaik, harga bersaing. Hubungi 0811 663 528."
+		content="MPM Digital Printing — Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya dengan proses cepat."
 	/>
 	<meta
 		name="keywords"
-		content="digital printing padang, percetakan padang, cetak spanduk padang, cetak banner padang, cetak stiker padang, smartprint padang, smart print padang, cetak murah padang, percetakan terdekat, cetak baliho padang, cetak kartu nama padang, cetak brosur padang, advertising padang, jasa cetak padang, cetak undangan padang, cetak stiker label padang, cetak backdrop padang, percetakan sumatera barat, digital printing sumatera barat"
+		content="mpm digital printing, digital printing online, percetakan online, cetak online, cetak kalender, cetak undangan, cetak buku, printing service, mpm digital print"
 	/>
-	<meta name="author" content="SmartPrint Padang" />
+	<meta name="author" content="MPM Digital Printing" />
 	<meta
 		name="robots"
 		content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 	/>
-	<meta name="theme-color" content="#1E40AF" />
-	<link rel="canonical" href="https://smartprintpadang.com/" />
+	<meta name="theme-color" content="#F9A8D4" />
+	<link rel="canonical" href="https://mpmdigitalprint.com/" />
 
 	<!-- Geo Meta Tags (Local SEO) -->
 	<meta name="geo.region" content="ID-SB" />
@@ -224,41 +213,32 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://smartprintpadang.com/" />
-	<meta
-		property="og:title"
-		content="SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang"
-	/>
+	<meta property="og:url" content="https://mpmdigitalprint.com/" />
+	<meta property="og:title" content="MPM Digital Printing | Printing Service & Percetakan Online" />
 	<meta
 		property="og:description"
-		content="Pusat cetak digital printing & percetakan terlengkap di Padang. Spanduk, banner, stiker, kartu nama, baliho & lainnya. Kualitas terbaik, harga bersaing!"
+		content="Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya."
 	/>
-	<meta property="og:image" content="https://smartprintpadang.com/og-image.jpg" />
+	<meta property="og:image" content="https://mpmdigitalprint.com/og-image.jpg" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta
-		property="og:image:alt"
-		content="SmartPrint Padang - Digital Printing & Percetakan Berkualitas"
-	/>
-	<meta property="og:site_name" content="SmartPrint Padang" />
+	<meta property="og:image:alt" content="MPM Digital Printing - Berkualitas dan Cepat" />
+	<meta property="og:site_name" content="MPM Digital Printing" />
 	<meta property="og:locale" content="id_ID" />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:url" content="https://smartprintpadang.com/" />
+	<meta name="twitter:url" content="https://mpmdigitalprint.com/" />
 	<meta
 		name="twitter:title"
-		content="SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang"
+		content="MPM Digital Printing | Printing Service & Percetakan Online"
 	/>
 	<meta
 		name="twitter:description"
-		content="Pusat cetak digital printing & percetakan terlengkap di Padang. Spanduk, banner, stiker, kartu nama, baliho & lainnya. Kualitas terbaik, harga bersaing!"
+		content="Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya."
 	/>
-	<meta name="twitter:image" content="https://smartprintpadang.com/og-image.jpg" />
-	<meta
-		name="twitter:image:alt"
-		content="SmartPrint Padang - Digital Printing & Percetakan Berkualitas"
-	/>
+	<meta name="twitter:image" content="https://mpmdigitalprint.com/og-image.jpg" />
+	<meta name="twitter:image:alt" content="MPM Digital Printing - Berkualitas dan Cepat" />
 
 	<!-- JSON-LD Structured Data -->
 	{@html `<script type="application/ld+json">${JSON.stringify(localBusinessSchema)}</script>`}

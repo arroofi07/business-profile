@@ -5,50 +5,50 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Smartprint Padang — Soft Blue Professional Design Tokens ── */
+/* ── MPM Digital Printing — Soft Pink & Sky Blue Design Tokens ── */
 :root {
 	/* ── Core Background Palette ── */
 	--sp-bg-white:     #FFFFFF;
-	--sp-bg-off:       #F0F7FF;
-	--sp-bg-light:     #DBEAFE;
-	--sp-bg-section:   #F8FAFF;
-	--sp-bg-dark:      #1E3A5F;
-	--sp-bg-dark-card: #162F50;
+	--sp-bg-off:       #FDFBFB;
+	--sp-bg-light:     #F0F9FF; /* sky-50 */
+	--sp-bg-section:   #FDF2F8; /* pink-50 */
+	--sp-bg-dark:      #2C3E50;
+	--sp-bg-dark-card: #34495E;
 
 	/* ── Brand Colors ── */
-	--sp-blue:         #1D4ED8;
-	--sp-blue-mid:     #3B82F6;
-	--sp-blue-light:   #93C5FD;
-	--sp-blue-accent:  #0EA5E9;
-	--sp-navy:         #1E3A5F;
-	--sp-orange:       #F97316;
-	--sp-orange-dim:   #EA6B10;
-	--sp-cyan:         #06B6D4;
+	--sp-blue:         #38BDF8; /* sky-400 */
+	--sp-blue-mid:     #7DD3FC; /* sky-300 */
+	--sp-blue-light:   #BAE6FD; /* sky-200 */
+	--sp-blue-accent:  #0EA5E9; /* sky-500 */
+	--sp-navy:         #0284C7; /* sky-600 */
+	--sp-orange:       #F472B6; /* using pink-400 instead of orange */
+	--sp-orange-dim:   #EC4899; /* using pink-500 instead of dark orange */
+	--sp-cyan:         #38BDF8;
 	--sp-green:        #10B981;
 
 	/* ── Text ── */
-	--sp-text-dark:    #0F172A;
-	--sp-text-mid:     #334155;
-	--sp-gray:         #64748B;
-	--sp-gray-light:   #CBD5E1;
-	--sp-gray-border:  #E2E8F0;
+	--sp-text-dark:    #1E293B; /* slate-800 */
+	--sp-text-mid:     #475569; /* slate-600 */
+	--sp-gray:         #94A3B8; /* slate-400 */
+	--sp-gray-light:   #E2E8F0; /* slate-200 */
+	--sp-gray-border:  #F1F5F9; /* slate-100 */
 	--sp-white:        #FFFFFF;
 
 	/* ── Gradients ── */
-	--sp-gradient-hero:  linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #F0F9FF 100%);
-	--sp-gradient-blue:  linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
-	--sp-gradient-cta:   linear-gradient(135deg, #0EA5E9 0%, #1D4ED8 100%);
-	--sp-gradient-dark:  linear-gradient(135deg, #1E3A5F 0%, #1D4ED8 100%);
-	--sp-gradient-card:  linear-gradient(145deg, #FFFFFF 0%, #F0F7FF 100%);
-	--sp-gradient-orange:linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+	--sp-gradient-hero:  linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #FCE7F3 100%);
+	--sp-gradient-blue:  linear-gradient(135deg, #38BDF8 0%, #F9A8D4 100%);
+	--sp-gradient-cta:   linear-gradient(135deg, #F472B6 0%, #38BDF8 100%);
+	--sp-gradient-dark:  linear-gradient(135deg, #1E293B 0%, #38BDF8 100%);
+	--sp-gradient-card:  linear-gradient(145deg, #FFFFFF 0%, #FDFBFB 100%);
+	--sp-gradient-orange:linear-gradient(135deg, #F9A8D4 0%, #F472B6 100%);
 
 	/* ── Shadows ── */
-	--sp-shadow-sm:    0 1px 3px rgba(29, 78, 216, 0.08), 0 1px 2px rgba(0,0,0,0.06);
-	--sp-shadow-md:    0 4px 16px rgba(29, 78, 216, 0.12), 0 2px 8px rgba(0,0,0,0.06);
-	--sp-shadow-lg:    0 10px 40px rgba(29, 78, 216, 0.15), 0 4px 16px rgba(0,0,0,0.08);
-	--sp-shadow-xl:    0 20px 60px rgba(29, 78, 216, 0.18), 0 8px 24px rgba(0,0,0,0.1);
-	--sp-shadow-card:  0 4px 24px rgba(30, 58, 95, 0.1);
-	--sp-shadow-blue:  0 8px 32px rgba(29, 78, 216, 0.25);
+	--sp-shadow-sm:    0 1px 3px rgba(56, 189, 248, 0.08), 0 1px 2px rgba(0,0,0,0.04);
+	--sp-shadow-md:    0 4px 16px rgba(56, 189, 248, 0.12), 0 2px 8px rgba(0,0,0,0.04);
+	--sp-shadow-lg:    0 10px 40px rgba(56, 189, 248, 0.15), 0 4px 16px rgba(0,0,0,0.06);
+	--sp-shadow-xl:    0 20px 60px rgba(56, 189, 248, 0.18), 0 8px 24px rgba(0,0,0,0.08);
+	--sp-shadow-card:  0 4px 24px rgba(244, 114, 182, 0.08);
+	--sp-shadow-blue:  0 8px 32px rgba(56, 189, 248, 0.25);
 
 	/* ── Nav ── */
 	--nav-height: 80px;
@@ -163,10 +163,10 @@ body {
 }
 
 .glass-blue {
-	background: rgba(219, 234, 254, 0.55);
+	background: rgba(240, 249, 255, 0.65); /* sky-50 with opacity */
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
-	border: 1px solid rgba(59, 130, 246, 0.2);
+	border: 1px solid rgba(56, 189, 248, 0.2); /* sky-400 */
 }
 
 /* ── Gradient Text ── */
@@ -185,7 +185,7 @@ body {
 }
 
 .gradient-text-shimmer {
-	background: linear-gradient(90deg, #1D4ED8, #0EA5E9, #3B82F6, #0EA5E9, #1D4ED8);
+	background: linear-gradient(90deg, #38BDF8, #F472B6, #0EA5E9, #F472B6, #38BDF8);
 	background-size: 200% auto;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -195,13 +195,13 @@ body {
 
 /* ── Dot Grid Background Pattern ── */
 .dot-pattern {
-	background-image: radial-gradient(circle, rgba(59, 130, 246, 0.18) 1.5px, transparent 1.5px);
+	background-image: radial-gradient(circle, rgba(244, 114, 182, 0.18) 1.5px, transparent 1.5px); /* pink-400 */
 	background-size: 28px 28px;
 	position: relative;
 }
 
 .dot-pattern-light {
-	background-image: radial-gradient(circle, rgba(29, 78, 216, 0.07) 1.5px, transparent 1.5px);
+	background-image: radial-gradient(circle, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px); /* sky-400 */
 	background-size: 24px 24px;
 }
 
@@ -215,15 +215,15 @@ body {
 }
 
 .card-sp:hover {
-	border-color: rgba(59, 130, 246, 0.4);
+	border-color: rgba(56, 189, 248, 0.4);
 	box-shadow: var(--sp-shadow-lg);
 	transform: translateY(-4px);
 }
 
 /* ── Blue Border Accent ── */
 .border-blue-accent {
-	border: 1px solid rgba(59, 130, 246, 0.3);
-	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.06);
+	border: 1px solid rgba(56, 189, 248, 0.3);
+	box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.06);
 }
 
 /* ── CTA Buttons ── */
@@ -289,9 +289,9 @@ body {
 
 /* ── Badge Styles ── */
 .badge-popular {
-	background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(251, 146, 60, 0.15));
-	border: 1px solid rgba(249, 115, 22, 0.45);
-	color: var(--sp-orange);
+	background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(236, 72, 153, 0.15));
+	border: 1px solid rgba(244, 114, 182, 0.45);
+	color: var(--sp-orange-dim);
 	font-size: 10px;
 	font-weight: 700;
 	font-family: 'Outfit', sans-serif;
@@ -302,9 +302,9 @@ body {
 }
 
 .badge-new {
-	background: linear-gradient(135deg, rgba(29, 78, 216, 0.12), rgba(59, 130, 246, 0.12));
-	border: 1px solid rgba(59, 130, 246, 0.4);
-	color: var(--sp-blue-mid);
+	background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(14, 165, 233, 0.12));
+	border: 1px solid rgba(56, 189, 248, 0.4);
+	color: var(--sp-navy);
 	font-size: 10px;
 	font-weight: 700;
 	font-family: 'Outfit', sans-serif;
@@ -322,34 +322,34 @@ body {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	background: rgba(29, 78, 216, 0.08);
-	border: 1px solid rgba(29, 78, 216, 0.2);
-	color: var(--sp-blue);
+	background: rgba(56, 189, 248, 0.08); /* sky-400 */
+	border: 1px solid rgba(56, 189, 248, 0.2);
+	color: var(--sp-navy); /* sky-600 */
 	padding: 6px 16px;
 	border-radius: 100px;
 }
 
 .section-chip-orange {
-	background: rgba(249, 115, 22, 0.08);
-	border: 1px solid rgba(249, 115, 22, 0.2);
-	color: var(--sp-orange);
+	background: rgba(244, 114, 182, 0.08); /* pink-400 */
+	border: 1px solid rgba(244, 114, 182, 0.2);
+	color: var(--sp-orange-dim); /* pink-500 */
 }
 
 /* ── Section Divider ── */
 .section-divider {
 	height: 1px;
-	background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+	background: linear-gradient(90deg, transparent, rgba(244, 114, 182, 0.3), transparent);
 }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--sp-bg-off); }
-::-webkit-scrollbar-thumb { background: var(--sp-blue-mid); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--sp-pink); border-radius: 3px; }
 
 /* ── Nav divider ── */
 .nav-scroll {
-	box-shadow: 0 2px 20px rgba(29, 78, 216, 0.08);
-	border-bottom: 1px solid rgba(29, 78, 216, 0.1);
+	box-shadow: 0 2px 20px rgba(56, 189, 248, 0.08);
+	border-bottom: 1px solid rgba(56, 189, 248, 0.1);
 }
 
 /* ── ShadCN theme tokens (light blue variant) ── */

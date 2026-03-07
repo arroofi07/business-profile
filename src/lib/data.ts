@@ -5,11 +5,11 @@ export function waLink(msg = '') {
 }
 
 export function waProduct(name: string) {
-	return waLink(`Halo Smartprint Padang, saya ingin memesan *${name}*. Bisa info lebih lanjut?`);
+	return waLink(`Halo MPM Digital Printing, saya ingin memesan *${name}*. Bisa info lebih lanjut?`);
 }
 
 export const waGeneral = waLink(
-	'Halo Smartprint Padang, saya ingin berkonsultasi mengenai produk cetak. Bisa bantu?'
+	'Halo MPM Digital Printing, saya ingin berkonsultasi mengenai produk cetak. Bisa bantu?'
 );
 
 // ── Categories ──
@@ -151,38 +151,38 @@ export const faqs = [
 export const testimonials = [
 	{
 		name: 'Budi Santoso',
-		role: 'Pemilik Toko Baju',
-		text: 'Spanduk dari Smartprint kualitasnya bagus, warnanya tajam dan tahan lama. Udah langganan dari 2022!',
+		role: 'Pemilik Bisnis',
+		text: 'Cetak kalender dan buku di sini memuaskan. Kualitasnya bagus, warnanya tajam dan tahan lama. Udah langganan!',
 		stars: 5
 	},
 	{
 		name: 'Rina Marlina',
 		role: 'Event Organizer',
-		text: 'Backdrop photobooth-nya memuaskan, bahan tebal dan gambar HD. Proses cepat, tim juga responsif.',
+		text: 'Undangan cetaknya elegan banget, bahan tebal dan desain sesuai request. Proses cepat, tim juga responsif.',
 		stars: 5
 	},
 	{
 		name: 'Agus Firmansyah',
 		role: 'UMKM Kuliner',
-		text: 'Label produk saya dicetak di sini, hasilnya profesional. Harga juga bersaing untuk kualitas segini.',
+		text: 'Pesan kebutuhan cetak di MPM Digital Printing luar biasa, hasilnya profesional. Harga bersaing untuk kualitas segini.',
 		stars: 5
 	},
 	{
 		name: 'Sari Dewi',
 		role: 'Mahasiswi',
-		text: 'Pesan kartu nama wisuda, hasilnya beyond expectation! Kertasnya tebal, warnanya cantik.',
+		text: 'Pesan alat promosi, hasilnya beyond expectation! Kualitas Premium.',
 		stars: 5
 	},
 	{
 		name: 'Rizky Pratama',
 		role: 'Kontraktor',
-		text: 'Sering pesan baliho proyek di sini, selalu on time dan kualitas terjamin. Rekomended!',
+		text: 'Sering pesan banner di sini, selalu on time dan kualitas terjamin. Rekomended!',
 		stars: 5
 	},
 	{
 		name: 'Lita Permata',
 		role: 'Guru SD',
-		text: 'Cetak banner acara sekolah, komunikatif dan hasilnya rapi. Harga ramah di kantong.',
+		text: 'Cetak pamflet acara sekolah, komunikatif dan hasilnya rapi. Harga ramah di kantong.',
 		stars: 5
 	}
 ];
