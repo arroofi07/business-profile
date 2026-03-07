@@ -1,4 +1,4 @@
-export const WA_NUMBER = '6281166352 8'.replace(/\s/g, '');
+export const WA_NUMBER = '6285894002174';
 
 export function waLink(msg = '') {
 	return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;

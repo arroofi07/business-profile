@@ -23,7 +23,7 @@
 		description:
 			'Pusat percetakan online dan digital printing service. Menerima jasa cetak: Kalender, Undangan, Buku dsb.',
 		url: 'https://mpmdigitalprint.com',
-		telephone: '+6281166352​8',
+		telephone: '+6285894002174',
 		image: 'https://mpmdigitalprint.com/og-image.jpg',
 		priceRange: 'Rp',
 		currenciesAccepted: 'IDR',
