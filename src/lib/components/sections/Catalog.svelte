@@ -2,26 +2,22 @@
 	import { allProducts, categories, waProduct } from '$lib/data';
 
 	// Show 8 popular or varied products as a teaser
-	const teaserProducts = allProducts.filter((p) => p.tags.includes('Populer')).slice(0, 8);
+	const teaserProducts = allProducts.slice(0, 8);
 
 	// Category color map for chips
 	const catColorMap: Record<string, string> = {
-		signage: 'rgba(59,130,246,0.10)',
-		promosi: 'rgba(249,115,22,0.10)',
-		office: 'rgba(16,185,129,0.10)',
-		buku: 'rgba(139,92,246,0.10)',
-		souvenir: 'rgba(236,72,153,0.10)',
-		textile: 'rgba(234,179,8,0.10)',
-		industri: 'rgba(107,114,128,0.10)'
+		blocked: 'rgba(59,130,246,0.10)',
+		hotwater: 'rgba(249,115,22,0.10)',
+		gas: 'rgba(16,185,129,0.10)',
+		emergency: 'rgba(239,68,68,0.10)',
+		maintenance: 'rgba(139,92,246,0.10)'
 	};
 	const catTextMap: Record<string, string> = {
-		signage: '#1D4ED8',
-		promosi: '#F97316',
-		office: '#10B981',
-		buku: '#8B5CF6',
-		souvenir: '#EC4899',
-		textile: '#EAB308',
-		industri: '#6B7280'
+		blocked: 'var(--sp-navy)',
+		hotwater: 'var(--sp-navy)',
+		gas: 'var(--sp-navy)',
+		emergency: 'var(--sp-orange)',
+		maintenance: 'var(--sp-navy)'
 	};
 </script>
 
@@ -29,16 +25,17 @@
 	<div class="mx-auto max-w-7xl px-4 md:px-6">
 		<!-- Header -->
 		<div class="sp-reveal mb-12 text-center">
-			<div class="section-chip mb-4">KATALOG PRODUK</div>
+			<div class="section-chip mb-4">OUR SERVICES</div>
 			<h2
-				class="font-display mb-4 font-bold"
+				class="font-display mb-6 font-extrabold tracking-tight uppercase"
 				style="font-size:clamp(2rem,5vw,3rem); color:var(--sp-navy);"
 			>
-				78+ Pilihan Produk <span class="gradient-text-blue">Cetak Kami</span>
+				Comprehensive <span style="color:var(--sp-blue);">Solutions</span>
 			</h2>
+			<div class="mx-auto mb-6 h-1 w-16" style="background:var(--sp-orange);"></div>
 			<p class="mx-auto max-w-xl" style="color:var(--sp-gray);">
-				Dari banner hingga souvenir, dari office supplies hingga textile. Semua kebutuhan cetak Anda
-				ada di sini dengan kualitas premium.
+				From blocked drains and hot water systems to gas fitting and general maintenance, we handle
+				it all with expertise and speed.
 			</p>
 		</div>
 
@@ -48,9 +45,8 @@
 				<a
 					href="/katalog"
 					class="cat-pill font-display"
-					style="background:{catColorMap[cat.key] ?? 'var(--sp-bg-off)'}; color:{catTextMap[
-						cat.key
-					] ?? 'var(--sp-gray)'}; border:1px solid {catTextMap[cat.key] ?? 'var(--sp-gray)'}33;"
+					style="background:var(--sp-bg-white); color:{catTextMap[cat.key] ??
+						'var(--sp-navy)'}; border:1px solid var(--sp-gray-border);"
 				>
 					{cat.icon}
 					{cat.label}
@@ -67,18 +63,23 @@
 				>
 					<div class="flex flex-col items-start gap-2 md:flex-row md:justify-between md:gap-0">
 						<div
-							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xl md:h-14 md:w-14 md:rounded-xl md:text-3xl"
-							style="background:var(--sp-bg-light); border:1px solid var(--sp-gray-border);"
+							class="flex h-12 w-12 shrink-0 items-center justify-center text-2xl md:h-14 md:w-14 md:text-3xl"
+							style="background:var(--sp-bg-off); border:1px solid var(--sp-gray-border); border-radius:4px;"
 						>
 							{product.emoji}
 						</div>
 						<div class="flex flex-col items-start gap-1 md:items-end">
 							{#each product.tags as tag}
-								{#if tag === 'Populer'}<span
+								{#if tag === 'Popular'}<span
 										class="badge-popular px-2 py-0.5 text-[0.65rem] md:px-2.5 md:py-1 md:text-xs"
 										>{tag}</span
 									>
-								{:else if tag === 'Baru'}<span
+								{:else if tag === 'Urgent'}<span
+										class="badge-new px-2 py-0.5 text-[0.65rem] md:px-2.5 md:py-1 md:text-xs"
+										style="background:rgba(239,68,68,0.1); color:#EF4444; border-color:#EF4444;"
+										>{tag}</span
+									>
+								{:else}<span
 										class="badge-new px-2 py-0.5 text-[0.65rem] md:px-2.5 md:py-1 md:text-xs"
 										>{tag}</span
 									>
@@ -104,20 +105,18 @@
 						<a
 							href={waProduct(product.name)}
 							target="_blank"
-							class="font-display block w-full rounded-lg py-2 text-center text-[0.75rem] font-semibold transition-all duration-200 hover:-translate-y-0.5 md:rounded-xl md:py-2.5 md:text-sm"
-							style="background:var(--sp-bg-light); border:1.5px solid rgba(59,130,246,0.3); color:var(--sp-blue);"
+							class="font-display block w-full py-2 text-center text-xs font-bold tracking-widest uppercase transition-all duration-200"
+							style="background:var(--sp-white); border:2px solid var(--sp-navy); color:var(--sp-navy); border-radius: 4px;"
 							onmouseenter={(e) => {
-								e.currentTarget.style.background = 'var(--sp-gradient-blue)';
+								e.currentTarget.style.background = 'var(--sp-navy)';
 								e.currentTarget.style.color = '#fff';
-								e.currentTarget.style.borderColor = 'transparent';
 							}}
 							onmouseleave={(e) => {
-								e.currentTarget.style.background = 'var(--sp-bg-light)';
-								e.currentTarget.style.color = 'var(--sp-blue)';
-								e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)';
+								e.currentTarget.style.background = 'var(--sp-white)';
+								e.currentTarget.style.color = 'var(--sp-navy)';
 							}}
 						>
-							💬 Pesan Sekarang
+							💬 Request Service
 						</a>
 					</div>
 				</div>
@@ -127,12 +126,12 @@
 		<!-- CTA to full catalog -->
 		<div class="sp-reveal mt-12 text-center">
 			<p class="mb-5 text-base" style="color:var(--sp-gray);">
-				Baru menampilkan <strong style="color:var(--sp-blue);">{teaserProducts.length}</strong>
-				produk populer dari total
-				<strong style="color:var(--sp-navy);">{allProducts.length}+ produk</strong> kami.
+				Showing <strong style="color:var(--sp-blue);">{teaserProducts.length}</strong>
+				popular services out of
+				<strong style="color:var(--sp-navy);">{allProducts.length}+ services</strong> we offer.
 			</p>
 			<a href="/katalog" class="btn-primary-sp inline-flex items-center gap-2 text-sm">
-				Lihat Semua Katalog
+				View All Services
 			</a>
 		</div>
 	</div>
@@ -143,9 +142,9 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 5px;
-		padding: 6px 14px;
-		border-radius: 100px;
-		font-size: 0.8rem;
+		padding: 6px 16px;
+		border-radius: 4px;
+		font-size: 0.85rem;
 		font-weight: 700;
 		text-decoration: none;
 		transition:

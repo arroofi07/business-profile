@@ -3,79 +3,87 @@
 	import logo from '$lib/assets/mpm.png';
 </script>
 
-<section id="tentang" class="dot-pattern-light py-24" style="background:var(--sp-bg-white);">
-	<div class="mx-auto grid max-w-6xl items-center gap-16 px-6 lg:grid-cols-2">
+<section id="tentang" class="py-24" style="background:var(--sp-bg-off);">
+	<div class="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 		<!-- Left copy -->
 		<div class="sp-reveal">
-			<div class="section-chip mb-4">TENTANG KAMI</div>
+			<div class="section-chip mb-6">ABOUT US</div>
 			<h2
-				class="font-display mb-6 font-bold"
-				style="font-size:clamp(1.8rem,4vw,2.8rem); color:var(--sp-navy);"
+				class="font-display mb-6 leading-tight font-extrabold text-slate-900"
+				style="font-size:clamp(2rem,4vw,3rem);"
 			>
-				Mengapa Pilih <span class="gradient-text-blue">MPM Digital Printing?</span>
+				Your Trusted Local <br />
+				<span style="color:var(--sp-blue);">Plumbing Experts</span>
 			</h2>
-			<p class="mb-6 text-base leading-relaxed" style="color:var(--sp-gray);">
-				MPM Digital Printing hadir sebagai solusi percetakan online yang praktis dan efisien. Kami
-				berdedikasi tinggi memberikan kemudahan bagi Anda untuk mencetak berbagai keperluan seperti
-				kalender, undangan, dan buku langsung secara online.
+			<div class="mb-8 h-1 w-20" style="background:var(--sp-orange);"></div>
+			<p class="mb-6 text-lg leading-relaxed font-medium text-slate-700">
+				Aldinga Plumbing Services provides fast, reliable, and affordable plumbing solutions across
+				Aldinga Beach and surrounding areas in South Australia.
 			</p>
-			<p class="mb-8 text-base leading-relaxed" style="color:var(--sp-gray);">
-				Bekerja dengan tenaga ahli dan menggunakan teknologi terdepan, kami menjamin kualitas setiap
-				cetakan tetap maksimal, disertai pelayanan yang cepat tanggap, membantu setiap kebutuhan
-				cetak Anda tercapai dengan mudah dan memuaskan.
+			<p class="mb-10 text-base leading-relaxed text-slate-600">
+				Our fully licensed and insured team uses the latest technology to ensure every job is done
+				right the first time. Whether it's a minor leak, a bathroom renovation, or a major plumbing
+				emergency, we are available 24/7 to get your systems back on track.
 			</p>
-			<div class="grid grid-cols-2 gap-4">
-				{#each [{ icon: Target, label: 'Kualitas Tinggi', color: 'var(--sp-blue)' }, { icon: Zap, label: 'Proses Cepat', color: 'var(--sp-cyan)' }, { icon: Coins, label: 'Harga Terjangkau', color: 'var(--sp-orange)' }, { icon: Handshake, label: 'Pelayanan Ramah', color: 'var(--sp-green)' }] as v}
+
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+				{#each [{ icon: Target, label: 'Quality Workmanship', desc: 'Done right the first time' }, { icon: Zap, label: 'Fast Response', desc: 'Emergency dispatch' }, { icon: Coins, label: 'Upfront Pricing', desc: 'No hidden fees ever' }, { icon: Handshake, label: 'Licensed & Insured', desc: 'Complete peace of mind' }] as v}
 					<div
-						class="flex items-center gap-3 rounded-xl p-4"
-						style="background:var(--sp-bg-off); border:1px solid var(--sp-gray-border);"
+						class="flex items-start gap-4 rounded p-5 shadow-sm transition-all"
+						style="background:var(--sp-bg-white); border: 1px solid var(--sp-gray-border);"
 					>
-						<div style="color:{v.color};">
-							<svelte:component this={v.icon} size={28} strokeWidth={1.5} />
+						<div
+							class="flex h-10 w-10 shrink-0 items-center justify-center rounded text-white"
+							style="background:var(--sp-blue);"
+						>
+							<svelte:component this={v.icon} size={22} strokeWidth={2} />
 						</div>
-						<span class="text-sm font-semibold" style="color:var(--sp-navy);">{v.label}</span>
+						<div>
+							<div class="mb-1 text-sm font-bold text-slate-900">{v.label}</div>
+							<div class="text-xs text-slate-500">{v.desc}</div>
+						</div>
 					</div>
 				{/each}
 			</div>
 		</div>
 
 		<!-- Right visual -->
-		<div class="sp-reveal flex flex-col gap-4" style="transition-delay: 200ms;">
+		<div class="sp-reveal flex flex-col gap-6" style="transition-delay: 200ms;">
 			<div
-				class="animate-float-soft rounded-2xl p-8 text-center shadow-xl"
-				style="background:var(--sp-gradient-dark);"
+				class="relative w-full overflow-hidden rounded shadow-xl"
+				style="border: 4px solid var(--sp-navy); min-height: 400px; background: #0f172a;"
 			>
-				<div class="mx-auto mb-5 flex w-fit justify-center rounded-4xl bg-accent p-2 text-white">
-					<img src={logo} class="h-20 w-20 object-cover" alt="" />
-				</div>
-				<div class="font-display mb-1 text-xl font-bold text-white">MPM Digital Printing</div>
-				<div class="mb-3 text-sm" style="color:#F9A8D4;">Percetakan Online · Printing Service</div>
-				<div
-					class="rounded-lg p-3 text-xs"
-					style="background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.75);"
-				>
-					Menerima jasa cetak: Kalender, Undangan, Buku dsb.
-				</div>
+				<img
+					src="/plumber-about.png"
+					alt="Aldinga Plumbing Team"
+					class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity hover:opacity-100"
+				/>
 			</div>
+
 			<div
-				class="rounded-xl p-5 shadow-sm"
-				style="background:var(--sp-bg-off); border:1px solid var(--sp-gray-border);"
+				class="rounded p-6 shadow-md"
+				style="background:var(--sp-bg-white); border: 1px solid var(--sp-gray-border); border-top: 4px solid var(--sp-orange);"
 			>
 				<div
-					class="font-display mb-3 flex items-center gap-2 text-base font-bold"
-					style="color:var(--sp-navy);"
+					class="font-display mb-4 flex items-center gap-3 text-lg font-bold tracking-widest text-slate-900 uppercase"
 				>
-					<Clock size={20} strokeWidth={2} /> Jam Operasional
+					<Clock size={24} strokeWidth={2} style="color:var(--sp-orange);" />
+					Operating Hours
 				</div>
-				{#each [['Senin – Sabtu', '09:00 – 17:00'], ['Minggu', 'Tutup']] as [hari, jam]}
-					<div
-						class="flex justify-between border-b py-1.5 text-sm last:border-0"
-						style="border-color:var(--sp-gray-border); color:var(--sp-text-mid);"
-					>
-						<span>{hari}</span><span class="font-semibold" style="color:var(--sp-blue);">{jam}</span
+				<div class="flex flex-col gap-3">
+					{#each [['Monday – Sunday', '24 Hours Open'], ['Public Holidays', 'Available']] as [hari, jam]}
+						<div
+							class="flex items-center justify-between border-b pb-3 text-sm last:border-0 last:pb-0"
+							style="border-color:var(--sp-gray-border); color:var(--sp-gray);"
 						>
-					</div>
-				{/each}
+							<span class="font-medium text-slate-600">{hari}</span>
+							<span
+								class="rounded px-3 py-1 text-xs font-bold"
+								style="background:rgba(234,88,12,0.1); color:var(--sp-orange);">{jam}</span
+							>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>

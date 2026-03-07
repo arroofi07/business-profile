@@ -16,98 +16,42 @@
 	// JSON-LD Structured Data
 	const localBusinessSchema = {
 		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		'@id': 'https://mpmdigitalprint.com/#business',
-		name: 'MPM Digital Printing',
-		alternateName: 'MPM Digital Print',
+		'@type': 'Plumber',
+		'@id': 'https://aldingaplumbing.com.au/#business',
+		name: 'Aldinga Plumbing Services',
 		description:
-			'Pusat percetakan online dan digital printing service. Menerima jasa cetak: Kalender, Undangan, Buku dsb.',
-		url: 'https://mpmdigitalprint.com',
-		telephone: '+6285894002174',
-		image: 'https://mpmdigitalprint.com/og-image.jpg',
-		priceRange: 'Rp',
-		currenciesAccepted: 'IDR',
-		paymentAccepted: 'Cash, Transfer Bank, QRIS',
+			'Professional 24/7 plumbing services in Aldinga Beach, SA. Blocked drains, hot water systems, gas fitting, and emergency repairs.',
+		url: 'https://aldingaplumbing.com.au',
+		telephone: '+61459529693',
+		image: 'https://aldingaplumbing.com.au/og-image.jpg',
+		priceRange: '$$',
 		address: {
 			'@type': 'PostalAddress',
-			addressLocality: 'Padang',
-			addressRegion: 'Sumatera Barat',
-			addressCountry: 'ID'
+			streetAddress: '292 Aldinga Beach Rd',
+			addressLocality: 'Aldinga Beach',
+			addressRegion: 'SA',
+			postalCode: '5173',
+			addressCountry: 'AU'
 		},
 		geo: {
 			'@type': 'GeoCoordinates',
-			latitude: -0.9018741087406714,
-			longitude: 100.3502534061413
+			latitude: -35.2673,
+			longitude: 138.4556
 		},
 		openingHoursSpecification: [
 			{
 				'@type': 'OpeningHoursSpecification',
-				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-				opens: '09:00',
-				closes: '17:00'
+				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+				opens: '00:00',
+				closes: '23:59'
 			}
 		],
-		sameAs: ['https://www.instagram.com/mpm.digitalprint/'],
 		aggregateRating: {
 			'@type': 'AggregateRating',
 			ratingValue: '5.0',
-			reviewCount: '6',
+			reviewCount: '124',
 			bestRating: '5',
 			worstRating: '1'
-		},
-		hasOfferCatalog: {
-			'@type': 'OfferCatalog',
-			name: 'Produk Digital Printing',
-			itemListElement: [
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Cetak Kalender',
-						description: 'Kalender meja & dinding dengan kualitas premium'
-					}
-				},
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Undangan',
-						description: 'Undangan pernikahan, khitanan, dan acara lainnya dengan desain eksklusif'
-					}
-				},
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Cetak Buku',
-						description: 'Jasa cetak dan jilid buku berkualitas tinggi'
-					}
-				},
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Spanduk & Banner',
-						description: 'Spanduk outdoor kualitas tinggi, banner untuk promosi'
-					}
-				},
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Kartu Nama',
-						description: 'Kartu nama profesional dengan variasi bahan premium'
-					}
-				},
-				{
-					'@type': 'Offer',
-					itemOffered: {
-						'@type': 'Service',
-						name: 'Brosur & Flayer',
-						description: 'Cetak brosur full color untuk kebutuhan promosi bisnis Anda'
-					}
-				}
-			]
 		}
 	};
 
@@ -117,42 +61,18 @@
 		mainEntity: [
 			{
 				'@type': 'Question',
-				name: 'Berapa lama proses cetak di MPM Digital Printing?',
+				name: 'Do you offer 24/7 emergency services?',
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: 'Umumnya 1–3 hari kerja tergantung jenis & ukuran produk.'
+					text: 'Yes! We are available 24 hours a day, 7 days a week for any plumbing emergencies in Aldinga Beach.'
 				}
 			},
 			{
 				'@type': 'Question',
-				name: 'Apakah melayani cetak Kalender dan Buku?',
+				name: 'Are your plumbers licensed?',
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: 'Tentu! Kami melayani jasa cetak kalender, buku, undangan, dan berbagai produk printing lainnya.'
-				}
-			},
-			{
-				'@type': 'Question',
-				name: 'Bisa order secara online?',
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: 'Sangat bisa! Anda dapat menghubungi kami via link order atau Instagram untuk proses cetak secara online dengan cepat dan mudah.'
-				}
-			},
-			{
-				'@type': 'Question',
-				name: 'Format file apa yang diterima?',
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: 'Kami menerima CDR, AI, PDF, JPG/PNG (min. 150 dpi). Format vektor sangat direkomendasikan.'
-				}
-			},
-			{
-				'@type': 'Question',
-				name: 'Bagaimana cara pembayaran di MPM Digital Printing?',
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: 'Pembayaran dapat dilakukan via transfer antar bank. Silakan hubungi admin kami untuk detail lebih lanjut.'
+					text: 'Absolutely. All our plumbers are fully licensed, highly trained, and fully insured for your peace of mind.'
 				}
 			}
 		]
@@ -188,57 +108,36 @@
 </script>
 
 <svelte:head>
-	<title>MPM Digital Printing | Printing Service & Percetakan Online</title>
+	<title>Aldinga Plumbing Services | 24/7 Plumber in Aldinga Beach SA</title>
 	<meta
 		name="description"
-		content="MPM Digital Printing — Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya dengan proses cepat."
+		content="Professional 24/7 plumbing services in Aldinga Beach, SA. Blocked drains, hot water systems, gas fitting, and emergency repairs."
 	/>
 	<meta
 		name="keywords"
-		content="mpm digital printing, digital printing online, percetakan online, cetak online, cetak kalender, cetak undangan, cetak buku, printing service, mpm digital print"
+		content="aldinga plumbing, plumber aldinga beach, 24/7 plumber sa, blocked drains aldinga, hot water system repair sa"
 	/>
-	<meta name="author" content="MPM Digital Printing" />
-	<meta
-		name="robots"
-		content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-	/>
-	<meta name="theme-color" content="#F9A8D4" />
-	<link rel="canonical" href="https://mpmdigitalprint.com/" />
+	<meta name="author" content="Aldinga Plumbing Services" />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<meta name="theme-color" content="#2563EB" />
+	<link rel="canonical" href="https://aldingaplumbing.com.au/" />
 
 	<!-- Geo Meta Tags (Local SEO) -->
-	<meta name="geo.region" content="ID-SB" />
-	<meta name="geo.placename" content="Padang" />
-	<meta name="geo.position" content="-0.9471;100.4172" />
-	<meta name="ICBM" content="-0.9471, 100.4172" />
+	<meta name="geo.region" content="AU-SA" />
+	<meta name="geo.placename" content="Aldinga Beach" />
+	<meta name="geo.position" content="-35.2673;138.4556" />
+	<meta name="ICBM" content="-35.2673, 138.4556" />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://mpmdigitalprint.com/" />
-	<meta property="og:title" content="MPM Digital Printing | Printing Service & Percetakan Online" />
+	<meta property="og:url" content="https://aldingaplumbing.com.au/" />
+	<meta property="og:title" content="Aldinga Plumbing Services | 24/7 Plumber" />
 	<meta
 		property="og:description"
-		content="Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya."
+		content="Professional 24/7 plumbing services in Aldinga Beach, SA. Call us for commercial and residential plumbing."
 	/>
-	<meta property="og:image" content="https://mpmdigitalprint.com/og-image.jpg" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="MPM Digital Printing - Berkualitas dan Cepat" />
-	<meta property="og:site_name" content="MPM Digital Printing" />
-	<meta property="og:locale" content="id_ID" />
-
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:url" content="https://mpmdigitalprint.com/" />
-	<meta
-		name="twitter:title"
-		content="MPM Digital Printing | Printing Service & Percetakan Online"
-	/>
-	<meta
-		name="twitter:description"
-		content="Percetakan online terpercaya. Menerima jasa cetak kalender, undangan, buku, dan berbagai kebutuhan digital printing lainnya."
-	/>
-	<meta name="twitter:image" content="https://mpmdigitalprint.com/og-image.jpg" />
-	<meta name="twitter:image:alt" content="MPM Digital Printing - Berkualitas dan Cepat" />
+	<meta property="og:image" content="https://aldingaplumbing.com.au/og-image.jpg" />
+	<meta property="og:locale" content="en_AU" />
 
 	<!-- JSON-LD Structured Data -->
 	{@html `<script type="application/ld+json">${JSON.stringify(localBusinessSchema)}</script>`}

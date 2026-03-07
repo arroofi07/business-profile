@@ -3,58 +3,63 @@
 	import { Instagram, MessageCircle, MapPin } from 'lucide-svelte';
 </script>
 
-<section id="kontak" class="py-24" style="background:var(--sp-gradient-dark);">
+<section
+	id="kontak"
+	class="py-24"
+	style="background:var(--sp-navy); border-top: 4px solid var(--sp-orange);"
+>
 	<div class="mx-auto max-w-4xl px-6 text-center">
 		<div class="sp-reveal">
 			<div
-				class="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase"
-				style="background:rgba(255,255,255,0.15); color:#fff; font-family:'Outfit',sans-serif;"
+				class="mb-6 inline-block rounded-sm px-4 py-1.5 text-xs font-bold tracking-widest uppercase"
+				style="background:rgba(234,88,12,0.15); color:var(--sp-orange);"
 			>
-				HUBUNGI KAMI
+				CONTACT US
 			</div>
-			<h2 class="font-display mb-4 font-bold text-white" style="font-size:clamp(2rem,5vw,3rem);">
-				Siap Mencetak <span style="color:#F9A8D4;">Bersama Kami?</span>
+			<h2
+				class="font-display mb-6 font-extrabold tracking-tight text-white uppercase"
+				style="font-size:clamp(2rem,5vw,3rem);"
+			>
+				Need a <span style="color:var(--sp-orange);">Plumber?</span>
 			</h2>
-			<p class="mx-auto mb-10 max-w-xl" style="color:rgba(255,255,255,0.7);">
-				Hubungi MPM Digital Printing sekarang dan dapatkan kemudahan untuk semua kebutuhan cetak
-				Anda.
+			<div class="mx-auto mb-6 h-1 w-16" style="background:var(--sp-orange);"></div>
+			<p class="mx-auto mb-10 max-w-xl text-lg font-medium" style="color:rgba(255,255,255,0.7);">
+				Contact Aldinga Plumbing Services now for fast and reliable 24/7 assistance.
 			</p>
 			<div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
 				<a
 					href={waGeneral}
 					target="_blank"
-					class="flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold transition-all duration-200 hover:opacity-80"
-					style="background:linear-gradient(135deg,#25D366,#2DB742); color:white; font-family:'Outfit',sans-serif;"
+					class="btn-whatsapp flex items-center gap-2 rounded px-8 py-4 text-sm font-bold shadow-lg"
 				>
-					<MessageCircle /> Chat WhatsApp Sekarang</a
+					<MessageCircle size={20} /> WHATSAPP US NOW</a
 				>
 				<a
-					href="https://www.instagram.com/mpm.digitalprint/"
-					target="_blank"
-					class="flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold transition-all duration-200 hover:opacity-80"
-					style="background:linear-gradient(135deg,#E1306C,#833AB4); color:white; font-family:'Outfit',sans-serif;"
+					href="tel:+61459529693"
+					class="btn-primary-sp flex items-center gap-2 rounded px-8 py-4 text-sm font-bold shadow-lg"
+					style="background:transparent; border-color:var(--sp-orange); color:var(--sp-orange);"
 				>
-					<Instagram /> Follow Instagram</a
+					CALL +61 459 529 693</a
 				>
 			</div>
 		</div>
-		<div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-			{#each [{ icon: MessageCircle, label: 'WhatsApp', val: 'Order Sekarang' }, { icon: Instagram, label: 'Instagram', val: '@mpm.digitalprint' }, { icon: MapPin, label: 'Kota', val: 'Online' }] as c, i}
+		<div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+			{#each [{ icon: MessageCircle, label: 'Emergency', val: 'Call or WhatsApp' }, { icon: Instagram, label: 'Facebook/Instagram', val: '@aldingaplumbing' }, { icon: MapPin, label: 'Location', val: 'Aldinga Beach SA' }] as c, i}
 				<div
-					class="sp-reveal flex flex-col items-center rounded-xl p-5"
-					style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); transition-delay:{i *
+					class="sp-reveal flex flex-col items-center border p-6 transition-all hover:bg-slate-800"
+					style="background:rgba(255,255,255,0.03); border-color:rgba(255,255,255,0.1); border-radius: 4px; transition-delay:{i *
 						100}ms;"
 				>
-					<div class="mb-3 text-white">
-						<svelte:component this={c.icon} size={32} strokeWidth={1.5} />
+					<div class="mb-4 rounded border border-slate-700 bg-slate-800 p-3 text-white">
+						<svelte:component this={c.icon} size={28} strokeWidth={1.5} />
 					</div>
 					<div
-						class="mb-1 text-xs"
-						style="color:rgba(255,255,255,0.55); font-family:'Outfit',sans-serif;"
+						class="mb-1 text-xs font-bold tracking-widest uppercase"
+						style="color:var(--sp-orange);"
 					>
 						{c.label}
 					</div>
-					<div class="text-sm font-semibold text-white">{c.val}</div>
+					<div class="text-sm font-bold tracking-wider text-white uppercase">{c.val}</div>
 				</div>
 			{/each}
 		</div>

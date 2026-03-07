@@ -5,50 +5,50 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── MPM Digital Printing — Soft Pink & Sky Blue Design Tokens ── */
+/* ── Aldinga Plumbing Services — Professional Blue & Orange Design Tokens ── */
 :root {
 	/* ── Core Background Palette ── */
 	--sp-bg-white:     #FFFFFF;
-	--sp-bg-off:       #FDFBFB;
-	--sp-bg-light:     #F0F9FF; /* sky-50 */
-	--sp-bg-section:   #FDF2F8; /* pink-50 */
-	--sp-bg-dark:      #2C3E50;
-	--sp-bg-dark-card: #34495E;
+	--sp-bg-off:       #F8FAFC; /* slate-50 */
+	--sp-bg-light:     #F1F5F9; /* slate-100 */
+	--sp-bg-section:   #E2E8F0; /* slate-200 */
+	--sp-bg-dark:      #0F172A; /* slate-900 */
+	--sp-bg-dark-card: #1E293B; /* slate-800 */
 
-	/* ── Brand Colors ── */
-	--sp-blue:         #38BDF8; /* sky-400 */
-	--sp-blue-mid:     #7DD3FC; /* sky-300 */
-	--sp-blue-light:   #BAE6FD; /* sky-200 */
-	--sp-blue-accent:  #0EA5E9; /* sky-500 */
-	--sp-navy:         #0284C7; /* sky-600 */
-	--sp-orange:       #F472B6; /* using pink-400 instead of orange */
-	--sp-orange-dim:   #EC4899; /* using pink-500 instead of dark orange */
-	--sp-cyan:         #38BDF8;
-	--sp-green:        #10B981;
+	/* ── Brand Colors (Enterprise) ── */
+	--sp-blue:         #1D4ED8; /* blue-700 */
+	--sp-blue-mid:     #2563EB; /* blue-600 */
+	--sp-blue-light:   #DBEAFE; /* blue-100 */
+	--sp-blue-accent:  #1E40AF; /* blue-800 */
+	--sp-navy:         #0F172A; /* Slate 900 (Primary Dark) */
+	--sp-orange:       #EA580C; /* Action Orange-600 */
+	--sp-orange-dim:   #C2410C; /* Orange-700 */
+	--sp-cyan:         #0891B2; /* cyan-600 */
+	--sp-green:        #16A34A; /* emerald-600 */
 
 	/* ── Text ── */
-	--sp-text-dark:    #1E293B; /* slate-800 */
-	--sp-text-mid:     #475569; /* slate-600 */
-	--sp-gray:         #94A3B8; /* slate-400 */
-	--sp-gray-light:   #E2E8F0; /* slate-200 */
-	--sp-gray-border:  #F1F5F9; /* slate-100 */
+	--sp-text-dark:    #0F172A; 
+	--sp-text-mid:     #334155; 
+	--sp-gray:         #475569; 
+	--sp-gray-light:   #94A3B8; 
+	--sp-gray-border:  #CBD5E1; 
 	--sp-white:        #FFFFFF;
 
-	/* ── Gradients ── */
-	--sp-gradient-hero:  linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #FCE7F3 100%);
-	--sp-gradient-blue:  linear-gradient(135deg, #38BDF8 0%, #F9A8D4 100%);
-	--sp-gradient-cta:   linear-gradient(135deg, #F472B6 0%, #38BDF8 100%);
-	--sp-gradient-dark:  linear-gradient(135deg, #1E293B 0%, #38BDF8 100%);
-	--sp-gradient-card:  linear-gradient(145deg, #FFFFFF 0%, #FDFBFB 100%);
-	--sp-gradient-orange:linear-gradient(135deg, #F9A8D4 0%, #F472B6 100%);
+	/* ── Enterprise Solid Gradients (No playful multi-color) ── */
+	--sp-gradient-hero:  linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+	--sp-gradient-blue:  linear-gradient(180deg, #1D4ED8 0%, #1E40AF 100%);
+	--sp-gradient-cta:   linear-gradient(180deg, #EA580C 0%, #C2410C 100%);
+	--sp-gradient-dark:  linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+	--sp-gradient-card:  #FFFFFF;
+	--sp-gradient-orange:linear-gradient(180deg, #EA580C 0%, #C2410C 100%);
 
-	/* ── Shadows ── */
-	--sp-shadow-sm:    0 1px 3px rgba(56, 189, 248, 0.08), 0 1px 2px rgba(0,0,0,0.04);
-	--sp-shadow-md:    0 4px 16px rgba(56, 189, 248, 0.12), 0 2px 8px rgba(0,0,0,0.04);
-	--sp-shadow-lg:    0 10px 40px rgba(56, 189, 248, 0.15), 0 4px 16px rgba(0,0,0,0.06);
-	--sp-shadow-xl:    0 20px 60px rgba(56, 189, 248, 0.18), 0 8px 24px rgba(0,0,0,0.08);
-	--sp-shadow-card:  0 4px 24px rgba(244, 114, 182, 0.08);
-	--sp-shadow-blue:  0 8px 32px rgba(56, 189, 248, 0.25);
+	/* ── Corporate Shadows (Sharp, constrained) ── */
+	--sp-shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--sp-shadow-md:    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--sp-shadow-lg:    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--sp-shadow-xl:    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	--sp-shadow-card:  0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--sp-shadow-blue:  0 4px 6px -1px rgba(29, 78, 216, 0.2);
 
 	/* ── Nav ── */
 	--nav-height: 80px;
@@ -153,163 +153,155 @@ body {
 .delay-700 { animation-delay: 0.7s; }
 .delay-800 { animation-delay: 0.8s; }
 
-/* ── Glass & Card Effects ── */
+/* ── Enterprise Header Base (replaces glass) ── */
 .glass-light {
-	background: rgba(255, 255, 255, 0.82);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.9);
-	box-shadow: var(--sp-shadow-md);
+	background: #FFFFFF;
+	border-bottom: 1px solid var(--sp-gray-border);
+	box-shadow: var(--sp-shadow-sm);
 }
 
 .glass-blue {
-	background: rgba(240, 249, 255, 0.65); /* sky-50 with opacity */
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(16px);
-	border: 1px solid rgba(56, 189, 248, 0.2); /* sky-400 */
+	background: var(--sp-navy);
+	border: 1px solid var(--sp-blue-accent);
 }
 
-/* ── Gradient Text ── */
+/* ── Typography Resets for Enterprise ── */
 .gradient-text-blue {
-	background: var(--sp-gradient-blue);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	color: var(--sp-blue);
 }
 
 .gradient-text-orange {
-	background: var(--sp-gradient-orange);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	color: var(--sp-orange);
 }
 
 .gradient-text-shimmer {
-	background: linear-gradient(90deg, #38BDF8, #F472B6, #0EA5E9, #F472B6, #38BDF8);
-	background-size: 200% auto;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	animation: shimmer-blue 3s linear infinite;
+	color: var(--sp-white);
 }
 
-/* ── Dot Grid Background Pattern ── */
+/* ── Dot Grid Background Pattern (Removed for Enterprise) ── */
 .dot-pattern {
-	background-image: radial-gradient(circle, rgba(244, 114, 182, 0.18) 1.5px, transparent 1.5px); /* pink-400 */
-	background-size: 28px 28px;
-	position: relative;
+	background: none;
 }
 
 .dot-pattern-light {
-	background-image: radial-gradient(circle, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px); /* sky-400 */
-	background-size: 24px 24px;
+	background: none;
 }
 
 /* ── Card Styles ── */
 .card-sp {
 	background: var(--sp-bg-white);
 	border: 1px solid var(--sp-gray-border);
-	border-radius: 16px;
-	box-shadow: var(--sp-shadow-sm);
-	transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	border-radius: 4px; /* Square enterprise feel */
+	box-shadow: var(--sp-shadow-card);
+	transition: all 0.2s ease;
 }
 
 .card-sp:hover {
-	border-color: rgba(56, 189, 248, 0.4);
-	box-shadow: var(--sp-shadow-lg);
-	transform: translateY(-4px);
+	border-color: var(--sp-blue-mid);
+	box-shadow: var(--sp-shadow-md);
 }
 
 /* ── Blue Border Accent ── */
 .border-blue-accent {
-	border: 1px solid rgba(56, 189, 248, 0.3);
-	box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.06);
+	border: 2px solid var(--sp-blue);
 }
 
 /* ── CTA Buttons ── */
 .btn-primary-sp {
-	background: var(--sp-gradient-blue);
+	background: var(--sp-blue);
 	color: #fff;
 	font-family: 'Outfit', sans-serif;
-	font-weight: 600;
-	border-radius: 10px;
-	padding: 13px 28px;
-	transition: all 0.3s ease;
-	border: none;
+	font-weight: 700;
+	border-radius: 4px;
+	padding: 12px 24px;
+	transition: all 0.2s ease;
+	border: 2px solid var(--sp-blue);
 	cursor: pointer;
-	box-shadow: var(--sp-shadow-blue);
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 14px;
 }
 
 .btn-primary-sp:hover {
-	box-shadow: 0 12px 40px rgba(29, 78, 216, 0.4);
-	transform: translateY(-2px);
-	opacity: 0.93;
+	background: var(--sp-navy);
+	border-color: var(--sp-navy);
 }
 
 .btn-outline-sp {
 	background: transparent;
-	color: var(--sp-blue);
+	color: var(--sp-navy);
 	font-family: 'Outfit', sans-serif;
-	font-weight: 600;
-	border-radius: 10px;
-	padding: 12px 28px;
-	transition: all 0.3s ease;
-	border: 2px solid var(--sp-blue);
+	font-weight: 700;
+	border-radius: 4px;
+	padding: 12px 24px;
+	transition: all 0.2s ease;
+	border: 2px solid var(--sp-navy);
 	cursor: pointer;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 14px;
 }
 
 .btn-outline-sp:hover {
-	background: rgba(29, 78, 216, 0.06);
-	box-shadow: 0 4px 20px rgba(29, 78, 216, 0.2);
-	transform: translateY(-2px);
+	background: var(--sp-navy);
+	color: var(--sp-white);
 }
 
 .btn-whatsapp {
-	background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+	background: var(--sp-orange);
 	color: #fff;
 	font-family: 'Outfit', sans-serif;
-	font-weight: 600;
-	border-radius: 10px;
-	padding: 13px 28px;
-	transition: all 0.3s ease;
-	border: none;
+	font-weight: 700;
+	border-radius: 4px;
+	padding: 12px 24px;
+	transition: all 0.2s ease;
+	border: 2px solid var(--sp-orange);
 	cursor: pointer;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 14px;
 }
 
 .btn-whatsapp:hover {
-	box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
-	transform: translateY(-2px);
+	background: var(--sp-orange-dim);
+	border-color: var(--sp-orange-dim);
 }
 
 /* ── Badge Styles ── */
 .badge-popular {
-	background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(236, 72, 153, 0.15));
-	border: 1px solid rgba(244, 114, 182, 0.45);
-	color: var(--sp-orange-dim);
+	background: var(--sp-orange);
+	border: 1px solid var(--sp-orange-dim);
+	color: var(--sp-white);
 	font-size: 10px;
-	font-weight: 700;
+	font-weight: 800;
 	font-family: 'Outfit', sans-serif;
-	padding: 3px 10px;
-	border-radius: 20px;
+	padding: 4px 8px;
+	border-radius: 2px;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 }
 
 .badge-new {
-	background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(14, 165, 233, 0.12));
-	border: 1px solid rgba(56, 189, 248, 0.4);
-	color: var(--sp-navy);
+	background: var(--sp-navy);
+	border: 1px solid var(--sp-navy);
+	color: var(--sp-white);
 	font-size: 10px;
-	font-weight: 700;
+	font-weight: 800;
 	font-family: 'Outfit', sans-serif;
-	padding: 3px 10px;
-	border-radius: 20px;
+	padding: 4px 8px;
+	border-radius: 2px;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 }
@@ -318,21 +310,21 @@ body {
 .section-chip {
 	display: inline-block;
 	font-family: 'Outfit', sans-serif;
-	font-size: 11px;
-	font-weight: 700;
-	letter-spacing: 0.1em;
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 0.15em;
 	text-transform: uppercase;
-	background: rgba(56, 189, 248, 0.08); /* sky-400 */
-	border: 1px solid rgba(56, 189, 248, 0.2);
-	color: var(--sp-navy); /* sky-600 */
-	padding: 6px 16px;
-	border-radius: 100px;
+	background: var(--sp-navy);
+	border: 1px solid var(--sp-navy);
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 2px;
 }
 
 .section-chip-orange {
-	background: rgba(244, 114, 182, 0.08); /* pink-400 */
-	border: 1px solid rgba(244, 114, 182, 0.2);
-	color: var(--sp-orange-dim); /* pink-500 */
+	background: var(--sp-orange);
+	border: 1px solid var(--sp-orange);
+	color: #fff;
 }
 
 /* ── Section Divider ── */

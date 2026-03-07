@@ -1,104 +1,93 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { waGeneral } from '$lib/data';
-	import logo from '$lib/assets/mpm.png';
 
 	let navScrolled = $state(false);
 	let mobileNavOpen = $state(false);
-	let isOpen = $state(false);
-
-	const checkOpenStatus = () => {
-		const now = new Date();
-		// Calculate WIB (UTC+7)
-		const localTime = now.getTime();
-		const localOffset = now.getTimezoneOffset() * 60000;
-		const utc = localTime + localOffset;
-		const wibDate = new Date(utc + 3600000 * 7);
-
-		const day = wibDate.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
-		const hours = wibDate.getHours();
-
-		// Senin - Sabtu (1-6) jam 09:00 - 17:00 (hours 9 to 16)
-		isOpen = day >= 1 && day <= 6 && hours >= 9 && hours < 17;
-	};
+	let isOpen = $state(true);
 
 	onMount(() => {
-		checkOpenStatus();
-		const interval = setInterval(checkOpenStatus, 60000);
-
 		const onScroll = () => {
 			navScrolled = window.scrollY > 30;
 		};
 		window.addEventListener('scroll', onScroll, { passive: true });
 		return () => {
 			window.removeEventListener('scroll', onScroll);
-			clearInterval(interval);
 		};
 	});
 </script>
 
 <header
-	class="glass-light fixed top-0 right-0 left-0 z-50 transition-all duration-300 {navScrolled
-		? 'nav-scroll'
-		: ''}"
-	style="border-bottom: {navScrolled ? 'none' : '1px solid rgba(29,78,216,0.12)'};"
+	class="fixed top-0 right-0 left-0 z-50 transition-all duration-300"
+	style="background: #fff; box-shadow: {navScrolled
+		? 'var(--sp-shadow-md)'
+		: 'none'}; border-bottom: 1px solid var(--sp-gray-border);"
 >
+	<!-- Top Bar (Enterprise) -->
+	<div
+		class="hidden w-full items-center justify-between py-2 md:flex"
+		style="background: var(--sp-navy); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;"
+	>
+		<div class="mx-auto flex w-full max-w-7xl justify-between px-6">
+			<span class="flex items-center gap-2"><span>🛡️</span> Licensed & Insured Professionals</span>
+			<span class="flex items-center gap-6 text-blue-100">
+				<span>📍 Serving Aldinga Beach, SA</span>
+				<span class="flex items-center gap-2"
+					><span
+						class="animate-ping-dot inline-block h-2 w-2 rounded-full"
+						style="background:var(--sp-orange);"
+					></span> 24/7 Emergency Service</span
+				>
+			</span>
+		</div>
+	</div>
+
 	<nav
-		class="mx-auto flex max-w-7xl items-center justify-between px-6"
-		style="height:var(--nav-height);"
+		class="mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-300"
+		style="height: {navScrolled ? '70px' : 'var(--nav-height)'};"
 	>
 		<!-- Logo -->
 		<a href="/" class="group flex items-center gap-3">
-			<div class="flex h-11 w-11 items-center justify-center rounded-xl text-2xl shadow-md">
-				<img src={logo} alt="logo" class="h-full w-full object-cover" />
+			<div
+				class="flex h-11 w-11 items-center justify-center rounded-sm p-1 shadow-sm"
+				style="background:transparent;"
+			>
+				<img src="/logo.svg" alt="Aldinga Plumbing Logo" class="h-full w-full object-contain" />
 			</div>
 			<div>
-				<div class="font-display text-lg leading-tight font-bold" style="color:var(--sp-navy);">
-					MPM <span style="color:var(--sp-pink);">Digital</span> Printing
+				<div
+					class="font-display text-xl leading-tight font-extrabold tracking-tight"
+					style="color:var(--sp-navy);"
+				>
+					ALDINGA <span style="color:var(--sp-orange);">PLUMBING</span>
 				</div>
 				<div
-					class="text-xs font-semibold tracking-widest"
-					style="color:var(--sp-gray); font-family:'Plus Jakarta Sans',sans-serif;"
+					class="text-xs font-bold tracking-widest text-slate-500"
+					style="font-family:'Plus Jakarta Sans',sans-serif;"
 				>
-					PERCETAKAN ONLINE
+					SERVICES & REPAIRS
 				</div>
 			</div>
 		</a>
 
 		<!-- Desktop nav -->
-		<div class="hidden items-center gap-7 md:flex">
-			{#each [['/#layanan', 'Layanan'], ['/katalog', 'Katalog'], ['/#cara-pesan', 'Cara Order'], ['/#harga', 'Harga'], ['/#tentang', 'Tentang'], ['/#kontak', 'Kontak']] as [href, label]}
+		<div class="hidden items-center gap-8 md:flex">
+			{#each [['/#layanan', 'SERVICES'], ['/#produk', 'CATALOG'], ['/#tentang', 'ABOUT US'], ['/#kontak', 'CONTACT']] as [href, label]}
 				<a
 					{href}
-					class="text-sm font-semibold transition-colors duration-200"
-					style="color:var(--sp-gray);"
-					onmouseenter={(e) => (e.currentTarget.style.color = 'var(--sp-blue)')}
-					onmouseleave={(e) => (e.currentTarget.style.color = 'var(--sp-gray)')}>{label}</a
+					class="text-sm font-bold transition-colors duration-200"
+					style="color:var(--sp-navy); letter-spacing: 0.05em;"
+					onmouseenter={(e) => (e.currentTarget.style.color = 'var(--sp-orange)')}
+					onmouseleave={(e) => (e.currentTarget.style.color = 'var(--sp-navy)')}>{label}</a
 				>
 			{/each}
 		</div>
 
 		<!-- CTA -->
-		<div class="hidden items-center gap-3 md:flex">
-			{#if isOpen}
-				<div
-					class="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
-					style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); color:#10B981; font-family:'Outfit',sans-serif;"
-				>
-					<span
-						class="animate-ping-dot inline-block h-2 w-2 rounded-full"
-						style="background:#10B981;"
-					></span>BUKA
-				</div>
-			{:else}
-				<div
-					class="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
-					style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#EF4444; font-family:'Outfit',sans-serif;"
-				>
-					<span class="inline-block h-2 w-2 rounded-full" style="background:#EF4444;"></span>TUTUP
-				</div>
-			{/if}
-			<a href={waGeneral} target="_blank" class="btn-primary-sp text-sm">Order Sekarang →</a>
+		<div class="hidden items-center gap-4 md:flex">
+			<a href={waGeneral} target="_blank" class="btn-whatsapp text-sm shadow-md"
+				>CALL +61 459 529 693</a
+			>
 		</div>
 
 		<!-- Mobile hamburger -->
@@ -107,10 +96,11 @@
 			onclick={() => (mobileNavOpen = !mobileNavOpen)}
 			aria-label="Toggle nav"
 		>
-			{#each [6, 4, 6] as w}<div
-					class="mb-1.5 h-0.5 rounded-full transition-all last:mb-0"
-					style="width:{w * 4}px; background:var(--sp-blue);"
-				></div>{/each}
+			<div class="space-y-1.5">
+				<div class="h-0.5 w-6 rounded-sm bg-slate-900"></div>
+				<div class="h-0.5 w-6 rounded-sm bg-slate-900"></div>
+				<div class="h-0.5 w-6 rounded-sm bg-slate-900"></div>
+			</div>
 		</button>
 	</nav>
 
@@ -118,43 +108,33 @@
 	{#if mobileNavOpen}
 		<div
 			class="animate-slide-down flex flex-col gap-3 px-6 py-5 md:hidden"
-			style="background:rgba(255,255,255,0.97); border-top:1px solid var(--sp-gray-border);"
+			style="background:#fff; border-top:1px solid var(--sp-gray-border); box-shadow: var(--sp-shadow-lg);"
 		>
 			<div
-				class="mb-2 flex items-center justify-between pb-2"
+				class="mb-2 flex items-center justify-between pb-3"
 				style="border-bottom:1px solid var(--sp-gray-border);"
 			>
-				<span class="text-sm font-bold" style="color:var(--sp-text-mid);">Status Toko:</span>
-				{#if isOpen}
-					<div
-						class="flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold"
-						style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); color:#10B981;"
-					>
-						<span
-							class="animate-ping-dot inline-block h-2 w-2 rounded-full"
-							style="background:#10B981;"
-						></span>BUKA
-					</div>
-				{:else}
-					<div
-						class="flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold"
-						style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#EF4444;"
-					>
-						<span class="inline-block h-2 w-2 rounded-full" style="background:#EF4444;"></span>TUTUP
-					</div>
-				{/if}
+				<span class="text-sm font-bold tracking-widest text-slate-800 uppercase"
+					>24/7 Emergency Service</span
+				>
+				<div
+					class="animate-ping-dot h-2 w-2 rounded-full"
+					style="background:var(--sp-orange);"
+				></div>
 			</div>
 
-			{#each [['/#layanan', 'Layanan'], ['/katalog', 'Katalog'], ['/#harga', 'Harga'], ['/#cara-pesan', 'Cara Order'], ['/#tentang', 'Tentang'], ['/#kontak', 'Kontak']] as [href, label]}
+			{#each [['/#layanan', 'SERVICES'], ['/#tentang', 'ABOUT US'], ['/#produk', 'CATALOG'], ['/#kontak', 'CONTACT']] as [href, label]}
 				<a
 					{href}
-					class="border-b py-2 text-sm font-semibold"
-					style="color:var(--sp-text-mid); border-color:var(--sp-gray-border);"
+					class="border-b py-3 text-sm font-bold text-slate-800"
+					style="border-color:var(--sp-gray-border); letter-spacing:0.05em;"
 					onclick={() => (mobileNavOpen = false)}>{label}</a
 				>
 			{/each}
-			<a href={waGeneral} target="_blank" class="btn-primary-sp mt-2 text-center text-sm"
-				>Order Sekarang →</a
+			<a
+				href={waGeneral}
+				target="_blank"
+				class="btn-whatsapp mt-4 w-full text-center text-sm shadow-md">CALL NOW</a
 			>
 		</div>
 	{/if}

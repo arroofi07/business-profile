@@ -6,14 +6,14 @@
 
 	// ── Reactive state ──
 	let searchQuery = $state('');
-	let activeCategory = $state('semua');
+	let activeCategory = $state('all');
 	let currentPage = $state(1);
 	const PER_PAGE = 12;
 
 	// ── Correct Svelte 5 $derived: expression, NOT a function wrapper ──
 	const filteredProducts = $derived(
 		allProducts.filter((p) => {
-			const matchCat = activeCategory === 'semua' || p.category === activeCategory;
+			const matchCat = activeCategory === 'all' || p.category === activeCategory;
 			const q = searchQuery.trim().toLowerCase();
 			const matchSearch =
 				q === '' || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
@@ -39,9 +39,7 @@
 	const totalByCategory: Record<string, number> = {};
 	categories.forEach((c) => {
 		totalByCategory[c.key] =
-			c.key === 'semua'
-				? allProducts.length
-				: allProducts.filter((p) => p.category === c.key).length;
+			c.key === 'all' ? allProducts.length : allProducts.filter((p) => p.category === c.key).length;
 	});
 
 	function setCategory(key: string) {
@@ -79,12 +77,12 @@
 </script>
 
 <svelte:head>
-	<title>Katalog Produk | SmartPrint Padang - Digital Printing Terlengkap</title>
+	<title>Our Services | Aldinga Plumbing Services</title>
 	<meta
 		name="description"
-		content="Katalog lengkap produk digital printing SmartPrint Padang — banner, spanduk, souvenir, textile, buku, dan lainnya. 78+ produk berkualitas, harga bersaing."
+		content="Explore the full range of plumbing services offered by Aldinga Plumbing Services. 24/7 emergency response, blocked drains, hot water systems, and more."
 	/>
-	<link rel="canonical" href="https://smartprintpadang.com/katalog" />
+	<link rel="canonical" href="https://aldingaplumbing.com.au/katalog" />
 </svelte:head>
 
 <Navbar />
@@ -92,9 +90,9 @@
 <main class="katalog-page">
 	<!-- ── HERO HEADER ── -->
 
-		<div class="relative z-10 mx-auto max-w-7xl px-2 py-7 text-center md:px-6 md:py-12">
-			<div class="section-chip mb-0">KATALOG LENGKAP</div>
-		</div>
+	<div class="relative z-10 mx-auto max-w-7xl px-2 py-7 text-center md:px-6 md:py-12">
+		<div class="section-chip mb-0">FULL SERVICE CATALOG</div>
+	</div>
 
 	<!-- ── MAIN CONTENT ── -->
 	<section class="katalog-body">
@@ -103,7 +101,7 @@
 				<!-- ── SIDEBAR (Desktop) ── -->
 				<aside class="katalog-sidebar">
 					<div class="sidebar-card">
-						<div class="sidebar-title">Kategori Produk</div>
+						<div class="sidebar-title">Categories</div>
 						{#each categories as cat}
 							<button
 								onclick={() => setCategory(cat.key)}
@@ -118,8 +116,8 @@
 
 						<!-- WA CTA -->
 						<div class="sidebar-cta">
-							<div class="sidebar-cta-title font-display">Butuh Konsultasi?</div>
-							<p class="sidebar-cta-desc">Tim kami siap membantu Anda memilih produk terbaik.</p>
+							<div class="sidebar-cta-title font-display">Need Advice?</div>
+							<p class="sidebar-cta-desc">Our team is ready to help you with any plumbing issue.</p>
 							<a href={waGeneral} target="_blank" class="btn-whatsapp sidebar-cta-btn">
 								<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
 									><path
@@ -129,7 +127,7 @@
 										opacity=".3"
 									/></svg
 								>
-								Chat WhatsApp
+								Chat on WhatsApp
 							</a>
 						</div>
 					</div>
@@ -156,7 +154,7 @@
 							<input
 								type="text"
 								bind:value={searchQuery}
-								placeholder="Cari produk cetak... (contoh: banner, kaos, mug)"
+								placeholder="Search services... (e.g. drains, hot water)"
 								class="search-input"
 								id="catalog-search"
 							/>
@@ -185,8 +183,8 @@
 					<div class="result-header">
 						<div class="result-count">
 							<span class="result-count-num font-display">{filteredProducts.length}</span>
-							<span class="result-count-text">produk ditemukan</span>
-							{#if activeCategory !== 'semua'}
+							<span class="result-count-text">services found</span>
+							{#if activeCategory !== 'all'}
 								<span class="result-cat-badge">
 									{categories.find((c) => c.key === activeCategory)?.icon}
 									{categories.find((c) => c.key === activeCategory)?.label}
@@ -197,7 +195,7 @@
 							{/if}
 						</div>
 						{#if totalPages > 1}
-							<div class="result-page-info">Hal. {currentPage} / {totalPages}</div>
+							<div class="result-page-info">Page {currentPage} of {totalPages}</div>
 						{/if}
 					</div>
 
@@ -205,14 +203,14 @@
 					{#if filteredProducts.length === 0}
 						<div class="empty-state">
 							<div class="empty-state-icon">🔍</div>
-							<div class="empty-state-title font-display">Produk tidak ditemukan</div>
-							<div class="empty-state-desc">Coba kata kunci atau kategori yang berbeda</div>
+							<div class="empty-state-title font-display">No services found</div>
+							<div class="empty-state-desc">Try a different keyword or category</div>
 							<button
 								class="btn-primary-sp mt-6"
 								onclick={() => {
 									searchQuery = '';
-									activeCategory = 'semua';
-								}}>Reset Filter</button
+									activeCategory = 'all';
+								}}>Reset Filters</button
 							>
 						</div>
 					{:else}
@@ -223,8 +221,13 @@
 										<div class="product-card__emoji">{product.emoji}</div>
 										<div class="product-card__tags">
 											{#each product.tags as tag}
-												{#if tag === 'Populer'}<span class="badge-popular">{tag}</span>
-												{:else if tag === 'Baru'}<span class="badge-new">{tag}</span>
+												{#if tag === 'Popular'}<span class="badge-popular">{tag}</span>
+												{:else if tag === 'Urgent'}<span
+														class="badge-new"
+														style="background:rgba(239,68,68,0.1); border-color:#EF4444; color:#EF4444;"
+														>{tag}</span
+													>
+												{:else}<span class="badge-new">{tag}</span>
 												{/if}
 											{/each}
 										</div>
@@ -239,7 +242,7 @@
 											target="_blank"
 											class="product-card__order-btn font-display"
 										>
-											💬 Pesan Sekarang
+											💬 Request Service
 										</a>
 									</div>
 								</div>
@@ -253,9 +256,9 @@
 									class="page-btn page-btn--nav"
 									disabled={currentPage === 1}
 									onclick={() => goPage(currentPage - 1)}
-									aria-label="Halaman sebelumnya"
+									aria-label="Previous page"
 								>
-									← Sebelumnya
+									← Previous
 								</button>
 
 								<div class="page-numbers">
@@ -276,9 +279,9 @@
 									class="page-btn page-btn--nav"
 									disabled={currentPage === totalPages}
 									onclick={() => goPage(currentPage + 1)}
-									aria-label="Halaman berikutnya"
+									aria-label="Next page"
 								>
-									Berikutnya →
+									Next →
 								</button>
 							</div>
 						{/if}
@@ -295,20 +298,20 @@
 				class="section-chip mb-5"
 				style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); color:#fff;"
 			>
-				HUBUNGI KAMI
+				CONTACT US
 			</div>
 			<h2 class="font-display mb-4 text-3xl font-bold text-white">
-				Tidak menemukan yang Anda cari?
+				Can't find what you're looking for?
 			</h2>
 			<p class="mb-8 text-blue-100">
-				Tim kami siap konsultasi dan bantu wujudkan kebutuhan cetak Anda.
+				Our team is ready to consult and help with any plumbing emergency.
 			</p>
 			<a
 				href={waGeneral}
 				target="_blank"
 				class="btn-whatsapp inline-flex items-center gap-3 px-8 py-4 text-base"
 			>
-				💬 Hubungi via WhatsApp
+				💬 Chat on WhatsApp
 			</a>
 		</div>
 	</section>

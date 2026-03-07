@@ -1,188 +1,120 @@
-export const WA_NUMBER = '6285894002174';
+export const WA_NUMBER = '61459529693';
 
 export function waLink(msg = '') {
 	return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
 export function waProduct(name: string) {
-	return waLink(`Halo MPM Digital Printing, saya ingin memesan *${name}*. Bisa info lebih lanjut?`);
+	return waLink(`Hi Aldinga Plumbing Services, I'd like more information regarding *${name}*.`);
 }
 
 export const waGeneral = waLink(
-	'Halo MPM Digital Printing, saya ingin berkonsultasi mengenai produk cetak. Bisa bantu?'
+	'Hi Aldinga Plumbing Services, I need some plumbing assistance. Can you help?'
 );
 
 // ── Categories ──
 export const categories = [
-	{ key: 'semua',    label: 'Semua',                    icon: '🗂️' },
-	{ key: 'signage',  label: 'Signage & Banner',         icon: '🪧' },
-	{ key: 'promosi',  label: 'Kebutuhan Promosi',        icon: '📢' },
-	{ key: 'office',   label: 'Office Supplies',          icon: '🗂️' },
-	{ key: 'buku',     label: 'Buku',                     icon: '📚' },
-	{ key: 'souvenir', label: 'Souvenir',                 icon: '🎁' },
-	{ key: 'textile',  label: 'Textile',                  icon: '👕' },
-	{ key: 'industri', label: 'Industri',                 icon: '🏭' },
+	{ key: 'all',          label: 'All Services',       icon: '🔧' },
+	{ key: 'blocked',      label: 'Blocked Drains',     icon: '🚽' },
+	{ key: 'hotwater',     label: 'Hot Water Systems',  icon: '🔥' },
+	{ key: 'gas',          label: 'Gas Fitting',        icon: '💨' },
+	{ key: 'emergency',    label: 'Emergency Plumbing', icon: '🚨' },
+	{ key: 'maintenance',  label: 'General Maintenance',icon: '🛠️' },
 ];
 
-// ── All Products ──
+// ── All Services (Replaced Products) ──
 export const allProducts = [
-	// ─── 🪧 SIGNAGE & BANNER DISPLAY ───
-	{ id: 1,  name: 'X Banner',             category: 'signage',  emoji: '🪧', tags: ['Populer'], desc: 'Banner portabel berbentuk X, cocok untuk acara, pameran, dan promosi indoor/outdoor.' },
-	{ id: 2,  name: 'Y Banner',             category: 'signage',  emoji: '🚩', tags: [],          desc: 'Banner dengan penyangga berbentuk Y, lebih stabil untuk penggunaan outdoor.' },
-	{ id: 3,  name: 'Roll Up Banner',       category: 'signage',  emoji: '📜', tags: ['Populer'], desc: 'Banner gulung praktis yang mudah dipasang dan disimpan, tampilan elegan.' },
-	{ id: 4,  name: 'Mini X Banner',        category: 'signage',  emoji: '🔖', tags: [],          desc: 'Versi kecil X Banner, biasa diletakkan di atas meja restoran atau counter.' },
-	{ id: 5,  name: 'Giant Banner',         category: 'signage',  emoji: '🏟️', tags: [],          desc: 'Banner ukuran sangat besar, ideal untuk stadion, konser, dan area luas.' },
-	{ id: 6,  name: 'Tripod Banner',        category: 'signage',  emoji: '📷', tags: [],          desc: 'Banner dengan tiga kaki penyangga, sangat fleksibel dan mudah disesuaikan.' },
-	{ id: 7,  name: 'Flag Banner',          category: 'signage',  emoji: '🎌', tags: [],          desc: 'Banner berbentuk bendera, bahan lentur dan tidak transparan, dinamis di luar ruangan.' },
-	{ id: 8,  name: 'Spanduk',              category: 'signage',  emoji: '🖼️', tags: ['Populer'], desc: 'Banner persegi panjang tahan lama, tersedia berbagai ukuran untuk indoor/outdoor.' },
-	{ id: 9,  name: 'Flag Chain',           category: 'signage',  emoji: '🎏', tags: [],          desc: 'Rangkaian bendera kecil berwarna-warni untuk dekorasi acara dan toko.' },
-	{ id: 10, name: 'Signage',              category: 'signage',  emoji: '🪧', tags: [],          desc: 'Papan tanda informatif dan menarik untuk navigasi, branding, atau promosi.' },
-	{ id: 11, name: 'Neon Box',             category: 'signage',  emoji: '💡', tags: ['Populer'], desc: 'Kotak cahaya cerah dan terang, sangat mencolok siang maupun malam hari.' },
-	{ id: 12, name: 'Magnetic Backdrop',    category: 'signage',  emoji: '🧲', tags: ['Baru'],    desc: 'Latar belakang display berbasis magnet, mudah ganti grafik sesuai kebutuhan.' },
-	{ id: 13, name: 'Event Desk',           category: 'signage',  emoji: '🏢', tags: [],          desc: 'Meja atau counter portabel berbranding, ideal untuk stan pameran dan acara.' },
-	{ id: 14, name: 'Kanvas',               category: 'signage',  emoji: '🖌️', tags: [],          desc: 'Cetak di atas kanvas bertekstur, cocok untuk seni, foto, dan dekorasi ruangan.' },
-	{ id: 15, name: 'Wallpaper',            category: 'signage',  emoji: '🧱', tags: ['Baru'],    desc: 'Pelapis dinding dekoratif dengan berbagai motif dan desain custom.' },
-	{ id: 16, name: 'Balon Joged',          category: 'signage',  emoji: '🎈', tags: [],          desc: 'Balon bergerak warna cerah untuk menarik perhatian di acara outdoor.' },
-	{ id: 17, name: 'Balon Promosi',        category: 'signage',  emoji: '🎉', tags: [],          desc: 'Balon besar berlogo untuk meningkatkan visibilitas di area penjualan.' },
+	// ─── 🚽 BLOCKED DRAINS ───
+	{ id: 1,  name: 'Cleared Blocked Toilets', category: 'blocked',   emoji: '🚽', tags: ['Urgent'], desc: 'Fast and hygienic removal of toilet blockages to restore normal function immediately.' },
+	{ id: 2,  name: 'Unblock Sinks & Basins',  category: 'blocked',   emoji: '🚰', tags: [],          desc: 'Clearing stubborn clogs from kitchen sinks and bathroom basins.' },
+	{ id: 3,  name: 'Drain Camera Inspection', category: 'blocked',   emoji: '📷', tags: ['Popular'], desc: 'Advanced CCTV drain camera inspection to find the exact cause of blockages.' },
+	{ id: 4,  name: 'Hydro Jetting Service',   category: 'blocked',   emoji: '💦', tags: ['Popular'], desc: 'High-pressure water jetting to completely clear and clean blocked pipes.' },
 
-	// ─── 📢 KEBUTUHAN PROMOSI ───
-	{ id: 18, name: 'Tent Card',            category: 'promosi',  emoji: '📋', tags: [],          desc: 'Kartu lipat yang bisa berdiri sendiri, untuk promosi di meja restoran atau counter.' },
-	{ id: 19, name: 'Hang Tag',             category: 'promosi',  emoji: '🏷️', tags: [],          desc: 'Label gantung untuk detail produk seperti harga, ukuran, dan informasi brand.' },
-	{ id: 20, name: 'Poster',               category: 'promosi',  emoji: '🖨️', tags: ['Populer'], desc: 'Cetakan besar informatif untuk promosi, iklan, atau pengumuman acara.' },
-	{ id: 21, name: 'Bendera Sedotan',      category: 'promosi',  emoji: '🚩', tags: [],          desc: 'Bendera mini di atas sedotan, cocok untuk lomba dan pesta anak-anak.' },
-	{ id: 22, name: 'Triangle Pop Display', category: 'promosi',  emoji: '🔺', tags: ['Baru'],    desc: 'Display segitiga unik untuk menyajikan informasi perusahaan atau produk.' },
-	{ id: 23, name: 'ID Card',              category: 'promosi',  emoji: '🪪', tags: ['Populer'], desc: 'Kartu identitas cetak untuk karyawan, peserta acara, atau anggota komunitas.' },
-	{ id: 24, name: 'Wobbler',              category: 'promosi',  emoji: '🪁', tags: [],          desc: 'Materi promosi kecil yang bergoyang, dipasang di rak toko untuk menarik perhatian.' },
-	{ id: 25, name: 'Undangan',             category: 'promosi',  emoji: '💌', tags: ['Populer'], desc: 'Cetakan undangan elegan untuk pernikahan, ulang tahun, dan acara korporasi.' },
-	{ id: 26, name: 'Kalender',             category: 'promosi',  emoji: '📅', tags: [],          desc: 'Kalender dinding atau meja custom, bisa dijadikan media promosi perusahaan.' },
-	{ id: 27, name: 'Postcard',             category: 'promosi',  emoji: '📮', tags: [],          desc: 'Kartu pos bergambar, populer untuk koleksi, suvenir, atau kirim salam.' },
-	{ id: 28, name: 'Voucher Belanja',      category: 'promosi',  emoji: '🎟️', tags: [],          desc: 'Kartu voucher berisi detail promo atau diskon untuk meningkatkan penjualan.' },
-	{ id: 29, name: 'Spunbond',             category: 'promosi',  emoji: '🛍️', tags: [],          desc: 'Bahan kain serat kuat untuk tas belanja dan barang promosi tahan lama.' },
-	{ id: 30, name: 'Paper Bag',            category: 'promosi',  emoji: '🛍️', tags: ['Populer'], desc: 'Tas kertas ramah lingkungan dengan opsi cetak logo atau pesan promosi.' },
-	{ id: 31, name: 'Cutting Sticker',      category: 'promosi',  emoji: '✂️', tags: ['Populer'], desc: 'Stiker vinil potong custom untuk dekorasi kendaraan, barang, atau ruangan.' },
-	{ id: 32, name: 'Lanyard',              category: 'promosi',  emoji: '🔗', tags: [],          desc: 'Tali leher untuk menampung ID card atau kunci, bisa dicetak nama/logo.' },
-	{ id: 33, name: 'Akrilik Printing',     category: 'promosi',  emoji: '💎', tags: ['Baru'],    desc: 'Cetak penuh warna di atas akrilik transparan, tampilan mewah dan tahan lama.' },
-	{ id: 34, name: 'Brosur',               category: 'promosi',  emoji: '📄', tags: ['Populer'], desc: 'Cetakan terlipat berkualitas untuk membagikan info produk atau promosi.' },
-	{ id: 35, name: 'Bangku Promosi',       category: 'promosi',  emoji: '🪑', tags: [],          desc: 'Tempat duduk portabel dengan permukaan berbranding untuk acara dan pameran.' },
-	{ id: 36, name: 'E-Money',              category: 'promosi',  emoji: '💳', tags: ['Baru'],    desc: 'Kartu pembayaran elektronik custom berlogo, efektif untuk loyalitas pelanggan.' },
+	// ─── 🔥 HOT WATER SYSTEMS ───
+	{ id: 5,  name: 'Hot Water Repairs',       category: 'hotwater',  emoji: '🔧', tags: ['Urgent'], desc: 'Fast repairs for all major brands of hot water systems.' },
+	{ id: 6,  name: 'New System Installation', category: 'hotwater',  emoji: '🔥', tags: ['Popular'], desc: 'Expert installation of electric, gas, and solar hot water units.' },
+	{ id: 7,  name: 'Boiler Maintenance',      category: 'hotwater',  emoji: '⚙️', tags: [],          desc: 'Routine maintenance and servicing to keep your boiler running efficiently.' },
 
-	// ─── 🗂️ OFFICE SUPPLIES ───
-	{ id: 37, name: 'Kartu Nama',           category: 'office',   emoji: '💼', tags: ['Populer'], desc: 'Kartu identitas profesional berisi nama, kontak, dan logo perusahaan.' },
-	{ id: 38, name: 'Kop Surat',            category: 'office',   emoji: '📝', tags: [],          desc: 'Kertas surat resmi berlogo perusahaan untuk komunikasi dan dokumen bisnis.' },
-	{ id: 39, name: 'Amplop',               category: 'office',   emoji: '✉️', tags: [],          desc: 'Amplop berwarna dan berdesain unik, cocok untuk undangan atau pengiriman promosi.' },
-	{ id: 40, name: 'Map Folder',           category: 'office',   emoji: '🗂️', tags: [],          desc: 'Folder dokumen tahan lama untuk menyimpan berkas dan material penting kantor.' },
-	{ id: 41, name: 'Ordner',               category: 'office',   emoji: '📁', tags: [],          desc: 'Tempat penyimpanan dokumen berlubang dengan klip, cocok untuk pengarsipan kantor.' },
+	// ─── 💨 GAS FITTING ───
+	{ id: 8,  name: 'Gas Leak Detection',      category: 'gas',       emoji: '🔍', tags: ['Urgent'], desc: 'Safe and precise detection and repair of dangerous gas leaks.' },
+	{ id: 9,  name: 'Gas Appliance Install',   category: 'gas',       emoji: '🍳', tags: [],          desc: 'Professional installation of gas ovens, cooktops, and heaters.' },
+	{ id: 10, name: 'Gas Line Upgrades',       category: 'gas',       emoji: '📏', tags: [],          desc: 'Upgrading and replacing old or unsafe gas lines for residential and commercial spaces.' },
 
-	// ─── 📚 BUKU ───
-	{ id: 42, name: 'Buku Agenda',          category: 'buku',     emoji: '📓', tags: ['Populer'], desc: 'Buku jadwal harian portabel untuk merencanakan dan memantau aktivitas.' },
-	{ id: 43, name: 'Buku Manual',          category: 'buku',     emoji: '📗', tags: [],          desc: 'Panduan produk atau perangkat dengan tampilan modern dan informatif.' },
-	{ id: 44, name: 'Booklet',              category: 'buku',     emoji: '📔', tags: [],          desc: 'Buku kecil multi-halaman untuk promosi produk atau informasi layanan secara detail.' },
-	{ id: 45, name: 'Company Profile',      category: 'buku',     emoji: '🏢', tags: ['Populer'], desc: 'Dokumen cetak profesional yang menggambarkan identitas dan profil perusahaan.' },
-	{ id: 46, name: 'Katalog',              category: 'buku',     emoji: '📋', tags: [],          desc: 'Dokumen produk lengkap berisi gambar, deskripsi, dan harga untuk calon pelanggan.' },
-	{ id: 47, name: 'Buku Menu',            category: 'buku',     emoji: '🍽️', tags: ['Populer'], desc: 'Daftar makanan dan minuman restoran dalam format cetak menarik dan profesional.' },
-	{ id: 48, name: 'Annual Book',          category: 'buku',     emoji: '📆', tags: [],          desc: 'Buku catatan kegiatan tahunan, cocok untuk organisasi atau perencanaan bisnis.' },
-	{ id: 49, name: 'Majalah',              category: 'buku',     emoji: '📰', tags: [],          desc: 'Publikasi cetak berkala untuk hiburan, informasi, atau promosi brand.' },
-	{ id: 50, name: 'Buku Notes',           category: 'buku',     emoji: '📒', tags: [],          desc: 'Buku catatan portabel untuk pelajar, mahasiswa, dan profesional.' },
-	{ id: 51, name: 'Buku Tamu',            category: 'buku',     emoji: '📖', tags: [],          desc: 'Buku pencatat kehadiran tamu untuk hotel, acara, atau instansi resmi.' },
+	// ─── 🚨 EMERGENCY PLUMBING ───
+	{ id: 11, name: '24/7 Emergency Repairs',  category: 'emergency', emoji: '🚨', tags: ['24/7'],    desc: 'Round-the-clock rapid response for burst pipes, severe leaks, and flooding.' },
+	{ id: 12, name: 'Burst Pipe Repair',       category: 'emergency', emoji: '💥', tags: ['Urgent'], desc: 'Immediate repair and replacement of burst or heavily leaking pipes.' },
 
-	// ─── 🎁 SOUVENIR ───
-	{ id: 52, name: 'Payung',               category: 'souvenir', emoji: '☂️', tags: ['Populer'], desc: 'Payung full-color custom, fungsional sekaligus efektif sebagai media promosi.' },
-	{ id: 53, name: 'Mug',                  category: 'souvenir', emoji: '☕', tags: ['Populer'], desc: 'Gelas minum dengan cetak desain pribadi atau logo perusahaan.' },
-	{ id: 54, name: 'USB',                  category: 'souvenir', emoji: '💾', tags: [],          desc: 'Flashdisk custom berbentuk unik dengan logo atau pesan brand.' },
-	{ id: 55, name: 'Power Bank',           category: 'souvenir', emoji: '🔋', tags: ['Baru'],    desc: 'Charger portabel berdesain custom, cocok untuk hadiah atau doorprize.' },
-	{ id: 56, name: 'Pen',                  category: 'souvenir', emoji: '🖊️', tags: ['Populer'], desc: 'Pulpen eksklusif berkualitas tinggi, cocok untuk hadiah profesional.' },
-	{ id: 57, name: 'Pin',                  category: 'souvenir', emoji: '📌', tags: [],          desc: 'Aksesori kecil custom sesuai desain, populer untuk komunitas dan promosi.' },
-	{ id: 58, name: 'Casing Handphone',     category: 'souvenir', emoji: '📱', tags: ['Populer'], desc: 'Pelindung ponsel dengan desain unik atau logo brand pilihan sendiri.' },
-	{ id: 59, name: 'Gantungan Kunci',      category: 'souvenir', emoji: '🔑', tags: [],          desc: 'Aksesori kunci atau tas custom, diminati semua kalangan untuk merchandise.' },
-	{ id: 60, name: 'Tumbler',              category: 'souvenir', emoji: '🧃', tags: ['Populer'], desc: 'Botol minum stylish dan ramah lingkungan, bisa dicetak nama atau logo.' },
-	{ id: 61, name: 'Kipas Promosi',        category: 'souvenir', emoji: '🌀', tags: [],          desc: 'Kipas custom berlogo, praktis untuk disebar di acara outdoor berskala besar.' },
-	{ id: 62, name: 'Travel Bag',           category: 'souvenir', emoji: '🧳', tags: [],          desc: 'Tas perjalanan tahan lama dengan desain stylish, cocok untuk merchandise.' },
-
-	// ─── 👕 TEXTILE ───
-	{ id: 63, name: 'Jersey',               category: 'textile',  emoji: '🥋', tags: ['Populer'], desc: 'Seragam olahraga custom full-color, paling banyak diminati di kategori tekstil.' },
-	{ id: 64, name: 'Kaos',                 category: 'textile',  emoji: '👕', tags: ['Populer'], desc: 'Pakaian kasual dengan berbagai pilihan desain dan gambar custom.' },
-	{ id: 65, name: 'Hijab',                category: 'textile',  emoji: '🧕', tags: [],          desc: 'Kerudung custom dari berbagai bahan, memadukan fungsi dan tren fashion.' },
-	{ id: 66, name: 'Bantal',               category: 'textile',  emoji: '🛋️', tags: [],          desc: 'Bantal empuk dengan cetak gambar atau desain custom, cocok sebagai hadiah.' },
-	{ id: 67, name: 'Sarung Bantal & Sprei',category: 'textile',  emoji: '🛏️', tags: [],          desc: 'Perlengkapan tidur bermotif cantik hasil cetak digital berkualitas.' },
-	{ id: 68, name: 'Tote Bag',             category: 'textile',  emoji: '👜', tags: ['Populer'], desc: 'Tas serbaguna bahan kuat dengan desain custom, ramah lingkungan.' },
-	{ id: 69, name: 'Masker',               category: 'textile',  emoji: '😷', tags: [],          desc: 'Masker kain berdesain cute atau keren, tetap diminati sebagai aksesori gaya.' },
-	{ id: 70, name: 'Topi',                 category: 'textile',  emoji: '🧢', tags: ['Populer'], desc: 'Topi custom dengan nama atau gambar pilihan, bisa jadi hadiah personal.' },
-	{ id: 71, name: 'Batik Printing',       category: 'textile',  emoji: '🎨', tags: ['Baru'],    desc: 'Kain bermotif batik hasil cetak digital, cepat dan berkualitas tinggi.' },
-	{ id: 72, name: 'Sepatu Printing',      category: 'textile',  emoji: '👟', tags: ['Baru'],    desc: 'Sepatu dengan desain cetak variatif dan unik, cocok untuk merchandise.' },
-
-	// ─── 🏭 INDUSTRI ───
-	{ id: 73, name: 'Kemasan Produk',       category: 'industri', emoji: '📦', tags: ['Populer'], desc: 'Packaging custom untuk berbagai jenis produk, fungsi perlindungan sekaligus branding.' },
-	{ id: 74, name: 'Paper Cup',            category: 'industri', emoji: '☕', tags: [],          desc: 'Gelas kertas custom berlogo, cocok untuk acara komunitas dan minuman takeaway.' },
-	{ id: 75, name: 'Box Makanan',          category: 'industri', emoji: '🍱', tags: ['Populer'], desc: 'Kemasan makanan tahan lama untuk katering, restoran, atau pesanan massal.' },
-	{ id: 76, name: 'Label',                category: 'industri', emoji: '🏷️', tags: ['Populer'], desc: 'Stiker informasi produk berdesain menarik untuk meningkatkan daya tarik konsumen.' },
-	{ id: 77, name: 'Rigid Box',            category: 'industri', emoji: '🎁', tags: ['Baru'],    desc: 'Kotak premium kokoh dengan finishing mewah untuk produk high-end atau hampers.' },
-	{ id: 78, name: 'Botol Plastik Printing',category: 'industri',emoji: '🍶', tags: [],          desc: 'Botol minum berdesain trendi dan unik, cocok untuk merchandise atau promosi.' },
+	// ─── 🛠️ MAINTENANCE & OTHER ───
+	{ id: 13, name: 'Tap Repair & Replace',    category: 'maintenance',emoji: '🚰', tags: [],         desc: 'Fixing dripping taps or replacing old tapware with modern fixtures.' },
+	{ id: 14, name: 'Toilet Repairs & Install',category: 'maintenance',emoji: '🚽', tags: ['Popular'],desc: 'Repairing running toilets, fixing leaks, or installing brand new toilets.' },
+	{ id: 15, name: 'Leak Detection',          category: 'maintenance',emoji: '💧', tags: [],         desc: 'Advanced water leak detection to find hidden leaks behind walls or underground.' },
+	{ id: 16, name: 'Roof & Gutter Leaks',     category: 'maintenance',emoji: '🏠', tags: [],         desc: 'Locating and repairing roof leaks and downpipe blockages.' },
 ];
 
-export const statTargets = { products: 100, clients: 1149, years: 7, followers: 1149 };
+export const statTargets = { products: 50, clients: 1240, years: 15, followers: 850 };
 
 export const faqs = [
 	{
-		q: 'Berapa lama proses cetak?',
-		a: 'Umumnya 1–3 hari kerja tergantung jenis & ukuran produk. Untuk order urgent bisa lebih cepat — hubungi kami langsung.'
+		q: 'Do you offer 24/7 emergency services?',
+		a: 'Yes! We are available 24 hours a day, 7 days a week for any plumbing emergencies in Aldinga Beach and surrounding areas.'
 	},
 	{
-		q: 'Apakah bisa custom ukuran?',
-		a: 'Tentu! Kami melayani cetak dengan ukuran custom sesuai kebutuhan Anda.'
+		q: 'Are your plumbers licensed and insured?',
+		a: 'Absolutely. All our plumbers are fully licensed, highly trained, and fully insured for your peace of mind.'
 	},
 	{
-		q: 'Format file apa yang diterima?',
-		a: 'Kami menerima CDR, AI, PDF, JPG/PNG (min. 150 dpi). Format vektor sangat direkomendasikan.'
+		q: 'How quickly can you respond to an emergency?',
+		a: 'For urgent issues like burst pipes or severe gas leaks, we prioritize your call and aim to be at your property as quickly as possible, usually within the hour.'
 	},
 	{
-		q: 'Apakah ada layanan antar?',
-		a: 'Ada! Kami melayani pengiriman ke seluruh wilayah Kota Padang & sekitarnya.'
+		q: 'Do you provide free quotes?',
+		a: 'Yes, we provide upfront, transparent pricing and free quotes before we begin any work, so there are no surprises.'
 	},
 	{
-		q: 'Bagaimana cara pembayaran?',
-		a: 'Transfer bank (BCA, BRI, Mandiri), QRIS, dan cash. DP 50% untuk order custom.'
+		q: 'Do you handle commercial plumbing?',
+		a: 'Yes, we service both residential homes and commercial properties across South Australia.'
 	},
 	{
-		q: 'Apakah ada harga grosir?',
-		a: 'Ya, tersedia harga spesial untuk order dalam jumlah besar. Hubungi kami via WhatsApp.'
+		q: 'What payment methods do you accept?',
+		a: 'We accept Cash, Credit/Debit cards, and Bank Transfers.'
 	}
 ];
 
 export const testimonials = [
 	{
-		name: 'Budi Santoso',
-		role: 'Pemilik Bisnis',
-		text: 'Cetak kalender dan buku di sini memuaskan. Kualitasnya bagus, warnanya tajam dan tahan lama. Udah langganan!',
+		name: 'John Miller',
+		role: 'Homeowner',
+		text: 'Aldinga Plumbing Services saved the day when our hot water system burst over the weekend. They arrived fast, quoted fairly, and had a new system installed by the afternoon. Highly recommend!',
 		stars: 5
 	},
 	{
-		name: 'Rina Marlina',
-		role: 'Event Organizer',
-		text: 'Undangan cetaknya elegan banget, bahan tebal dan desain sesuai request. Proses cepat, tim juga responsif.',
+		name: 'Sarah Jenkins',
+		role: 'Local Business Owner',
+		text: 'Really reliable service. We had blocked drains backing up into our cafe and they cleared it up in no time. Very professional and clean.',
 		stars: 5
 	},
 	{
-		name: 'Agus Firmansyah',
-		role: 'UMKM Kuliner',
-		text: 'Pesan kebutuhan cetak di MPM Digital Printing luar biasa, hasilnya profesional. Harga bersaing untuk kualitas segini.',
+		name: 'David Thompson',
+		role: 'Resident',
+		text: 'Called them for a suspected gas leak. They were incredibly thorough and safe. Fixed the issue completely. I feel much safer now.',
 		stars: 5
 	},
 	{
-		name: 'Sari Dewi',
-		role: 'Mahasiswi',
-		text: 'Pesan alat promosi, hasilnya beyond expectation! Kualitas Premium.',
+		name: 'Emily Rose',
+		role: 'Property Manager',
+		text: 'I use Aldinga Plumbing for all our rental properties. They are always on time, communicate well with tenants, and their pricing is very transparent.',
 		stars: 5
 	},
 	{
-		name: 'Rizky Pratama',
-		role: 'Kontraktor',
-		text: 'Sering pesan banner di sini, selalu on time dan kualitas terjamin. Rekomended!',
+		name: 'Mark Wilson',
+		role: 'Homeowner',
+		text: 'Fantastic job upgrading all the tapware in our bathrooms. The team was polite, arrived exactly on time, and left the place spotless.',
 		stars: 5
 	},
 	{
-		name: 'Lita Permata',
-		role: 'Guru SD',
-		text: 'Cetak pamflet acara sekolah, komunikatif dan hasilnya rapi. Harga ramah di kantong.',
+		name: 'Lucy Chen',
+		role: 'Resident',
+		text: 'We woke up to a flooded kitchen at 3 AM. Called Aldinga Plumbing and they actually answered and showed up! Fixed the burst pipe fast. True lifesavers.',
 		stars: 5
 	}
 ];

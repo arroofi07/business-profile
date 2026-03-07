@@ -5,12 +5,12 @@
 <section class="py-24" style="background:var(--sp-bg-light);">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="sp-reveal mb-14 text-center">
-			<div class="section-chip mb-4">TESTIMONI</div>
+			<div class="section-chip mb-4">TESTIMONIALS</div>
 			<h2
 				class="font-display mb-4 font-bold"
 				style="font-size:clamp(2rem,5vw,3rem); color:var(--sp-navy);"
 			>
-				Kata Pelanggan <span class="gradient-text-blue">Kami</span>
+				What Our <span class="gradient-text-blue">Customers Say</span>
 			</h2>
 		</div>
 		<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

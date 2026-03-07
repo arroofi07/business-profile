@@ -12,7 +12,7 @@
 				class="font-display mb-4 font-bold"
 				style="font-size:clamp(1.8rem,4vw,2.5rem); color:var(--sp-navy);"
 			>
-				Pertanyaan <span class="gradient-text-blue">Umum</span>
+				Frequently Asked <span class="gradient-text-blue">Questions</span>
 			</h2>
 		</div>
 		<div class="flex flex-col gap-3">
