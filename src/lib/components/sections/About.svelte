@@ -15,8 +15,7 @@
 				Mengapa Pilih <span class="gradient-text-blue">Smartprint Padang?</span>
 			</h2>
 			<p class="mb-6 text-base leading-relaxed" style="color:var(--sp-gray);">
-				Smartprint Padang adalah creative agency yang bergerak di bidang digital printing,
-				advertising, dan percetakan. Bagian dari ekosistem <strong style="color:var(--sp-blue);"
+				Smartprint Padang adalah penyedia jasa <strong>percetakan Padang</strong>, <strong>digital printing Padang</strong>, dan <strong>advertising Padang</strong> terpercaya. Bagian dari ekosistem <strong style="color:var(--sp-blue);"
 					>Redline Communication</strong
 				> — kami hadir untuk membantu bisnis Anda tampil profesional.
 			</p>

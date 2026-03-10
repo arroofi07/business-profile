@@ -199,10 +199,10 @@
 </script>
 
 <svelte:head>
-	<title>SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang</title>
+	<title>Percetakan Padang & Digital Printing Padang | SmartPrint</title>
 	<meta
 		name="description"
-		content="SmartPrint Padang — pusat cetak digital printing, percetakan, & advertising terlengkap di Padang. Melayani cetak spanduk, banner, stiker, kartu nama, brosur, baliho, backdrop & lainnya. Kualitas terbaik, harga bersaing. Hubungi 0811 663 528."
+		content="Mencari percetakan Padang atau digital printing Padang? SmartPrint adalah pusat advertising Padang terlengkap. Melayani cetak spanduk, banner, brosur, dll."
 	/>
 	<meta
 		name="keywords"
@@ -227,11 +227,11 @@
 	<meta property="og:url" content="https://smartprintpadang.com/" />
 	<meta
 		property="og:title"
-		content="SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang"
+		content="Percetakan Padang & Digital Printing Padang | SmartPrint"
 	/>
 	<meta
 		property="og:description"
-		content="Pusat cetak digital printing & percetakan terlengkap di Padang. Spanduk, banner, stiker, kartu nama, baliho & lainnya. Kualitas terbaik, harga bersaing!"
+		content="Mencari percetakan Padang atau digital printing Padang? SmartPrint adalah pusat advertising Padang terlengkap. Melayani cetak spanduk, banner, brosur, dll."
 	/>
 	<meta property="og:image" content="https://smartprintpadang.com/og-image.jpg" />
 	<meta property="og:image:width" content="1200" />
@@ -248,11 +248,11 @@
 	<meta name="twitter:url" content="https://smartprintpadang.com/" />
 	<meta
 		name="twitter:title"
-		content="SmartPrint Padang | Digital Printing & Percetakan #1 di Kota Padang"
+		content="Percetakan Padang & Digital Printing Padang | SmartPrint"
 	/>
 	<meta
 		name="twitter:description"
-		content="Pusat cetak digital printing & percetakan terlengkap di Padang. Spanduk, banner, stiker, kartu nama, baliho & lainnya. Kualitas terbaik, harga bersaing!"
+		content="Mencari percetakan Padang atau digital printing Padang? SmartPrint adalah pusat advertising Padang terlengkap. Melayani cetak spanduk, banner, brosur, dll."
 	/>
 	<meta name="twitter:image" content="https://smartprintpadang.com/og-image.jpg" />
 	<meta

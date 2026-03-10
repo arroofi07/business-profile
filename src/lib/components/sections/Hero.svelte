@@ -125,7 +125,7 @@
 		<!-- Left copy -->
 		<div>
 			<div class="animate-slide-up section-chip mb-6 inline-flex items-center gap-2">
-				<span>✦</span> DIGITAL PRINTING · PADANG
+				<span>✦</span> PERCETAKAN PADANG · DIGITAL PRINTING
 			</div>
 			<h1
 				class="font-display animate-slide-up mb-6 leading-tight font-extrabold delay-100"
@@ -142,8 +142,7 @@
 				class="animate-slide-up mb-8 max-w-lg text-lg delay-200"
 				style="color:var(--sp-gray); line-height:1.8;"
 			>
-				Digital Printing · Advertising · Percetakan. Lebih dari 100 produk cetak berkualitas tinggi
-				— harga terjangkau, hasil profesional, pengerjaan cepat.
+				Sebagai pusat <strong>percetakan Padang</strong> dan <strong>digital printing Padang</strong> terbaik, kami menyediakan solusi <strong>advertising Padang</strong> terlengkap. Lebih dari 100 produk cetak berkualitas tinggi — harga terjangkau, hasil profesional, pengerjaan cepat.
 			</p>
 			<div class="animate-slide-up flex flex-col gap-3 delay-300 sm:flex-row sm:gap-4">
 				<a href="/katalog" class="btn-primary-sp w-full text-center sm:w-auto">Lihat Katalog</a>
