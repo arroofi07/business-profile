@@ -218,7 +218,12 @@
 					{:else}
 						<div class="product-grid">
 							{#each pagedProducts as product, i (product.id)}
-								<div class="product-card" style="animation-delay: {(i % 6) * 50}ms;">
+								<div class="product-card group" style="animation-delay: {(i % 6) * 50}ms;">
+									{#if product.image}
+										<div class="w-full aspect-4/3 rounded-lg overflow-hidden mb-3 bg-slate-50 border border-slate-100">
+											<img src={product.image} alt={product.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+										</div>
+									{/if}
 									<div class="product-card__header">
 										<div class="product-card__emoji">{product.emoji}</div>
 										<div class="product-card__tags">

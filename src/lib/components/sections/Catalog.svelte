@@ -62,9 +62,14 @@
 		<div class="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 			{#each teaserProducts as product, i (product.id)}
 				<div
-					class="card-sp sp-reveal flex flex-col gap-3 p-4 md:gap-4 md:p-6"
+					class="card-sp sp-reveal flex flex-col gap-3 p-4 md:gap-4 md:p-6 group"
 					style="transition-delay: {(i % 4) * 60}ms;"
 				>
+					{#if product.image}
+						<div class="w-full aspect-4/3 rounded-lg md:rounded-xl overflow-hidden mb-1 md:mb-2 bg-slate-50 border border-slate-100">
+							<img src={product.image} alt={product.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+						</div>
+					{/if}
 					<div class="flex flex-col items-start gap-2 md:flex-row md:justify-between md:gap-0">
 						<div
 							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xl md:h-14 md:w-14 md:rounded-xl md:text-3xl"

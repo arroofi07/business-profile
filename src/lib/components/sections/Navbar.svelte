@@ -102,6 +102,7 @@
 		</div>
 
 		<!-- Mobile hamburger -->
+		<!-- for mobile view -->
 		<button
 			class="p-2 md:hidden"
 			onclick={() => (mobileNavOpen = !mobileNavOpen)}
