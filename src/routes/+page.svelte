@@ -225,10 +225,7 @@
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://smartprintpadang.com/" />
-	<meta
-		property="og:title"
-		content="Percetakan Padang & Digital Printing Padang | SmartPrint"
-	/>
+	<meta property="og:title" content="Percetakan Padang & Digital Printing Padang | SmartPrint" />
 	<meta
 		property="og:description"
 		content="Mencari percetakan Padang atau digital printing Padang? SmartPrint adalah pusat advertising Padang terlengkap. Melayani cetak spanduk, banner, brosur, dll."
@@ -246,10 +243,7 @@
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:url" content="https://smartprintpadang.com/" />
-	<meta
-		name="twitter:title"
-		content="Percetakan Padang & Digital Printing Padang | SmartPrint"
-	/>
+	<meta name="twitter:title" content="Percetakan Padang & Digital Printing Padang | SmartPrint" />
 	<meta
 		name="twitter:description"
 		content="Mencari percetakan Padang atau digital printing Padang? SmartPrint adalah pusat advertising Padang terlengkap. Melayani cetak spanduk, banner, brosur, dll."
